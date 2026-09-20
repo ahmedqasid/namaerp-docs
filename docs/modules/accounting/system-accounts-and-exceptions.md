@@ -17,7 +17,7 @@ Both the **System Account** flag and the exceptions screen are part of the core 
 
 The flag lives on the account itself (**Accounting → Master Files → Account**), in the block of control flags, labelled **System Account**.
 
-When it is on, saving any of these documents with that account on a line is refused with the message *"The Account … Can Be Used Only By The System"*, pointing at the offending line:
+When it is on, saving any of these documents with that account on a line is refused with the message *"The Account {0} Can Be Used Only By The System"*, pointing at the offending line:
 
 - **Journal Entry** (and adjustment entries)
 - **Receipt Voucher**
@@ -104,9 +104,17 @@ Anyone else, any other book, any other month, or a debit on that account is stil
 
 ## For Support
 
-- **"The Account … Can Be Used Only By The System" when saving a journal entry or voucher** — the account has **System Account** ticked. Decide which of the three routes fits before changing anything: an exception record is almost always the right answer, and the module option almost never is.
+- **"The Account {0} Can Be Used Only By The System" when saving a journal entry or voucher** — the account has **System Account** ticked. Decide which of the three routes fits before changing anything: an exception record is almost always the right answer, and the module option almost never is.
 - **"It used to refuse it and now it doesn't"** — check, in order: the module option for that document type, **Allow System Account In Opening** together with the period's type, and finally the exceptions list. An exception whose window has just opened is the usual culprit.
 - **"I created the exception but it still refuses the entry"** — work through the columns one at a time. The most common causes are the document's **Value Date** falling outside the window, a **Transaction Nature** that contradicts the side of the entry (especially **Debit** on a receipt voucher), a **Book** or **Term** that belongs to a different document type, and a **User** column holding a user where a security profile was meant.
 - **"The exception works for the wrong company"** — the header dimensions do not filter anything. Add a **Book** or **Term** column to the detail line instead.
 - **"I need the account open only while loading opening balances"** — that is **Allow System Account In Opening** on the account, not an exception record.
 - **The exception grid rejects the line without an account** — the **Account** column is required; there is no "all accounts" exception by design.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The Account {0} Can Be Used Only By The System* — «الحساب  {0} يستخدم فقط بواسطة النظام» | The account on the flagged line has **System Account** ticked, and none of the three escape routes applies to this document, date or user. | Work the three routes above in order; an exception record for the specific account, window and document type is almost always the right answer. |
+| *From date {0} cant be after to date {1}* — «إلى تاريخ {1} يجب أن يكون بعد من تاريخ {0}» | The exception record's **From Date** is later than its **To Date**, so the window would never open. | Correct the two dates; leaving **To Date** empty keeps the exception open-ended. |
+| *{0} must be of document type {1} not {2}* | A detail line names a **Book** or a **Term** that belongs to a different document type than the line's **Document Type** column. | Pick a book and term that belong to the document type on the line, or clear the column. This message has no Arabic text in the product, so it appears in English on Arabic screens too. |

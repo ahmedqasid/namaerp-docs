@@ -46,3 +46,11 @@ A surgery moves through three complementary documents:
 **Blood Bank** is a master file that acts as an accounting party (the source/destination of blood units). When blood units are returned (e.g. unused ones), this is recorded in a **Blood Bank Return** — a document with full inventory lines (item, quantity, lot, expiry) and pricing split between patient and insurer, producing a stock receipt. Issuing and billing blood is done via the **[Blood Bank Invoice](./hms-invoicing.md)**.
 
 ![Blood bank return](../../ar/modules/hms/images/clinical/blood-bank-return-en.png)
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Lab test request used in another lab result* — «طلب عمل تحليل مستخدم بالفعل فى نتيجة تحليل اخرى» | The Lab Test Request named on this result is already linked to a different Lab Test Result. One request carries one result. | Open the request to find the result that already exists and enter the values there; the request picker normally hides requests that have been resulted. |
+| *Radiology request used in another radiology result* — «طلب عمل أشعة مستخدم بالفعل فى نتيجة اشعة اخرى» | The From Document is a Radiology Request that is already linked to a different Radiology Result. | Open the request to find the existing result and report on that one instead. |
+| *There is a reservation doc {0} on the room {1}, reserved at {2} and the allowed time to make another reserve on this room is {3}* — «يوجد سند حجز {0} على الغرفة {1} تم الحجز في {2} والوقت المسموح به لعمل حجز آخر على نفس الغرفة هو {3}» | Another committed Surgery Reservation books the same operating room too close to this one. The room file carries the minimum gap between reservations, and the reservation term config has *Consider Diff In Times Between Room Reservations* ticked. | Move the reservation outside the gap, book another room, or review the gap on the room file if it is unrealistically wide. |

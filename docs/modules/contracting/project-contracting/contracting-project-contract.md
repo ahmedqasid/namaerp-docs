@@ -185,11 +185,11 @@ Most of these you will never hit, but the ones that catch people are worth listi
 |---|---|
 | Currency is required | on the accounts block |
 | At least one term line | an empty contract cannot be saved |
-| Term codes must be unique | *"Can not insert a dublicated term"* |
+| Term codes must be unique | *Can not insert a dublicated term* |
 | A quantity on every leaf line | can be relaxed by configuration |
 | Phase price percentages must total 100% on a line that has phases | can be relaxed by configuration |
 | Tax percentages must not exceed 100, and quantity, unit cost and tax percentages must not be negative | |
-| A condition's term code must exist among the contract's term codes | *"This Code Is Not In Term Code"* |
+| A condition's term code must exist among the contract's term codes | *This Code Is Not In Term Code* |
 | The same term code, condition and phase may not appear twice in Conditions | |
 | A condition needs a value, and a completion-percent condition needs its percentage | |
 | The instalment total must equal the total price — but only when a payment template is set | |

@@ -45,7 +45,7 @@ Use *Reserve* when the prospect has committed to something — a deposit, a sign
 The rule that follows from a reservation is the one support hears about most:
 
 ::: info An estate reserved by an offer can only be leased through that offer
-Once an offer holds a unit, a rent contract on that unit will only commit if its **From Document** is that same offer. Anything else is rejected with *Estate … is reserved in document …, to continue you should select rent offer in from document*.
+Once an offer holds a unit, a rent contract on that unit will only commit if its **From Document** is that same offer. Anything else is rejected with *Estate {0} is reserved in document {1}, to continue you should select rent offer in from document*.
 
 This is what protects a held quotation from a colleague leasing the unit out from under it. The clean way to satisfy it is not to type the From Document by hand — it is to press *Create Rent contract* on the offer itself, which fills it in for you. The whole timeline behind this rule is explained in [The Leasing Cycle](/modules/realestate/rent/realestate-rent-cycle.md).
 :::

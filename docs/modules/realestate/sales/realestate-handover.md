@@ -100,7 +100,7 @@ The accounting is as small as the arithmetic: the term has a single page with a 
 Because every document nets off the ones before it, these documents are **order-dependent** — and the system enforces it:
 
 - the details grid may not be empty, and a property may not appear twice in it;
-- the property must actually be handed over (*"Estate is not handed over"*);
+- the property must actually be handed over (*"Estate {0} is not handed over"*);
 - its handover date may not be after the document's value date;
 - and the property may not already appear on a **later** committed post-handover-cost document.
 
@@ -109,3 +109,14 @@ That last one is the one people meet: you cannot slip a forgotten May document i
 ::: info Cost before handover is a different story
 Cost incurred *before* delivery is capitalised into the property and reaches the sales contract through the pre-handover pair on its term. How project cost gets attributed to individual units in the first place is covered in [distributing project costs over properties](/modules/realestate/costs/realestate-cost-distribution.md).
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *From doc must be opening sales or sales doc* — «بناءا على يجب ان يكون عقد بيع أو عقد بيع إفتتاحى» | **From Document** on the handover is empty, or points at something that is neither a sales contract nor an opening sales contract. | Point it at the contract being handed over. The handover has no meaning on its own. |
+| *You cannot handover document {0}, it was handovered by document {1}* — «لا يمكن تسليم المستند {0},حيث تم تسليمه بواسطة {1}» | That contract has already been handed over, and the message names the handover document that did it. | Open the named document. If it was a mistake, cancel it before raising a second one. |
+| *Estate {0} is repeated* — «العقار {0} مكرر» | The same property appears on two lines of the post-handover cost grid. | Delete the duplicate line; one line per property. |
+| *Estate {0} is not handed over* — «العقار {0} لم يتم تسليمه» | A post-handover cost line names a property that has never been handed over, so there is no handover to charge costs after. | Hand the unit over first, or take the line off. |
+| *Estate {0} is handed over on {1}, this is after (or equals) {2}* — «تم تسليم العقار {0} بتاريخ {1} و هو بعد ( او يساوى ) {2}» | The property's handover date is later than the value date of the post-handover cost document — the cost would fall before the handover it is supposed to follow. | Date the cost document on or after the handover date shown in the message. |
+| *You can not use estate {0} on value date {1} because it is already used in the document {2}* — «لا يمكن ستخدام العقار {0} فى التاريخ الفعلى {1} لأنه مستخدم فى المستند {2}» | Another committed post-handover cost document for the same property carries a later date, and the message names it. | Enter this cost with a date after that document, or cancel and re-enter the later one. Post-handover costs have to be entered in date order. |

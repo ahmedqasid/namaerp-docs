@@ -177,3 +177,15 @@ The task screen's second and third tabs are read-only windows onto the two docum
 ## Procedures on a task
 
 The Main page closes with a list of the [procedures](/modules/ecpa/projects/ecpa-procedures) recorded against this task — follow-up notes with an owner, a date and a status. You can raise them by hand, and they are also created for you from a timesheet line whenever the employee types something into *Next Procedure* and the timesheet's document term names a procedures group. It is the module's "what happens next" log, hanging off the task it belongs to.
+
+## Messages you may see
+
+These are the refusals listed under *Rules that stop a save*, in the words the screen uses.
+
+| Message | Why | What to do |
+|---|---|---|
+| *This project {0} is not belong to this customer {1}* — «هذا المشروع {0} لايرتبط بهذا العميل {1}» | The customer on the task is not the customer on the project it belongs to. | Clear the customer so it comes from the project, or move the task to the right project. |
+| *Total value of field {0} and field {1} can not be greater than value of field {2}* — «إجمالي قيمة الحقل {0} والحقل {1} لا يمكن أن تتخطى قيمة الحقل {2}» | On an executer row, approved hours plus registered hours together exceed the planned hours. Planned hours are a ceiling, not a target. | Raise that row's planned hours, or reject the excess time before saving. |
+| *You can not delete the employee {0} because he has {1} approved hours in this task* — «لا يمكنك حذف الموظف {0} حيث أن لديه {1} ساعة فعلية في هذه المهمة» | An executer row carrying approved hours was removed from the grid. Approved work cannot be dropped. | Tick *Work Done* on the row instead of deleting it, or cancel the approvals first. |
+| *You can not change the employee {0} to {1} because he has {2} approved hours in this task* — «لا يمكنك تغيير الموظف {0} إلى الموظف {1} حيث أنه لديه {2} ساعة فعلية في هذه المهمة» | The employee was swapped on a row that already carries approved hours, which would reassign work somebody else did. | Leave the row as it is and add a new row for the other employee. |
+| *The employee {0} has intersect Periods* — «الموظف {0} لديه فترات متقاطعة فى نفس المهمة» | The same employee appears on two executer rows whose From–To ranges overlap. | Split the dates so the two rows do not overlap, or merge them into one row. |

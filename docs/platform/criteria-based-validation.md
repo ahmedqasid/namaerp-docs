@@ -579,6 +579,17 @@ must name a Target Type, an Apply Also To list or an Applicable For scope — an
 not be combined with the other two. An **Error Field** must exist on the target screen, and a
 **Confirm** line may not be tied to draft, revise, unrevise or approval.
 
+## Messages you may see
+
+Refusals raised when you save the validator record itself.
+
+| Message | Why | What to do |
+|---|---|---|
+| *You must select at least one value for validate with* — «يجب اختيار على الاقل قيمه فى التحقق مع» | A rules line has none of the **Validate with** actions ticked — not insert, update, delete, revise, unrevise, draft or approval — so the line would never run. | Tick at least one action on that line. |
+| *Field {0} was not found in entity type {1}* — «الحقل {0} غير موجود فى نوع السجل {1}» | The **Error Field** on a line is not a field of the target screen — usually a typo, or a path copied from a different screen. | Re-pick the error field from the target screen, or clear it and let the message appear at record level. |
+| *Field {0} is a detail field, you must activate {1}* — «الحقل {0} حقل تفاصيل, يجب تفعيل {1}» | The **Error Field** points inside a grid while **Show Error By Line Number** is off, so the system would have no line to attach the error to. | Tick **Show Error By Line Number** on that line, or choose a header field instead. |
+| *Options {0}, {1}, {2}, and {3} could not be used with validator of type Confirm* — «الحقول {0} و {1} و {2} و {3} لا يمكن ان تكون مفعلة عند إستخدام المعيار مع التأكد» | A line of type **Confirm** is tied to draft, revise, unrevise or approval. A Confirm asks the user a question, and those four points have nobody to ask. | Leave a Confirm line on insert, update and delete only, or change its type to Error or Warning. |
+
 ## Related pages
 
 - [Criteria from Text Parser](/platform/text-criteria-guide.md) — the filter syntax behind saved

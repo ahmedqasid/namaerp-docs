@@ -254,13 +254,14 @@ directly; it is documented under
 | *Paying Customer cannot be the same customer* | The **Paying Customer** field points at the customer you are editing. | Leave it empty, or point it at a different customer. |
 | *Accounts must be empty because you selected a paying customer* | A paying customer settles the bills, so this customer's own accounts must not be filled. | Clear the accounts on the *Main* tab, or clear **Paying Customer**. |
 | *Can not use legal entity {0} in line {1} of credit limits. It must be {1}* | A credit-limit row names a legal entity that the customer itself does not belong to. | Use the customer's own legal entity in the row, or leave the row's legal entity empty. |
-| *There is a repeated row* — «هناك سطر متكرر» | Two credit-limit rows describe the same combination of legal entity, branch, department, sector, analysis set and currency. | Merge them; one combination may appear once. |
+| *There is a repeated row* — «لا يمكن تكرار المحددات للضوابط» | Two credit-limit rows describe the same combination of legal entity, branch, department, sector, analysis set and currency. | Merge them; one combination may appear once. |
+| *There is Invalid row for legal entity* — «لا يمكن استخدام null و قيمة اخري للشركه» | The credit-limit grid mixes rows that leave the legal entity at *any* with rows that name a specific one. The grid is read either way round, not both at once. | Name a legal entity on every row, or leave it at *any* on every row. |
 | *Credit period can't be less than 0* | A negative credit or payment period. | Enter zero or a positive number of days. |
-| *Must be phone number* — «يجب أن يكون رقم هاتف» | Global Configuration is set to use the phone number as the customer code, and the code you typed does not match the expected pattern. | Type the mobile number as the code, or turn that setting off. |
-| *This Lead has customer* — «هذا العميل المرتقب له عميل» | The CRM lead in **Lead Or Potential** has already produced a different customer. | Open that lead to find the customer it created instead of making a second one. |
+| *Must be phone number* — «يجب أن يكون رقم تليفون» | Global Configuration is set to use the phone number as the customer code, and the code you typed does not match the expected pattern. | Type the mobile number as the code, or turn that setting off. |
+| *This Lead has customer* — «هذا الخيط مرتبط بعميل» | The CRM lead in **Lead Or Potential** has already produced a different customer. | Open that lead to find the customer it created instead of making a second one. |
 
-Only three of these carry an Arabic translation; the rest appear in English even when the screen is
-in Arabic, which is why the English wording is the one to search for.
+Four of these carry an Arabic translation; the rest appear in English even when the screen is in
+Arabic, which is why the English wording is the one to search for.
 
 ## See also
 

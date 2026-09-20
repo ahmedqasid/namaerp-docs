@@ -102,3 +102,14 @@ You can also switch between a **light** and a **dark** theme — dark is easier 
 
 
 Individual text labels can also be **overridden** per register — for example a café might prefer the word "Bill" to "Invoice". These overrides are set up centrally and pushed to the register, so the wording you see may be tailored to your business.
+
+## Messages you may see
+
+Changing the shortcut keys is done on the server, on the **Nama POS Shortcuts** screen, and that screen refuses a save with one of these.
+
+| Message | Why | What to do |
+|---|---|---|
+| *You must select functionality or field ID* — «filed id يجب أختيار إجراء أو» | A shortcut row names neither an action nor a screen field, so the key would do nothing. (The Arabic text reads back to front and misspells *field*; that is how the product raises it.) | Choose one of the two on that row, or delete the row. |
+| *You must select key* — «يجب اختيار مفتاح» | A shortcut row has an action but no key. | Pick the key, or delete the row. |
+| *You must use Ctrl/Alt with alphabetic letters* — «يجب استخدام Ctrl/Alt مع الحروف الأبجدية» | A row binds a bare letter key. A plain letter is needed for typing at the register, so a letter shortcut must be combined. | Tick Ctrl or Alt on the row, or move the shortcut to a function key. |
+| *Shortcut in line {0} repeated in line {1}* — «الاختصار في سطر رقم {0} متكرر في سطر رقم {1}» | Two rows bind the same key combination. The message names both line numbers. | Change one of the two combinations. |

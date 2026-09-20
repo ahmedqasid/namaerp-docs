@@ -94,6 +94,17 @@ Specific incidental damage (a particular event), on the other hand, is recorded 
 **Reconcile accounting after the count**: After ending the count, verify that the inventory value in the books matches the total adjustments.
 :::
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *There is already a start stock taking document on the same day {0} for warehouse {1} and locator {2}* — «يوجد بالفعل سند بدء جرد مخزني بتاريخ {0} للمخزن {1} والموقع {2}» | Another saved **Start Stock Taking** already opens a count for the same warehouse — and the same locator, when one is named — on that date. | Use the count that is already open, or have **Allow Multiple Stock Taking Same Day For Same Warehouse** switched on in supply chain configuration if you genuinely count a warehouse twice in a day. |
+| *There is already an end stock taking document on the same day {0} for warehouse {1} and locator {2}* — «يوجد بالفعل سند إنهاء جرد مخزني بتاريخ {0} للمخزن {1} والموقع {2}» | The same guard on the closing side: an **End Stock Taking** for that warehouse and locator already exists on the date. | Close the count with the existing document, or allow multiple counts per day in configuration. |
+| *Serial {0} should be in warehouse {1}, we found it in warehouse {2}* — «رقم المسلسل {0} يجب ان يكون في المخزن {1}, ولكنه موجود في المخزن {2}» | A counted serial number is recorded in the system as sitting in a different warehouse from the one on the count line. The message names both warehouses. | Either the serial was physically moved without a document — record the transfer — or it was counted in the wrong warehouse. Correct whichever is wrong before ending the count. |
+| *Cannot modify Stock Taking after being ended* — «لا يمكن تعديل الجرد المخزني إذا كان منتهيا» | The **Stock Taking Details** document is being edited after the count was ended and settled, and **Make Ended Stock Taking Docs Editable** is off in supply chain configuration. | Leave the ended count alone and correct the stock with a separate document, or have that option switched on if the count itself must be reopened. |
+| *The document {0} is already linked to the document {1}* — «المستند {0} مرتبط بالفعل بالمستند {1}» | An electronic count sheet listed on the details document is already attached to another details document. | Remove that line, or detach the sheet from the document the message names. |
+| *You can not leave taking electronic, pos taking and initial taking empty* — «لا يمكنك ترك لجنة الجرد الإلكتروني، لجنة جرد نقط بيع ولجنة جرد مبدئي فارغين» | A line on the electronic grid of the details document names none of the three sources a count can come from — electronic taking, POS taking or initial taking. | Fill one of the three on that line, or delete the line. |
+
 ## Next Steps
 
 - [Inventory Costing & Revaluation](./inventory-costing.md) - adjusting inventory values after reconciliation

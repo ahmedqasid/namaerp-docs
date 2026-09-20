@@ -210,3 +210,14 @@ Some things that sound as though they create machines do not. A **pre-installati
 ## Changing a Machine Later
 
 Two documents exist for changing a machine after it is in service, and both are covered on the [machine updates and transfers page](/modules/crm/maintenance-cycle/crm-machine-updates-and-transfers): the **Machine Update** document for attributes and the **Machine Ownership Transfer** document for the owner. Read that page before you use either — the update document writes every field on its screen to the machine, so fields you did not retype are blanked, and cancelling it does not necessarily put things back.
+
+## Messages you may see
+
+All four belong to the **Dependent Machines** grid; the grid is the only part of the machine file with save-time rules of its own.
+
+| Message | Why | What to do |
+|---|---|---|
+| *The Machine {0} in line {1} is repeated* — «الاّلة {0} في السظر {1} مكررة» | The same child machine is listed twice in the Dependent Machines grid. | Delete the duplicate row. |
+| *The Machine {0} in line {1} already added in another machine {2}* — «الاّلة {0} في السظر {1} مضافة مسبقا فى آلة أخرى {2}» | The child machine you listed already has a different parent — the one the message names. | Remove the row, or release the machine from its current parent first; a machine can have only one parent. |
+| *The Machine {0} in line {1} has dependent machine* — «الاّلة {0} في السظر {1} لديها آلات  تابعة» | The child machine you listed has dependants of its own, and only one level of nesting is allowed. | List that machine's children directly here instead, or leave the sub-assembly as a parent in its own right. |
+| *Can not Add Your Self in dependent* — «لا يمكن اضافة هذة الآلة فى الآلات التابعة لها» | The machine lists itself as one of its own dependants. | Delete that row. |

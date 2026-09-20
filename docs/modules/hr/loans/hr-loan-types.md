@@ -38,6 +38,18 @@ A Loan Type can carry a grid of **Conditions Should Matched In Loan Document** (
 These conditions are a validation gate on the Loan Document, not an approval workflow — a document that fails one of them simply cannot be committed. Use the standard approval case configuration on the document term if you also need a human sign-off before disbursement.
 :::
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You shuold choose Payment Method (Auto / Manual)* — «يجب تحديد طريقة سداد السلفة» | Neither **Automatically Deducted From Salary** nor **Manual** is ticked, so nothing would ever recover the loan. | Tick at least one recovery method — usually the automatic payroll deduction. |
+| *Minimum installments count should be less than max installments count* — «الحد الأدنى للأقساط يجب أن يكون أقل من أو يساوى الحد الأقصى للأقساط» | **Minimum Installments Count** is greater than **Maximum Installments Count**, so no installment count would be allowed at all. | Swap the two figures, or clear whichever bound you do not need. |
+| *Installments Count should be Greater Than Or equal {0} and Less Than Or equal {1}* — «عدد الأقساط يجب أن يكون أكبر من أو يساوى {0} وأقل من أو يساوى{1}» | Both bounds are set and **Default Installments Count** falls outside them. | Bring the default inside the allowed range, or widen the range. |
+| *Installments Count should be Greater Than {0}* — «عدد الأقساط يجب أن يكون أكبر من{0}» | Only a minimum is set, and the default installment count is below it. | Raise the default, or lower the minimum. |
+| *Installments Count should be Less Than {0}* — «عدد الأقساط يجب أن يكون اقل من{0}» | Only a maximum is set, and the default installment count is above it. | Lower the default, or raise the maximum. |
+| *Default loan amount should be Greater Than Or equal {0} and Less Than Or equal {1}* — «القيمة الإفتراضية للسلفة يجب أن تكون أكبر من أو تساوى {0} وأقل من أو يساوى {1}» | **Default Loan Amount** sits outside the **Minimum** / **Maximum Loan Amount** window the type allows. | Put the default inside the window, or adjust the boundaries. |
+| *Could not find any line matching employee {0} in loan type {1}* — «لا يمكن إيجاد اي سطور مطابقة للموظف {0} في نوع السلفة {1}» | Raised when saving a **Loan Document**: the type carries a **Conditions Should Matched In Loan Document** grid, and no row matches this employee — their experience, service months, salary bracket, loan value, position or department falls outside every rule. | Either add a condition row that covers this employee, or use a loan type whose conditions they satisfy. An empty conditions grid lets every employee through. |
+
 ## Where this fits
 
 - **[Loan Documents & Payments](hr-loan-documents.md)** — the request, the disbursement document, and the manual payment document this type feeds.

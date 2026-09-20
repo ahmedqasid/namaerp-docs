@@ -79,3 +79,16 @@ Alongside the operation order, the module offers helper documents to manage the 
 - **FRM OO Transfer** — moving them between locations.
 
 You'll find these files under **Master Files**, and they're used to track the physical location of the shipment independently of its financial effect.
+
+## Messages you may see
+
+The first row belongs to the operation order itself; the rest belong to the **FRM OO Receipt**, which is where the capacity rules live.
+
+| Message | Why | What to do |
+|---|---|---|
+| *You Must Select at least One Of Service Item Types* — «يجب اختيار خدمة واحدة على الاقل من الخدمات الأربعة التالية(شحن بحري ـ نقل ـ تخليص ـ مولدات)» | None of the four service flags — ocean freight, custom clearance, trucking, genset — is ticked on the operation order, so no service section would appear. | Tick the flags that describe the shipment; they are what makes the matching service sections visible. |
+| *Capacity of operation order {0} must be more than zero* — «يجب ان تكون سعة أمر التشغيل {0} أكبر من الصفر» | The receipt's operation order has no usable capacity: neither the receipt's dimension lines nor the order's own Capacity field give a figure above zero. | Fill the Capacity on the operation order, or enter the dimension lines on the receipt so the capacity can be derived from them. |
+| *The sum of capacity in the details {0} must be equal to the capacity in the operation order {1}* — «مجموع السعة فى سطور التفاصيل {0} يجب أن يساوى السعة فى رأس المستند {1}» | The capacity totalled from the receipt does not match the capacity the operation order carries. | Adjust the receipt lines, or the order's capacity, until the two figures are the same. |
+| *You must add at least one dimension* — «يجب إدخال بعد واحد على الأقل» | A dimension line on the receipt has its height, width **and** length all empty or zero. | Enter at least one of the three, or delete the row. |
+| *{0} can not be negative* — «لا يمكن إدخال قيمة سالبة في الحقل {0}» | A dimension line on the receipt carries a negative capacity, height, width or length. The message names the field. | Enter a positive figure. |
+| *Operation Order {0} is used in {1}* — «أمر التشغيل {0} مستخدم فى {1}» | A committed FRM OO Receipt already exists for this operation order — the message names it. One receipt per operation order. | Open the existing receipt and amend it, or cancel it before writing another. |

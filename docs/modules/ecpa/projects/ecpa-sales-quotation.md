@@ -203,9 +203,9 @@ will run:
 
 - the quotation must be **saved**;
 - its status must be **Accepted** — otherwise it refuses with the message
-  *"Sales Quotation Status Must Be Accpeted"* (the typo is in the message itself);
+  *"Sales Quotation Status Must Be Accpeted"* — «حالة العرض يجب أن تكون مقبول» (the English typo is in the message itself);
 - it must have a **Template Project** — a quotation without one is refused with
-  *"You must choose template project"*, which appears in English even on an Arabic screen.
+  *"You must choose template project"* — «يجب عليك إختيار قالب مشروع».
 
 It then asks you two questions — a **Project Group** and a **Task Group** — which decide the coding
 groups the new records are filed under. Leave the project group empty and the project takes the

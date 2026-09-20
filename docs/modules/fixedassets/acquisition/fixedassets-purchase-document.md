@@ -287,3 +287,11 @@ list view, filter for failures, select the rows and use **More → Reprocess / R
 recovery there are also the
 [fixed asset utilities](/admin/reprocessing/fixed-asset-utilities.md).
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Fixed asset and fixed asset type can not be empty* — «لا يمكن ترك كل من الأصل الثابت و نوع الأصل فارغاً» | The term is set to create the asset when it is not found, and a line names neither an asset nor an asset type, so there is nothing to create the asset from. | Fill the asset on the line, or fill the asset type and let the document create the record. |
+| *The line that has fixed asset {0}, can not be edited because there are transactions after purchase date by document {1}* — «السطر الذى به الأصل {0}  لا يمكن تعديله لان هناك حركات عليه من المستند {1} بعد تاريخ الشراء» | You edited a line whose asset already carries a transaction dated after the purchase date. The message names the document that wrote it. | Reverse the named document, make the correction, and re-enter it. The purchase is the first event in the asset’s life and cannot be moved under a later one. |
+| *Error in fixed asset status {0}, current status is {1} and it has to be {2}* — «خطأ في حالة الأصل {0} الحالة الحالية هى {1} ويجب أن تكون {2}» | A line names an asset that is not **Initial** — something already gave it a cost. | Use a different asset, or reverse whatever capitalised this one. A purchase document only accepts an initial asset. |

@@ -112,7 +112,7 @@ Installment codes are generated for you unless the document term has *Manual Cod
 ::: warning Create Installments replaces the entire grid
 This button does not add lines and does not fill gaps — it regenerates the grid from the construction block. Every row currently there is discarded, including rows you typed by hand and rows that already carry collected amounts.
 
-**Build the plan before you collect anything.** Once collections exist, treat the grid as closed: if a rebuild drops a line that has already been paid, the contract will refuse to commit with *"Can not delete or change code of a paid line"* — so the collection itself is safe, but the schedule you were working on is gone and has to be reconstructed by hand.
+**Build the plan before you collect anything.** Once collections exist, treat the grid as closed: if a rebuild drops a line that has already been paid, the contract will refuse to commit with *"Can not delete or change code of a paid line {0}"* — so the collection itself is safe, but the schedule you were working on is gone and has to be reconstructed by hand.
 
 If a live contract genuinely has to be re-planned, do it with an [extension](/modules/realestate/sales/realestate-sales-contract.md) that adds the new lines, or with *Merge Installments* below — not by regenerating.
 :::

@@ -96,8 +96,8 @@ On committing the extract, two things settle:
   **the same material is never collected onto a second extract.**
 
 ::: warning Once an extract has consumed a line, the issue is frozen
-From that point on the line cannot be edited or deleted. The attempt fails with *You removed or
-modified line number … in document … which is linked with contractor extract …*. This is deliberate:
+From that point on the line cannot be edited or deleted. The attempt fails with
+*You removed or modified line number {0} in document {1} which is linked with contractor extract {2}*. This is deliberate:
 the deduction has already been paid out of his money. To correct it, the extract has to be reversed
 first.
 :::

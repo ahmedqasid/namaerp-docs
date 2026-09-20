@@ -186,3 +186,14 @@ If you have twelve months of arrears to work through, you do not have to create 
 hand. The
 [aggregated depreciation document](/modules/fixedassets/depreciation/fixedassets-aggregated-depreciation.md)
 takes a period range and creates the individual runs for you.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You can not change fiscal period in Depreciation Documents, please delete and re-insert* — «لا يمكنك التغيير في الفترة في مستندات الإهلاك الرجاء مسح وإعادة الإدخال» | You reopened a saved depreciation document and changed its **Fiscal Period**. | Delete the document and enter a new one for the period you want. The period is fixed once the run exists. |
+| *Fixed asset {0} is repeated* — «الأصل {0} مكرر» | The same asset appears on two lines of the details grid. | Remove the duplicate line. Use the collect button rather than typing lines to avoid this. |
+| *Cannot Depreciate Asset because it is undepreciable* — «لا يمكن اهلاك الاصل لأنه اصل غير قابل للاهلاك» | A line names an asset flagged **Undepreciable** — land and the like are never depreciated. | Take the line off. Neither translation prints the asset code, so find it by sorting the grid on the undepreciable flag. |
+| *Cannot Depreciation because the status is Initial* — «لا يمكن عمل اهلاك للاصل الثابت لان الحالة ابتدائية» | A line's asset is still **Initial**: it has no cost, no life and nothing to write down. | Raise a purchase or opening document for that asset first, then run the depreciation. |
+| *The Asset {0} Cannot depreciated by this document because the depreciation method is {1} use document {2} instead* — «لا يمكن اهلاك الأصل {0} باستخدام هذا المستند لان طريقة اهلاك الاصل: {1} يجب استخدام المستند {2} بدلاٌ منه» | The asset's depreciation method is revaluation, and this document only handles straight line. | Take the asset off and use the revaluation document for it instead. |
+| *Can not depreciate the fixed asset {0} in the period {1} because last depreciation was in period {2}* — «لا يمكن اهلاك الاصل {0} في الفترة  {1} حيث انه كان اخر اهلاك للاصل كان في الفترة {2}» | There is a gap between the asset's last depreciated period and the period on this document. | Run the missing periods first, or cover them with a prevent-depreciation document, then come back to this one. |

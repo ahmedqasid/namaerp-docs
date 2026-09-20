@@ -58,7 +58,7 @@ you cannot quietly rewrite the original plan from here. The two columns you fill
 ::: warning The two totals have to agree before it will commit
 The sum of **Prices | Total price** across the detail lines must equal the sum of **Paid Value**
 across the instalment rows, otherwise the document is refused with
-*"Details total … must be equal to schedule lines total …"*. Three more checks guard the instalment
+*Details total {0} must be equal to schedule lines total {1}*. Three more checks guard the instalment
 side: a code that does not exist on the referenced contract is rejected, two cancellations cannot
 settle the same instalment, and the amounts settled against an instalment cannot exceed its value.
 :::

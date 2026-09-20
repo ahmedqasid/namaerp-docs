@@ -236,3 +236,14 @@ to select some rows.
 
 Get those right and the card becomes the one place where estimate and reality sit side by side for the
 life of the term.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Can not leave all details empty* — «لا يمكن ترك جميع التفاصيل فارغة» | All four cost grids — Material, Workers, Contractors, Other Expenses — are empty. A card with nothing analysed on it is not a card. | Enter at least one line in one of the four families before saving. |
+| *Invalid term code* — «كود بند غير صحيح» | A line carries a term code that is not one of the terms of the From Document (the assay or the project contract). | Pick the term code from the From Document's own terms, or change the From Document. |
+| *Analysis term code {0} is repeated* — «كود البند التحليلي {0} مكرر» | Two lines in the same grid carry the same analysis term code. The code is the key that actual cost is matched back on, so it has to be unique. | Renumber one of them, or clear the code and let the card generate it on save. |
+| *Color {0} is not found in item {1} - at line {2}* — «الصنف {1} لا يحتوي على اللون {0} - في السطر {2}» | A Material line names a colour that is not among the colours defined on that item. | Choose a colour the item actually has, or add it to the item's colours first. |
+| *Size {0} is not found in item {1} - at line {2}* — «الصنف {1} لا يحتوي علي المقاس {0} - في السطر {2}» | The same, for the size on a Material line. | Choose a size the item actually has, or add it to the item's sizes first. |
+| *Revision {0} not found in item {1} - at line {2}* — «الاصدار {0} غير موجود في الصنف {1} - في السطر {2}» | The same, for the revision on a Material line. | Choose a revision the item actually has, or add it to the item's revisions first. |

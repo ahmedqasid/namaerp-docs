@@ -154,3 +154,16 @@ The execution is also the one document in this folder with **no document term cl
 Four documents in this folder — the work plan, the sales order, the sales quotation and the execution — perform **no validation whatsoever** when saved. Book, code and dimensions aside, nothing on them is checked. Do not rely on the system to catch a mistake in a work plan.
 
 When the work is done, [Service Invoicing](/modules/crm/services-suite/crm-service-invoicing) is the next and last step — and the one with the most important warning in this folder.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Visit type {0} is after contract end date {1} in line number {2}* — «نوع الزبارة {0} هو بعد تاريخ نهاية العقد {1} في السطر {2}» | *Generate Services Work Plans* computed a first visit date that already falls after the contract's Warranty End Date. | Check the contract's Warranty Start Date and Warranty End Date — they are usually the wrong way round. |
+| *Main Quantity can not be less than the Sold Quantity* — «الكمية الأساسية لا يمكن ان تقل عن الكمية المباعة» | A spare-parts line on the contract has a Quantity lower than the Sold Quantity typed beside it. | Raise the Quantity or correct the Sold Quantity; nothing maintains that column for you. |
+| *The Item {0} in line {1} is repeated* — «البند {0} في السطر {1} مكرر» | The same spare part is listed twice in the contract's Spare Parts And Services grid. | Merge the two rows into one carrying the combined quantity. |
+| *Total technicians reward is not equal to total of technicians rewards in the grid* — «مكأفاة الفنين لا تساوي مجموع مكأفات الفنين في التفاصيل» | On a service order, the header Technicians Reward does not equal the sum of the rewards in the technicians grid. | Correct either the header figure or the grid rows so the two agree. |
+| *The Line Number {0} is added by User,This is not permitted* — «السطر رقم {0} تم إضافته بواسطة المستخدم وهذا غير مسموح به» | A row was typed by hand into the order's Status Change tab; only an actual status change may write there. | Delete the row and move the document by setting Current Status instead. |
+| *The line that was at {0} in the table ({1}) was removed, this is not permitted* — «السطر الذي كان رقمه {0} تم حذفه من الجدول ({1}) و هذا غير مسموح به» | A row that was already on the Status Change tab was deleted. | Reopen the order without saving; the status trail can not be pruned. |
+| *Field ({0}) Value changed from {1} to {2} line number {3} in grid ({4})* — «لقد تغيرت قيمة الحقل ({0}) من {1} الي {2} في السطر رقم {3} في الجدول ({4})» | A value on an existing Status Change row — its date, from-status, to-status, user or remark — was edited. | Reopen the order without saving and leave the trail as the system wrote it. |
+| *The field {0} and field {1} can not be the same date* — «الحقل {0} والحقل {1} لا يمكن أن يكونا بنفس التاريخ» | A service line on the order carries the same date in Current Odometer Date and Last Odometer Date. | Clear both dates — there is no odometer tracking in the services branch. |

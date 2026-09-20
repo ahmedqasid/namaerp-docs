@@ -51,6 +51,14 @@ Imagine a sales order ready for fulfillment:
 4. **Delivery**: the driver delivers, the delivery document is recorded with proof of receipt, the reservation is released, and the goods leave your inventory.
 5. **Invoicing**: the [Sales Invoice](./sales-journey.md) is issued to complete the financial transaction.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *System password can not be manually changed in delivery document {0}* — «لا يمكن تغيير كلمة سر النظام يدويا في سند توصيل {0}» | The delivery document already carries a system-generated password and the saved value was typed over. The password is the proof of delivery, so only the system may set it. | Restore the password the system produced — reload the document without saving — and record the customer's password in the customer password field instead. |
+| *The provided password does not match system generated password* — «كلمة السر لا تطابق كلمة السر التي انشأها النظام» | The term requires a password on delivery, and the password typed in the customer password field is not the one the system generated. | Ask the customer for the code again — it is the one sent with the shipment — and retype it. |
+| *Delivery status can not be modified to delivered unless you provide the correct password* — «لا يمكن تعديل الحالة إلى ( تم التوصيل ) إلا بإدخال كلمة السر الصحيحة» | The status is being set to *Delivered* while the customer password is missing or does not match. That is the point of the password: nobody can mark a shipment delivered without the customer's code. | Enter the customer's password, then set the status. If the customer lost the code, the term option **Delivery State Requires Password** is what makes it mandatory. |
+
 ## Next Steps
 
 - [The Sales Journey](./sales-journey.md) - where delivery fits in the sales cycle

@@ -80,6 +80,16 @@ When saved, the document resolves its scope into employee lines and, per line, p
 
 ![Annual Increases Document, with its increase rule and collected employee lines](../../../ar/modules/hr/images/payroll/annual-increases-en.png)
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You can fill only the field Basic Fixed Insurance Value or Percent the field , not both* — «يمكنك ملء الحقل نسبة الزيادة في الأساسي التأميني الثابت أو حقل القيمة و ليس كلاهما معا» | Both **Basic Fixed Insurance Percent** and **Basic Fixed Insurance Value** carry a figure, so the blanket increase to the fixed insurable basic could be read two ways. | Keep the percentage or the amount, and clear the other. |
+| *Employee {0} must be in employee lines* — «يجب ان يكون الموظف {0} فى سطور الموظفين» | An **Exceptions** row names an employee who is not among the employees the document collected, so there is no blanket rule for the exception to override. | Widen the employee range so the document collects that employee, or remove the exception row. |
+| *You must enter one of the target component or the component type* — «يجب ان يتم إدخال مكون الراتب هدف الزيادة او مكون الراتب» | An exception row says nothing about *what* is being increased — both **Target Salary Component** and **Component Type** are empty. | Fill one of the two on that row. |
+| *Target component {0} must be in the details* — «مكون الراتب هدف الزيادة {0} يجب ان يكون فى التفاصيل» | The exception targets a component that the **Details** grid does not raise at all; an exception can only override a blanket rule that exists. | Add the component to the Details grid, or point the exception at a component the round already covers. |
+| *The employee {0} with component type {1} is repeated in line {2} and {3}* — «الموظف {0} مع مكون الراتب {1} مكرر فى السطر {2} و {3}» | Two exception rows give the same employee a different treatment for the same component. | Delete one of the two rows — the message gives both line numbers. |
+
 ## Related pages
 
 - **[Salary Components](salary-components.md)** — the components an increase rule targets, and where the raised values ultimately live.

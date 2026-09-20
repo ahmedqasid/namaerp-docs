@@ -144,8 +144,8 @@ For Excel files only. Without it, Nama interprets date-formatted cells itself an
 **Required in practice.** This is the employee's code **on the machine**, which Nama matches against the **Attendance Machine Code** field on the Employee record.
 
 - A row whose employee column is empty is silently skipped.
-- If no employee carries that machine code, the import stops with *"Could not find employee with attendance machine code …"* — unless the **Ignore Unfound Employees** option is ticked on the import, in which case the row is skipped quietly.
-- If **two** employees share the same machine code, the import stops and lists every offending employee: *"The employee … has a repeated attendance code …, please change it"*.
+- If no employee carries that machine code, the import stops with *Could not find employee with attendance machine code {0}* — unless the **Ignore Unfound Employees** option is ticked on the import, in which case the row is skipped quietly.
+- If **two** employees share the same machine code, the import stops and lists every offending employee: *"The employee {0} has a repeated attendance code {1}, please change it"*.
 - When **Consider Legal Entity To Find Employee** is enabled in HR Configuration, the search is additionally restricted to the document's legal entity, which lets two companies reuse the same machine codes.
 
 ### Dates and times
@@ -360,15 +360,17 @@ Two things quietly reduce the number of lines you end up with, and both surprise
 
 ## When something goes wrong
 
+None of the messages below has an Arabic translation, so they appear in English on Arabic screens too.
+
 | Message | What it means |
 |---|---|
 | *You must specify formula name* | No machine was selected in the **Attendance Machine** field on the document. |
-| *Could not find parameter …* | The formula refers to something it never defined — most often an exit date missing from an in/out formula. |
-| *Could not find employee with attendance machine code …* | No employee carries that code. Fix the Employee record, or tick **Ignore Unfound Employees** to skip such rows. |
-| *The employee … has a repeated attendance code …, please change it* | Two or more employees share one machine code; codes must be unique. |
-| *There is Error in Parsing line …* | A row could not be read — usually a date or time that doesn't match its pattern. The number counts data rows after any `#ignoreLinesFromTop` skipping, so it will not match the physical line number in the file. |
-| *The pattern … does not contain right hand side* | A `#copylines` assignment is missing its `=`. |
-| *The pattern … left hand side … is not found in the formula* | A `#copylines` assignment names a column that the formula never declares. |
+| *Could not find parameter {0}* | The formula refers to something it never defined — most often an exit date missing from an in/out formula. |
+| *Could not find employee with attendance machine code {0}* | No employee carries that code. Fix the Employee record, or tick **Ignore Unfound Employees** to skip such rows. |
+| *The employee {0} has a repeated attendance code {1}, please change it* | Two or more employees share one machine code; codes must be unique. |
+| *There is Error in Parsing line {0}* | A row could not be read — usually a date or time that doesn't match its pattern. The number counts data rows after any `#ignoreLinesFromTop` skipping, so it will not match the physical line number in the file. |
+| *The pattern {0} does not contain right hand side* | A `#copylines` assignment is missing its `=`. |
+| *The pattern {0} left hand side {1} is not found in the formula* | A `#copylines` assignment names a column that the formula never declares. |
 
 If the file imports but the result looks wrong rather than failing, the cause is almost always one of three things: a token silently misspelled into a placeholder, the wrong pairing mode, or a date pattern using lowercase `m` for the month.
 

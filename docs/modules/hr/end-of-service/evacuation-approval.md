@@ -110,6 +110,16 @@ up into the party document's approval state, and that state is what a settlement
 respect. Because the clearance and the money are deliberately separate, you can run the two in
 parallel and simply require the clearance to be **Approved** before the dues liquidation is paid.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Please define one required step at least* — «من فضلك قم بتعريف خطوة واحدة مطلوبة علي الأقل» | Every row in the settings' **Steps** grid is marked **Optional Step**, so the whole clearance could be skipped. | Untick **Optional Step** on at least one row — the step no departure may bypass. |
+| *There is no approval steps for this document* — «لا توجد خطوات موافقة اخلاء طرف لهذا المستند» | The approval is being signed against an Evacuation Party Document whose **Approval Settings** are missing, or whose settings carry no steps at all. | Point the clearance at a settings record that has steps defined, and define them there first. |
+| *Invalid approval step code* — «كود خطوة غير صحيح» | The **Step Code** on the approval does not match any step in the settings the clearance uses. | Pick the step code from the settings' Steps grid; codes are per settings record, not global. |
+| *Step state is {0}* — «حالة الخطوه{0}» | You moved the approval onto a step that has already been approved on this clearance, so signing it again would overwrite a decision. | Choose a step that is still pending, or amend the approval document that already signed that step. |
+| *The step {0} requires the approval of steps {1}* — «الخطوة {0} تتطلب تنفيذ للخطوة {1} اولا» | The step has **Require Previous Steps Approval** ticked and the steps listed in the message are still at *Initial* — the ordered chain has not reached this step yet. | Have the listed steps signed first; the message names exactly which ones are outstanding. |
+
 ## Related pages
 
 - [Dues Liquidation](./dues-liquidation) — the final settlement the clearance gates; all the gratuity

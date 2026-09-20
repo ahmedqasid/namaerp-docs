@@ -309,3 +309,11 @@ dates, 13,500 plus VAT, a payable to Gulf Plant Hire and a two-instalment paymen
 does not move.** If the 13,500 has to appear against term `2.01`, it must be entered as a Misc
 Contracting Invoice instead — or, if the plant charge only needs to reach the ledger with a site
 narrative behind it, as an Equipment Statement.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Line {0} at document {1} overlapped with line {2} at document {3}* — «السطر {0} في المستند {1} متداخل مع السطر {2} في المستند {3}» | The same person, asset or car is allocated to two places over dates that overlap. The check runs inside the document and against every other committed allocation, so the two document numbers quoted may differ. | Shorten one of the two date ranges so they no longer overlap, or remove the duplicate line. Where the message names another document, that document is the one you have to look at. |
+| *Document {0} with project contract {1} cost is {2} and distributed cost is {3}* — «المستند {0} لعقد مشروع {1} التكلفة {2} والتكلفة المُوزعة {3}» | On the Cost Distribution document, the Cost Allocation lines for that source document and project contract do not add up to the cost collected for the pair. | Make the two figures match — the collected figure appears on no grid, so read it from the message itself. Press **Distribute Cost** again to rebuild the lines from the allocated days, or correct the amounts by hand. |
+| *There is another asset {0} depend on this project {1}* — «الأصل الثابت {0} المنشأ يعتمد على هذا المشروع {1}» | The Fixed Asset Creation Document line points at a project that already has a fixed asset created for it. One project can only capitalise into one asset. | Use the existing asset, or point the line at a different project. |

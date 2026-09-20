@@ -357,7 +357,7 @@ Available = (In + Pre-In) - (Out + Pre-Out)
 
 #### مشكلة: أخطاء نقص الكمية (Issue: Insufficient Quantity Errors)
 
-**رسالة الخطأ:** "Insufficient quantity for item [ItemCode], Available Quantity is [X], Reserved quantity is [Y]"
+**رسالة الخطأ:** «الكمية من الصنف {0} {1} لا تكفي. الكمية المتاحه {2} . الكميه المحجوزه {3}»
 
 **الأسباب الجذرية:**
 1. **نقص فعلي:** الصنف لا يملك كمية كافية متاحة

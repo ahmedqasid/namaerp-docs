@@ -44,3 +44,11 @@ These options must be enabled first for the ignore flag to be read from the ware
    - `ignoreInReservationQtyCheckByDate`
 
 3. When a reservation operation is performed, the quantities from the warehouse/locator transactions where this option is enabled will not be included in the available balance by date calculation, meaning the system will ignore the balances of those warehouses/locators when determining whether an overdraft exists.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You can not enable the option {0} unless you enable the matching option in supply chain configuration* | The **Ignore In Reservation Qty Check By Date** option was ticked on a warehouse or a locator while the matching master switch in supply chain configuration is still off. The refusal names the field it refused, and points you at the configuration entry. | Switch the matching option on in supply chain configuration first — one for warehouses, one for locators — then tick the option on the warehouse or locator. |
+
+This message has no Arabic translation in the product, so it appears in English even on an Arabic screen.

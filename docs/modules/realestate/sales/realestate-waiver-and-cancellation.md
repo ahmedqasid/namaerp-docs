@@ -56,7 +56,7 @@ Choosing the property on a waiver seeds nearly the whole screen from the contrac
 - the entire price block, the **Original Price**, the installment-construction block, the multiple-construction lines, the other-fees lines and the currency are all copied;
 - **From Document** is set to the sales or opening sales contract.
 
-A few consequences of that seeding are worth knowing. *Paid With Reservation* is disabled on this screen. The **From Document cannot be changed after the first commit** — *"From document can not be changed"* — so if it is wrong, cancel and start again. And unlike a sales contract, the **Buyer is optional**: a *For Company* waiver has no incoming buyer to name.
+A few consequences of that seeding are worth knowing. *Paid With Reservation* is disabled on this screen. The **From Document cannot be changed after the first commit** — *"From document can not be changed from {0} to {1}"* — so if it is wrong, cancel and start again. And unlike a sales contract, the **Buyer is optional**: a *For Company* waiver has no incoming buyer to name.
 
 If the original contract cannot be resolved when the waiver commits, you will see *"Please recommit the previous sales doc for this waver"* — recommit the contract and try again.
 

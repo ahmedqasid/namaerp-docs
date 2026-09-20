@@ -63,7 +63,7 @@ Numbering restarts at the branch's day start time and the **first customer of th
 > `A` + `1` padded to 3 → **`A001`** — the first customer through the door.
 > Thirteen tickets later, Fahad Al-Otaibi draws **`A014`**.
 
-When you type a suffix length, the screen offers to fill *Last Number* with the largest number that fits — 999 for a suffix length of 3. Take it. Issuing past *Last Number* is refused outright with *"You reached out to the last number … for queue …"*, and the customer standing at the kiosk gets nothing, so a ceiling that is too low is a live outage at the counter. If a busy branch genuinely issues more than 999 tickets between one day start and the next, raise the suffix length to 4 and the ceiling to 9999.
+When you type a suffix length, the screen offers to fill *Last Number* with the largest number that fits — 999 for a suffix length of 3. Take it. Issuing past *Last Number* is refused outright with *You reached out to the last number {0} for queue {1}* (a message with no Arabic string, so it appears in English on Arabic screens too), and the customer standing at the kiosk gets nothing, so a ceiling that is too low is a live outage at the counter. If a busy branch genuinely issues more than 999 tickets between one day start and the next, raise the suffix length to 4 and the ceiling to 9999.
 
 ::: warning *First Number* does nothing at all
 **أول رقم / First Number** is read by no part of the system. Set it to 100 and the first ticket of the day is still **`A001`** — numbering always begins at 1. It is not a way to reserve a range, and it is not a way to make two branches issue distinct numbers. Leave it at its default and never build a procedure around it.
@@ -94,7 +94,7 @@ Al-Sahra's single row: `EMP-214` Majed Al-Qahtani, queue `A`, *Can Modify* and *
 Two rules the screen enforces when you save: a provider row whose *Queue Code* is not one of the letters in the Queues grid is refused, and the same user cannot appear twice for the same queue. To let one advisor serve two queues, give them **two rows**, one per letter — that is the intended way, and it is different from leaving the code blank, which grants everything including queues you add later.
 
 ::: tip These permissions guard the branch screen, not just the app
-Every action on the branch record's ticket lists is checked against this grid, and a user without the right column gets *"User … do not have the capability … on Ticket Branch …"*. So the grid is what you edit when a supervisor complains they cannot delete a stale ticket.
+Every action on the branch record's ticket lists is checked against this grid, and a user without the right column gets *User {0} do not have the capability {1} on Ticket Branch {2}*. So the grid is what you edit when a supervisor complains they cannot delete a stale ticket.
 :::
 
 ## Banners — what the waiting room sees
@@ -156,11 +156,20 @@ The validations here are strict, and they are the good kind — they stop a kios
 - a message step with either message template empty;
 - a *Create And Print Ticket* step with no *Ticket Queue Code*;
 - a step that points at a step code that does not exist;
-- a loop — the whole path is walked and a cycle is refused with *"We found infinite path …"*.
+- a loop — the whole path is walked and a cycle is refused with *We found infinite path {0}* — also English-only.
 
 ::: warning The then/else error highlights the wrong column
 When you leave *Next Step (Else)* empty, the message points at *Next Step (Then)* — and vice versa. The save is correctly refused either way, but read the two columns together rather than trusting which one is flagged.
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Queue Code {0} is repeated in line {1}* — «كود الطابور {0} مكرر في السطر {1}» | Two rows in the **Queues** grid carry the same queue letter. The letter is the ticket prefix and has to be unique on the configuration. | Give the second queue a different letter, or delete the duplicate row. |
+| *Queue code {0} is not in queues grid* — «كود الطابور {0} ليس موجود في سطور الطوابير» | A row in the **Queue Providers** grid names a queue code that is not one of the letters defined in the Queues grid above it. | Correct the code on the provider row, or add that letter to the Queues grid first. |
+| *Service Provider {0} with queue code {1} is repeated in line {2}* — «مقدم الخدمة {0} للطابور {1} مكرر في السطر {2}» | The same user appears twice for the same queue code in the Queue Providers grid. One row per user per queue. | Delete the duplicate row. To let one advisor serve two queues, give them two rows with **different** letters. |
+| *User {0} do not have the capability {1} on Ticket Branch {2}* — «المستخدم {0} ليس لديه صلاحية {1} للفرع {2}» | Someone acted on a ticket from the branch screen without the matching column on their Queue Providers row — *Can Modify* to edit, *Can Manually Assign* to pull or assign, *Can Delete* to delete. | Tick the column this person needs on their provider row, or add a provider row for them on this branch's configuration. |
 
 ## Where to read next
 

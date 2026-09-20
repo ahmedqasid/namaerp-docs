@@ -125,3 +125,13 @@ status entry and the pass documents themselves are what you have.
   [job order being closed](/modules/servicecenter/job-cycle/servicecenter-job-order-closing.md), the
   gate pass is genuinely the last document in the
   [cycle](/modules/servicecenter/job-cycle/servicecenter-job-cycle-overview.md).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *From doc must be job order* — «بناءا على يجب ان تكون أمر شغل» | *From Document* is filled with something that is not a job order, while **Allow Gate Pass Without Job Order** is unticked on the term. | Point *From Document* at the job order the vehicle was worked on under. |
+| *The order {0} does not have a customer invoice* — «لا توجد فاتورة عميل لأمر الشغل {0}» | Some task or material line on the order carries a customer share, and the order's customer invoice is either missing or still a draft. Only a **committed** invoice counts. | Raise and commit the customer invoice for the order, or tick **Allow Gate Pass Without Customer Invoice** (السماح بعمل التصريح بدون فاتورة العميل) on the term if this workshop releases before invoicing. |
+| *The order {0} does not have an insurance invoice* — «لا توجد فاتورة تأمين لأمر الشغل {0}» | The same, for the insurance share and the insurance invoice. | Commit the insurance invoice, or tick **Allow Gate Pass Without Insurance Invoice** (السماح بعمل التصريح بدون فاتورة التأمين). |
+| *The order {0} does not have an warranty invoice* (the product's own wording; this message has no Arabic string, so it appears in English on Arabic screens too) | The same, for the warranty share and the warranty invoice. | Commit the warranty invoice, or tick **Allow Gate Pass Without Warranty Invoice** (السماح بعمل التصريح بدون فاتورة الضمان). |
+| *The invoice {0} is not fully paid, remaining is {1}* — «الفاتورة {0} ليست مدفوعة بالكامل. المتبقي {1}» | The invoice exists and is committed, but still has a remaining balance, and the matching *with remaining* option is unticked. The same message covers the customer, insurance and warranty invoices — read which one it names. | Collect the balance, or tick the matching **…Without Fully Paying The … Invoice** option on the term. |

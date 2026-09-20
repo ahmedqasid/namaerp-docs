@@ -68,7 +68,7 @@ previous committed version if it was already live. Nothing is left half-saved.
 Commit and processing are two different moments. A document can be perfectly committed and its
 ledger effect can fail minutes later, and the document still looks completely normal on screen. The
 place that knows is the Business Requests list view; the place that shouts about it is the
-critical-errors list at login — *There are {0} failed requests…*.
+critical-errors list at login — *There are {0} failed requests, please contact our support team and provide them the following message: SYSFRQS is {1}*.
 :::
 
 ## The status a document carries

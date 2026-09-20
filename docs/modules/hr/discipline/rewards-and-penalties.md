@@ -76,6 +76,14 @@ In practice the **Issue Method** decides which pattern is used:
 - **Issued Immediately** — the document is normally set up to post on its own, right away, independent of any salary run.
 - **Issued With Salary** — the far more common case — the document typically does *not* post on its own; instead its Final Value carries forward and is folded into the employee's next [Salary Document](../payroll/salary-documents.md), which is what actually posts the entry, through the same accounts configured on the Reward/Penalty type. The salary document's own **Rewards / Penalties** grid, and its **Current Month Penalties / Postponed From Previous Month / Postponed To Next Month** figures, are exactly this: the running tally of reward/penalty documents feeding into that period's pay.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You Must Choose (Reward/Penaltie) Type* — «يجب إختيار نوع المكافأة / الجزاء» | The catalog entry has neither **Power** (in-kind) nor **Cash** ticked, so nothing says what kind of value it carries. | Tick **Cash** for a monetary reward or penalty, **Power** for an in-kind one. |
+| *Debit accounts distribution type must be fixed value in reward and penalty {0}* — «طريقة توزيع الحسابات المدينة يجب أن تكون ثابت في نوع المكافأة / الجزاء {0}» | The document's term is set to **Issued Immediately** — the document posts on its own rather than waiting for the salary run — and in that mode the catalog entry's **Debit Accounts** distribution type has to be **Fixed**. | Set the type's debit distribution to **Fixed**, or change the term's issue method so the value is carried into the next salary document instead. |
+| *Credit accounts distribution type must be fixed value in reward and penalty {0}* — «طريقة توزيع الحسابات الدائنة يجب أن تكون ثابت في نوع المكافأة / الجزاء {0}» | The same rule on the **Credit Accounts** side. | As above, for the credit distribution type. |
+
 ## Related pages
 
 - **[Salary Documents](../payroll/salary-documents.md)** — where an "Issued With Salary" reward/penalty actually posts, alongside every other component of the pay run.

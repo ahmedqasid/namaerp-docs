@@ -130,7 +130,7 @@ A term line has five fixed phase slots, not a list. A phases group with more tha
 
 Both are about the relationship between what you sold and what you are subletting, and both are the reason the project term code is mandatory.
 
-**You cannot sublet more than you sold.** When the subcontract names a project contract, the save adds up the quantity of **each client-contract item across every subcontract on that client contract** and refuses if the total exceeds the quantity on the client contract itself — *"The total of contractor contracts for term … in the project contract … is …, while term quantity is …"*. Al-Fanar's contract carries 2,000 m² of blockwork; CC-0042 takes all of it, so a second blockwork subcontract on the same item would be refused until the client's contract is varied. A module configuration option lifts the check for organisations that would rather over-let and vary afterwards.
+**You cannot sublet more than you sold.** When the subcontract names a project contract, the save adds up the quantity of **each client-contract item across every subcontract on that client contract** and refuses if the total exceeds the quantity on the client contract itself — *The total of contractor contracts for term {0} - {1} in the project contract {2} is {3}, while term quantity is {4}*. Al-Fanar's contract carries 2,000 m² of blockwork; CC-0042 takes all of it, so a second blockwork subcontract on the same item would be refused until the client's contract is varied. A module configuration option lifts the check for organisations that would rather over-let and vary afterwards.
 
 **A confirmed assay cannot be reused.** If the subcontract is based on a [contracting assay](/modules/contracting/project-contracting/contracting-assays.md) whose status is confirmed, the save is refused unless the module configuration permits editing and more than one contract on the same assay.
 
@@ -139,7 +139,7 @@ Both are about the relationship between what you sold and what you are sublettin
 | Rule | Note |
 |---|---|
 | At least one term line | an empty contract cannot be saved |
-| Term codes must be unique | *"Can not insert a dublicated term"* |
+| Term codes must be unique | *Can not insert a dublicated term* |
 | Tax percentages must not exceed 100 | on lines and on the header |
 | A condition's term code must exist among the contract's term codes | and the same condition may not be repeated for the same term and phase |
 | The main contract is required when the contract type is *Addendum* | |

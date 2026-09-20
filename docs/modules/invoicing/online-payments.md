@@ -417,3 +417,13 @@ When payments fail, MyFatoorah provides specific error codes:
 | MF020 | Unspecified failure |
 
 These error codes help you and your customers understand why a payment failed and what corrective action to take.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You should configure field {0} or field {1} for handle success transaction* — «يجب عليك إدخال الحقل {0} او {1} لنجاح عملية الدفع» | The **Online Payment Config** has neither a **success entity flow** nor a **payment method** — on the header when there are no detail lines, or on a detail line that inherits neither from the header. | Fill one of the two on the header, or on each detail line; without them a successful payment has no follow-up action. |
+| *You can not leave more than 1 line  with no entity type lines are {0} and {1}* — «لا يمكنك ترك أكثر من سطر بدون تحديد النوع في السطر رقم {0} و {1}» | Two lines of the subsidiary-source grid both leave **entity type** empty; one blank line is the catch-all, two are ambiguous. The numbers are the two line numbers. | Give one of them an entity type, or delete it. |
+| *Payment links lines must be filled* — «لا يمكن ترك سطور روابط الدفع فارغة» | A **Payment Links Creation Document** is being saved with an empty links grid. | Fill the links lines (or run the button that fills them) before saving. |
+| *Subsidiary {0} has line in links lines but does not have detail line* — «الذمة {0} لها سطر في سطور روابط الدفع ولكن ليس لها سطر في التفاصيل» | A party appears in the links grid with no matching line in the document details, so there is no amount to build a link from. | Add the party to the details grid, or remove its links line. |
+| *You can not delete payment link lines which have payment link* — «لا يمكنك حذف سطور روابط الدفع التي لديها رابط دفع» | Lines that already carry a generated payment link are being removed from a saved document; the link is live with the provider. | Leave those lines in place. A link that must not be used is cancelled with the provider, not deleted here. |

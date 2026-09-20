@@ -117,6 +117,15 @@ commit the batch spawns one ordinary firing document per employee, each carrying
 dates and eventual settlement. You manage the batch, not the generated singles; the aggregated
 pattern is explained in [HR Requests, Documents & Aggregated Documents](../concepts/hr-requests-and-documents).
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The employee {0} has already fired by document {1}* — «الموظف {0} لديه بالفعل سند إنهاء خدمة {1}» | The employee's state is already *Dismissed*, *Resigned* or *Pension* and an earlier firing document exists for them, so this one would end the same employment twice. | Work on the document named in the message; to re-hire and release the person again, put them back on the payroll first. |
+| *End date must be greater than start date* — «تاريخ النهاية يجب أن يكون أكبر من تاريخ البداية» | The firing document's **Work Start Date** falls after its **Work End Date**, so the service span would be negative. | Correct the dates; the start date is the employee's own commencement date. |
+| *The employee {0} work start date is {1}, cannot be fired on same day* — «تاريخ بداية العمل للموظف {0} هو {1} , لا يمكن انهاء خدمة الموظف بنفس اليوم» | The termination's value date is the employee's first working day — there is no served day to settle. | Use the following day as the value date, or cancel the work-starting document if the employee never actually started. |
+| *To Year must be greater than From Year* — «إلي سنة يجب ان تكون اكبر من من سنة» | On a **Termination Reason**, a gratuity band's **To Year** is not above its **From Year**, so the service band covers nothing. | Set each band to run upwards, with each band starting where the previous one ended. |
+
 ## Related pages
 
 - [Dues Liquidation](./dues-liquidation) — the settlement generated from a termination.

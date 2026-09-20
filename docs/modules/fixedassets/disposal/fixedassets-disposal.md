@@ -300,6 +300,14 @@ changing the asset it points at. Doing so restores the previous asset completely
 cancellation would, before applying everything to the new one. That is the clean fix for the classic
 mistake of disposing of the wrong asset out of a pair of near-identical machines.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The grid {0} can not filled because you did not select the option {1} in fixed assets module configuration* — «الجدول {0} لا يمكن ملئه بسبب عدم اختيار أوبشن {1} في إعدادات الأصول الثابتة» | The created-assets grid has rows while the matching option in the Fixed Assets module configuration is switched off. | Clear the grid, or switch the option on in the module configuration and save it before committing. |
+| *Cannot Dispose Asset because the status is Initial* — «لا يمكن عمل التخلص للاصل الثابت لان الحالة ابتدائية» | The asset is still **Initial** — it has no cost, so there is nothing to dispose of. | If the asset was never meant to exist, delete the record. If it was bought, capitalise it first. |
+| *Can not dispose asset {0} because its status is disposed* — «لا يمكن عمل تخلص للأصل {0} لأن حالته تم التخلص منه» | The asset was already disposed of by an earlier document. | Reverse that earlier disposal if it was a mistake; do not raise a second one. |
+
 ## Where to go next
 
 - Only some of a countable asset is leaving — three desks out of ten — on the

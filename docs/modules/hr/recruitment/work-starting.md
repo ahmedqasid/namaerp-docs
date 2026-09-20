@@ -71,6 +71,14 @@ Some employees don't return from vacation just once a year — think of rotation
 
 As with any [aggregated document](../concepts/hr-requests-and-documents.md), the individual Work Starting Documents underneath are system-managed — add, remove, and edit the lines on the batch rather than the singles it produces.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You can not modify or remove this document because it is generated from {0}* — «لا يمكنك تعديل او حذف هذ المستند لانه منشأ من {0}» | This work-starting document was spawned by the aggregated document named in the message, which owns it — the same rule applies to deleting it. | Make the change on the aggregated document; the generated singles follow it. |
+| *You should choose candidate OR Employee To Start work* — «يجب إختيار متقدم للعمل / موظف لبدء العمل» | Neither **Candidate** nor **Employee** is filled, so the document does not say who is starting work. | Fill one of the two: a candidate for a new hire, an employee for someone already on the master file. |
+| *You must create a job offer for the employee {0} before creating a work starting document because the employee state is {1}* — «يجب عليك إنشاء عرض وظيفى للموظف {0} قبل إنشاء سند مباشرة عمل له لأن حالة الموظف {1}» | The employee's last recorded state change left them *Resigned*, *Dismissed* or *On Pension*, so re-starting them needs the terms of the new engagement on record first. | Raise a job offer for the return — ticking **Re Recruit** on it — and then write the work-starting document. |
+
 ## Related pages
 
 - **[HR Requests, Documents & Aggregated Documents](../concepts/hr-requests-and-documents.md)** — the request/document/aggregated pattern this whole area follows.

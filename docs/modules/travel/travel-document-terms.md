@@ -199,7 +199,8 @@ dropped for having no service. Pick something meaningful and generic, such as a 
 
 ::: tip Fill the tour term before the first tour
 Three things have to be in place before the button will produce anything. The tour needs a term at
-all — without one the button refuses to run and says so. The pairs for the kinds of order you want
+all — without one the button refuses to run with
+*"TRTour {0} must have term"* — «مستند الرحلة السياحية {0} يجب ان يحتوي على توجيه». The pairs for the kinds of order you want
 must be filled. And Hotel Service and Flight Service must be set if you want accommodation and
 flight orders. Since the generated orders are created and committed straight away, the purchase
 order terms you name here also need their own accounts configured, or the orders will process

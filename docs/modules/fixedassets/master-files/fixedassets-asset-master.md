@@ -191,9 +191,9 @@ Two lists: the **maintenance records** carried out on this asset, and the **main
 Four checks run when you commit an asset, and they are worth knowing because the messages are terse.
 
 1. **A depreciable asset needs its three accounts.** No asset account, depreciation account or accumulative depreciation account, no save. Tick Undepreciable and the requirement disappears.
-2. **A component may not be repeated.** The same combination of component type and maintenance type cannot appear twice in the components grid — *"Fixed asset component type … is repeated"*.
+2. **A component may not be repeated.** The same combination of component type and maintenance type cannot appear twice in the components grid — *"Fixed asset component type {0} is repeated"*.
 3. **The classification chain must hold together.** If you fill both a classification and the level above it, the upper one must genuinely be the parent of the lower one.
-4. **The depreciation method is locked once the asset has moved.** As soon as a single transaction exists against the asset, the method can no longer be changed — *"Cannot change depreciation method … because it used in fixed asset transactions entries by document …"*. Deciding between straight line and revaluation is therefore a decision to take before the asset is put into service.
+4. **The depreciation method is locked once the asset has moved.** As soon as a single transaction exists against the asset, the method can no longer be changed — *"Cannot change depreciation method from {0} to {1} for asset {2} because it used in fixed asset transactions entries by document {3}"*. Deciding between straight line and revaluation is therefore a decision to take before the asset is put into service.
 
 Beyond commit time, the module also protects the asset's history: a document cannot be deleted or re-dated in a way that would jump it over a later transaction on the same asset. If a correction is refused with a message naming another document, that other document is the one standing in the way.
 
@@ -206,3 +206,13 @@ Put together, an experienced user reads `MCH-0007` in three glances:
 3. **The Asset Transactions list** — how it got that way, and which document to open next.
 
 Everything else on the module's menu is a way of writing rows into that third list.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Cannot change depreciation method from {0} to {1} for asset {2} because it used in fixed asset transactions entries by document {3}* — «لا يمكن تغيير طريقة الإهلاك من {0} إلى {1} للأصل {2} لأنه مستخدم في حركات الأصول الثابتة بواسطة المستند {3}» | The asset already carries at least one transaction and the depreciation method on the record was changed. The message names the document that wrote that transaction. | Put the method back, or reverse the named document first. Straight line versus revaluation is a decision to take before the asset enters service. |
+| *Fixed asset component type {0} is repeated* — «نوع مكون الأصل {0} مكرر» | The same combination of component type and maintenance type appears twice in the **Asset Components** grid. | Delete the duplicate line; a combination may appear only once. |
+| *Parent of fixed asset classification {0} must be equal to the fixed asset classification {1}* — «تنصيف أصل ثابت الأعلى ل {0} يجب أن يساوي تصنيف أصل ثابت {1}» | A classification level and the level above it are both filled, but the upper one is not the parent of the lower one in the classification tree. | Pick the classification whose parent really is the one on the level above, or clear the upper level and let it fill itself. |
+| *Fixed asset type of fixed asset classification {0} is not consistent with fixed asset type of {1}* — «نوع أصل ثابت لتنصيف أصل ثابت {0} غير متناسق مع نوع أصل ثابت للتصنيف {1}» | A classification level and the level above it belong to different fixed asset types. | Correct the classification tree, or choose classifications that all sit under one fixed asset type. |
+| *Fixed asset type of fixed asset classification {0} is not consistent with fixed asset type {1}* — «نوع أصل ثابت لتصنيف أصل ثابت {0} غير متناسق مع نوع أصل ثابت {1}» | A classification on the asset belongs to a fixed asset type other than the asset's own **Fixed Asset Type**. | Change the classification, or change the asset type so the two agree. |

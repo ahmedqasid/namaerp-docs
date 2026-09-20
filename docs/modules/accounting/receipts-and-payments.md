@@ -78,3 +78,11 @@ The three stages of the chain each carry their own buttons, and knowing them is 
 - **"The wrong cash/party account in the entry"** — the accounts' source is the **document term**; review the receipt/payment voucher term in the [Document terms](./support/accounting-document-terms.md) reference.
 - **"Tax/fees fields don't appear"** — their switches are in the [Accounting configuration](./support/accounting-configuration.md) catalog.
 - How a voucher turns into an effect and how to reprocess a stuck voucher are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The paper either in the header or lines not in both* — «يسمح بالايصال بالتواجد إما في رأس المستند وإما في سطوره» | A receipt paper is filled in the voucher header **and** on a detail line; the voucher takes one or the other. | Clear the paper from the header, or from the lines. |
+| *Amount can not be less than {0}* — «القيمة لا يمكن ان تقل عن {0}» | The value on a **Receipt/Payment Request** is being lowered below the total of the vouchers already issued against it — the figure in the message is that voucher total. | Raise the request value back, or delete/reduce the vouchers first. |
+| *Payment request {0} remaining {1} can not be negative* — «طلب الصرف {0}، المتبقي {1} لايمكن ان يكون رقم سالب» | The voucher (or consolidated request) allocates more against a payment request than the request still has remaining. | Reduce the amount on the voucher line, or raise the request value. |

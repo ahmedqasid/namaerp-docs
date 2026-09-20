@@ -147,3 +147,14 @@ This is also the only route to the **Report** format — the dialog's own type l
 ::: info Where the definitions live
 A Files Export / Import Menu is an ordinary master file: it has a code, names, a group and dimensions, and it obeys the usual permissions. Give the accountant read access to the menu and the export permission on the entity, and they can run the monthly extract without being able to design a new one.
 :::
+
+## Messages you may see
+
+All four are refused when you save a menu with **Export Company Logo** ticked; none of them can appear while that box is clear.
+
+| Message | Why | What to do |
+|---|---|---|
+| *Logo column start can't be negative value* — «لا يمكن ان يكون بداية عامود الشعار قيمة سالبة» | The logo's starting column is a negative number. Spreadsheet cells start at one. | Enter a positive column number, or leave the field empty. |
+| *Logo row start can't be negative value* — «لا يمكن ان يكون بداية سطر الشعار قيمة سالبة» | The logo's starting row is a negative number. | Enter a positive row number, or leave the field empty. |
+| *Logo column end {0} must be greater than logo column start {1}* — «يجب ان يكون نهاية عمود الشعار {0} أكبر من بداية عمود الشعار {1}» | An end column was given that is not past the start column. Equal counts as not greater, so a one-column-wide logo has to be expressed by leaving the end empty. | Raise the end column, or clear it and let the logo size itself. |
+| *Logo row end {0} must be greater than logo row start {1}* — «يجب ان يكون نهاية سطر الشعار {0} أكبر من بداية سطر الشعار {1}» | An end row was given that is not past the start row. | Raise the end row, or clear it — left empty, the logo is given three rows. |

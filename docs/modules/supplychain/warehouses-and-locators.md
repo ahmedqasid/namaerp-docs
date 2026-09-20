@@ -168,6 +168,21 @@ Imagine a typical distribution center:
 
 This spatial structure is the foundation on which all the stock movements we'll cover in the next sections operate.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Locators can not be modified because there is a transaction on warehouse* — «هناك حركة علي المخزن , لايمكن تغيير سياسة استعمال الموقع» | The warehouse's **Locator Policy** is being changed while movements already exist that contradict the new policy — stock sitting without a locator when the policy becomes *required*, or stock sitting in locators when it becomes *prevented*. | Leave the policy as it is on a warehouse that has history, or have **Allow Update Locator Of Warehouse In Trans** switched on in supply chain configuration if the change is deliberate. |
+| *You can not change the legal entity from {0} to {1} because there are {2} quantity transactions.* — «لا يمكن تغيير الشركه من {0} إلى  {1} لوجود  {2} حركات مخزنية» | The warehouse is being moved to another company after stock has already moved through it. The message counts the movements. | Create a warehouse under the other company and transfer the stock to it, or have **Allow Changing Warehouse Legal Entity** switched on. |
+| *You can not change the legal entity from {0} to {1} because there are {2} reservation transactions.* — «لا يمكن تغيير الشركه من {0} إلى  {1} لوجود  {2} حركات حجز» | The same block, raised by reservation movements rather than quantity movements — so it can appear on a warehouse that looks empty. | Cancel or move the reservations first, or have that same configuration option switched on. |
+| *Reservation warehouse {0} in reservation locator {1} must equal to reservation warehouse {2}* — «مخزن الحجز {0} فى موقع الحجز {1} يجب ان يساوي مخزن الحجز {2}» | The warehouse names both a **Reservation Warehouse** and a **Reservation Locator**, and that locator belongs to a third warehouse. | Pick a locator that belongs to the reservation warehouse you named. |
+| *Reservation warehouse {0} in reservation locator {1} must equal to current warehouse {2}* — «مخزن الحجز {0} فى موقع الحجز {1} يجب ان يساوي المخزن الحالي {2}» | A **Reservation Locator** was named without a reservation warehouse, so reservations stay in this warehouse — but the locator belongs to another one. | Use a locator of this warehouse, or name the reservation warehouse the locator really belongs to. |
+| *Warehouse {0} is prevented from being used on this date {1} for user {2}* — «المخزن {0} ممنوع إستخدامة في تاريخ {1} للمستخدم {2}» | A **Warehouse Usage Policy** line blocks this warehouse for this document type, this date and this user. It is raised for the header warehouse and, separately, for a warehouse typed on a line. | Use a warehouse the policy allows, change the document date, or have the policy amended. The message names the user, which is what tells you the block is user-specific. |
+| *The locator {0} does not belong to warehouse {1}* — «الموقع {0} لا ينتمي إلى المخزن {1}» | A **Prevent Using Batch** line names a warehouse and a locator that sits in a different warehouse. | Either clear the warehouse and let the locator speak for itself, or use a locator of the warehouse you named. |
+| *You must activate validate item warehouse relation in the SupplyChain Configurations* — «لا بد اولاً من تفعيل خيار ربط الاصناف بالمخزن فى إعدادات المخازن» | An **Item Warehouse Relation** record is being saved while the switch that makes those records mean anything is still off. | Switch **Activate Item Warehouse Relation** on in supply chain configuration, then save the record. |
+| *You must fill one of the following fields: {0}, {1} at line {2}* — «يجب ملء حقل واحد من الحقول الأتية:{0}, {1} في السطر {2}» | An item-warehouse link line names neither a warehouse nor a warehouse group, so there is nothing for the item to be linked to. | Fill one of the two on that line. |
+| *You must fill only one of the following fields: {0}, {1} at line {2}* — «يجب ملء حقل واحد فقط من الحقول الأتية:{0}, {1} في السطر {2}» | The same line names both a warehouse and a warehouse group. One link per line. | Clear one of the two, and add a second line if you meant both. |
+
 ## Next Steps
 
 - [Receiving Stock](./receiving-stock.md) - bringing items into these warehouses

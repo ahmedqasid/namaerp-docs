@@ -197,3 +197,13 @@ Once the credit is closed and the presses are running, the letter of credit rema
 how the two figures were arrived at: which invoices, from which parties, spread by which rule. That
 is usually the first thing an auditor asks for, and it is the reason the chain is four documents long
 rather than one.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Fixed asset {0} already exists in {1}* — «الأصل {0} موجدود بالفعل فى {1}» | The asset on the line already carries a transaction entry written by another document — it was capitalised somewhere else. | Take the line off, or reverse the document the message names. A machine cannot be capitalised twice. |
+| *Fixed asset not compatible with its type* | A line's **Fixed Asset Type** is filled and disagrees with the type on the asset record itself. | Correct the line's type, or leave it empty and let the asset's own type stand. This message has no Arabic text in the product, so it appears in English on Arabic screens too. |
+| *Fixed Asset types in cost and expense documents are not consistent* — «هناك اختلاف بين انواع الاصول في سند التكليف وسندات المصروفات» | The number of distinct asset types on the cost lines is not the same as the number of asset types the committed expense documents distributed onto. | Compare the two grids. Every type that was charged an expense has to appear on a cost line, and no extra type may be added. |
+| *The fixed asset type  has expenses but not mentioned in this document* — «نوع الأصل عليه مصروفات غير مذكوره في سند المصروفات» | An asset type received distributed expenses but appears on none of the cost lines. | Add a cost line for that type. Note that the message does not print the type name, so read it off the expense documents. |
+| *Cannot delete because there are transactions by the document {0}* — «لا يمكن الحذف لوجود حركات بواسطة المستند {0}» | You tried to delete the cost document while one of its assets carries an entry written by a later document. | Reverse the later document first; it is the one holding the asset. |

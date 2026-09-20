@@ -98,7 +98,7 @@ Add a rounding approximation of 100 rounding down, and it gets tidier again: sev
 exact total for the ledger.
 
 ::: tip When the totals do not match
-"Payments total is not equal to remaining" means the schedule and the contract disagree. It almost
+*Payments total {0} is not equal to remaining {1}* means the schedule and the contract disagree. It almost
 always happens because someone edited a student line — changed a price, added a student, applied a
 discount — **after** the schedule was generated. Regenerate the schedule, or adjust a line by hand,
 so the instalments add back up to what is left to pay.

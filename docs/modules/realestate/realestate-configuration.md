@@ -65,7 +65,7 @@ The last option in the group — the one about not calculating the unit price fr
 
 A sales contract normally validates that the installments add up to the amount still owed. Take Flat 12 at **900,000** with **no down payment**, split into **7 equal installments**. 900,000 ÷ 7 is 128,571.4285…, which the system rounds to **128,571.43** — and 7 × 128,571.43 is **900,000.01**. The installments now exceed the net by one piastre, and an exact check would reject a perfectly good contract.
 
-This field is that check's tolerance, and it ships set to **0.05**, so the one-piastre gap passes silently. Raise it if your rounding rules are coarser; set it to **0** and the check becomes exact, and the contract above fails with a "total installments not equal remaining value" message until somebody adjusts a line to 128,571.42.
+This field is that check's tolerance, and it ships set to **0.05**, so the one-piastre gap passes silently. Raise it if your rounding rules are coarser; set it to **0** and the check becomes exact, and the contract above fails with a *"Total installments {0} Not Equal remaining value {1}"* message until somebody adjusts a line to 128,571.42.
 
 ::: tip The check itself can be switched off per term
 The tolerance only matters while the validation is running. Whether it runs at all is a term option on the sales family — see [Sales Document Terms](/modules/realestate/document-terms/realestate-terms-sales.md). The tolerance here is the module-wide sensitivity dial; the term is the on/off switch.

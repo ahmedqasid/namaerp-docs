@@ -84,7 +84,7 @@ The *Not Assigned Tickets* list carries five actions in its More menu, and there
 | **Delete Day Ticket** | حذف تذكرة | Removes a waiting ticket. |
 | **Delete Assigned Ticket Till Date** | حذف التذاكر التي تمت تنفيذها حتي تاريخ | The housekeeping action, on its own button: clears out served tickets up to a date you give. |
 
-**Every one of these is checked against the configuration's Queue Providers grid.** The current user must have a provider row on this branch's configuration carrying the matching permission — *Can Modify* for editing, *Can Manually Assign* for either kind of assignment, *Can Delete* for deleting — or the action is refused with *"User … do not have the capability … on Ticket Branch …"*. When a supervisor reports that a button "does nothing", that grid is where you look first.
+**Every one of these is checked against the configuration's Queue Providers grid.** The current user must have a provider row on this branch's configuration carrying the matching permission — *Can Modify* for editing, *Can Manually Assign* for either kind of assignment, *Can Delete* for deleting — or the action is refused with *User {0} do not have the capability {1} on Ticket Branch {2}*. When a supervisor reports that a button "does nothing", that grid is where you look first.
 
 ::: tip Assigning by hand closes what the advisor already had
 Pushing or pulling a ticket to a provider behaves exactly like the advisor pressing *next* on their own station: whatever they still had open is stamped finished at that moment. One advisor is never serving two customers at once.

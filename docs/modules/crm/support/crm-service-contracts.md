@@ -130,7 +130,7 @@ The status document itself is this small:
 
 ## Freezing a contract
 
-The **تجميد عقد / Freezing Contract** tab handles a suspension of service: a product, a freeze start date and a freeze end date. It is one of the better-behaved parts of the screen — it refuses a product that is not on the contract (*"You can not freeze product {0} because it does not exist in contract"*), and it adds up the frozen days per product and pushes that line's calculated **إلى / To** column out by the same number of days.
+The **تجميد عقد / Freezing Contract** tab handles a suspension of service: a product, a freeze start date and a freeze end date. It is one of the better-behaved parts of the screen — it refuses a product that is not on the contract (*"You can not freeze product {0} because it does not exist in contract"* — a message with no Arabic translation, so Arabic screens show the English), and it adds up the frozen days per product and pushes that line's calculated **إلى / To** column out by the same number of days.
 
 On `CSC-0044`, the hotel closes a wing from 1 to 31 July 2026, so line 2's *To* moves from 1 March 2027 to **1 April 2027**.
 

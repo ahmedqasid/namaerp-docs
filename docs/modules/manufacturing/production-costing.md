@@ -500,3 +500,12 @@ Once an order is closed its costs are locked, and reopening it is not straightfo
 ::: tip Regulated industries may not have a choice
 In pharmaceuticals, food or medical devices, batch-level costing is often a traceability and compliance requirement rather than a management preference. Check what your regulator expects before deciding it is optional.
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The overhead type in line {0} must not be empty* — «التكلفة الغير مباشرة فى السطر {0} لا يجب انت تكون فارغة» | The **Actual Overhead Calculator** is set to determine the overhead type on each line, and one line leaves it empty. | Name the overhead type on that line, or switch the header option off and let the header decide it. |
+| *The overhead name {0} does not exist in the overhead type {1}* — «الاسم {0} غير موجود في التكلفة الغير مباشرة {1}» | The name typed on the line is not one of the names defined inside the overhead type it points at. | Use a name the overhead type defines, or add it there first. |
+| *You must choose account or accounts chart not both* — «يجب اختيار حساب او شجرة حسابات وليس الاثنان معا» | A line names both a single account and an accounts chart. The calculator reads the actual cost from one or the other. | Clear one of the two — the chart when you want one account, the account when you want a whole branch of the tree. |
+| *To calculate the Overhead Value for {0} only query or criteria allowed not both* — «أو الاستعلام لحساب قيمه التكاليف الغير مباشره ل {0} يمكن استخدام المعايير» | The line carries a **Query** and also narrows the figure by account, subsidiary, entity dimension or dimensions. Those are the two alternative ways of finding the value, and only one may be used. | Either keep the query and clear the selection fields, or drop the query and let the account and dimensions do the filtering. |

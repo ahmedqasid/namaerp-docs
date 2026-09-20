@@ -169,6 +169,21 @@ A: Two options: (1) receive all 100, then immediately issue 5 to a defective loc
 
 A: If you saved as a draft, correct the cost before final save. If the document was saved permanently, you can create a [cost revaluation](./inventory-costing.md) document, cancel and re-receive, or accept it and let subsequent receipts average out the cost.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *{0} can have more than one shipment, So cost source field must have the shipment instead* — «{0} يمكن أن يحتوي على أكثر من شحنة ولذلك حقل مصدر التكلفة يجب أن يحتوي على الشحنة بدلاً من الإعتماد المستندي» | The receipt takes its cost from a letter of credit that is marked as carrying more than one shipment, so the credit as a whole cannot say what this delivery cost. | Point **Cost Source** at the particular shipment of that credit rather than at the credit itself. |
+| *Must make Quality Control Doc For This Item* — «لابد من عمل مستند تحكم جودة لهذا الصنف» | The receipt was generated from an **Initial Receipt**, the item on the flagged line carries a quality check list, and no quality control document has been recorded against that initial receipt for it yet. | Record the quality control document for that item against the initial receipt first, then save the receipt. |
+| *Quantity of Item {0} not sufficient* — «كمية الصنف {0} غير كافية» | A receipt standing behind a **sales return** is bringing back more of the item than the original sales issue still has unreturned — earlier returns have already consumed part of it. | Check how much of that invoice line was already returned, and receive no more than the remainder. |
+| *The document {0} supplier is {1}, while the invoice supplier is {2}* — «المورد بالمستند {0} هو {1} بينما المورد بالفاتورة هو {2}» | The receipt names a supplier, and the purchase invoice it was generated from names a different one. | Make the two agree, or clear the supplier on the receipt and let the invoice decide it. |
+| *The document {0} customer is {1}, while the invoice customer is {2}* — «العميل بالمستند {0} هو {1} بينما العميل بالفاتورة هو {2}» | The receipt names a customer, and the sales return it was generated from names a different one. | Make the two agree, or clear the customer on the receipt. |
+| *Quantity must equals the sum of {0} and {1}* — «الكمية يجب أن تساوى مجموع {0} و {1}» | On a **Receipt Inspection** line the accepted and rejected quantities do not add up to the line quantity. The message names the two fields, so it tells you whether it is the main unit or the second unit that is out. | Split the whole line quantity between accepted and rejected, in the unit the message names. |
+| *Uom in line {0} is not the same as in receipt stock* — «الوحدة في السطر رقم {0} لاتطابق الوحدة في سند التوريد المخزني» | A **Stock Receipt Cancellation** line is measured in a different unit from the receipt line it cancels. | Use the same unit as the original receipt line; cancellation does not convert between units. |
+| *Quantity {0} is greater than available cancelled quantity {1} in line number {2}* — «الكمية {0} لايمكن أن تكون أكبر من الكمية المتاحة {1} في السطر رقم {2}» | The cancellation asks for more than what is left of the receipt line after earlier cancellations. The message gives both numbers. | Cancel the remaining quantity the message names, or less. |
+| *Item {0} in line number {1} is not found in stock receipt {2}* — «الصنف {0} في السطر رقم {1} غير موجود في التوريد المخزني {2}» | A cancellation line does not correspond to any line of the receipt it points at — usually because the receipt was edited after the cancellation was built. | Regenerate the cancellation from the receipt so the lines are linked again. |
+| *Period must not be Normal* — «لا يمكن إنشاء المستند في فترة عادية» | An **Opening Stock Document** falls in an ordinary fiscal period, and its term does not allow that — opening balances are expected in an opening period. | Move the document into the opening period, or switch **Allow Normal Periods** on in its term. |
+
 ## Next Steps
 
 Now that you understand how items enter your inventory, learn about:

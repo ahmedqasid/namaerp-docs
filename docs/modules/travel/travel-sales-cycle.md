@@ -244,3 +244,14 @@ bought. So the rhythm in an agency is: build the tour to run the trip, and raise
 and the sales invoice to charge for it, choosing the tour services that describe what the client is
 paying for. The two halves are worked side by side by the same team, and the sales invoice is the
 only place the client's money appears.
+
+## Messages you may see
+
+All four belong to the **Travel Service Sales Return** — they are the checks described above, in the words the screen uses.
+
+| Message | Why | What to do |
+|---|---|---|
+| *Could not find line with the service {0} and unit price {1} in invoice {2}* — «لا يمكن إيجاد سطر مع الخدمة {0} وسعر الوحدة {1} في الفاتورة» | A return line's tour service **and** unit price together match no line on the source invoice — usually because the unit price was edited on the return. | Put the invoice's own unit price back on the line, or return the service the invoice actually sold. |
+| *The total returned quantity {0} of the tour service {1} can not be greater thant the total quantity {2} of the tour service in the invoice* — «لا يمكن ان يكون اجمالي الكمية المرتجعة {0} من الخدمة السياحية {1} أكبر من الكمية {2} الموجودة فى الفاتورة» | The quantity on this return, **plus** everything already returned on earlier returns from the same invoice, exceeds what the invoice sold. | Check the earlier returns against that invoice before reducing the quantity here. |
+| *Unit price {0} of tour service {1} must be less than or equal to unit price {2} in invoice {3}* — «سعر الوحدة {0} للخدمة السياحية {1} يجب أن تكون أقل من او تساوي سعر الوحدة {2} فى الفاتورة» | The line refunds more per unit than the invoice charged. | Lower the unit price to the invoiced one; a return may never give back more than was taken. |
+| *Discount{0} percentage {1} for tour service {2} is greater thant discount{0} percentage {3} in the invoice* — «نسبة الخصم{0} وقيمته {1} للخدمة السياحية {2} فى السطر {3} أكبر من نسبة الخصم{0} و قيمته {4} فى الفاتورة» | One of the eight discount levels on the return line carries a higher percentage than the same level on the invoice line; `{0}` is the discount number. | Copy the invoice's percentage for that discount level, or clear it. |

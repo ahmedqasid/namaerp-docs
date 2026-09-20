@@ -108,6 +108,19 @@ Time Attendance and Electronic Attendance have no ledger effect of their own —
 3. **Handle a forgotten punch**: use **Convert To Leave Permission** on the flagged Electronic Attendance record rather than leaving it incomplete.
 4. **Let the salary engine read the result**: once the period's attendance is complete, performance indicators pick up the daily figures and feed the relevant salary formulas.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Check out date {0} can not be before check in date {1}* — «تاريخ الخروج {0} لا يمكن ان يكون قبل تاريخ الدخول {1}» | On an Electronic Attendance record the check-out timestamp is earlier than the check-in timestamp. The values shown in the message are not the two timestamps, so read the record's own **Check In At** / **Check Out At** fields. | Correct whichever timestamp is wrong; a night shift that ends after midnight still needs the later date on the check-out side. |
+| *Total hours {0} for document {1} exceeded the maximum allowed hours {2}* — «إجمالي الساعات {0} للمستند {1} تجاوز الحد الأقصى المسموح به وهو {2}» | The computed **Attendance Total Time** is longer than the hours allowed before a check-out is blocked (24 hours unless the shift or HR Configuration sets a different ceiling) — usually a check-out that was never made on the day it belonged to. | Fix the check-out time, or handle the missing punch through **Convert To Leave Permission** instead. |
+| *There are opened attendance must be closed first* — «يوجد سندات حضور مفتوحة يجب غلقها أولا» | The employee already has a committed Electronic Attendance record with a check-in and no check-out inside the allowed window, so a second open punch would leave two unfinished pairs. | Close the earlier record — check out on it, or flag it **Forgot Check Out** and convert it to a leave permission — then punch again. |
+| *Could not find allowed zone to check in* — «لا يمكن إيجاد مناصق مسموح تسجيل دخول بها» | Attendance zones are switched on, but the check-in did not fall inside any defined **Electronic Attendance Zone**, so no zone could be attached to it. | Define a zone for that site, or widen an existing zone's **Max Distance Away**. |
+| *Could not find allowed zone to check out* — «لا يمكن إيجاد مناصق مسموح تسجيل خروج بها» | The same for the check-out half of the pair. | As above, for the location the employee checked out from. |
+| *You cannot check in from your current location. The distance between your location and the nearest zone ({0}) is {1}* — «لا يمكنك تسجيل دخول من الموقع الحالي, المسافة بين موقعك وأقرب منطقة ({0}) هي {1}» | The punch was flagged out of zone and the mobile-app configuration's **Prevent Save If Attendance Out Of Zone** is on. The message names the nearest zone and how far away the employee was. | Punch from inside the zone, or raise that zone's tolerance if the site is genuinely bigger than the geofence. |
+| *You cannot check out from your current location. The distance between your location and the nearest zone ({0}) is {1}* — «لا يمكنك تسجيل خروج من الموقع الحالي, المسافة بين موقعك وأقرب منطقة ({0}) هي {1}» | The same rule applied to the check-out. | As above. |
+| *Check in zone {0} is not the same as check out zone {1}* | The configuration requires a completed pair to check out in the same zone it checked in from, and the two zones differ. This message has no Arabic string, so it stays in English on Arabic screens. | If moving between sites during a shift is normal, switch that configuration option off; otherwise close the punch at the site it started from. |
+
 ## Related pages
 
 - **[Attendance Plans & Shifts](attendance-plans-and-shifts.md)** — the expected schedule that punches are measured against.

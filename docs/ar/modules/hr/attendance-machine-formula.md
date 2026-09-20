@@ -145,8 +145,8 @@ AA=#date{dd-MM-yyyy}#intime{HH:mm:ss}#outtime{HH:mm:ss}#Checkin2#Checkout2#Check
 **مطلوب عملياً.** هذا هو كود الموظف **على الماكينة**، والذي تطابقه نما مع حقل **كود آلة الحضور والإنصراف** (Attendance Machine Code) في بطاقة الموظف.
 
 - السطر الذي يكون عمود الموظف فيه فارغاً يُتجاهل بصمت.
-- إذا لم يحمل أي موظف كود الماكينة ذاك، يتوقف الاستيراد برسالة *"Could not find employee with attendance machine code …"* — إلا إذا كان خيار **تجاهل الموظفين غير الموجودين** (Ignore Unfound Employees) مُفعَّلاً في الاستيراد، وعندها يُتجاهل السطر بهدوء.
-- إذا اشترك **موظفان** في نفس كود الماكينة، يتوقف الاستيراد ويسرد كل موظف مخالف: *"The employee … has a repeated attendance code …, please change it"*.
+- إذا لم يحمل أي موظف كود الماكينة ذاك، يتوقف الاستيراد برسالة *Could not find employee with attendance machine code {0}* — إلا إذا كان خيار **تجاهل الموظفين غير الموجودين** (Ignore Unfound Employees) مُفعَّلاً في الاستيراد، وعندها يُتجاهل السطر بهدوء.
+- إذا اشترك **موظفان** في نفس كود الماكينة، يتوقف الاستيراد ويسرد كل موظف مخالف: *"The employee {0} has a repeated attendance code {1}, please change it"*.
 - عند تفعيل **اعتبار الشركة عند البحث عن الموظف** (Consider Legal Entity To Find Employee) في إعدادات الموارد البشرية، يُقيَّد البحث إضافةً إلى ذلك بشركة المستند، وهو ما يتيح لشركتين إعادة استخدام نفس أكواد الماكينة.
 
 ### التواريخ والأوقات
@@ -361,15 +361,17 @@ AA=#empid#date{dd-MM-yyyy}#time{hh:mm}#alternatingWithAttendancePlanPunch{2}#res
 
 ## عندما يحدث خطأ ما (When something goes wrong)
 
+ليس لأي من الرسائل التالية نص عربي، فهي تظهر بالإنجليزية على الشاشات العربية أيضًا.
+
 | الرسالة | ما تعنيه |
 |---|---|
 | *You must specify formula name* | لم تُختَر أي ماكينة في حقل **ماكينة الحضور** في المستند. |
-| *Could not find parameter …* | المعادلة تشير إلى شيء لم تُعرِّفه أبداً — وغالباً تاريخ انصراف مفقود من معادلة حضور/انصراف. |
-| *Could not find employee with attendance machine code …* | لا يوجد موظف يحمل هذا الكود. صحّح بطاقة الموظف، أو فعّل **تجاهل الموظفين غير الموجودين** لتخطي هذه السطور. |
-| *The employee … has a repeated attendance code …, please change it* | موظفان أو أكثر يشتركون في كود ماكينة واحد؛ ويجب أن تكون الأكواد فريدة. |
-| *There is Error in Parsing line …* | تعذّرت قراءة سطر — وعادةً بسبب تاريخ أو وقت لا يطابق نمطه. والرقم يعدّ سطور البيانات بعد أي تخطٍّ بواسطة `#ignoreLinesFromTop`، لذا لن يطابق رقم السطر الفعلي في الملف. |
-| *The pattern … does not contain right hand side* | إحدى إسنادات `#copylines` تنقصها علامة `=`. |
-| *The pattern … left hand side … is not found in the formula* | إحدى إسنادات `#copylines` تسمّي عموداً لم تُصرِّح به المعادلة أبداً. |
+| *Could not find parameter {0}* | المعادلة تشير إلى شيء لم تُعرِّفه أبداً — وغالباً تاريخ انصراف مفقود من معادلة حضور/انصراف. |
+| *Could not find employee with attendance machine code {0}* | لا يوجد موظف يحمل هذا الكود. صحّح بطاقة الموظف، أو فعّل **تجاهل الموظفين غير الموجودين** لتخطي هذه السطور. |
+| *The employee {0} has a repeated attendance code {1}, please change it* | موظفان أو أكثر يشتركون في كود ماكينة واحد؛ ويجب أن تكون الأكواد فريدة. |
+| *There is Error in Parsing line {0}* | تعذّرت قراءة سطر — وعادةً بسبب تاريخ أو وقت لا يطابق نمطه. والرقم يعدّ سطور البيانات بعد أي تخطٍّ بواسطة `#ignoreLinesFromTop`، لذا لن يطابق رقم السطر الفعلي في الملف. |
+| *The pattern {0} does not contain right hand side* | إحدى إسنادات `#copylines` تنقصها علامة `=`. |
+| *The pattern {0} left hand side {1} is not found in the formula* | إحدى إسنادات `#copylines` تسمّي عموداً لم تُصرِّح به المعادلة أبداً. |
 
 وإذا نجح استيراد الملف لكن جاءت النتيجة خاطئة بدلاً من أن يفشل، فالسبب في الغالب أحد ثلاثة أمور: رمز كُتب خطأً وتحوّل بصمت إلى شاغل موضع، أو نمط مطابقة خاطئ، أو نمط تاريخ يستخدم حرف `m` الصغير للشهر.
 

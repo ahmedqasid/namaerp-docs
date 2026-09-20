@@ -118,3 +118,12 @@ Almost nothing in the loan system is typed line by line — the schedules are ge
 - **"The late fine isn't computed"** — make sure the **allowed late days** and **late fine percent** are set on the loan.
 - **"The loan doesn't draw down the facility limit"** — make sure the loan is linked to the correct **facility limit**; details in [Credit Facilities](./credit-facilities.md).
 - The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Installment {0} value greater than installment value {1} in bank loan {2}* — «القسط {0} اكبر من قيمة القسط {1} فى القرض {2}» | The payments recorded against one installment code — this document plus every other committed **Loan Installment Payment** — now exceed that installment's value on the loan. | Reduce the paid amount on this document, or check whether the installment was already paid elsewhere. |
+| *Interest with interest date {0} and interest value {1} greater than interest value {2} in bank loan {3}* — «الفائدة التى تاريخها {0} وقيمتها {1} اكبر من قيمة الفائدة {2} فى القرض {3}» | The same over-payment check on the interest side: the interest paid for that date now exceeds the interest line on the loan. | Correct the interest paid, or re-run **Loan Interests Calculation** if the accrued interest itself is wrong. |
+| *Can not find installment line with code {0} in bank loan {1}* — «لا يمكن ايجاد سطر قسط بكود {0} فى القرض {1}» | A payment line carries an installment code that no longer exists on the loan — usually because a **Bank Loan Scheduling** or **Changing Document** rebuilt the schedule with different codes. | Re-pick the installment on the payment document; if a scheduling document removed paid installments, correct that document instead. |
+| *Can not find interest line with interest date {0} and interest value {1} in bank loan {2}* — «لا يمكن ايجاد سطر فوائد بتاريخ فائدة {0} وقيمة فائدة {1} فى القرض {2}» | The same, for an interest payment line whose date-and-value pair no longer matches any interest line on the loan. | Re-pick the interest line, or restore it on the loan. |

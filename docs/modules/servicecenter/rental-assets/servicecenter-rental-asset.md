@@ -75,12 +75,15 @@ The header's *Total Rental Value* on that same document reads **600** — twelve
 Two behaviours round out the picture:
 
 - **If no tier matches at all**, the system builds a single line for the whole duration at the price sitting on the document header.
-- **If the tiers match but do not cover the whole duration**, the save is refused with *"Could not handle pricing for … hours"* — unless *Ignore Pricing List For Rental Asset* is switched on.
+- **If the tiers match but do not cover the whole duration**, the save is refused with
+*Could not handle pricing for {0} hours, rental asset {1} - remaining hours: {2}* — or, where the installation prices by day,
+*Could not handle pricing for {0} days, rental asset {1} - remaining days: {2}* — unless *Ignore Pricing List For Rental Asset* is switched on.
 
 There is no price list, no rate card and no weekend or seasonal rate beyond what you can express with the rows' date ranges and the five price classifiers.
 
 ::: warning "Ignore Pricing List For Rental Asset" does not ignore price lists
-The label promises something the option does not do. Its **only** effect is to suppress the *"Could not handle pricing for … hours"* failure when the tier grid does not cover the whole booking; the ordinary sales price-list validation still runs on the generated lines exactly as before.
+The label promises something the option does not do. Its **only** effect is to suppress that
+*Could not handle pricing for {0} hours, rental asset {1} - remaining hours: {2}* failure when the tier grid does not cover the whole booking; the ordinary sales price-list validation still runs on the generated lines exactly as before.
 
 The consequence of leaving it off matters more than the label does: **an asset with an empty Details grid and no classification to fall back on refuses every booking.** If a newly created asset rejects everything you try to book on it, an empty tier grid is the first thing to check.
 :::

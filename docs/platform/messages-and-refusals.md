@@ -141,6 +141,21 @@ than in what they typed.
 | *Code {0} exists before for record with id {1}* — «الكود {0} موجود مسبقا للسجل بالمعرف {1}» | The code is taken — possibly by a record this user cannot see. | Let the book or group number the record automatically; the id in the message identifies the record holding the code. |
 | *The code {0} contains (:) character, please remove it* — «الكود {0} يحتوي علي الحرف (:). يرجي حذفه» | A colon in a code would break the references that are built from it. | Remove the colon. |
 
+## Messages that belong to no one screen
+
+These are raised from many document classes across several modules, so no screen page owns them and
+looking for them beside a particular screen will not help.
+
+| Message | Why | What to do |
+|---|---|---|
+| *Customer is required* — «يجب عليك أدخال العميل» | The customer field is empty on a document that insists on one. It is raised from a dozen sales, stock, point-of-sale and service-centre documents, each with its own reasons for requiring it. | Fill the customer. If you believe this document should not need one, the requirement is in the document's own rules, not in Required Fields. |
+| *Duplicate line* — «سطر مكرر» | Two rows in a grid describe the same thing. What counts as "the same" differs per screen — a price-list row, a loan row, a unit-conversion row, an assembly component. | Find the pair and merge or remove one. The message does not name the rows, so compare the grid's key columns. |
+| *From Date should be less than To Date* | A date range runs backwards. Raised from contracting, HR and the delivery-driver configuration. | Correct the dates. Note that the check is strict: equal dates are refused too. |
+| *From date must be before to date* — «من تاريخ لابد ان يكون قبل الي تاريخ» | The same complaint from a different check, raised from ten more screens across the product. Two wordings exist for one rule; which one you get depends on the screen. | Correct the dates. |
+
+*From Date should be less than To Date* has no Arabic translation — its entry in the Arabic store is
+the English sentence — so it appears in English on Arabic screens.
+
 ## Messages that appear at login rather than on a save
 
 A red list of messages at login is a different mechanism entirely: system-wide health checks, not a

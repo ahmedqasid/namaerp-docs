@@ -51,6 +51,14 @@ The forecast alone tells you "how much" you'll need, but the item's **lead time*
 
 The forecast isn't an end in itself, but a prelude to purchasing. After generating and reviewing the forecast, its suggestions become [purchase requests or orders](./purchasing-journey.md), closing the loop from anticipating the need to fulfilling it. This makes purchasing data-driven rather than guesswork.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You should at least select one line* — «يجب تحديد سطر واحد علي الأقل» | A purchase document is being generated from the forecast while no forecast line is ticked in the **Selected Line** column. | Tick the lines you want to buy, then run the generation action again. |
+| *Period end can not be greater than period start* — «نهاية الفترة لا يمكن أن تكون اكبر من بداية الفترة» | On a **Purchase Forecast Sales Source Configuration**, the two periods are counted *backwards* from the record's creation date, so the start of the window must be the further one back. The refusal fires when **Period Start** reaches back less far than **Period End**. | Put the longer period in **Period Start** and the shorter one in **Period End** — six months ago as the start, one month ago as the end. |
+| *Warehouse {0} in line {1} not equal warehouse in locator {2}* — «المخزن {0} في السطر {1} لا يساوي المخزن الموجود في الموقع {2}» | A quantity source line names a warehouse and a locator that belongs to a different warehouse, so the balance it would read is ambiguous. | Use a locator of the warehouse on the line, or clear the warehouse and let the locator decide it. |
+
 ## Next Steps
 
 - [The Purchasing Journey](./purchasing-journey.md) - turning the forecast into actual purchase orders

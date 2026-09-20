@@ -190,6 +190,16 @@ Creating a queue per task is not an optimisation. Each queue is a worker of its 
 lanes doing nothing is thirty threads doing nothing — while the real problem, two jobs fighting
 over the same rows, gets worse rather than better.
 
+## Messages you may see
+
+Refusals raised when you save an entity flow with the background fields on this page set.
+
+| Message | Why | What to do |
+|---|---|---|
+| *You must activate option ( Run After Committing Document And Affect On DataBase ) to use option( Wait For Quantity Processing)* — «يجب تفعيل الأوبشن ( يعمل بعد حفظ المستند نهائيا و التأثير على قاعدة البيانات ) لإستخدام الأوبشن ( انتظار انتهاء معالجة الكميات )» | **Wait For Quantity Processing** was ticked on a flow that still runs inline. There is nothing to wait for — the inventory work has not been raised yet at that point. | Tick **Run After Committing Document And Affect On DataBase** first, or clear the wait option. |
+| *You must activate option ( Run After Committing Document And Affect On DataBase ) to use ( {0})* — «يجب تفعيل الأوبشن ( يعمل بعد حفظ المستند نهائيا و التأثير على قاعدة البيانات ) لإستخدام ( {0} )» | **Retry Every Seconds** or **Max Retry Count** was filled in on a flow that still runs inline. Retrying only makes sense once the flow is deferred; an inline failure is part of the save. | Defer the flow, or clear the retry field the message names. |
+| *The current Entity Flow has has un processed entries* — «يوجد إدخالات نظامية لم يتم معالجتها لمسار الكيان الحالى» | The flow still has entries waiting in a queue, and saving it now would change the rules under work that is already in flight. | Let the queue drain — watch the **Queued Entity Flows** grid — then save. |
+
 ## Related
 
 - [Scheduled Tasks](/platform/scheduled-tasks) — everything else about task schedules: types,

@@ -137,6 +137,20 @@ A: An **issue** reduces total inventory (items left the organization's control).
 
 A: Use a stock issue directed to a loss account. This is the system's adopted way to record incidental damage, with the reason documented in the notes.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Can not save stock document {0} because the document cost effects are frozen by the record {1}* — «لا يمكن تعديل السند {0} بسبب السجل {1}» | A **Freeze Of Cost Effects On Accounts** record covers the document's company and a date range that contains its value date, and that record is set to prevent saving frozen documents. Moving a document *into* the frozen range or *out* of it both count. | Use a value date outside the frozen range, or ask whoever owns the freeze to narrow it or to allow saving. |
+| *The document {0} supplier is {1}, while the invoice supplier is {2}* — «المورد بالمستند {0} هو {1} بينما المورد بالفاتورة هو {2}» | The issue names a supplier, and the purchase return it was generated from names a different one. | Make the two agree, or clear the supplier on the issue. |
+| *The document {0} customer is {1}, while the invoice customer is {2}* — «العميل بالمستند {0} هو {1} بينما العميل بالفاتورة هو {2}» | The issue names a customer, and the sales invoice it was generated from names a different one. | Make the two agree, or clear the customer on the issue. |
+| *Item {0} measures type must be single dimension or two dimensions* — «الصنف {0} يجب أن يكون أحادي أو ثنائي الأبعاد» | A cutting document line names an item whose measures type is neither single dimension nor two dimensions — cutting only makes sense for material measured by length, or by length and width. | Remove the line, or fix the item's measures type on its file. |
+| *Required length and required width must be bigger than zero* — «الطول و العرض المطلوبين يجب أن يكون أكبر من صفر» | The line's item is two-dimensional and one of the required length or required width is empty or zero. | Enter both required measures on the line. |
+| *Required length must be bigger than zero* — «الطول المطلوب يجب أن يكون أكبر من صفر» | The line's item is measured by length only, and the required length is empty or zero. | Enter the length you want cut. |
+| *Required length {0} is greater than issue length for item {1}* — «الطول المطلوب {0} أكبر من الطول المصروف للصنف {1}» | You are asking for a cut piece longer than the piece being issued. The message gives the length you asked for. | Reduce the required length, or issue a longer piece. |
+| *Required width {0} is greater than issue width for item {1}* — «العرض المطلوب {0} أكبر من العرض المصروف للصنف {1}» | The same check on the width, for a two-dimensional item. | Reduce the required width, or issue a wider piece. |
+| *The Length must be greater than zero* — «الطول يجب أن يكون أكبر من الصفر» | The item is measured by length only and the line's length is still empty or zero — the same gap as above, reported by the second of the two checks the screen runs. | Fill the length on the line. |
+
 ## Next Steps
 
 Now that you understand receiving and issuing together, learn about:

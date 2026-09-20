@@ -220,3 +220,17 @@ the contract itself is the place to see how much of its schedule has been claime
 6. Nineteen quarters later the schedule is exhausted; if the terms had changed on the way, an
    *Edit For Existing Contract* would have carried the unpaid remainder into a fresh contract and
    locked this one.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Current contract is edited by {0} ,so it can not be edited or deleted* — «لا يمكن تعديل او حذف العقد الحالى لأنه مُعدل بواسطة العقد {0}» | This contract has already been superseded by an edit contract, and the message names it. A superseded contract is frozen. | Work on the edit contract instead. To touch the original again you have to cancel the edit contract first. |
+| *Estate must be empty because the category {0} dose not work with estates* — «يجب أن يكون العقار فارغا لأن التصنيف {0} لا يعمل مع العقارات» | The contract category does not work with estates, but the **Estate** field is filled. | Clear the estate, or move the contract to a category that works with estates. |
+| *Can not change value date because profit claim document {0} was created before {1}* — «لا يمكن تغيير التاريخ الفعلى للعقد لأن مستند استحقاق الأرباح {0} تم انشاؤه قبل {1}» | You changed the contract's value date, and a profit claim document already exists that was created before the new date. | Leave the value date alone, or cancel the claim documents that sit before it first. |
+| *Contract {0} is edit by {1} .Contract can be edited only once* — «العقد {0} تم تعديله مسبقا بالعقد {1} .العقد يمكن تعديله مرة واحدة فقط» | The contract you are trying to edit has already been edited once by another edit contract. | Edit the latest contract in the chain. A contract only takes one edit. |
+| *Contract {0} must be older than the current edit contract* — «يجب ان يكون العقد المطلوب تعديلة {0} أقدم من العقد الحالى» | The contract named in **Edited Contract** carries a value date after this edit contract's own. | Date the edit contract after the contract it edits. |
+| *Profits can not be empty* — «لا يمكن ترك الأرباح فارغة» | The **Profits** grid on a profit claim is empty, so there is nothing to claim. | Fill the profit lines, or use the button that loads the contract’s due profits. |
+| *Total profits amount {0} must be greater than or equal paid installments amount {1}* — «{1} إجمالي قيمة الفوائد {0} يجب ان يكون أكبر من او يساوى قيمة الأقساط المدفوعة» | The paid-installments lines add up to more than the profit lines on the same claim. | Reduce the paid installments, or raise the profits so the claim at least covers what is being settled. |
+| *Can not use contract {0} because contract value date is after current document value date* — «لا يمكن استخدام العقد {0} لأن تاريخه الفعلي بعد تاريخ الستند الحالي» | The contract's value date is later than the claim document's own value date, so the contract did not yet exist on that day. | Date the claim on or after the contract, or pick an earlier contract. |
+| *Contract {0} is edited by {1} so the claim doc can not be saved ,edited or deleted* — «لا يمكن حفظ أو تعديل أو حذف مستند استحقاق الأرباح لأن العقد {0} تم تعديله بواسطة {1}» | The contract on the claim was superseded by an edit contract, so claims against it are frozen. | Raise the claim against the edit contract instead. |

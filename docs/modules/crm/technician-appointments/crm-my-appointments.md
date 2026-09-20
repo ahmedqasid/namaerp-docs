@@ -18,11 +18,11 @@ The [booking calendar](/modules/crm/technician-appointments/crm-technician-appoi
 The screen works out what to show from your login. It asks these questions in this order and stops at the first one that fits:
 
 1. **Are you an administrator?** Your security profile has **Full Authority** (*صلاحيات كاملة*) — see [security profiles](/platform/security/security-profiles#Full-Authority) — or your user has **Allow Access to Admin Restricted Functionality (utils.html, kill tasks, logout users and so on)** ticked. If so, you see every committed crew, and your user does not need to be linked to an employee.
-2. **Is your user linked to an employee?** If not, the screen stops with *"Your user account is not linked to an employee, so we cannot tell which crew you belong to…"*. Ask the administrator to link your user to your employee record.
+2. **Is your user linked to an employee?** If not, the screen stops with *"Your user account is not linked to an employee, so we cannot tell which crew you belong to. Ask your system administrator to link your account to your employee record."* — which is exactly what has to happen.
 3. **Are you a section supervisor?** Your employee is listed in the **Supervisors** (*المشرفون*) grid of one or more committed Department Sections. If so, you see the committed crews of those sections. This wins over any crew you belong to yourself. Crews that have no department section are not shown to a supervisor.
 4. **Are you a technician?** You see the committed crews that list your employee in their **Technicians** grid.
 
-If none of these finds a crew, the screen says *"You are not a member of any technician crew, so there is no schedule to show…"*. Add the employee on the [crew](/modules/crm/technician-appointments/crm-technician-crews), or move them there with a [transfer](/modules/crm/technician-appointments/crm-technician-transfers). An administrator or supervisor sees the same message when there is no crew in their scope yet.
+If none of these finds a crew, the screen says *"You are not a member of any technician crew, so there is no schedule to show. Ask your system administrator to add you to a crew."* Add the employee on the [crew](/modules/crm/technician-appointments/crm-technician-crews), or move them there with a [transfer](/modules/crm/technician-appointments/crm-technician-transfers). An administrator or supervisor sees the same message when there is no crew in their scope yet.
 
 ::: tip Crew Supervisor is not section supervisor
 The **Crew Supervisor** field on a crew names the team leader. It does not make that person a supervisor on this screen. Only the Supervisors grid on the department section does that.

@@ -52,7 +52,9 @@ Two refusals are worth recognising:
 | Message | Why |
 |---|---|
 | *User login id {0} is already existing* | A committed user already uses that login id. Login ids are unique system-wide; drafts do not count. |
-| *You do not have the authority Commit on entity User* | Pressing **Add User** needs commit authority on the User screen itself. Being able to save the request is not enough — the request is a request, not a permission. |
+| *You do not have the authority {1} on entity {0}* — «لا توجد لديك الصلاحية {1} على النوع {0}» — here with **Commit** and **User** in the placeholders | Pressing **Add User** needs commit authority on the User screen itself. Being able to save the request is not enough — the request is a request, not a permission. |
+
+*User login id {0} is already existing* has no Arabic string in the product, so it appears in English on Arabic screens too.
 
 The parallel screens for changing an existing party's own data — *Modify Customer Info Request* and
 its supplier and contractor siblings — are described under

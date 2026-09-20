@@ -43,7 +43,7 @@ This is the part worth keeping. Read it as "you cannot do X while the asset is Y
 
 | You want to… | Initial | Running | Depreciated | Not Depreciable | Disposed |
 |---|---|---|---|---|---|
-| Run depreciation on it | ✗ *"Cannot Depreciation because the status is Initial"* | ✔ | ✗ *"The Asset … is already depreaciated"* | ✗ — undepreciable assets are never depreciated | ✗ |
+| Run depreciation on it | ✗ *"Cannot Depreciation because the status is Initial"* | ✔ | ✗ *"The Asset {0} is already depreaciated"* | ✗ — undepreciable assets are never depreciated | ✗ |
 | Have it collected automatically into a depreciation document | ✗ skipped | ✔ | ✗ skipped | ✗ skipped | ✗ skipped |
 | Have it collected into a revaluation document | ✗ skipped | ✔ | ✔ | — | ✗ skipped |
 | Record an addition or a deduction | ✗ | ✔ | ✔ | ✔ | ✗ |
@@ -54,7 +54,7 @@ This is the part worth keeping. Read it as "you cannot do X while the asset is Y
 
 Three of those rows deserve a sentence of their own.
 
-**Nothing acts on a disposed asset.** This is not a rule per document; it is a single check that every Fixed Assets document runs before it touches an asset — *"Cannot make action on asset … because it is disposed"*. If an asset was disposed of by mistake, the way back is to reverse the disposal document, not to work around it.
+**Nothing acts on a disposed asset.** This is not a rule per document; it is a single check that every Fixed Assets document runs before it touches an asset — *"Cannot make action on asset {0} because it is disposed"*. This one has no Arabic text in the product, so it appears in English on Arabic screens as well. If an asset was disposed of by mistake, the way back is to reverse the disposal document, not to work around it.
 
 **An initial asset accepts almost nothing.** Additions, deductions, partial disposals and depreciation all refuse it, because there is no value to add to, deduct from or write down. The only documents that will accept an initial asset are the ones designed to bring it into service: the purchase document, the opening document and the letter-of-credit cost document.
 

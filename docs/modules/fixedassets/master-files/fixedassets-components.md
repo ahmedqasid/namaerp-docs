@@ -26,7 +26,7 @@ A **Fixed Asset Component Type** (نوع مكون أصل) is the reusable defini
 
 The screen holds the code, the master group and the two names, plus one grid that does the real work: **Maintenance Types** (أنواع الصيانة). Each line names one [maintenance type](/modules/fixedassets/maintenance/fixedassets-maintenance-types.md) that this kind of part can undergo.
 
-For Al-Waha's `CT-SPINDLE — Spindle / عمود الدوران` that list holds **Periodic Maintenance / صيانة دورية** and **Emergency Repair / إصلاح طارئ**. The effect is a shorter, safer list everywhere a maintenance type has to be chosen for a spindle — and a check at commit time, so a record naming a maintenance type the component type does not accept is refused with *"Fixed asset maintenance type … does not belong to fixed asset component type …"*.
+For Al-Waha's `CT-SPINDLE — Spindle / عمود الدوران` that list holds **Periodic Maintenance / صيانة دورية** and **Emergency Repair / إصلاح طارئ**. The effect is a shorter, safer list everywhere a maintenance type has to be chosen for a spindle — and a check at commit time, so a record naming a maintenance type the component type does not accept is refused with *"Fixed asset maintenance type {0} does not belong to fixed asset component type {1}"*.
 
 A component type with an empty maintenance-types grid places no restriction at all; anything is allowed.
 
@@ -51,7 +51,7 @@ Because `FAT-MCH — Machinery & Equipment` lists Spindle, Control Unit and Cool
 
 The last three are stamped onto the line when a maintenance visit is recorded, which is the whole point of the grid — see below.
 
-**One rule at save time:** the pair of component type and maintenance type must be unique across the grid. Two lines both saying "Spindle / Periodic Maintenance" are refused with *"Fixed asset component type … is repeated"*. If a machine genuinely has two spindles, distinguish them by giving each line a different maintenance type, or record the second one as its own component type.
+**One rule at save time:** the pair of component type and maintenance type must be unique across the grid. Two lines both saying "Spindle / Periodic Maintenance" are refused with *"Fixed asset component type {0} is repeated"*. If a machine genuinely has two spindles, distinguish them by giving each line a different maintenance type, or record the second one as its own component type.
 
 ## Why the Grid Has to Be Filled Before Maintenance Can Be Recorded
 
@@ -59,7 +59,7 @@ This is the practical rule that catches new installations, and it is worth stati
 
 > **A maintenance record or maintenance record request cannot be committed for an asset that has no components.** The record names a component type, and that component type must appear on the asset's grid. Leaving it empty fails too.
 
-So the order of setup is: component types → the asset type's component list → the assets → then maintenance. An engineer who opens a maintenance record for a machine whose grid is empty will be stopped with *"Fixed asset component type … does not belong to fixed asset …"*, and the fix is on the asset, not on the record.
+So the order of setup is: component types → the asset type's component list → the assets → then maintenance. An engineer who opens a maintenance record for a machine whose grid is empty will be stopped with *"Fixed asset component type {0} does not belong to fixed asset {1}"*, and the fix is on the asset, not on the record.
 
 ## What a Maintenance Visit Writes Back
 

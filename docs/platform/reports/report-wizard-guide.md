@@ -565,3 +565,21 @@ If the two conditions are not met (`UOMConversion` parameter + `InvItem` field),
 }
 ```
 :::
+
+## Messages you may see
+
+Refusals raised when you save a Report Wizard record.
+
+| Message | Why | What to do |
+|---|---|---|
+| *The background image opacity must be between 0 and 255* — «يجب أن تكون شفافية صورة الخلفية بين 0 و 255» | A background image is set and its opacity is outside the 0–255 range. | Put the opacity inside the range, or clear the image. |
+| *You can not use include tables by parameters if there are no union tables* — «لا يمكنك تضمين الجداول بشرط من خلال مدخلات اذا لم تكن هناك Union Tables» | The **Include Tables By Parameters** grid has rows while **Union Tables** is empty, so there is nothing for the reader's tick-boxes to include or leave out. | Fill in the union tables first, or clear the include-by-parameters grid. |
+| *Can not repeat table {0}* — «لا يمكن تكرار الجدول {0}» | One **Include Tables By Parameters** row names the same table twice across its ten table columns. | Remove the duplicate name from that row. |
+| *Selected Group is Empty* — «الجروب المختار فارغ» | A field or a header component points at one of the five grouping levels whose grid has no lines — either a header/footer component placed in that group, or a field asking for that group's running total. | Add lines to that group's grid, or point the field or component at a group you have actually filled. |
+| *The parameter type {0} is repeated in lines {1} and {2}* — «نوع المدخل {0} مكرر في السطر {1} و {2}» | Two rows of the parameters grid carry the same parameter type. | Keep one of them and delete or retype the other. |
+| *Parameter type {0} at line {1} intersects with the type {2} at line {3}* — «نوع المدخل {0} في السطر {1} متقاطع مع النوع {2} في السطر {3}» | Two parameter types overlap — one asks for a value that the other's range already covers, so the two filters would fight. | Choose parameter types that do not cover the same ground. |
+| *The {0} lines are empty - you can not use it in line numbers* — «سطور {0} فارغة - لا يمكنك استعمالها في أرقام السطور» | A field set to count lines inside a group names a grouping level whose grid is empty. | Fill that group's grid, or count inside a group that has lines. |
+| *Can not choose sort method {0} with ascending or descending {1}* — «لا يمكن اختيار طريقة الترتيب {0} مع تنازلي أو تصاعدي {1}» | The report sorts by its own sort-fields grid, while the ascending/descending choice is one of the variable settings that only make sense when the reader picks the sort at run time. | Either let the reader choose the sort with a parameter, or fix ascending or descending here. |
+| *Sort parameters count must be less than or equal to {0}* — «عدد مدخلات الترتيب يجب أن يكون أقل من أو يساوي {0}» | The report sorts by a run-time parameter and asks the reader for more sort choices than there are rows in the sort-fields grid. | Lower the count, or add sort fields. |
+| *Used As Default Value To Parameter Number value can not be greater than {0}* — «قيمة يستعمل كقيمة افتراضية للمدخل رقم لا يمكن أن تكون أكبر من {0}» | A sort field is marked as the default for a sort question the report never asks, because its number is above the sort parameters count. | Use a number within the count, or raise the count. |
+| *Used As Default Value To Parameter Number value is repeated at line number {0}* — «قيمة يستعمل كقيمة افتراضية للمدخل رقم مكررة في السطر {0}» | Two sort fields claim to be the default for the same sort question. | Leave one default per sort question. |

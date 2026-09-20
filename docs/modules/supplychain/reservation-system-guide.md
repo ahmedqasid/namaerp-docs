@@ -356,7 +356,7 @@ The details grid provides comprehensive item management:
 
 #### Issue: Insufficient Quantity Errors
 
-**Error Message:** "Insufficient quantity for item [ItemCode], Available Quantity is [X], Reserved quantity is [Y]"
+**Error Message:** *Insufficient quantity for item {0} {1},Available Quantity is {2}, Reserved quantity is {3}* — «الكمية من الصنف {0} {1} لا تكفي. الكمية المتاحه {2} . الكميه المحجوزه {3}»
 
 **Root Causes:**
 1. **Actual Shortage:** Item doesn't have enough available quantity

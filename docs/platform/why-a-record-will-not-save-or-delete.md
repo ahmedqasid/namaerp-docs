@@ -84,7 +84,7 @@ Four separate permissions decide a delete, and which one applies depends on the 
 |---|---|---|
 | A draft | **Draft Deletion Capability** on the [security profile](/platform/security/security-profiles) | *{0} can not be deleted because current user dos not have the authority for deleting drafts* |
 | A draft, with **Delete Only Created Drafts** on | the same, plus authorship | *{0} can not be deleted because current user is not the creator of this draft* |
-| Committed | **Can Delete** | *You do not have the authority Delete on entity {0}* |
+| Committed | **Can Delete** | *You do not have the authority {1} on entity {0}* (with `{1}` = Delete) |
 | Approved | **Prevent Edit/Delete After Approval** | *Current user can not delete {0} after approval* |
 | Printed at least once | **Prevent Edit/Delete After Print** | *Current user can not delete {0} after being printed* |
 

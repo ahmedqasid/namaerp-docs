@@ -139,8 +139,9 @@ generates.
 
 ::: tip Each group runs its own series
 As with books, the running number belongs to the group. Two groups of the same type with the same
-prefix are refused at save — *"Auto coding prefix …, suffix length …, and suffix first number …
-conflict with …"* — so two groups cannot quietly interleave their numbers.
+prefix are refused at save —
+*"Auto coding prefix {0}, suffix length {1}, and suffix first number {2} conflict with {3}."*
+— so two groups cannot quietly interleave their numbers.
 :::
 
 Pick a group on a new master file and the Code field fills in straight away with the number it is

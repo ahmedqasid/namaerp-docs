@@ -62,7 +62,7 @@ When the document is processed — not while it is still a draft or awaiting app
 
 Everything else the document validates is about consistency — the grid must not be empty, the term codes must exist on the budget, the project and the customer must match the budget's. One check is a real ceiling on quantity:
 
-**The permitted percentage.** Each budget term line carries a **Permitted Percentage** (نسبة السماحية) — how much over-measurement that item tolerates. The survey fails when the surveyed quantity for a line goes past the contracted quantity *and* the overrun beyond the planned quantity is a larger percentage than the line allows, with the message *"Current Quantity Percentage can not Exceed Permitted Percentage … %"*. Leave the permitted percentage at zero and any over-measurement is refused; set it to 10 and you have a 10% tolerance.
+**The permitted percentage.** Each budget term line carries a **Permitted Percentage** (نسبة السماحية) — how much over-measurement that item tolerates. The survey fails when the surveyed quantity for a line goes past the contracted quantity *and* the overrun beyond the planned quantity is a larger percentage than the line allows, with the message *Current Quantity Percentage can not Exceed Permitted Percentage{0} %*. Leave the permitted percentage at zero and any over-measurement is refused; set it to 10 and you have a 10% tolerance.
 
 The whole check can be switched off for the database by the module setting **Allow Current Quantity Percentage Exceed Permitted Percentage** (السماح بتجاوز نسبة الكمية الحالية للنسبة المسموح بها) — see [Contracting Configuration](/modules/contracting/contracting-configuration.md).
 

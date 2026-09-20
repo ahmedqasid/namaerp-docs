@@ -61,7 +61,7 @@ A book also belongs to a **legal entity**, and unlike most records it may not be
 only exception is the handful of document types that are genuinely global (they exist above any one
 company); for everything else, choosing a real legal entity is enforced at save — a document that
 reaches the save with no legal entity is refused with "Legal entity can not be Null in transactions"
-(whose Arabic reads « لايمكن حفظ المستند على الشركة عام »). And the legal entity must itself carry a
+(whose Arabic reads «لايمكن حفظ المستند على الشركة عام»). And the legal entity must itself carry a
 ledger: if it does not, the document is refused with "Please assign ledger to the legal entity" —
 «فضلاً قم بتحديد دفتر حسابات في الشركة» — which is a setup gap on the company record, not anything
 wrong with the book.
@@ -281,7 +281,8 @@ the parent's code plus a sequence, and **System Suffix Length** — capped at 3 
 digits that sequence gets.
 
 A user cannot select a system book on a document they are creating by hand; the save is refused with
-"The book … can not be used because it is system book". Leave System off for every book you create
+"The book {0} can not be used because it is system book" — «الدفتر  {0} لا يمكن استخدامة حيث أنه دفتر نظامي».
+Leave System off for every book you create
 for users.
 
 ## Books and document terms
@@ -295,7 +296,9 @@ that both hang off a document, and they are easy to confuse. The split is:
 
 A term can restrict which books it will work with. Its **Allowed Books** grid lists books explicitly,
 and **Allowed Book Criteria** matches them by rule. Fill in either and a mismatched combination is
-refused: "The document term … can not be used with the book …". Leave both empty and the term works
+refused:
+"The document term {0} can not be used with the book {1}" — «لا يمكن استعمال التوجيه {0} مع الدفتر {1}».
+Leave both empty and the term works
 with any book of its document type.
 
 ## When the book fills itself in

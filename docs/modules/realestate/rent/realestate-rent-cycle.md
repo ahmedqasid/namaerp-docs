@@ -68,11 +68,11 @@ Because the timeline is chronological, Nama checks that each new entry makes sen
 
 | What you did | The message tells you |
 |---|---|
-| Committed a termination as the very first document for an estate | *Document … can not be the first document for estate …* — nothing was ever leased, so nothing can be ended. |
+| Committed a termination as the very first document for an estate | *Document {0} can not be the first document for estate {1}* — nothing was ever leased, so nothing can be ended. |
 | Committed a reserving offer on a unit that is already rented | The unit was rented in the named document. Find that lease and end it first. |
 | Committed a reserving offer on a unit another offer already holds | The unit was reserved in the named document. Cancel that reservation first, or work from that offer. |
 | Committed a lease on a unit that is already leased | The unit was rented in the named document. |
-| Committed a lease on a unit that a *different* offer is holding | *Estate … is reserved in document …, to continue you should select rent offer in from document* — see below. |
+| Committed a lease on a unit that a *different* offer is holding | *Estate {0} is reserved in document {1}, to continue you should select rent offer in from document* — see below. |
 | Committed a termination against a unit with no live lease | A rent-cancelled entry must follow a rented entry. |
 | Committed an offer cancel against a unit that was never reserved | A reservation-cancelled entry must follow a reserved entry. |
 

@@ -161,7 +161,7 @@ The markers are not decoration; three gates read them before a document is allow
    is set to allow leasing a sold estate, which is how an agency manages units on behalf of the
    people who bought them.
 3. **Before a reservation.** Lands and blocks refuse to be reserved when they are *Reserved*,
-   *Sold* or *Un Avaliable* ("It is reserved before", "It is sold before", "It is unavailable").
+   *Sold* or *Un Avaliable* (*"It is reserved before"*, *"It is sold before"*, *"It is unavailable"* — the last one has no Arabic text in the product and appears in English on Arabic screens).
    Rental units refuse when they are reserved or sold, naming the unit in the message.
 
 If a commit fails on availability, the answer is almost never on the record you are looking at —
@@ -234,6 +234,14 @@ Two more system-maintained figures sit on every estate, and they belong to stori
 
 Both are read-only on the estate screen. If either looks wrong, the document that wrote it is what
 you fix, never the field.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The Parent block Can not be Aleaf* — «البلوك الرئيسى لايمكن ان يكون فرعي» | You filed a child block under a block whose **Accepts Elements** flag is on, which makes it a leaf. A leaf block holds plots, not other blocks. | Switch **Accepts Elements** off on the parent block, or file the child under a branch block. |
+| *This block Can not contains Lands* — «هذا البلوك لا يكن ان يحتوى اراضي» | The block on the plot has **Accepts Elements** switched off, which makes it a branch. Plots only hang off leaf blocks. | Pick a leaf block for the plot, or switch **Accepts Elements** on for that block. |
+| *Unit group {0} is reserved* — «الوحدة المجمعة {0} محجوزة» | The unit group is already reserved by a sales document, so a second document cannot reserve it. | Cancel the reservation that holds it, or work from that document. The message names the group, not the reserving document. |
 
 ## Where to Go Next
 

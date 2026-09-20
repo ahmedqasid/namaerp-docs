@@ -38,8 +38,7 @@ into a reusable entry.
 
 Pressing it does this:
 
-1. It checks the ticket first, and refuses if the ticket has **no Product** ("You must enter the
-   product") or **no description** ("You must enter the ticket description").
+1. It checks the ticket first, and refuses if the ticket has **no Product** (*"You must enter the product"* — «يجب عليك إدخال المنتج») or **no description** (*"You must enter the ticket description"* — «يجب عليك إدخال وصف المشكلة»).
 2. It opens a **new, unsaved** FAQ record with the ticket's **Product** copied in, the ticket's
    description as the question, and the notes from **every ticket execution** on that ticket run
    together into the answer, oldest execution first.

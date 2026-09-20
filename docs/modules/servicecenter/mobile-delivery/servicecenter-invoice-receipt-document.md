@@ -60,7 +60,7 @@ The action **تحديث جدول الكميات الغير متطابقة / Gene
 
 - merges duplicate rows for the same item — summing quantities and receipt quantities, joining serial numbers and widening the from/to time window;
 - recomputes every difference;
-- checks that each line's item is either on the source invoice or is a classified **packaging** item, failing with *"The item in line {0} does not have specific classification"* if it is neither;
+- checks that each line's item is either on the source invoice or is a classified **packaging** item, failing with *The item in line {0} does not have specific classification* if it is neither;
 - totals the packaging items into the seven header package counters, according to the classifications configured on the توجيه;
 - rebuilds the mismatched grid — including one row for every invoice item that is **completely missing** from your details, flagged *Missing Item From Invoice*.
 
@@ -69,8 +69,8 @@ The action **تحديث جدول الكميات الغير متطابقة / Gene
 The checks are strict, and they are all about keeping the two grids consistent with each other:
 
 - **A difference may never be negative.** The customer cannot receive more than was invoiced.
-- If a line has a non-zero difference, there must be a mismatched row carrying the **same** difference — otherwise you get *"The line number {0} was not reviewed, please click on Generate Mismatched Quantities Lines"*. The reverse holds too: a stale mismatched row with no matching line is refused the same way.
-- A mismatched row pointing at a line you have since deleted is refused with *"The line number {0} does not exist now, please click on Generate Mismatched Quantities Lines"*.
+- If a line has a non-zero difference, there must be a mismatched row carrying the **same** difference — otherwise you get *The line number {0} was not reviewed, please click on Generate Mismatched Quantities Lines*. The reverse holds too: a stale mismatched row with no matching line is refused the same way.
+- A mismatched row pointing at a line you have since deleted is refused with *The line number {0} does not exist now, please click on Generate Mismatched Quantities Lines*.
 - An invoice item that appears in neither grid is refused with the same instruction.
 - A mismatched row flagged *Missing Item From Invoice* blocks the save altogether, unless **الحفظ بالرغم من وجود أصناف مفقودة من الفاتورة** is ticked.
 
@@ -112,3 +112,13 @@ Two columns on the توجيه decide what counts as packaging:
 | Package Type | Package Type | Which of the seven header package counters that classification totals into. |
 
 So a crate classified into slot 3 as *Returnable Crate*, mapped to package type 1, means every crate line on the document adds to *Package 1* on the header and joins the generated packaging transfer. Get this mapping wrong and the mismatch button will reject the crate line as unclassified.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The item in line {0} does not have specific classification* — «الصنف المختار فى السطر {0} ليس له تصنيفات خاصة» | Raised by **Generate Mismatched Quantities Lines**: the item on that line is neither on the source sales invoice nor classified as a packaging item by the classifications listed on the توجيه. | Remove the line, or classify the item as packaging and map its classification to a package type on the توجيه. |
+| *The line number {0} was not reviewed, please click on Generate Mismatched Quantities Lines* — «السطر رقم {0} لم تتم مراجعته ,برجاء الضغط على تحديث جدول الكميات الغير متطابقة» | A details line has a difference with no mismatched row carrying the same difference, or a mismatched row carries a difference while the line itself no longer has one. The two grids have drifted apart. | Press **Generate Mismatched Quantities Lines** again; it rebuilds the mismatched grid from the current differences. |
+| *The line number {0} does not exist now, please click on Generate Mismatched Quantities Lines* — «السطر رقم {0} لم يعد موجود ,برجاء الضغط على تحديث جدول الكميات الغير متطابقة» | A mismatched row points at a details line that has since been deleted. The number in the message is the row number in the **mismatched** grid, not in the details grid. | Press the button again. |
+| *Please click on Generate Mismatched Quantities Lines* — «برجاء الضغط على تحديث جدول الكميات الغير متطابقة» | An item that is on the source sales invoice appears in neither grid — nothing at all was recorded for it. | Enter the line for that item with its received quantity, then press the button. |
+| *The line number {0} has a missing item from invoice* — «السطر رقم {0} به صنف مفقود من الفاتورة» | A mismatched row is flagged *Missing Item From Invoice*: an invoice item that the delivery did not account for at all. | Either record what happened to that item, or tick **Save Even There Are Missing Items** (الحفظ بالرغم من وجود أصناف مفقودة من الفاتورة) on the header when the omission is intended. |

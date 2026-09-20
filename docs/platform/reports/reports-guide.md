@@ -748,3 +748,14 @@ You can also record how long each report took, and with which parameters, by tur
 ## Writing expressions
 
 Everything you can call from inside a report expression — names and translations, Hijri dates, number-to-words, price lookups, links back into the system, record creators, approval links, QR codes, and the complete list of built-in `$P{}` parameters — is catalogued on the [NamaRep expression reference](/platform/reports/reports-namarep-reference).
+
+## Messages you may see
+
+Refusals raised when you save a report definition.
+
+| Message | Why | What to do |
+|---|---|---|
+| *Dashboard reports do not require a report definition file. Please clear the Definition field or change the Report Type* — «تقارير اللوحة لا تحتاج إلى ملف تعريف تقرير. يرجى مسح حقل التعريف أو تغيير نوع التقرير.» | **Report Type** is *Dashboard* while **Definition** still carries a layout file. A dashboard draws itself and has no Jasper design. | Clear **Definition**, or set the report type back to the kind that uses a layout file. |
+| *Report Group {0} can not be repeated* — «مجموعة التقارير {0} لا يمكن تكرارها» | The same report group appears twice in the report's groups grid. | Delete the duplicate row — one group per report, once. |
+| *You can not make changes to the report {0} because it is a system report.* — «لا يمكن تعديل التقرير {0} لأنه تقرير نظامي.» | A frozen part of a report shipped with Nama was changed: its entity, book, term, report type, page, order, view, security equivalent, base report, scriptlet, or the content of the layout, its subreports or its resources. Code, names, groups and the report's own security lines are *not* frozen. | Copy the report into one of your own and change the copy. If the original really must change, an administrator can enable **Allow Change System Report To Non System** in the global configuration — after which upgrades no longer refresh it. |
+| *Can not change system reports* — «لا يمكن تعديل أو إنشاء التقارير النظامية» | A brand-new report was saved with **System** already ticked. Only the shipped set may be system reports. | Untick **System** and save it as your own report. |

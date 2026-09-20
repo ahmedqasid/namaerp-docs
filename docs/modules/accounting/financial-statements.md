@@ -80,3 +80,14 @@ The printed statements all come out of this engine, under the report menu (`Acc-
 - **"The comparison columns are missing/wrong"** — that's the **comparison type** (One Year / Two Years / Period Set / Two Period Sets) on the settings file.
 - **"The figures are out of date"** — the issue-driven reports print a saved **issue**; re-issue the settings file for the period to refresh the snapshot.
 - **"Zero/empty rows clutter the statement"** — turn on **hide zero-value balances** (and **show to level** to collapse deep detail).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You must choose Settings File in field {0}* — «يجب إختيار القيمة ملف إعدادات فى الحقل {0}» | A settings-file line points its **source** at another settings file while its equation type is something else. | Set the line's equation type to **Settings File** — that is what makes the source a settings file. |
+| *Source Type must be Settings File* — «نوع المصدر يجب أن يكون إعدادات قائمة مالية» | The mirror image of the previous message: the line's equation type is **Settings File** but its **source** points at something else. | Point the source at a financial-statement settings file, or change the equation type. |
+| *Code {0} is repeated at line {1}* — «الكود {0} مكرر فى السطر رقم {1}» | Two lines of the settings file carry the same **code**; totals lines reference other lines by that code, so it must be unique. | Give one of the two lines a different code and fix any totals equation that referred to it. |
+| *You must fill field {0} before fill this field {1}* — «يجب ملئ الحقل {0} قبل ملئ الحقل {1}» | The **group by** levels are filled out of order — a later level is set while an earlier one is empty. | Fill the grouping levels from the first one down, with no gaps. |
+| *Group {0} is repeated* — «التجميع بـ {0} مكرر» | The same grouping level value is chosen twice in the group-by chain. | Choose a different value for one of them, or leave the later level empty. |
+| *You must fill at least one of the following fields: {0}, {1}* — «{1} ,يجب ملء حقل واحد على الأقل من الحقول الأتية : {0}» | The issue file's **comparison type** needs a period range (or a second one, for Two Period Sets) and the range is completely empty. | Fill the from/to fields the message names for the comparison type you chose. |

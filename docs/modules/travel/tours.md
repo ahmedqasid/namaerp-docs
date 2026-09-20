@@ -360,3 +360,18 @@ lines that carry them. So get the operations file right first — the hotels, th
 services, the parties — press the button once the itinerary has settled, and price the orders after
 that. If the itinerary really does change afterwards, expect to check the prices on every order the
 rebuild touched.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *PAX {0} must equal the sum of individual distributions {1} according to the equation (Tpl * 3) + (Dbl * 2 ) + Sgl* — «(Tpl * 3) + (Dbl * 2 ) + Sgl عدد الأفراد {0} يجب ان يساوى مجموع توزيعات الافراد {1} طبقاً للمعادلة» | The PAX figure on the header does not match the room split: triples by 3, plus doubles by 2, plus singles. | Correct PAX or the TPL / DBL / SGL boxes until the two agree. |
+| *Departure date {0} can not be before arrival date {1}* — «لا يمكن ان يكون تاريخ القيام {0} قبل تاريخ الوصول {1}» | The tour's departure date falls before its arrival date. | Fix the two header dates; every date rule below is measured against that window. |
+| *Flight departure date {0} must be between {1} and {2}* — «تاريخ قيام الرحلة {0} يجب ان يكون فى الفترة بين {1} و {2}» | The header's flight departure date falls outside the arrival-to-departure window. | Move the flight date inside the window, or widen the window if the tour really runs longer. |
+| *Flight arrival date {0} must be between {1} and {2}* — «تاريخ وصول الرحلة {0} يجب ان يكون فى الفترة بين {1} و {2}» | The header's flight arrival date falls outside the arrival-to-departure window. | As above. |
+| *Check in {0} must be between {1} and {2}* — «تاريخ الدخول {0} يجب ان يكون فى الفترة بين {1} و {2}» | An accommodation row's check-in falls outside the tour window. The offending row is highlighted. | Correct the row, or the header dates. |
+| *Check out {0} must be between {1} and {2}* — «تاريخ الخروج {0} يجب ان يكون فى الفترة بين {1} و {2}» | An accommodation row's check-out falls outside the tour window — most often a stay running a day past the departure date. | Correct the row, or extend the departure date. |
+| *Date {0} must be between {1} and {2}* — «التاريخ {0} يجب ان يكون فى الفترة بين {1} و {2}» | A row in the Services grid or in the Flights grid carries a date outside the tour window. | Check both grids — the same wording is used for each, so read the highlighted row. |
+| *TRTour {0} must have term* — «مستند الرحلة السياحية {0} يجب ان يحتوي على توجيه» | *Create Tourism Service Purchase Orders* was pressed on a tour with no document term, so nothing says which books and terms the orders should go into. | Set the Term on the tour, and fill the book-and-term pairs on the [tour term](./travel-document-terms) before pressing the button again. |
+
+The date rules only run once both header dates are filled, so a tour with an empty arrival or departure date passes all of them.

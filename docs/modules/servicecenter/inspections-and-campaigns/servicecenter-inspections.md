@@ -151,7 +151,7 @@ deliberately.
 **The odometer is checked.** If you fill the current odometer and its date, and that date is on or
 after the vehicle's own last reading date, then the reading must not be lower than the vehicle's
 recorded odometer. Type 44,000 for a car whose file says 45,300 and the commit is refused with
-*"Current odometer {0} must be greater than current odometer in product {1}"*.
+*"Current odometer {0} must be greater than current odometer in product {1}"* — a message with no Arabic translation, so it appears in English on Arabic screens.
 
 ::: tip Checked, but not written back
 The reading is validated against the vehicle and saved on the document — and then left there. The

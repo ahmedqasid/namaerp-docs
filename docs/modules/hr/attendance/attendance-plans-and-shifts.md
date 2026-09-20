@@ -83,6 +83,19 @@ A plan, like a shift, can be scoped with the standard **Dimensions** (legal enti
 4. **Assign the shift** (and, if needed, an added shift) on each collected line.
 5. **Optionally add Weekends overrides** on the same plan for employee groups whose weekly rest days differ from the default.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Work day {0} both option {1} and option {2} can not be true* — «يوم العمل {0} الأوبشن {1} و الأوبشن {2} لا يمكن تفعيلهم معا» | On the shift's weekly pattern the same day has both **Work day** and **Weekly Rest** ticked. | Leave one ticked. If staff are occasionally called in on a rest day, keep **Weekly Rest** and use **Allow Specifying Times For Weekends** instead. |
+| *The date {0} is repeated* — «التاريخ {0} مكرر» | Two rows in a rotational shift's **Rotation Details** start their rotation on the same date. | Give each rotation row its own start date. |
+| *The date {0} is in wrong order* — «التاريخ {0} في ترتيب غير صحيح» | The **Rotation Details** rows are not in ascending date order, so the cycle cannot be read top to bottom. | Re-order the rows so the rotation start dates run forwards. |
+| *Field {0} - {1} can not be greater than list size {2}* — «الحقل {0} - {1} لا يمكن ان يكون اكبر من حجم الجريد {2}» | A rotation row points at a rotation-group line number that does not exist — the number is larger than the count of rows in **Group Details**. | Point the row at one of the existing group lines, or add the missing group line first. |
+| *You cannot add weekend lines while the option {0} is enabled, weekends are taken from the weekend document instead* — «لا يمكنك إضافة سطور راحات أسبوعية طالما أن الخيار {0} مفعل، حيث يتم اعتماد الراحات الأسبوعية من سند الراحات الأسبوعية» | HR Configuration's **Take Weekends From Weekend Doc Not Att Plan** is on, so weekly rest days come from the weekend document — and the plan's **Weekends** tab must stay empty. | Empty the Weekends tab and record the override on the weekend document, or switch that configuration option off if overrides belong on the plan. |
+| *Repeated lines ({0},{1}) with same employee {2}, priority {3}, from date {4} and to date {5}* — «السطور رقم ({0} و {1}) مكررة لنفس الموظف {2} والأولوية {3} من تاريخ {4} إلى تاريخ {4}» | Two lines in the plan grid carry the same employee, the same priority and the same date range, so there is no way to tell which shift wins. | Delete one of the two lines, or separate them by priority or by date range. |
+| *From Date should be less than To Date* | A plan line's **From Date** is after its **To Date**. This message has no Arabic string, so it stays in English on Arabic screens. | Correct the line's dates. |
+| *Department section {0} belongs to employee department {1}, and you are using employee department {2}* — «القسم الوظيفي {0} ينتمي إلى إدارة الموظف {1}، قد تم اختيار إدارة الموظف {2}» | A plan line names a **Department Section** that sits under a different **Employee Department** from the one chosen on the same line. | Pick a section that belongs to the chosen department, or change the department to the section's own. |
+
 ## Related pages
 
 - **[Time Attendance](time-attendance.md)** — where the actual punches recorded against these shifts are captured and turned into salary effects.

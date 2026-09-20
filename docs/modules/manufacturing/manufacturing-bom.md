@@ -80,3 +80,15 @@ Once a BOM exists, most of the module reads from it rather than asking anyone to
 ![The BOM tab on a production order, populated from the bill of materials](../../ar/modules/manufacturing/images/production-order/production-order-bom-tab-en.png)
 
 That last one is worth sitting with. An inaccurate BOM does not announce itself. It quietly produces a material variance every single time an order closes, and the variance gets blamed on the shop floor. If your costing shows a persistent one-directional variance on a product, suspect the recipe before you suspect the operators.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Item {0} does not contain uom {1}* — «الصنف {0} لا يحتوي على الوحدة {1}» | The unit on the header quantity — the unit the recipe produces in — is not one of the units defined on the produced item. | Use one of the item's own units, or add the unit to the item file. |
+| *Item {0} in line number {1} does not contain uom {2}* — «الصنف {0} في السطر {1} لا يحتوي على الوحدة {2}» | The same check on a component line or a co-product line: the unit typed there is not defined on that item. | Change the unit on the line, or add it to the item. |
+| *The operation {0} is not in the routing {1}* — «العملية {0} ليست من عمليات التشغيل {1}» | A component line is assigned to an operation sequence that the chosen routing does not contain. It usually appears after the routing was changed under a finished recipe. | Renumber the component onto an operation the routing really has, or put the operation back in the routing. |
+| *The Item and the component class can not both be empty. At least one must be not empty* — «لا يمكن ترك الصنف و تصنيف المكون كلاهما فارغين, يجب أن يكون إحداهما له قيمة» | A component line names neither an item nor a component class. This is the wording you get when **Allow Empty Item In BOM Details If Component Class Exist** is on; with it off, the item is simply required. | Name the item, or name the class the item will be picked from at production time. |
+| *Cost percentage can not be zero* — «قيمة التكلفة لايمكن ان تكون صفر» | A co-product line is set to share cost by percentage and the percentage is left empty or zero, so it would absorb none of the order's cost. | Give it a percentage, or change the line's cost type to a fixed cost. |
+| *Option {0} in details {1} only one line must activate this option* — «بالنسبة للأوبشن {0} في سطور{1} - سطر واحد فقط يمكنه تفعيل هذا الأوبشن» | More than one component line has **Weight Supplement** ticked. Only one component may play that role in a recipe. | Untick it everywhere but the one component that takes up the weight difference. |
+| «القيمة المئوية للتكلفة اكبر من المئة» | The co-product cost percentages add up to more than 100, which would charge the order more cost than it holds. | Bring the percentages back to 100 or less. This message is stored in Arabic only, so it appears in Arabic on an English screen too, and it is reported against a line number that is always 1 rather than the offending line. |

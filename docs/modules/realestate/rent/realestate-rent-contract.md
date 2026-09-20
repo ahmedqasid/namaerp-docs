@@ -167,7 +167,7 @@ Every ledger line carries the contract's own dimensions: the owner as supplier, 
 
 **The To Date is checked to the exact day.** It must be From Date plus a whole number of rent periods, minus one day. A three-year lease starting 1 January 2026 must end 31 December 2028, not 1 January 2029. The error message tells you the date it expects, so read it rather than guessing.
 
-**The owner must be the estate's own owner.** On the first save Nama compares the contract's Owner with the owner recorded on the property and refuses the mismatch with *Can not Change estate Owner*. If the owner really has changed, that is a job for [an ownership transfer](/modules/realestate/properties/realestate-ownership-transfer.md), not for a lease.
+**The owner must be the estate's own owner.** On the first save Nama compares the contract's Owner with the owner recorded on the property and refuses the mismatch with *Can not Change estate Owner{0}*. If the owner really has changed, that is a job for [an ownership transfer](/modules/realestate/properties/realestate-ownership-transfer.md), not for a lease.
 
 **The property has to be available.** A commit fails if the estate is already rented. It also fails if the estate is **sold**, unless the term ticks *Allow Rent Sold Estate* (السماح بتأجير الوحدات المباعة) — which is what you use when the developer sold a unit to an investor and then manages the letting on his behalf. Both checks are skipped when *Auto Cancel Previous Contract* is on, because a renewal is meant to overlap.
 

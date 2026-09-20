@@ -189,6 +189,15 @@ A: Create a receipt for what arrived; the purchase order tracks what's still pen
 
 A: You can close the order on the remaining quantities; what was received stays received, and the system no longer waits for the balance.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Term: {0} selected for generation document not of type: {1}* — «التوجيه: {0} المختار لإنشاء المستند ليس من نوع: {1}» | The **Consolidated Purchase Request** is generating documents, and the generation term named in its own term belongs to a different document type than the type it is told to generate. | In the request's term, pick a generation term that belongs to the generated document type — a purchase order term for purchase orders, and so on. |
+| *Book: {0} selected for generation document not of type: {1}* — «الدفتر: {0} المختار لإنشاء المستند ليس من نوع: {1}» | The same mismatch on the book side: the generation book belongs to another document type. | Pick a book of the generated document type in the request's term. |
+| *Could not generate documents for {0}, there are no lines with quantities in the field {1}* — «لايمكن إنشاء مستندات بناءا علي المستند {0}, لايوجد اي سطر به كمية في الحقل {1}» | Generation reads quantities from one nominated field — the remaining quantity on the purchase lines, or the approved quantity on the request lines — and every line has that field empty or zero. The message names the field it read. | Fill the field the message names, or change which field the term generates from. |
+| *Error while editing purchase document {0}* — «{0} خطأ اثناء تعديل مستند الشراء» | **Apply Changes To Purchase Documents** on a Purchase Document Update failed on one of its target documents; the message names that document and the real reason follows it, as the messages the document itself raised. | Read the messages underneath this one — they belong to the named document — and open it to fix what they describe. The run stops at the first document that fails. |
+
 ## Next Steps
 
 - [The Sales Journey](./sales-journey.md) - the mirror process for selling

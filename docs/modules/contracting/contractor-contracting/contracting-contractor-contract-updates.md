@@ -91,12 +91,12 @@ Had the order been reversed — the subcontract raised to 2,300 while the client
 
 | Rule | Message you will see |
 |---|---|
-| No **later** update may already exist for this subcontract. Value dates are compared, and for same-day documents the order they were created in. | *"Cannot edit document … on date … because of the update document …"* |
-| The contract may not be swapped once the document has been saved. | *"Cannot change contract from … to … in document …"* |
-| The same term code may not appear twice with the same edit type. | *"The term code … with edit type … is repeated in lines … and …"* |
+| No **later** update may already exist for this subcontract. Value dates are compared, and for same-day documents the order they were created in. | *Cannot edit document {0} on date {1} because of the update document {2}* |
+| The contract may not be swapped once the document has been saved. | *Cannot change contract from {0} to {1} in document {2}* — this one has no Arabic string, so it appears in English on Arabic screens too |
+| The same term code may not appear twice with the same edit type. | *The term code {0} with edit type {1} is repeated in lines {2} and {3}* |
 | **Add After** is required on any *Add* line. | column-required |
-| An *Add*, *Edit* or *Delete* line must match a code the snapshot actually has. | *"Could not find term line with the code …"* |
-| Deleting the update is refused while a later update exists for the contract. | *"Cannot delete document … because of the update document …"* |
+| An *Add*, *Edit* or *Delete* line must match a code the snapshot actually has. | *Could not find term line with the code {0}* |
+| Deleting the update is refused while a later update exists for the contract. | *Cannot delete document {0} because of the update document {1}* |
 | Anything the subcontract itself rejects, since it is re-committed on your behalf. | the subcontract's own messages |
 
 Cancelling an update restores the subcontract from the two snapshots — which also restores the progress figures as they stood **when the snapshot was taken**, so after cancelling an old update, check those figures.

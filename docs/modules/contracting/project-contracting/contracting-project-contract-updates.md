@@ -52,7 +52,7 @@ The captions on the "before" grids are not always word-for-word identical to the
 | **Edit** (تعديل) | Finds the contract line with the same term code and overwrites its content — **without touching the system progress figures**. Quantities already executed, already extracted, already costed and the line's place in the term tree all survive. Revising a rate does not erase the record of what has been billed. |
 | **Delete** (حذف) | Finds the contract line with the same term code and removes it from the contract. |
 
-For *Add* and *Delete*, and for *Edit*, the code has to be findable — if the contract has no line with that code, or no line matching the *Add After* anchor, the commit fails with *"Could not find term line with the code …"* against the offending cell.
+For *Add* and *Delete*, and for *Edit*, the code has to be findable — if the contract has no line with that code, or no line matching the *Add After* anchor, the commit fails with *Could not find term line with the code {0}* against the offending cell.
 
 **Add After** is mandatory whenever the edit type is *Add*. The term code, on the other hand, you can leave blank: the system derives it from the anchor by incrementing the anchor's last dotted segment until it finds an unused code, and after the contract is committed it writes the code the contract actually ended up with back onto your line, so the document shows the real result.
 
@@ -134,13 +134,13 @@ Duplicating an update document (نسخة مماثلة) deliberately clears both 
 
 | Rule | Message you will see |
 |---|---|
-| No **later** update may already exist for this contract. The check compares value dates and, for same-day documents, the order they were created in. | *"Cannot edit document … on date … because of the update document …"* |
-| The contract may not be swapped once the document has been saved. | *"Cannot change contract from … to … in document …"* |
-| The same term code may not appear twice with the same edit type. | *"The term code … with edit type … is repeated in lines … and …"* |
+| No **later** update may already exist for this contract. The check compares value dates and, for same-day documents, the order they were created in. | *Cannot edit document {0} on date {1} because of the update document {2}* |
+| The contract may not be swapped once the document has been saved. | *Cannot change contract from {0} to {1} in document {2}* — this one has no Arabic string, so it appears in English on Arabic screens too |
+| The same term code may not appear twice with the same edit type. | *The term code {0} with edit type {1} is repeated in lines {2} and {3}* |
 | **Add After** is required on any *Add* line. | column-required |
-| Deleting the document is refused if a later update exists for the contract. | *"Cannot delete document … because of the update document …"* |
+| Deleting the document is refused if a later update exists for the contract. | *Cannot delete document {0} because of the update document {1}* |
 
-Two further families of failure surface only when the document is committed, because that is when the contract is actually rewritten. The first is the pair of *"Could not find term line with the code …"* messages described above. The second is anything **the contract itself** rejects — the update re-commits the contract through the ordinary route, so every rule on [the contract page](/modules/contracting/project-contracting/contracting-project-contract.md) applies, including the post-extract freeze. The update is a disciplined, audited path *through* the freeze, not a way around it: it can change a frozen field precisely because it records what the field was before, but it cannot break any other contract rule. If your amendment leaves a term code duplicated or a set of phase percentages that no longer adds up to 100, the commit fails and the contract is untouched.
+Two further families of failure surface only when the document is committed, because that is when the contract is actually rewritten. The first is the pair of *Could not find term line with the code {0}* messages described above. The second is anything **the contract itself** rejects — the update re-commits the contract through the ordinary route, so every rule on [the contract page](/modules/contracting/project-contracting/contracting-project-contract.md) applies, including the post-extract freeze. The update is a disciplined, audited path *through* the freeze, not a way around it: it can change a frozen field precisely because it records what the field was before, but it cannot break any other contract rule. If your amendment leaves a term code duplicated or a set of phase percentages that no longer adds up to 100, the commit fails and the contract is untouched.
 
 ## Where to read next
 

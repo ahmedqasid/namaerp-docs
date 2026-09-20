@@ -56,7 +56,7 @@ continuous:
 
 - **The asset must already exist financially.** It must have an opening or purchase document dated
   before the period — you cannot pre-emptively freeze an asset that has never been capitalised.
-  *"The asset does not have opening or purchase document before fiscal period …"*
+  *"The asset {0} does not have opening or purchase document before fiscal period {1}"*
 - **There must be no gap in front of the block.** The From Period has to follow the asset's last
   used period immediately. If the asset was last depreciated in January and you try to block it from
   April, the commit is refused and tells you to cover the gap — February and March have to be part
@@ -117,3 +117,11 @@ the asset's documented history and resumes in the first period after it. The sam
 — the block has to start immediately after the asset's last activity and be clear of other
 documents.
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The asset {0} does not have opening or purchase document before fiscal period {1}* — «الأصل {0} ليس له افتتاحي او سند شراء قبل الفترة {1}» | The asset on the line has no opening or purchase document dated before the From Period, so it has never been capitalised. | Capitalise the asset first. A prevention can only cover an asset that already exists financially. |
+| *The asset {0}, last used period {1} and from period is {2}, you must cover this gap* — «الأصل {0}, اخر فترة مٌستخدمة {1} ومن فترة {2}, لابد الا يكون هناك فجوة بين الفترات» | The From Period does not follow the asset's last used period immediately — there are untouched periods in between. | Move the From Period back so the block starts right after the last activity, or depreciate the gap first. |
+| *The asset {0} has transaction in document {1} between period {2} and {3}* — «الأصل {0} له حركات في المستند {1} بين الفتره {2} و الفترة {3}» | The asset has a document dated inside the range you are trying to block. The message names it. | Shorten the range so it clears that document, or reverse the document if it was entered by mistake. |

@@ -74,7 +74,7 @@ The header names the project, the customer, the responsible engineer and sales r
 
 Two behaviours are worth knowing:
 
-- **Every line's term code must already exist on the contract.** If you type a term code the contract does not carry, the commit is refused with *"Term code is not found in project contract"*. The message does not tell you which line, so on a long job order you check the codes yourself against the contract.
+- **Every line's term code must already exist on the contract.** If you type a term code the contract does not carry, the commit is refused with *Term code is not found in project contract*. The message does not tell you which line, so on a long job order you check the codes yourself against the contract.
 - **The quantities are not capped by the contract.** You can raise job orders whose quantities together exceed the contracted quantity, and nothing stops you. The job order is an instruction, not a control.
 
 It has no document term, and it produces no journal entry, no stock movement and no project cost. Its only lasting effect is the quantities recorded on its own lines.

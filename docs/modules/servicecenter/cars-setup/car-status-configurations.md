@@ -110,8 +110,9 @@ Each row says a car may move *from* this status (and optionally from this main s
 status, and names the document types allowed to make that move. Anything not on the list is refused
 at commit with:
 
-> *Customer Car can not change status from … - main status … to … - main status … in document … for
-> Item … in index …*
+> *{0} can not change status from {1} - main status {2} to {3} - main status {4} in document {5} for Item {6} in index {7}*
+
+where {0} is the sub-item type — *Customer Car* in a workshop, *Car* in a showroom.
 
 That message is the module's most-seen error, and it almost always means the movements grid is
 missing a row, not that the user did anything wrong.
@@ -145,7 +146,7 @@ Saving the configuration checks three things:
 ::: warning The two grids are never cross-checked
 Nothing verifies that a status your updater rows can produce is reachable through your movement
 rows. You can save a configuration that looks complete, and discover the gap only when a real
-document is refused in front of a customer with *"Customer Car can not change status from … to …"*.
+document is refused in front of a customer with this same refusal.
 
 Build the movements grid first, then the updaters, and walk one test car through the whole chain on
 a sandbox before you go live.

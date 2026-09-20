@@ -107,6 +107,16 @@ This document cannot be used when the HR module is configured for fully manual a
 
 Like the Vacation Changing Document, this is a balance-only mechanism — it does not generate a ledger entry; the value it creates is *days*, not money, and it lands in whichever vacation type the term settings point to. An employee whose vacation type has `Vacation Transfer Policy = Repaid` can later cash those days out with the Vacation Compensation document described above.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Vacation period must be greater than zero* — «يجب ان تكون مدة الأجازة أكبر من الصفر» | The Vacation Compensation's **Vacation Period** is zero or negative, so there are no days to cash out. | Enter the number of days being compensated. |
+| *You Must Specify Vacation Class for Vacation Type {0}* — «يرجي تحديد تصنيف الاجازة فى نوع الاجازة {0}» | The vacation type chosen on the compensation has no **Vacation Class** on its own master record, and the class is what decides how the cash-out is valued. | Open that vacation type and set its classification, then save the compensation again. |
+| *Value Date must be the same as To HR Year start ({0})* — «التاريخ الفعلي يجب ان يكون مساوي لبداية الي سنة الرواتب({0})» | A Vacation Transfer Document carries balances into a new HR year, so it must be dated on that year's first day — and its **Value Date** is not. | Set the value date to the start date of the **To Year**, shown in the message. |
+| *Cant transfer to old year* — «لا يمكن الترحيل لسنة قديمة» | The **To Year** starts on or before the **From Year**, so the transfer would run backwards. | Transfer forwards: the from-year is the year ending, the to-year the one beginning. |
+| *vacation Balance update for {0} is created after this document according to {1}* — «لايمكن تعديل الرصيد للموظف {0} تم تعدبل الرصيد فى مستند بتاريخ لاحق طبقا لسند  {1}» | A later Vacation Changing Document in the same year already adjusted this employee's balance, so changing the earlier figure would leave the later one standing on a number that no longer exists. | Amend the latest balance change instead, or cancel it first and then correct this one. |
+
 ## Where this fits
 
 - **[Vacation Types & Balances](vacation-types-and-balances.md)** — the vacation type rules (Transfer Policy, Vacation Class, balance limits) all four screens on this page read from or write into.

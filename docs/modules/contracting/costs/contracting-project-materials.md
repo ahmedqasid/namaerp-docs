@@ -97,7 +97,7 @@ Each line pairs **an item** with **a term**, and the term half is where the cont
 ### What the term code has to satisfy
 
 Every non-empty term code is checked against the chosen contract's term list, and a code that is not
-there is refused: *Term code … does not exist in the contract …*. Whether a term code is **required**
+there is refused: *Term code {0} does not exist in the contract {1}*. Whether a term code is **required**
 is a setup decision made on the document term (توجيه):
 
 - by default the project term code is mandatory, and an option makes it optional;
@@ -165,9 +165,9 @@ Its distinctive behaviour is the **return-quantity check**. Before committing, t
 term code and item, everything ever issued on this contract and everything already returned against
 it, and then refuses lines that do not make sense:
 
-- *The item … is not issued for the term …* — you are returning something that was never issued on
+- *The item {0} is not issued for the term {1}* — you are returning something that was never issued on
   that term;
-- *The returned quantity is greater than the issued quantity for the item … and term …* — you are
+- *The returned quantity is greater than the issued quantity for the item {0} and term {1}* — you are
   returning more than went out.
 
 Two term options adjust this. One allows the returned quantity to exceed the issued quantity, for
@@ -182,7 +182,7 @@ project is the receipt's own inbound cost, again arriving via the background cos
 ## Once a Cost Execution has used it, it is locked
 
 Both the issue and the return refuse to be deleted once one of their lines has been absorbed by a
-Cost Execution: *Can not delete the document … because it is linked to cost execution …*. Modifying
+Cost Execution: *Can not delete the document {0} because it is linked to cost execution {1}*. Modifying
 such a line is blocked for the same reason. This is deliberate — a committed Cost Execution has
 already turned that cost into a unit cost, and an extract may already have billed against it. To
 correct a mistake that far back, the Cost Execution has to be reversed first, and the project extract
@@ -215,3 +215,11 @@ sixth block and the commit is refused, because 200 went out and 5 are already ba
 By the end of March, this issue is one of a handful, and the term's material total has reached 900 — the
 figure that appears in the *Materials* column when the March
 [Cost Execution](/modules/contracting/costs/contracting-cost-execution) sweeps the period up.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Total purchase orders quantity {0} is less than total issued quantity {1} for item {2} and term code {3}* — «إجمالي كمية أوامر الشراء {0} أقل من الكمية المصروفة {1} للصنف {2} وكود البند {3}» | The issue's document term has *prevent saving if the issued item quantity exceeds the purchase order quantity* ticked, and this item on this term code has now been issued more than was ever ordered for the contract. The totals cover every issue and every contracting purchase order on the contract, not just this document. | Reduce the quantity on the line, or raise a contracting purchase order for the extra quantity first. If the check is not wanted for this document type, untick the option on the term. |
+| *The item {0} is not issued for the term {1}* — «لم يتم صرف الصنف {0} للبند {1}» | A Contracting Material Return line returns an item on a term code that never received that item on this contract. | Check the term code on the return line against the issue you are reversing — usually the return was coded to the wrong term. |
+| *The returned quantity is greater than the issued quantity for the item {0} and term {1}* — «الكمية المردودة أكبر من الكمية المصروفة للصنف {0} والبند {1}» | The return would send back more than was issued for that item and term, counting everything already returned. | Return only the remaining quantity. Sites that genuinely need to over-return can allow it with the term option that permits the returned quantity to exceed the issued quantity. |

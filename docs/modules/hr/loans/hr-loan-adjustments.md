@@ -55,6 +55,21 @@ The **Loan Disable Document** (سند تعطيل سلفة) pauses (or resumes) a
 A loan cannot be disabled if it already has a payment recorded after this document's value date — the pause only makes sense looking forward, not to unwind money already collected. This document generates no accounting entry of its own; it only flips the loan's disabled flag.
 :::
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Document {0} , No Installment to postpone from that date* — «المستند {0} , لا يوجد اقساط لتأجيلها في هذه الفتره» | **Postpone Installment** mode, but no unpaid, non-exempt installment of that loan has a payment date inside the **From Date** / **To Date** window. | Widen the date range, or check the loan — its installments in that window may already be paid or exempted. |
+| *Document {0} , No Installment to reschedule from that date* — «المستند {0} , لا يوجد اقساط لجدوله في هذه الفتره» | **Reschedule Installment** mode with an empty **To Schedule Lines** grid, so there is no installment to draw value from. | Add the installments whose value is being moved. |
+| *Document {0} , No Installment to reschedule over from that date* — «المستند {0} لا يوجد اقساط لتوزيع الاقساط المجدوله عليها» | The **To Schedule Over Lines** grid is empty, so the value has nowhere to land. | Add the installments that will carry the moved value — existing ones, or new ones with **Generate New Installment** ticked. |
+| *Document {0} , The added values {1} are not equal to the rescheduled values {2}* — «المستند {0} , القيم المضافة {1} لا تساوي القيم {2} المعاد جدولتها» | The two grids do not total the same amount; a reschedule may move value around but never change what the employee owes. | Adjust either side until the totals match exactly — the message shows both figures. |
+| *Document {0} , The installment {1} cant be repeated in Scheduled and Scheduled Over Lines* — «المستند {0} , لا يمكن تكرار القسط  {1} في كلا من السطور المجدوله والسطور الموزع عليها» | The same installment code appears both as a source and as a destination, which would move value onto itself. | Remove it from one of the two grids. |
+| *Document {0} , Some Installments Repeated* — «المستند {0} , بعض الاقساط مكرره في الاقساط المجدوله أو الاقساط الموزع عليها» | One of the two grids lists the same installment code twice. | Delete the duplicate row and put the whole value on one line. |
+| *Document {0} , The installment {1} can not be found in the original loan document {2}* — «المستند {0} , لا يمكن ايجاد القسط {1} فى سند السلفة {2}» | A **To Schedule Lines** row names an installment code that does not exist on the loan document. | Pick the codes from the loan's own installment list. |
+| *Document {0} , You cant create the installment {1} which already exists in the loan document {2}* — «{2} المستند {0} , لا بمكن أن تنشئ القسط {1} لإنه موجود في سند السلفة» | **Generate New Installment** is ticked for a destination code that the loan already has, so the new line would collide with the existing installment. | Untick **Generate New Installment** to add value to the existing installment, or give the new installment a code the loan does not use. |
+| *Document {0} , You cant use the Installment {1} which not exist in The Loan Document {2}* — «{2} المسند {0} , لا يمكن استخدام القسط {1} لانه غير موجود في سند السلفه» | The mirror case: a destination line names a code that is *not* on the loan, but **Generate New Installment** is not ticked. | Tick **Generate New Installment** to create it, or choose an installment that exists. |
+| *Document {0} , The installment {1} date is out of range of this document* — «المستند {0} , تاريخ القسط {1} خارج عن فتره المستند» | An installment chosen as a source has a payment date outside this document's **From Date** / **To Date** window. | Widen the document's date range, or leave that installment out of the reschedule. |
+
 ## Where this fits
 
 - **[Loan Documents & Payments](hr-loan-documents.md)** — the disbursement and installment schedule every adjustment here works against.

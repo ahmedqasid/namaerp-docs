@@ -83,6 +83,8 @@ Once the record exists, its behaviour on documents is consistent across the fold
 - Setting the header field **The Service** (الخدمة) on an order, notice, invoice or invoice return **inserts a matching line** into the services grid if one is not already there, first removing any line with an empty service. You do not have to add the header service to the grid yourself.
 - Every service referenced in a spare-parts grid, a tools grid or a dysfunctions grid **must also appear in the services grid**, or the document refuses to save with *"Can not use the service {0} because it was not found in the services grid"*.
 - The same **(service, task template)** pair may not appear twice in the services grid — *"The service {0} in line {1} is repeated"*.
+
+Neither of those two messages has an Arabic translation, so both appear in English on Arabic screens.
 - The **task template** lookup on a services line is filtered by the record's **Machine Category** and by the visit types chosen on that line. If a technician tells you a template "is not in the list", check the Machine Category on the service record first.
 
 ## The Machine Wording, One More Time

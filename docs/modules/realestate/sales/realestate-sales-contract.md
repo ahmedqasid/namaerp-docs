@@ -150,12 +150,12 @@ The important difference is behavioural: an extension **does not re-run the prop
 ## The validations you will actually meet
 
 - **The installment total must match the remaining value**, within the tolerance set in [module configuration](/modules/realestate/realestate-configuration.md). This is the check that stops a contract over a one-piastre rounding gap, which is exactly what the tolerance is for. The term option *Validate Installments Total* can switch the check off per document term.
-- **A paid line cannot be deleted or re-coded.** Once an installment has been collected, requested for collection or covered by a commercial paper, its code is frozen and the line cannot disappear — you get *"Can not delete or change code of a paid line"*. This is what protects you from an accidental rebuild of the grid.
+- **A paid line cannot be deleted or re-coded.** Once an installment has been collected, requested for collection or covered by a commercial paper, its code is frozen and the line cannot disappear — you get *"Can not delete or change code of a paid line {0}"*. This is what protects you from an accidental rebuild of the grid.
 - **Installment codes must be unique** across the contract. They are generated automatically unless the term has *Manual Coding* on.
-- **The reservation must be consistent.** If the estate already carries a reservation and this contract does not link to it, commit fails with *"The estate has a reservation doc"*.
+- **The reservation must be consistent.** If the estate already carries a reservation and this contract does not link to it, commit fails with *"The estate {0} has a reservation doc"*.
 - **The maintenance deposit needs a payment method.** If a deposit value is present, the payment type is required, and for *One Value* the payment date is required too. The total maintenance cost must equal the maintenance-cost installment lines plus the deposit.
 - **Construction-info lines must be coherent** — each needs either a value or a percentage, and the line that distributes the remainder must have neither.
-- **A waivered contract is frozen.** Once a waiver has been issued against it you get *"This contract can not be modified, because there is waiver Document … based on it"*. To change anything you deal with the waiver, not the contract.
+- **A waivered contract is frozen.** Once a waiver has been issued against it you get *"This contract can not be modified,because there is waiver Document {0} based on it"*. To change anything you deal with the waiver, not the contract.
 - **Force Price List**, if the term switches it on, requires the contract price to equal the price the price list produces for that estate, and names both figures in the error.
 
 ## From here

@@ -135,6 +135,15 @@ whatever the job order already said. Full mechanics on
    part that appears on two different tasks is counted once — issuing enough for one task can satisfy
    it for both.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Job order {0} is already closed* — «أمر الشغل {0} مغلق بالفعل» | A second closing is being raised for a job order that is already closed. One closing per order. | Find the existing closing from the job order's related documents. If it was wrong, cancel it and raise a new one. |
+| *Can not close the order {0} because the status is {1}* — «لا يمكن اغلاق أمر الشغل {0} لان حالته {1}» | The order's status is *Cancelled*, *Pending* or *Stopped*. | Put the order back into a working status, or tick **Allow Closing Suspended Orders** (السماح باغلاق الاوامر المعلقة) on the closing's document term. |
+| *Can not close the order {0} because there is unfinished line for the task {1} and technician {2}* — «لا يمكن أغلاق أمر الشغل {0} لوجود مهمة {1} غير منتهيه للفنى {2}.» | An execution line for this order is missing its start or end time, and **Prevent Closing When Unfinished Task** (منع إغلاق أمر الشغل في حالة وجود مهام غير منتهية) is on in the service centre configuration — which it is by default. | Have the technician complete the time sheet on that execution line. One message is raised per unfinished line. |
+| *You can not close job order {0}, because the quantity of the material {1} is {2} and the issued quantity is {3}* — «لا يمكن غلق أمرالإنتاج {0} لأن كمية الصنف {1} تساوي {2} والكمية المصروفة {3}» | The closing term ticks **Do Not Close Job Order If All Materials Are Not Issued** (منع إغلاق أمر الشغل إذا لم يتم صرف الخامات بالكامل), and a spare part has been issued in less than the planned quantity. Quantities are aggregated per item across the whole order. | Issue the rest of the material, reduce the planned quantity on the job order, or untick the option on the term. |
+
 ## Undoing a closing
 
 A closing is an ordinary document: cancel or delete it and its effects unwind. The status entry

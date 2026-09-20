@@ -55,3 +55,11 @@ The container is later selected on the operation order, bill of lading, and serv
 ::: tip Start small
 You don't need to define everything up front. Start with the service items you actually sell and the container types you handle, and add vessels, ports, and commodities gradually as they appear in your shipments.
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You Must Select at least One Of Service Item Types* — «يجب اختيار خدمة واحدة على الاقل من الخدمات الأربعة التالية(شحن بحري ـ نقل ـ تخليص ـ مولدات)» | A service item has none of its service flags ticked — ocean freight, custom clearance, trucking, genset or other — **and** no Tax Authority Code either, so nothing places it in a section. | Tick the flag for the service the item really is. An item that exists only for e-invoicing passes the check once it carries a Tax Authority Code. |
+| *Commission item {0} should not be the same e invoice item {1}* — «بند خدمة (عمولة) {0} لا يجب ان يكون هو نفسه بند الفاتورة الالكترونية {1}» | The Commission Item and the E-Invoice Item on the service item point at the same record, which would make commission and cost indistinguishable on the submitted invoice. | Point them at two different service items, or clear the one you do not need. |
+| *Capacity {0} must be more than zero* — «يجب ان تكون السعة أكبر من الصفر» | A Location is being saved with an empty, zero or negative Capacity. | Enter the location's capacity; storage consumption is measured against it. |

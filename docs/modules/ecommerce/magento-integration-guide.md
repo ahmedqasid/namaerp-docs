@@ -1412,3 +1412,12 @@ public static void throwsExceptionIfError(Map<String, Object> response, String i
 | WooCommerce | 5.x, 6.x, 7.x | 2023.1+          | REST API v3 | WordPress 5.8+ |
 | Zid | Current | 2023.3+          | Custom API | Manager token required |
 | OTO | Current | 2025.10+         | REST API v2 | Inventory sync only, refresh token auth |
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Magento Site {0} can not used to link Items, please check this option {1} must be true* — «موقع ماجنتو {0} لا يمكن استخدامه لربط الأصناف, الرجاء التاكد من تفعيل الأوبشن {1}» | An item linker points at a site whose **Link Items** option is off, so the site is not meant to receive item links. | Tick Link Items on the site, or link the items to a site that is configured for it. |
+| *Fields {0} , {1} should not be empty, you must fill at least one* — «لا يجب ترك الحقلين فارغين {0} , {1} , يجب علي الأقل ملئ واحد منهم» | A price updater document names neither a special price source nor an original price source, so it has nothing to send. | Fill at least one of the two sources. |
+| *Special price from date and to date is required* — «لا يمكن ترك من تاريخ وإلي تاريخ للسعر الخاص فارغين» | The document carries a special price source but leaves the special price From Date or To Date empty; a special price has to have a window. | Fill both dates, or clear the special price source. |
+| *You can not create more than one file for type {0} for ecommerce site {1}* — «لا يمكنك إنشاء أكثر من ملف من النوع {0} للمتجر الإلكتروني {1}» | A committed category configuration already exists for that site. One configuration record per site. | Open the existing record and edit it instead of creating a second one. |

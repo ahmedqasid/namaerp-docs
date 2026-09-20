@@ -3,7 +3,7 @@ entities: [SalaryComponent, SalaryComponentType, SalaryComponentGroup]
 ---
 # Salary Components
 
-Every payslip is built from small, reusable pieces: a basic salary, a housing allowance, a tax, an overtime line, an insurance deduction. In Nama, each of those pieces exists at two levels — a **Salary Component Type**, which defines the *kind* of pay or deduction and the rules that apply to it, and a **Salary Component**, the actual priced element that gets attached to an employee. A **Salary Component Group** exists purely to keep a long component list organized. This page covers all three; how a component's value is *calculated* when it isn't a flat number is the subject of [Salary Calculation Formulas](salary-calculation-formulas.md).
+Every payslip is built from small, reusable pieces: a basic salary, a housing allowance, a tax, an overtime line, an insurance deduction. In Nama, each of those pieces exists at two levels — a **Salary Component Type**, which defines the *kind* of pay or deduction and the rules that apply to it, and a **Salary Component**, the actual priced element that gets attached to an employee. A **Salary Component Group** mainly keeps a long component list organized, with one narrow effect on generation described below. This page covers all three; how a component's value is *calculated* when it isn't a flat number is the subject of [Salary Calculation Formulas](salary-calculation-formulas.md).
 
 ## Salary Component Type — the kind of pay or deduction
 
@@ -67,9 +67,27 @@ A component carries its own **debit account lines** and **credit account lines**
 
 ![Salary Component edit screen, showing its value method](../../../ar/modules/hr/images/concepts/salary-component-en.png)
 
-## Salary Component Group — organization only
+## Salary Component Group
 
-A **Salary Component Group** (مجموعة مفردات راتب, **Payroll > Salary Configurations > Salary Component Group**) simply bundles related components together for filtering and reporting. It has no effect whatsoever on how a component is calculated or where it posts — pure organization, nothing more.
+A **Salary Component Group** (مجموعة مفردات راتب, **Payroll > Salary Configurations > Salary Component Group**) bundles related components together for filtering and reporting. That is most of what it does, and for the great majority of groups it is all of it.
+
+The exception is the group's **component types** grid. Each line names a component type, and where that type's own effect is **Other**, the line's **Other Component Effect Type** column says whether salary generation should treat it as an addition or a deduction when it works out a component that refers to the group. So the group is organization *plus* one narrow rule, and the refusal at the bottom of this page exists to keep that column confined to the types it applies to.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You can not check the option {0}, and the classification is {1} in component type {2}* — «لا يمكنك اختيار {0} ونوع التصنيف {1} في نوع المفرد {2}» | **Do Not Override After Regenerate** is ticked on a component whose type is classified **Installment**; installment values come from the loan documents on every regeneration, so they cannot be protected from being rewritten. | Untick the option on that component, or move it under a type with a different classification. |
+| *One option from these option must be true {0} , {1} , {2} when this option is true {3} in component type, at salary component {4}* — «يجب تفعيل حقل من هذه الحقول {0} , {1} , {2} عند تفعيل هذا الحقل {3} في نوع المفرد وهذا في مفرد الراتب {4}» | The component type has **Auto Adjustment** switched on, which means exactly one of **Include Compulsory Vacation**, **Included Vacation Liquidation** or **Included Termination Liquidation** must be ticked on the component — none are, or more than one is. | Decide which settlement the component is auto-adjusted for and tick that one flag only. |
+| *Approximation type can not be {0}* — «تقريب الراتب لا يمكن ان يكون {0}» | **Use With Salary Approximation** is ticked but the rounding type is left at **None**, so there is nothing to round to. | Choose a real rounding type, or untick the approximation option. |
+| *Floor approximation type should not be used with addition component* — «التقريب لأسفل لا يجب استخدامه مع المفردات من النوع إضافة» | An **Addition** component is set to round **down**, which would quietly pay the employee less than the computed amount. | Round additions up, or to the nearest value. |
+| *Ceiling approximation type should not be used with deduction component* — «التقريب لأعلي لا يجب استخدامه مع المفردات من النوع إستقطاع» | The mirror case: a **Deduction** component set to round **up** would deduct more than computed. | Round deductions down, or to the nearest value. |
+| *Accounts Must Contains Only One Line* — «الحسابات جب أن تحتوى على حساب واحد فقط» | The debit or credit distribution type is **Fixed**, which posts the whole amount to one account, but its account-lines grid does not hold exactly one line. | Leave a single line in that grid, or switch the distribution type to the one that splits over several accounts. |
+| *Total Percentages should be 100%* — «مجموع النسب يجب أن تكون 100 %» | The distribution type splits the amount by percentage, and the percentages on the debit or credit account lines do not add up to 100. | Adjust the percentages until they total 100 on both sides. |
+| *You can not fill field {0} because distribution type is {1}* — «لا يمكنك ملء الحقل {0} لأن طريقة التوزيع {1}» | An account line carries a criteria or query field that the chosen distribution type never reads — for example an employee query on a fixed distribution. | Clear the field named in the message, or change the distribution type to the one that actually uses it. |
+| *The Option {0} can not be true if {1} is true* — «الأوبشن {0} لا يمكن ان يكون مفعل عندما يكون الأوبشن {1} مفعل» | **Redistribute Base Value On Work Period** and **Unrelated To Work Days** are both ticked: the first prorates the value over the days worked, the second says the value ignores working days altogether. | Keep whichever is true of this component and untick the other. |
+| *You must check {0} if you marked {1}* — «يجب ان تقوم باختيار {0} اذا قمت باختيار {1}» | On the **Salary Component Type**, **Not Affected By Emp Info** is ticked while **Unrelated To Work Days** is not — a type that ignores the employee's HR information must also be independent of their working days. | Tick **Unrelated To Work Days** as well, or untick the first option. |
+| *Component type {0} salary effect type must be Other in order to be able to choose other component effect type* — «يجب ان يكون التأثير فى نوع المفرد {0} يساوى أخرى حتى يتم اختيار معاملة المفردات من نوع أخرى» | On a **Salary Component Group** line, the **Other Component Effect Type** column was filled for a component type whose own effect type is **Addition** or **Deduction**; that column only qualifies types whose effect is **Other**. | Clear the column on that line, or set the component type's effect type to **Other** if that is what it really is. |
 
 ## Related pages
 

@@ -178,6 +178,25 @@ Feeding employees runs on the same catalog-then-apply pattern as most other empl
 None of the three meal documents post to the general ledger — meal cost here is an operational and
 allowance-tracking figure, not an accounting entry.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *the request is processed by another action* — «تم عمل إجراء من قبل بناءاً على هذا الطلب» | The Car Action's **From Doc** points at a Car Action Request that a *different* Car Action has already processed. | Open the request to see which action consumed it; raise a fresh request for the extra work instead of reusing this one. |
+| *Can not Change Meter Reading* — «لايمكن تغير قراءة العداد» | A Car Action generated from a request changed the **Meter Reading** or **Previous Meter Reading** the request carried. | Restore the readings the request recorded; if the odometer was misread, correct the request first. |
+| *Cant change actionType* — «لايمكن تغير نوع الاجراء» | A details line of a Car Action generated from a request has a different **Action Type** from the matching request line. | Put the original action type back, or start from a new request that says what you mean. |
+| *Cant change problem* — «لايمكن تغير الإجراء» | Same check on the line's **Action** — the specific Car Problem entry no longer matches the request. | Restore the action the request named; a different repair needs its own request. |
+| *Cant change Date* — «لايمكن تغير التاريخ» | A details line's **From Date** or **To Date** differs from the request's line. | Keep the request's dates on the action, or amend the request. |
+| *This Document Cant be Change It ProcessedBy {0}* — «لايمكن التغير فى هذا المستند تم معالجتة ب {0}» | The Car Action Request has already been processed by the Car Action named in the message, so the request itself is frozen. | Make the change on the Car Action instead; the request is only the intake form. |
+| *Please Fill Insurance Document (Number , Issue , End)* — «يجب ان تملا حقول الوثيقه الرقم وتاريخ الاصدار و تاريخ الانتهاء الخاص ببوليصة التأمين» | The Cars Insurance Policy is missing at least one of the insurer's own document fields — **Number**, **Issue** date or **End at** date. | Fill all three from the insurer's policy paper; the adding and removing documents validate their dates against them. |
+| *Empty Main Field* — «حقل رئيسي فارغ» | An instalment line on the Car Insurance Offer Document has no **Percentage**, so its value cannot be derived from the total insurance price. The message is flagged against the line's car-type column even though it is the percentage that is missing. | Enter the percentage of the total each instalment represents, or delete the empty instalment line. |
+| *The car {0} was already added in another adding document {1}* — «السيارة {0} مضافة بالفعل فى سند اضافة اخر{1}» | The car is already covered by another Car Insurance Adding Document on the same policy, and this document's term does not have **Allow Adding Car To Insurance If It Found In Policy** enabled. | Remove the duplicate line, or enable that option on the document term if a second cover really is intended. |
+| *End date {0} must be after issue date {1}* — «تاريخ الأنتهاء {0} يجب ان يكون بعد تاريخ الاصدار {1}» | On an adding line the cover's **End at** date falls before its **Issue** date. | Correct the line's dates. |
+| *End date {0} is after policy end date {1}* — «تاريخ الأنتهاء {0} بعد تاريخ انتهاء البوليصة {1}» | A car is being added with cover that runs past the end of the policy it is attached to. | Shorten the line to the policy's end date, or add the car under a policy that runs that long. |
+| *Removing date {0} must be after issue date {1}* — «تاريخ الحذف {0} يجب ان يكون بعد تاريخ الاصدار {1}» | On a Car Insurance Removing Document the **Removing Date** is on or before the date the cover was issued, so there is no cover period to refund. | Set the removing date inside the cover period. |
+| *Removing date {0} must be before end date {1}* — «تاريخ الحذف {0} يجب ان يكون قبل تاريخ الانتهاء{1}» | The removing date is on or after the cover's end date — the cover has already run out, so nothing is recovered by removing the car. | Either use a date inside the period, or drop the line: expired cover needs no removing document. |
+| *The car {0} was not found in policy {1} or any adding document for the same policy* — «السيارة {0} غير موجودة بالبوليصة {1} او اى سند اضافة اخر على نفس البوليصة» | The car being removed was never on that policy — or was already taken off it by an earlier removing document. | Check the policy's **cars** tab for what the policy currently covers, and remove only cars listed there. |
+
 ## Related
 
 - [Employee HR Information](./setup/employee-hr-information) — the employee master record that Car

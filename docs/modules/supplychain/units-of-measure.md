@@ -128,7 +128,7 @@ Saving the item does three things worth knowing about:
 
 - It computes, for every row in the units grid, that unit's rate to the base unit. This derived rate is what the screens use to convert quantities as you type, and it is what the system compares against if you ever edit the rate later.
 - It creates a system-generated **Unit Conversions** record for the item, named after the item's code.
-- It refuses the save if you removed a unit from the grid that already has transactions behind it — *The uom X can not be removed from the item Y because the item has N transactions for this unit*. There is no configuration switch for that one.
+- It refuses the save if you removed a unit from the grid that already has transactions behind it — *The uom {0} can not be removed from the item {1} because the item has {2} transactions for this unit*. There is no configuration switch for that one.
 
 ### Step 6 — Use it
 
@@ -196,7 +196,7 @@ Every quantity ever recorded against an item is stored converted into that item'
 
 Nama therefore refuses. Once the item has any transaction at all, changing the **Base Unit(Smallest)** fails with *The base unit can not be changed from X to Y in the item Z because the item has N transactions*.
 
-The same protection covers the rate. If a unit's rate to the base changes and there are transactions expressed in that unit, the save fails with *The rate of the unit X was changed from A to B in the item Y, and there are N transactions for this unit and item* — with a second, separate message if the unit was used in production orders or bills of material.
+The same protection covers the rate. If a unit's rate to the base changes and there are transactions expressed in that unit, the save fails with *The rate of the unit {0} was changed from {1} to {2} in the item {3}, and there are {4} transactions for this unit and item* — with a second, separate message if the unit was used in production orders or bills of material.
 
 Both can be lifted, and both belong to the emergency-correction category rather than to normal work:
 
@@ -246,6 +246,20 @@ The last screen deals with a different problem. A factory that cuts to any size 
 **Standard Measures** (*Inventory → Master Files → Standard Measures*) is a named list of permitted formats. Give it a **Measures Type** — **Single Dimension**, **Two Dimensions** or **Three Dimensions** — and fill the **Details** grid with one row per format, each giving **L**, **W** and **H**. Duplicate rows are rejected. The item then points at the list through the **Standard Measures** field on its main tab, and the item's **Measures Type** must match the list's, or the save fails.
 
 Once attached, a **purchase invoice** line for that item must carry measurements matching one of the rows — length and width must both match, and for a three-dimensional list the height as well — or the line is rejected with *These Measures are not Standard Measures*. It is a purchasing control: it stops a receiving clerk inventing a sheet size that the supplier never sold you, and it keeps the stock file free of near-duplicate formats that nobody can pick from later.
+
+## Messages you may see
+
+These are the refusals that belong to units themselves. The item card's own checks — sizes, colours, revisions, batches — are on [Understanding Inventory Items](./understanding-items.md).
+
+| Message | Why | What to do |
+|---|---|---|
+| *{0} creation failed* — «تعذر إنشاء {0}» | Saving a unit, a unit group or an item's units tab also rewrites the hidden Unit Conversions record behind it, and that rewrite could not start — usually because someone else is holding the same conversion record open. | Save again after a moment. If it repeats, open the Unit Conversions screen and check whether the record for this unit, group or item is locked or in a draft state. |
+| *UOM {0} in line number {1} must match base unit {2}* — «الوحدة {0} في السطر {1} يجب أن تكون الوحدة الأساسية {2}» | A conversion line on the item card converts *to* some unit other than the base unit of the item's primary unit. Every rate on the item is expressed against the base unit and nothing else. | Set the line's To UOM to the base unit named in the message, and express the rate against it. |
+| *Could not find conversion between base unit ({0}) and unit ({1})* — «لم يمكن العثور علي تحويل بين الوحدة الأساسية ({0}) و الوحدة ({1})» | A unit was added to the item's units grid, but nothing tells the system how many of it make a base unit — neither the unit group, nor the unit's own conversions, nor a conversion line on the item. | Give the unit a rate: add a conversion line on the item, or put both units in a unit group that states the rate, or fill the rate on the unit itself. |
+| *{0} is not listed in the units grid* — «{0} غير مدرجة بقائمة الوحدات» | A unit was chosen in one of the item's single-unit fields — the purchase unit, the sales unit and the like — that is not one of the rows in the item's units grid. | Add the unit to the units grid with its rate first, then select it in the field. |
+| *The uom {0} can not be removed from the item {1} because the item has {2} transactions for this unit* — «لا يمكن تعديل الوحدة {0} للصنف {1} لان الصنف تم عليه {2} حركات لهذه الوحدة» | A unit row was deleted from the item's units grid after documents were already written in that unit; removing it would leave those quantities untranslatable. There is no configuration switch that lifts this one. | Put the row back. If the unit must stop being used, leave it on the item and stop selecting it on new documents. |
+| *The uom {0} can not be removed from the item {1} because the item and unit were used {2} times in production orders and BOMs* — «لا يمكن تعديل الوحدة {0} للصنف {1} لان الصنف و الوحدة تم عليهم {2} حركات في أوامر الإنتاج و مكونات المنتج» | The same deletion, counted against production orders and bills of material instead of stock documents. Both messages can appear together for one unit. | Put the row back, or amend the production orders and bills of material that use it first. |
+| *The rate of the unit {0} was changed from {1} to {2} in the item {3}, and there are {4} transactions for this unit and item* — «معامل التحويل للوحدة {0} تم تغييره من {1} إلى {2} للصنف {3}،وهناك {4} حركات تمت على نفس الصنف والوحدة» | A unit's rate to the base was edited while documents already exist expressed in that unit — their base-unit quantities would silently change. A second, separately worded message counts the same usage in production orders and bills of material. | Add a new unit for the new rate and use that on future documents, or have the supply chain option *Allow Update Rate To Base In Trans* enabled if the old figures really are wrong and should move. |
 
 ## Where Units Show Up Next
 

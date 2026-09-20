@@ -114,6 +114,14 @@ CC-0042's three extracts, which the [extracts page](/modules/contracting/contrac
 
 Retention withheld comes to 8,000 — 10% of the 80,000 subcontract. The advance clears exactly as the last certificate closes. And none of it existed in the ledger until the first extract was committed: the day CC-0042 was signed, the only thing that happened in the system was that his cheques were minted.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The total of contractor contracts for term {0} - {1} in the project contract {2} is {3}, while term quantity is {4}* — «إجمالي كميات عقود مقاول الباطن لكود البند {0} - {1} في عقد المشروع {2} تساوي {3}، بينما كمية كود البند تساوي {4}» | Saving a subcontract that names a project contract: the quantity sublet against that client-contract term, added up over **every** committed subcontract on that contract plus this one, is more than the client contract sold. | Reduce the quantity, vary the client contract first, or — if the business prefers to over-let and vary afterwards — tick **Allow Contractor Contracts to exceed Original Contract Qty** (السماح لكميات عقود مقاولي الباطن بتعدي كمية العقد الرئيسي) in the contracting configuration. |
+| *Sum of current and previous {0} value of condition {1} can not exceed {2}* — «مجموع القيمة الحالية والسابقة {0} للشرط {1} لا يمكن أن تتخطى {2}» | On a subcontractor extract, a condition line — retention, advance recovery, a deduction — would take the running total for that condition past the value planned for it on the subcontract. Previous extracts count towards the total. | Reduce the value on this certificate, or tick **Condition Value Can Exceed Contract Planned Value** (قيمة الشرط يمكن أن تتخطى القيمة المخططة في العقد) on the contracting condition itself when the overrun is legitimate. |
+| *You can not use the contract {0} because it has a final extract {1}* — «لا يمكنك استخدام العقد {0} حيث أنه منتهي طبقًا للمستخلص الختامي {1}» | The contract already carries a committed **Final** extract, which closes it. It is refused on any later document that points at it, not only on extracts. | Work on another contract, or — when late documents on a closed contract are genuinely needed — tick **Allow Creating Documents For Contracts That Have a Final Extract** (السماح بعمل مستندات لعقود لها مستخلص ختامي) in the contracting configuration. |
+
 ## Where to read next
 
 - [Subcontractor offers](/modules/contracting/contractor-contracting/contracting-contractor-offers.md) and [subcontracts](/modules/contracting/contractor-contracting/contracting-contractor-contract.md) — the two master files this side is built on.

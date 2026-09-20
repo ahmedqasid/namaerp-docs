@@ -452,3 +452,12 @@ Once you start a production order, its BOM and routing structure is locked. Chec
 ::: tip Next step: execution
 Creating the order is planning. [Production Execution](/modules/manufacturing/production-execution) is where the work gets recorded.
 :::
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Option {0} in details {1} only one line must activate this option* — «بالنسبة للأوبشن {0} في سطور{1} - سطر واحد فقط يمكنه تفعيل هذا الأوبشن» | More than one component line on the order has **Weight Supplement** ticked. One component takes up the weight difference, not several. | Untick it on all but one component. |
+| *Production Term or Production Book from term config Can not be Empty* — «توجية و دفتر أمر الإنتاج الموجودين في التوجيه لا يمكن ان يكونا فارغين» | An **Aggregated Production Order** is saved while its own term does not say which term and book the individual production orders should be created under. | Fill the production order term and book in the aggregated order's term, then save again. |
+| *Production Order {0} Status is not Initial You can not change it* — «أمر الإنتاج {0} حالته ليست إبتدائية لا يمكنك تعديله» | A line of the aggregated order was changed, and the production order behind it has already left the *Initial* status. It is raised both for the order you are pointing at now and for the one you are pointing away from. | Leave started orders alone and change the shop floor documents instead. The same refusal is raised in English when it is the new line that is checked, because only one of the two wordings carries an Arabic translation. |
+| *You can not choose option {0} and {1} together* — «لا يمكنك اختيار الحقل {0} و{1} معًا» | **Start Prod Order** and **Cancel Start Prod Order** are both ticked on the aggregated order, which asks it to start and unstart the same orders in one save. | Tick one of the two and save; tick the other on a later save if you then want the opposite. |

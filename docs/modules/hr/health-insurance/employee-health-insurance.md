@@ -206,6 +206,14 @@ The **Health Insurance Claim Document** posts separately and more simply: a sing
 **Debit 2** pair sized to the claim's **Repaid Total Amount**, moving the reimbursed medical cost
 between the accounts configured on the claim document's own term.
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Employee {0} is repeated in line {1}* — «الموظف {0} مكرر فى السطر رقم {1}» | The same employee appears twice in the details grid under the same name — one enrolment line per person (attendants are separate lines with their own names). | Delete the duplicate line, or correct the name if the second line is meant to be a dependant. |
+| *The employee {0} Has valid Health Insurance* — «الموظف {0} لم ينتهى تأمينه بعد» | The employee's current health-insurance cover has not expired yet at this document's value date, so enrolling them again would leave two overlapping covers. | Wait until the current cover ends, remove the employee from the existing policy first, or use the upgrade document if the aim is a better category. |
+| *Cant upgrade To Low or same Category* — «لايمكن الترقية إلى نفس الفئة او فئة اقل» | On a Health Insurance Upgrade line the **New Category** is the same as, or lower than, the employee's present one. The ladder runs B, B+, A, AA, VIP, VIP+. | Pick a higher category, or drop the line — moving someone down is done by removing them and re-enrolling, not by an upgrade. |
+
 ## Related pages
 
 - [Employee HR Information](../setup/employee-hr-information) — the employee master file these

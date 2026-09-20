@@ -39,16 +39,18 @@ A close is not a one-way door, and the way back is never to hunt down the journa
 - **Cancel it** with a [Document Cancel Document](../../platform/document-cancel-document.md) and the generated entries are deleted exactly as on a delete, but the closing entry stays in the system with the status **Cancelled**, keeping its number and its place in the list. It lifts the date lock just as a delete does, and it leaves an audit trail of the close having happened — at the cost of a cancelled document that can no longer be deleted.
 
 ::: tip Deleting is refused while it is still generating
-A large close runs as background batches, and the document refuses to be deleted until they finish: *"Closing entry generation is still in progress, please wait until it completes before deleting this document."* Wait for the generation to finish, then delete.
+A large close runs as background batches, and the document refuses to be deleted until they finish: *"Closing entry generation is still in progress, please wait until it completes before deleting this document"* (editing it while the batches run is refused with the same wording, ending "before editing this document"). Wait for the generation to finish, then delete. This message has no Arabic text in the product, so it appears in English on Arabic screens too.
 :::
 
 #### Adjustments that arrive after the close
 
 A committed closing entry does not only close its own period — it draws a line across the whole legal entity at its **value date**. From then on, **any** document dated on or before that date is refused when you try to save it, in every module, not only in accounting:
 
-> You can not edit the document *X* at date *Y* because there is a closing entry on *Z*
+> You can not edit the document {0} at date {1} because there is a closing entry on {2}
 
-Moving a document's value date across the line is refused for the same reason: you cannot take a document dated before the closing entry and push it after it.
+Moving a document's value date across the line is refused for the same reason, with its own message — you cannot take a document dated before the closing entry and push it after it:
+
+> You can not change the document {0} value date from {1} to {2} because there is a closing entry on {3}
 
 So "post the adjustment and then re-run the close" is not a sequence the system will allow. The order has to be:
 
@@ -99,9 +101,24 @@ As years of transactions accumulate, you may need to **purge/archive** the old o
 - **"Closing won't complete / refuses to execute"** — use the **Check Data Before Closing** button; the cause is usually transactions not yet processed, or the entry's period not being Adjustment/Closing type.
 - **"The closing entry was created wrong — do we delete it and start over?"** — no. Fix the wrong fields and save it again; the previous entries are deleted and regenerated. Delete or cancel it only when the close should not exist at all. See [Correcting a closing entry, or closing again](#Correcting-a-closing-entry-or-closing-again).
 - **"Adjustments came in after the year was closed"** — you cannot enter them while the closing entry stands; every document dated on or before its value date is refused. Delete the closing entry, re-open the period if **Close All Fiscal Year Periods** closed it, enter the adjustments, then create the closing entry again. Do not switch on **Do Not Prevent Modifying Documents Before Last Closing Entry** to get around it.
-- **"You can not edit the document X at date Y because there is a closing entry on Z"** — exactly that lock, and it applies to every module, not only accounting. If no closing entry explains the date, look for a committed **Freeze Processing Document**; it sets the same line.
+- **"You can not edit the document {0} at date {1} because there is a closing entry on {2}"** — exactly that lock, and it applies to every module, not only accounting. If no closing entry explains the date, look for a committed **Freeze Processing Document**; it sets the same line.
 - **"The closing entry cannot be deleted"** — either it is still generating (a large close runs in batches — wait for it to finish), or it has already been cancelled, and a cancelled document cannot be deleted.
 - **"A transaction is rejected even though the period is open"** — check for an active **Prevent Accounting Transactions** document covering the account/subsidiary/date.
 - **"I want to suspend a prevention temporarily without deleting it"** — enable the **Inactive** flag on the prevention document.
 - **"Where is the tolerance for closing with incomplete transactions set?"** — in the [Accounting configuration](./support/accounting-configuration.md) catalog.
 - Details of the period and currency cycle are in the **Fiscal periods & currency** reference.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *There are unprocessed or failed transactions, please fix them first (you can use bizRequestView screen to find them)* — «يوجد طلبات نظامية فشلت معالجتها او لم تعالج بعد. يرجي اصلاح هذه الطلبات اولا (يمكنك معرفتها من خلال شاشة bizRequestView(» | The **Closing Entry** found ledger transaction requests for this company that are not in **Processed** status. Closing on top of them would close the wrong balances. | Open the **Business Requests** list view, filter on the failed/unprocessed statuses, fix the cause and reprocess, then save the closing entry again. |
+| *There is ledger trans for {0} - {1} has delete request or it is generated for cancelled document* — «يوجد قيد محاسبي للمستند {0} - {1} له طلب حذف او تم إنشاؤة لستند تم إلغاؤة فيما بعد» | A ledger entry inside the year being closed belongs to a document that was later cancelled, or that has a pending delete request. | Clear the pending delete requests and the cancelled documents' leftover entries before closing; the document type and code are in the message. |
+| *There is QtyTrans for {0} - {1} has delete request or it is generated for cancelled document* — «يوجد قيد كميات للمستند {0} - {1} له طلب حذف او تم إنشاؤة لستند تم إلغاؤة فيما بعد» | The same condition on the quantity (inventory) side: a quantity entry in the period belongs to a cancelled document or has a delete request waiting. | Same remedy — resolve the delete request or the cancelled document first. |
+| *The currency of account {0} has been changed. You need to regenerate accounting effects (or recommit) the document {1}* — «تم تغيير عملة الحساب {0}. تحتاج إلى إعادة إنشاء التأثيرات المحاسبية (أو إعادة حفظ) المستند {1}» | An account's currency was changed after entries had already been written against it, so the stored local and foreign amounts no longer agree. | Reprocess (recommit) the document named so its effect is rebuilt with the account's current currency, then close. |
+| *The account {0} foreign balance is {1} and local balance is {2} , you need to make and exchange rate update document for this account* — «رصيد الحساب {0} بالعملة الأجنبية هو {1} والرصيد المحلي هو {2} ، تحتاج إلى إنشاء مستند تغيير سعر صرف لهذا الحساب.» | A foreign-currency account carries a foreign balance and a local balance that no longer correspond at any single rate. | Issue an **Exchange Rate Update** document for that account, then re-run the closing entry. |
+| *The account {0} foreign amount is {1} - {2} and the local amount is {3} - {4}. Please use {5} document to fix this account* — «الحساب {0} العملة الاجنبية {1} - {2} والعملة المحلية {3} - {4}. الرجاء استخدام مستند {5} لحل مشكلة الحساب» | The stronger form of the same problem: the account's foreign side and local side sit on opposite sides — one debit, one credit — which no rate can reconcile. | Use the document type the message names (**Exchange Rate Update**) on that account before closing. |
+| *The account {0} has invalid subsidiary type* — «الحساب {0} لديه نوع ذمة غير صحيح» | Entries exist on an account whose subsidiary type does not match the types the account allows — usually a detail account carrying a subsidiary, or a subsidiary type removed from the account after the entries were written. | Restore the subsidiary type on the account, or correct the entries, before closing. |
+| *There is no fiscal year defined for posted profit date {0}, legal entity {1}* — «لا توجد سنة مالية معرفة للتاريخ الفعلي {0} لسند القيد، والشركة {1}» | The closing entry posts the carried profit on the day after the period ends, and no fiscal period exists for that date in this legal entity. | Create the next fiscal year (and its periods) for the company, then run the closing entry. |
+| *You must at least provide account or subsidiary* — «يجب علي الأقل إدخال الحساب او الذمة» | A **Prevent Accounting Transactions** detail line names neither an account nor a subsidiary, so it would block everything. | Fill the **Account** column, the **Subsidiary** column, or both on that line. |
+| *The Account {0} is detail account can not have subsidiary* — «الحساب {0} حساب فرعي لايمكن ان يكون له ذمة» | A prevention line pairs a **detail** account with a subsidiary; only subsidiary-type accounts take a party. | Remove the subsidiary from the line, or point the line at the subsidiary account you meant. |

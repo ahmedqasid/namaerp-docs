@@ -160,3 +160,12 @@ It is a genuinely useful "has anyone actually been there?" view, with one honest
 ## Reporting
 
 **Reporting: none.** This module ships no system reports, and this screen has no print form. To review contracts across customers, use the list view with saved criteria (المعايير) and export to Excel, or build a BI dashboard over the contract data.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Total of payment values {0} not equal the total price {1}* — «إجمالي مبلغ الدفعات {0} لايساوي السعر الإجمالي {1}» | The contract has payment-schedule lines on the Billing page and they do not add up to the money **net value**. | Make the schedule sum to the net value (71,136.00 on `MC-0021`), not to the figure the message prints — the message shows the total before tax while the check uses the net value. |
+| *Can not use the machine {0} because it was not found in the machines grid* — «لا يمكن استخدام الاّلة {0} لأنها غير موجودة في جدول الالاّت» | A row in the Visit schedule grid names a machine that is not listed in the Machines grid. | Add the machine to the Machines grid, or clear the visit-schedule row — that grid drives nothing and is best left empty. |
+| *The Item {0} in line {1} is repeated* — «البند {0} في السطر {1} مكرر» | The same spare part, or the same service, is listed twice on the Spare parts and services page. | Merge the two rows into one carrying the combined quantity; entitlement is tracked per row. |
+| *Main Quantity can not be less than the Sold Quantity* — «الكمية الأساسية لا يمكن ان تقل عن الكمية المباعة» | A spare-part or service row has a Quantity below the Sold Quantity already drawn against it. | Raise the Quantity to at least what has been consumed; reducing entitlement below what documents have already taken is refused. |

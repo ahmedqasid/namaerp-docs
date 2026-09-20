@@ -48,3 +48,12 @@ Not every cost is direct — there's electricity, cleaning, administration. The 
 Sometimes insurance coverage is confirmed after a patient is admitted and their invoices have been issued. The **Change Patient Price Plan** document re-prices a patient's issued invoices retroactively. You pick the patient, their admission, the period, the insurance company and the new endurance percentages; the **Collect Invoices** button gathers their invoices in range, and the grid shows for each invoice the **total before** and **after** the change, with the old and new price classifiers.
 
 ![Change patient price plan](../../ar/modules/hms/images/pricing/change-price-plan-en.png)
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Field {0} and field {1} can not be filled together* — «لا يمكن ملءالحقل {0} والحقل {1} معاً» | A line on the **surgeries** tab of a medical sales price list names both a Surgery Type and a Surgery Classification. A line may be keyed on one or the other, never both. | Clear whichever of the two is not the matching key you want, and add a second line if you need both kinds of rule. |
+| *You can not use overhead item {0} because it is already used in the same period in the document {1}* — «لا يمكنك استخدام بند التكلفة الطبية {0} حيث أنه بالفعل مستخدم في نفس الفترة في المستند {1}» | Another committed Actual Overhead Calculation whose periods and dates overlap this one already distributes the same overhead item; the message names it. | Remove the item from this document, or narrow the period range so the two do not overlap — an overhead item is distributed once per period. |
+| *Repeated invoice {0}* — «الفاتورة {0} مكررة» | The same invoice is listed twice in the Change Patient Price Plan grid, usually after pressing *Collect Invoices* on top of rows that were already there. | Delete the duplicate row, or clear the grid and collect again. |
+| *Invoice {0} do not belong to patient {1}* — «الفاتورة {0} لا تخص المريض {1}» | A row in the grid names an invoice issued to a different patient — typically a row typed by hand, or left behind after the header patient was changed. | Clear the grid and press *Collect Invoices* again so only that patient's invoices are listed. |

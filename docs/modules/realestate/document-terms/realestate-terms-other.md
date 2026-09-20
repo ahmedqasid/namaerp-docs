@@ -79,7 +79,7 @@ generated documents are created with, and that is where the accounting actually 
 | Exclude Installments Previously Added To AggrCollectDoc | When the button that loads due installments is pressed, each candidate is checked against the installments already aggregated before, and the ones already taken are skipped. This is what stops a repeated monthly run double-collecting. |
 
 Both the book and the term are **mandatory at commit**: leave either empty and the document fails
-with *"You must fill aggregated collect document book and term in term …"*.
+with *"You must fill aggregated collect document book and term in term {0}"*.
 
 ::: tip Worked example — the monthly rent run
 A property manager collects 120 shop rents on the 1st of every month.

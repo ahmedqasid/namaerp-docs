@@ -277,3 +277,11 @@ Raise an update document on the **same value date** as the original opening, pic
 is rewritten, the remaining life is recomputed as 42 months instead of 30, and the instalment falls
 from 4,000 to (250,000 − 120,000 − 10,000) ÷ 42 = **2,857.14**. The before-image still holds 60, so
 cancelling the update would put the truck back exactly as it was.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Fixed asset {0} repeated in line number {1}* — «الاصل الثابت {0} مكرر في السطر رقم {1}» | The same asset appears on two lines of the details grid. | Delete the duplicate line; one opening line per asset. |
+| *Depreciation start date {0} for asset {1} must be before date {2} because there is a depreciation value* — «تاريخ بداية الإهلاك  {0} للأصل الثابت {1} يجب ان يكون قبل تاريخ بداية الفترة {2} لان له قيمة إهلاك تراكمي» | The line carries accumulated depreciation, but its depreciation start date is not before the fiscal period's start date — depreciation that was never earned. | Either move the depreciation start date back to when the asset really entered service, or clear the accumulated depreciation figure. |
+| *Error in fixed asset status {0}, current status is {1} and it has to be {2}* — «خطأ في حالة الأصل {0} الحالة الحالية هى {1} ويجب أن تكون {2}» | A line names an asset that is not **Initial** — it has already been capitalised by another document. | Take the line off, or reverse the document that capitalised the asset. An opening may only bring in a fresh asset. |

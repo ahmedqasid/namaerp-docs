@@ -87,3 +87,15 @@ Printing the cheque itself uses **bank-specific templates** (Ahli United, Arab A
 - **"The wrong cheques-under-collection/bank account in the entry"** — its source is the relevant document's term (portfolio/notice/agio); review the [Document terms](./support/accounting-document-terms.md) reference.
 - **"The cheque doesn't print in the correct bank format"** — make sure the cheque template for the right bank is selected.
 - Processing and reprocessing a stuck document are in [How documents are processed into accounting effects](./support/accounting-request-processing.md).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Commercial paper {0} is repeated in line {1}* — «الورقة التجارية {0} مكرره في السطر رقم {1}» | The same commercial paper appears on two lines of the document. | Delete the duplicate line; each paper moves once per document. |
+| *You can not change value date from {0} to {1} because the entry {2} with value date {3} and creation date {4} was found,this error occurred with document {5}* — «لا يمكن تغيير التاريخ الفعلي من {0} الي {1} بسبب وجود مدخل في الجدول النظامي للمستند {2} بتاريخ فعلي {3} وتاريخ إنشاء {4} , حدث هذا الخطأ في المستند {5}» | Changing the document's value date would re-order the paper's status history — the status entry named would end up on the wrong side of this document. | Leave the value date as it is, or unwind the later status documents for that paper first. |
+| *The number {0} must be in range {1} - {2}* — «يجب ان يقع الرقم {0} داخل النطاق {1} - {2}» | The paper's number falls outside the **first number — last number** range declared on its commercial-paper book. | Use a number inside the book's range, or widen the range on the book. |
+| *You can not change receipt book {0} because it has receipt paper {1} used with commercial paper {2}* — «لا يمكنك تغيير دفتر الايصال {0} لان له ايصال {1} مستخدم في الورقة التجارية {2}» | The **receipt book** on a commercial-paper book is being swapped while one of its receipts is already attached to a paper. | Detach the receipt from the paper, or keep the book as it is. |
+| *Receipt book {0} can not be used with financial books* — «دفتر الايصال {0} لا يمكن استخدامه مع دفاتر الاوراق التجارية» | The receipt book chosen does not have **used with financial book** ticked. | Tick that flag on the receipt book, or choose one that already has it. |
+| *Commercial Paper status should be portfolioed or agio* — «حالة الورقة التجارية يجب أن تكون فى حافظة او اجيو» | A **Bank Notice** line names a received paper whose status is not Portfolioed, Agio or Endorsed — the notice has nothing to act on. | Put the paper in a portfolio (or discount it) first, then raise the notice. |
+| *Commercial Paper status should be either Temporary Bounced or Received* — «الورقة التجارية لا بد ان تكون مرفوضة مؤقتا» | A **Financial Paper Cancel** line names a paper whose status is not one of Issued, Endorsed, Temporary Bounced or Received, so it cannot be cancelled outright. | Check the paper's current status; a collected or already-cancelled paper is not cancelled here. (The Arabic text of this message names only the temporary-bounced case.) |

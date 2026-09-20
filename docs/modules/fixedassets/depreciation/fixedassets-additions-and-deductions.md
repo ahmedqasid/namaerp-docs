@@ -192,3 +192,11 @@ depreciation, and it does not reach the ledger through the Fixed Assets module. 
 have done something that genuinely increases the asset's value or its remaining life, that is when
 you raise an addition — and then the maintenance record and the addition document sit side by side,
 one describing the work and the other carrying the money.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *You can not create addition deduction document for asset {0}, because it is not depreciated until {1}* — «لا يمكنك إنشاء سند إضافة واستبعاد للأصل {0} حيث أنه لم يتم إهلاكه حتى الفترة {1}» | The asset's depreciation is in arrears: its last depreciation sits before the period on this document. | Run the missing depreciation periods first, then enter the addition or deduction. |
+| *Cannot Add or Deduct Asset because the status is not running* — «لا يمكن إضافة او إستبعاد الأصل لأن الحالة غير جاري الإهلاك» | The asset is **Initial** or **Disposed**, or otherwise not running depreciation, and the document is not merely extending its life. | Capitalise the asset first, or reverse its disposal. Extending the remaining life on its own is the one thing a non-running asset accepts. |
+| *You must fill addition deduction book and term in term {0}* — «يجب ملئ دفتر و توجيه سند الإضافة والإستبعاد  فى التوجيه {0}» | The aggregated addition/deduction document has no addition-deduction book and term on its own term, so it cannot create the individual documents. | Open the term of the aggregated document and fill the addition-deduction book and term, then commit again. |

@@ -184,6 +184,19 @@ Build a menu of your own when the shape itself should be different: different fo
 names, different order, entries that open pre-filtered lists. Trim with security when the shape is
 right and some people should just see less of it.
 
+## Messages you may see
+
+None of these three has an Arabic string in the product, so they appear in English on Arabic screens too.
+
+| Message | Why | What to do |
+|---|---|---|
+| *Default Menu Cant Be The Target* | **Target Menu** is the shipped menu coded `default`. It is the one menu that may never be a target — that protection is the whole reason this screen exists. | Point the target at a menu of your own, and use the shipped menu as the **Source Menu**. |
+| *Target Menu Cant Be The Same As Source Menu* | **Source Menu** and **Target Menu** name the same record, so the rebuild would overwrite the very menu it reads from. | Make the target a separate menu record. |
+| *There is another menu modifier {0} for the same target menu {1}* | Another Menu Update that is not marked inactive already aims at this target. Two of them would each rebuild the target from their own source, and the last save would win. | Put all the changes in one record, or mark the other one **Inactive** — the message names it, and you can open it straight from the refusal. |
+
+Refusals can also arrive from the **target menu** rather than from this screen. Saving a Menu Update rebuilds the target and commits it, so a group or entry your rows produced can be rejected by the target menu's own rules — the messages and what they mean are in
+[how the menu is put together](/platform/menus/menu-structure#Messages-you-may-see).
+
 ## See also
 
 - [How the menu is put together](/platform/menus/menu-structure) — groups, entries, targets and

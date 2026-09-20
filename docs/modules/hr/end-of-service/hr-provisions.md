@@ -151,6 +151,16 @@ employee, each posting its own adjustment. As with all aggregated documents, you
 not the generated singles — see
 [HR Requests, Documents & Aggregated Documents](../concepts/hr-requests-and-documents).
 
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Employee {0} has an Employee Provisions Recalculation Document {1} on date {2} which is after current value date {3}* — «الموظف {0} له سند إعادة إحتساب مخصصات موظف {1} بتاريخ {2} و هو بعد التاريخ الفعلى للمستند الحالي {3}» | A later recalculation already exists for this employee, so recalculating an earlier period again would leave the accrual running from a figure the later document has already superseded. | Work forward from the latest recalculation, or cancel the later document first and redo the chain in date order. |
+| *Salary Component {0} has no Debit Lines used in Auto Adjustment* — «مفرد الراتب {0} لا يوجد سطور مدين تستخدم في التصفية الاّليه» | The provision line's salary component has no debit account line marked **Use With Auto Adjustment** that matches this employee, so the accrual has no expense side to post to. | On the salary component, tick **Use With Auto Adjustment** on the debit account line that should carry the provision — and check the line's own employee criteria actually covers this employee. |
+| *Salary Component {0} has no Credit Lines used in Auto Adjustment* — «مفرد الراتب {0} لا يوجد سطور دائن تستخدم في التصفية الاّليه» | The same on the credit side: no liability account line is flagged for auto adjustment. | Flag the credit account line that holds the provision liability. |
+| *Salary Component {0} for the Employee {1} Repeated* — «مفرد المكون {0} للموظف {1} مكرر» | The opening document lists the same employee and salary component twice. | Delete the duplicate line; one opening figure per employee per component. |
+| *Found another value for the Salary Component {0} for the Employee {1} in Document {2}* — «يوجد قيمة لمفرد الراتب {0} للموظف {1} في المستند {2}» | Another provisions opening document already carries an opening figure for that employee and component — an opening balance is set once. | Amend the document named in the message instead of opening a second one; use a recalculation document to move the figure afterwards. |
+
 ## Related pages
 
 - [Salary Components](../payroll/salary-components) — where the liquidation flags and provision

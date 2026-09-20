@@ -61,3 +61,11 @@ One button saves the tedium when you are proving the return on many bills at onc
 - **"The proven return is less than expected"** — the return is allocated pro-rata to the period elapsed up to the proof date, not in full at once.
 - **"Where do the purchase and return accounts come from?"** — from the **Treasury Bill Purchase** and **ROI Proof** terms; see [Document terms](./support/accounting-document-terms.md).
 - The accounting-processing mechanism is in [How documents are processed into accounting effects](./support/accounting-request-processing.md).
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *The Treasury bill {0} has been already purchased by this Document {1}* — «إذن الخزانة {0} قد تم شرائه بالفعل بالمستند {1}» | A second **Treasury Bill Purchase** document is being created for a bill that already has a committed one. | Edit the existing purchase document instead of creating another. |
+| *The Treasury bill {0} has been already sold by this Document {1}* — «إذن الخزانة {0} قد تم بيعه بالمستند {1}» | The bill has a committed sale document, so it can be neither sold again nor closed. | If the sale was wrong, delete it first; otherwise the bill's life has already ended. |
+| *The Treasury bill {0} has been already closed by this Document {1}* — «إذن الخزانة {0} قد تم إقفاله بالفعل بالمستند {1}» | The bill has a committed close document; sale and close are mutually exclusive endings. | Delete the close document if it was raised by mistake, then sell. |

@@ -39,7 +39,7 @@ Both pickers are narrowed for you, which is the point of having reported the wor
 - **Technician Service** offers only the services listed on the appointment's procedure.
 - **Technician** offers only the members of the appointment's crew.
 
-Those two limits are also checked again when the document is committed, so a row that was valid when it was typed and has since drifted — the procedure's service list changed, somebody was transferred out of the crew — is caught rather than quietly saved. The messages name the row: *"Technician Service … does not belong to Technician Appointment …"* and *"Technician … does not belong to Crew …"*.
+Those two limits are also checked again when the document is committed, so a row that was valid when it was typed and has since drifted — the procedure's service list changed, somebody was transferred out of the crew — is caught rather than quietly saved. The refusals name the offending row; they are listed in full under *Messages you may see* below.
 
 The quantity, the unit and the minutes are yours to record as they really were. Nothing recalculates them from the service catalogue's planning durations, which is exactly what makes the comparison between the two worth having.
 
@@ -62,3 +62,11 @@ The pattern that works in practice is one distribution per completed visit, writ
 3. Commit. The appointment turns *Executed* and drops out of your "still outstanding" filter on the appointment list.
 
 Visits that did not happen never get a distribution — set the appointment to *No Show* or *Cancelled* by hand instead, so that "Booked" always means work still to do.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Technician Crew {0} does not belong to Technician Appointment {1}* — «فريق الفنيين {0} لا ينتمي إلى موعد الفني {1}» | The Technician Crew on the header is no longer the crew the named appointment is booked for — usually because the appointment's crew was changed after this document was typed. | Reselect the appointment so the crew is refilled from it, then recheck the technicians in the grid. |
+| *Technician Service {0} does not belong to Technician Appointment {1}* — «الخدمة الفنية {0} لا تنتمي إلى موعد الفني {1}» | A Details row names a service that is not on the appointment's procedure — commonly because the procedure's service list was edited after the row was typed. | Replace the service with one the picker now offers, or add it to the appointment's procedure. |
+| *Technician {0} does not belong to Crew {1}* — «الفني {0} لا ينتمي إلى الفريق {1}» | A Details row names a technician who is not a member of the header crew — commonly because the technician was moved to another crew after the row was typed. | Choose a current crew member, or put the technician back in the crew if the row is right. |
