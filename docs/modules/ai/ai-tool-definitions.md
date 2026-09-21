@@ -184,7 +184,13 @@ Almost every question about a report — why is this total wrong, why is this ro
 | `AITReportReadTools` | `<prefix>GetReportQuery` and `<prefix>RunReport` | Return a report's parameters and the SQL of its own query, of each of its sub-datasets and of each of its subreports; and run the report with given parameters and return its output |
 | `AITUpdateReportTools` | `<prefix>UpdateReportQuery` and `<prefix>UpdateReportContent` | Replace the SQL of one dataset without touching the rest of the report file, or replace a whole report file |
 
-A report runs with the permissions of the user the tool acts for, and an unknown parameter id is refused rather than ignored. Dates in these parameters are day-first (`31-01-2026`), unlike the record tools.
+A report runs with the permissions of the user the tool acts for, and its parameters are checked before it runs rather than after. Dates are day-first (`31-01-2026`), unlike the record tools. A parameter that points at a record — a fiscal period, a legal entity, a branch — takes that record's **code** as readily as its id: the tool looks the record up and hands the report the form that particular parameter reads.
+
+::: warning A report that filters on nothing answers with everything
+This check matters more than it sounds. When a report's filters do not reach it, nothing fails and nothing warns: it prints the same headings, the same columns and a full page of entirely plausible figures — for every period and every branch instead of the one that was asked for — and the parameters still appear in its own header. Somebody comparing those figures against a customer's question reaches a confident, wrong conclusion.
+
+So `RunReport` refuses the run instead of answering with unfiltered figures: when an id is not a parameter of that report, when a value cannot be applied to the parameter it was given for, and when a parameter that points at a record names one that does not exist. The answer also repeats the parameters that were actually applied, in the form the report received them, so the figures can be checked against what was asked for rather than taken on trust.
+:::
 
 ::: tip Read the numbers, don't look at a picture
 `RunReport` returns **TXT** by default, the format whose figures can be checked line by line against the read-only SQL tool. **HTML** returns the rendered table. Both come back inside the answer itself, cut off at the length the call asks for. The binary formats — PDF, XLSX, DOCX, RTF, ODT, ODS, PPTX, XLS — are stored on the server instead and answered with a **single-use link that expires after thirty minutes**, for a person to open: the link serves the file once and deletes it. Set `ai-file-download-base-url` in `nama.properties` if those links should carry the server's public address rather than a path.
@@ -218,7 +224,12 @@ The remaining ready-made tools are single classes with no group of their own; ad
 |---|---|---|
 | `AITCountRecordsTools` | `<prefix>countEntities` and `<prefix>countEntitiesCreatedWithinDateRange` | Count records of an entity type — in total, or between two dates |
 | `AINamaERPDocsTool` | `<prefix>erpDocs` | Search the Nama ERP documentation and return the passages closest to the question |
+| `AITAppVersionTools` | `<prefix>GetAppVersion` | Return the build this server is running — the twelve-digit build stamp and the date and time behind it |
 | `AITReadOnlySQLQuery` | `<prefix>runReadOnlySqlQuery` | Run a single read-only SQL `SELECT` against the database and return the rows — see the warning below |
+
+::: tip Before concluding that a feature is missing
+Nama ships monthly, and both this documentation and the [release notes](/release-notes/) describe the newest build. A server last upgraded before a feature was released does not have it, and no amount of configuration will make it appear — so an assistant that cannot date the server it is talking to will happily spend an afternoon hunting for a setting that was never there. `GetAppVersion` answers with the build stamp, the date it stands for and the month whose release notes that build carries, which is what turns "let me find that setting for you" into "that arrived in the March release, and this server is on January".
+:::
 
 ::: tip Building a read-only assistant
 Reading and writing are deliberately kept in separate classes so you can leave the writing ones out: `AITTermAndConfigReadTools` without `AITTermAndConfigWriteTools` lets the assistant explain how a document term is configured while having no way to change it, and the same holds for `AITReportReadTools` without `AITUpdateReportTools`, and for `AITEntityMetadataTools` and `AITReadRecordTools` without `AITImportTools`. Each group button adds both halves, so on a read-only definition press the button and then delete the writing line.
