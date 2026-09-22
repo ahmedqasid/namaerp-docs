@@ -361,9 +361,27 @@ The system supports these operations for custom effect calculations:
 
 ### Free Item Handling
 
+Ticking **Free Item** on a document line does something more precise than "make the line free". The **Unit price** stays exactly as it was typed, untouched and visible to whoever reads the document. What gets zeroed is everything downstream of it: the line's **total price**, and every **After value** from Discount 1 through Discount 8. The line is then never added into the document's **Total**.
+
+Because the unit price survives while the value drops out of the total, the checkbox is also the practical way to put an **optional item** in front of a customer on a quotation — a line whose price they can read but which the quoted total does not include. That is a consequence of how a giveaway is priced, not a feature of its own: the line still means *free*, and it still behaves as a giveaway everywhere else in the system.
+
 | Field Name | Database Field | Description | Impact |
 |------------|---------------|-------------|---------|
 | **No Taxes For Free Item** | `noTaxesForFreeItem` | Disable taxes on free items | All taxes zeroed for lines marked as free |
+
+**Net value on a free line is not automatically zero.** Discounts are forced to zero, but tax percentages are not — a free line still contributes its tax to the document's Net value even though it contributed nothing to the Total. Switch **No Taxes for Free Item** on when a giveaway is meant to cost nothing at all; leaving it off is the usual reason a total comes out slightly higher than anyone can account for.
+
+::: danger Force Price List refuses hand-made free lines
+When the document term has **Force Price List** on, a free line that no offer produced is rejected on save with *Invalid Free Item {0}* — «الصنف المجاني غير صحيح {0}». The system assumes a free line arrived from a promotion, checks it against the offers engine, and finds nothing that would have generated this one.
+
+The switch that lets it through is **Ignore Force Price List With Free Item** on the [term's pricing page](/modules/supplychain/document-terms/doc-term-pricing-taxes-discounts). With Force Price List off the check never runs at all, which is why the same free line saves happily under one term and is refused under another.
+:::
+
+Two further term settings belong here. **Do Not Calculate Prices, Discounts, and Free Items If Unit Price Exists**, on that same pricing page, stops the pricing engine overwriting a unit price somebody typed by hand. And when a free line ends up at a zero unit price anyway, the [EARecalcFreeLinesUnitPriceIfZero](/entity-flows/supplychain/EARecalcFreeLinesUnitPriceIfZero) entity flow re-runs pricing for just those lines and puts a price back.
+
+::: warning Free lines can print a zero price
+A free line prints its unit price correctly only if the form reads **Unit price** directly. Some form templates derive the printed unit price by dividing the line's after-discount value by its quantity instead — and since that value is zero on a free line, the form prints zero while the screen plainly shows the real price. The shipped Sales Quotation form (**SYSF-SIV004**) reads the unit price directly and is fine; the shipped Purchase Order form (**SYSF-PIV004**) does the division.
+:::
 
 ### Additional Value Usage
 

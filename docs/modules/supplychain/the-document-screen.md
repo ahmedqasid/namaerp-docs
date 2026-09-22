@@ -129,7 +129,7 @@ A line's warehouse is its own; it is not silently borrowed from the header at th
 
 ### Price and Value
 
-The pricing columns run: **Prices — Unit price**, **Prices — total price**, then **Discount 1** through **Discount 8** each as a **%**, a **Value** and an **After value**, then **Item Tax %** and **Tax value** with **Tax 2**, **Tax 3** and **Tax 4** behind them, and finally **Net value**. A **Free Item** checkbox marks a line as given away, and **Line Type** records whether the line is **Normal**, a **FreeItem**, or **NormalWithFree**.
+The pricing columns run: **Prices — Unit price**, **Prices — total price**, then **Discount 1** through **Discount 8** each as a **%**, a **Value** and an **After value**, then **Item Tax %** and **Tax value** with **Tax 2**, **Tax 3** and **Tax 4** behind them, and finally **Net value**. A **Free Item** checkbox marks a line as given away — it keeps the unit price but drops the line out of the document total, which is also how a quotation shows a customer an optional item ([Free Item Handling](/modules/invoicing/invoice-discounts-and-tax-calculation-guide#Free-Item-Handling)) — and **Line Type** records whether the line is **Normal**, a **FreeItem**, or **NormalWithFree**.
 
 ### The Columns You Cannot See
 
