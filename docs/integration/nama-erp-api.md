@@ -150,6 +150,15 @@ API Keys are the primary authentication method for production integrations.
 X-API-Key: {your-api-key}
 ```
 
+The standard bearer form works just as well, and is what most API tooling and AI clients send by default — put the same key (the credential's **Client Secret**) in the token:
+```http
+Authorization: Bearer {your-api-key}
+```
+
+::: warning Bearer tokens need release 20260922 or later
+`Authorization: Bearer` is read only by servers from release 20260922 onwards. An older server ignores the header and rejects the call as unauthenticated — send `X-API-Key` instead.
+:::
+
 Credentials configured with a separate client ID and secret send both headers — the client ID in `X-API-Key` and the secret in `X-API-Secret`:
 ```http
 X-API-Key: {your-client-id}
@@ -157,7 +166,7 @@ X-API-Secret: {your-client-secret}
 ```
 
 ::: tip Header name compatibility
-`X-API-Key` / `X-API-Secret` are the recommended header names, but the legacy names remain supported: `apiKey` (or `clientId`) for the key and `clientSecret` for the secret. Every name is accepted as either an HTTP header or a query parameter.
+`X-API-Key` / `X-API-Secret` are the recommended header names, but the legacy names remain supported: `apiKey` (or `clientId`) for the key and `clientSecret` for the secret. Every name is accepted as either an HTTP header or a query parameter. The key is read from `X-API-Key` (and its legacy names) first; `Authorization: Bearer` is consulted only when none of them came with the request.
 :::
 
 **Query Parameter Authentication (Testing Only):**
@@ -676,7 +685,7 @@ Fine-tune import behavior with request headers:
 #### API Key Not Working
 - Verify key is active in API Credentials screen
 - Check user permissions for the entity
-- Ensure the `X-API-Key` header (and `X-API-Secret` when using a client ID/secret pair) is set correctly
+- Ensure the `X-API-Key` header (and `X-API-Secret` when using a client ID/secret pair) is set correctly — or, if the client sends `Authorization: Bearer`, that the server is on release 20260922 or later
 
 #### Empty Example Data
 - Verify records exist for the entity

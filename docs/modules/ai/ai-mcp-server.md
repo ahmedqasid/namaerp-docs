@@ -31,9 +31,16 @@ The server authenticates **every request** using API credentials:
 | Header | Value | Required |
 |---|---|---|
 | `X-API-Key` | The **Client Secret** field of the API Credentials record | Yes |
+| `Authorization` | `Bearer <client secret>` — an alternative to `X-API-Key` | No |
 | `X-API-Secret` | The **API Secret** field — sent only if the credential requires an extra secret | No |
 
 (The values are also accepted under the alternative names: `apiKey`/`clientId` for the access key and `apiSecret`/`clientSecret` for the secret — as a header or as a URL parameter.)
+
+::: tip A bearer token works too — releases dated 20260922 or later
+Some clients cannot send a header of your own choosing and always authenticate the way the rest of the web does, with `Authorization: Bearer <token>`. Anthropic's MCP connector — the feature that lets Claude reach an MCP server straight from the Claude API — is the common case: it offers no way to send `X-API-Key`.
+
+Put the **Client Secret** in the bearer token and the server accepts it; it looks at `Authorization` only when the request carried no `X-API-Key`, so nothing changes for clients that already work. Servers older than release 20260922 ignore the header and answer with an authentication failure.
+:::
 
 The **API Credentials** record maps the credentials to a specific user through its **Login As User** field, and supports a validity window (**Valid From / Valid To**) and disabling (**Prevent Login**). Every tool the client calls executes as that user: record security, dimensions (legal entity, branch, ...), and validation rules all apply exactly as if the user were working from the system screens.
 
@@ -64,6 +71,10 @@ Add the server to the project's `.mcp.json`:
 ### Claude Desktop
 
 Add the same definition under `mcpServers` in `claude_desktop_config.json`.
+
+### Claude's MCP connector
+
+Claude can also reach the server straight from the Claude API, with no MCP client of yours in between. That connector authenticates only with a bearer token, so give it the endpoint URL and put the credential's **Client Secret** in its authorization-token field — there is no place to add `X-API-Key`. This needs a server on release 20260922 or later.
 
 ### MCP Inspector
 
