@@ -27,7 +27,15 @@ This screen requires the `humanresource-payroll` license component.
 
 ## How it's processed / what it posts
 
-Committing a Vacation Compensation document does two things at once. First, exactly like a vacation document, it consumes `Vacation Period` days from the employee's balance for that vacation type. Second — and unlike an ordinary vacation document — it creates a **business request** that posts a real ledger entry: a debit line and a credit line, both for the **Total Compensation** amount, to whichever accounts are configured on the Vacation Compensation term/توجيه (the two sides are labeled **Debit 2** / **Credit 2** there). Editing an already-committed compensation document reissues that ledger entry with the new amount; deleting it reverses the entry and gives the days back to the balance.
+Committing a Vacation Compensation document does three things at once. First, exactly like a vacation document, it consumes `Vacation Period` days from the employee's balance for that vacation type. Second — and unlike an ordinary vacation document — it creates a **business request** that posts a real ledger entry: a debit line and a credit line, both for the **Total Compensation** amount, to whichever accounts are configured on the Vacation Compensation term/توجيه (the two sides are labeled **Debit 2** / **Credit 2** there). Editing an already-committed compensation document reissues that ledger entry with the new amount; deleting it reverses the entry and gives the days back to the balance. The amount is paid by that ledger entry alone — it is not added as a line on the employee's salary document, so do not go looking for it there.
+
+Third — and this one is easy to miss, because nothing on the screen shows it — the document writes the employee's own **Commencement Date After Holiday** (تاريخ المباشرة بعد أخر اجازة) on the employee's record, setting it to the document's **Return Date**. That is the same field a genuine return from annual leave fills in, and the compensation fills it whenever the vacation type being cashed out carries the annual **Vacation Class** — even though the employee never left work. Deleting the compensation rolls the date back to whatever the employee's previous return-to-work record left there.
+
+::: warning A cash-out can cut the salary period short
+That third effect stays harmless until the HR module has **Salary Worth From Last Work Start** (بداية سندالراتب يحسب من تاريخ اخر مباشرة) switched on in [HR Configuration](../setup/hr-configuration.md). With that option on, a salary document's entitlement starts at the employee's last commencement date instead of at the period start — so a compensation dated the 14th of the month moves the salary start to the 14th. The month's salary is then generated for the 14th to the 30th only and flagged **Partial Period**, and nothing pays the 1st to the 13th: no second salary document covers the days the start date skipped over.
+
+The option is doing exactly what it says — it exists for an employee who came back from unpaid leave in the middle of a month — but a cash-out is not an absence, so the outcome is rarely what payroll wants. If employees come up short in the very month they cash out leave, this pair is the first place to look. Turning the option off restores the full period; the salary document already issued for that month has to be regenerated, because it does not recalculate itself.
+:::
 
 ## Vacation Transfer Document: carrying balances into a new HR year
 
@@ -121,3 +129,4 @@ Like the Vacation Changing Document, this is a balance-only mechanism — it doe
 
 - **[Vacation Types & Balances](vacation-types-and-balances.md)** — the vacation type rules (Transfer Policy, Vacation Class, balance limits) all four screens on this page read from or write into.
 - **[Vacation Documents](vacation-documents.md)** — the request/document pair and aggregations that consume balance the ordinary way, by sending someone on leave.
+- **[HR Configuration](../setup/hr-configuration.md)** — where *Salary Worth From Last Work Start* lives, the option that decides whether the commencement date a compensation writes reaches the salary document.

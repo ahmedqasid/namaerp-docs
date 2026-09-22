@@ -121,7 +121,7 @@ reads one of them.
 | **Ignore Leap Year In Termination Dues Liquidation Net Days** | `value.ignoreLeapYearInTerminationDuesLiquidationNetDays` | Leaves 29 February out when a dues liquidation counts net working days. |
 | **Make Work Days Of Month Fixed For Salary Document** | `value.makeWorkDaysFixedForSalaryDoc` + `value.fixedWorkDaysCount` | Every salary document is generated with the same number of working days, whatever the month holds. The count comes from *Fixed Work Days Count*. |
 | **Use Period Actual Days Count For Performance Factors** | `value.usePeriodActualDaysForFactors` | Absence, overtime, rewards and the other performance factors are divided by the days the period **actually** has instead of the fixed month. The label spells out the list: *(Absence, Overtime, Rewards, and so on)*. |
-| **Salary Worth From Last Work Start** | `value.salaryWorthFromLastWorkStart` | The salary document's entitlement starts at the employee's **last** work-start date rather than the period start. This is the option for someone who returned from unpaid leave in the middle of the month. |
+| **Salary Worth From Last Work Start** | `value.salaryWorthFromLastWorkStart` | The salary document's entitlement starts at the employee's **last** work-start date rather than the period start. This is the option for someone who returned from unpaid leave in the middle of the month. Remember that a [Vacation Compensation](../vacations/vacation-compensation-and-transfer.md) also moves that date, so with this option on a mid-month cash-out shortens the salary period too. |
 
 ::: warning Fixed month versus actual month
 `Days In Month` and *Use Period Actual Days Count For Performance Factors* answer the same question
