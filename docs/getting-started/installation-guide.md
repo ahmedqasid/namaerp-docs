@@ -110,10 +110,6 @@ To allow access for other users on your local network (LAN), make sure port `808
 
 ---
 
-Here's the refined version with clearer formatting and corrections:
-
----
-
 ## Upgrading Nama ERP
 
 You can upgrade Nama ERP from the **utils page** within the system interface. Multiple upgrade methods are available depending on your setup.
