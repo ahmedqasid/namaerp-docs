@@ -66,7 +66,11 @@ An **uncosted receipt** is a stock receipt that arrives without a known price �
 
 Choose a stricter value when you have closed periods and don't want late processing to disturb finalized costs.
 
-**Ignore Current Average for Uncosted Receipt** `value.ignoreCurrentAvgForUnCostedReceipt` *(Average costing)* — Normally an uncosted receipt is first valued at the item's current running average. Turn this on to skip the current average and instead derive the cost from the configured cost sources (see *Receipt Cost Sources*).
+**Ignore Current Average for Uncosted Receipt** `value.ignoreCurrentAvgForUnCostedReceipt` *(Average costing)* — Normally an uncosted receipt is valued at the item's running average at its position, and the cost sources are consulted only when that average is zero. Turn this on to skip the average entirely: every uncosted receipt is then valued from the cost sources (see *Receipt Cost Sources*), each time its cost is recalculated.
+
+::: warning One mistyped purchase price travels
+With this on and **Real In Cost on Date** as the source that answers, each uncosted receipt copies the unit cost of the most recent purchase (or other real receipt) of the same item before it. A purchase invoice entered at the wrong price — or against the wrong item — is therefore copied onto every uncosted receipt of that item until the next purchase, and from there into the average and the cost of everything issued afterwards. Correcting the purchase makes the system recalculate those receipts, apart from the cases listed in [When a Receipt Carries the Wrong Cost](../inventory-costing.md#When-a-Receipt-Carries-the-Wrong-Cost).
+:::
 
 **Use Zero for Uncosted FIFO Receipt** `value.useZeroForUnCostedFifoReceipt` *(FIFO costing)* — When on, an uncosted FIFO receipt is costed at **zero** instead of borrowing a cost from earlier receipts. Use it when you deliberately want returns / stock-taking surpluses under FIFO to carry no cost.
 
@@ -118,7 +122,9 @@ A hard, document-wide cap: once the processing count is exceeded, the system ref
 
 These tables tell the system where to pull a unit cost from in tricky situations. Each line offers up to five fallback sources tried in order, and the first non-zero result wins. There are nine sources to pick from: **Out Cost on Date**, **In Cost on Date**, **Real In Cost on Date** (purchases, opening balances, assembly and the like), **Absolute Last In Cost**, **Absolute Current Average Cost**, **Standard Cost**, **Line Cost**, **Query** (run the line's own query) and **Zero**. Lines can be scoped by document type, accounting dimensions and item-specific dimensions.
 
-**Receipt Cost Sources** `value.costSources` — Where to find a cost when a receipt has no cost of its own and the current average is also zero. If no matching line exists, a built-in fallback order is used (out cost on date → in cost on date → last average → line cost → standard cost).
+Three of the sources behave in ways worth knowing. **Real In Cost on Date** looks only at the same item and cost dimensions, and takes the most recent real receipt before the line. **Query** adds up the first column of every row the query returns, so a query that can return several rows gives their sum — write it to return one row; a query that returns no row counts as zero and the next source is tried. **Line Cost** keeps the cost the receipt line already carries instead of looking for a new one.
+
+**Receipt Cost Sources** `value.costSources` — Where an uncosted receipt takes its cost from when it is calculated: always, if *Ignore Current Average for Uncosted Receipt* is on; otherwise only when the running average is zero. If no matching line exists, a built-in fallback order is used (out cost on date → in cost on date → absolute last in cost → line cost → standard cost).
 
 **Overdraft Cost Sources** `value.overdraftCostSources` — Same structure, but for valuing overdrawn (negative-stock) quantities. Built-in fallback: last cost → current average → average cost → last cost → standard cost.
 

@@ -7,12 +7,31 @@ menu: Inventory → Settings → Supply Chain Configurations
 This page documents the **Overdraft & Quantity Checking** tab. "Overdraft" means letting stock go negative — issuing or selling more than is on hand. These settings decide whether that is allowed, where, and how strictly the system enforces it.
 
 ::: info How the check works
-Two checks can run when a stock document is saved. The **immediate balance check** compares total in vs. out and fails if you issue more than the current available balance. The **by-date check** replays the item's movements in date order and makes sure the balance never goes negative at any point in time. Whether a line is even subject to these checks is decided by an overdraft policy evaluated in priority order: the matching *Dimensions With Allowed Overdraft* row → the item's own policy → the item section's policy → the global policy below.
+Two checks can run when a stock document is saved. A document kept as a draft is not checked; the check runs when it is saved for real. The **immediate balance check** compares the item's total in against its total out and fails if you issue more than is available. The **by-date check** replays the item's movements in date order and makes sure the balance never goes negative at any point in time.
+
+Whether a line is subject to these checks is decided by an overdraft policy, evaluated in this order:
+
+1. The matching row in *Dimensions With Allowed Overdraft* (ignored for stock transfers).
+2. The item's own **Over Draft Policy**. **Yes** allows, **No** blocks, and an empty policy counts as **No**. Only **Inherited** passes the decision on.
+3. The item section's policy, when the item has a section. Here too an empty policy counts as **No**, and only **Inherited** passes it on.
+4. The global **Over Draft Policy** below.
+
+So an item whose policy is **No** is blocked on its own; nothing on the document term is needed for that.
 :::
+
+## Switches on the document and its term
+
+Three switches outside this tab change the outcome for individual documents:
+
+- **Prevent Overdraft** on the document term works only in the strict direction. When it is on, every line of the term's documents is checked even if its item, section, dimensions row or the global policy allows overdraft. When it is off, the policy above decides. Turning it off never lets a document through that the policy blocks.
+- **Do Not Check Overdraft** on the document header skips the check for the whole document.
+- **Allow Overdraft** on a document line leaves that line out of the check. If every line has it on, the document is not checked at all.
+
+Some documents that the system generates from another document skip the check — the material issue created by an assembly document and the documents created when a stock taking is ended, for example. Records received through replication are not checked either.
 
 ## Overdraft Policy
 
-**Over Draft Policy** `value.overDraftPolicy` — The company-wide fallback answer to "may stock go negative?". It is consulted only when an item and its section both defer (Inherited/empty). Set it to **No** as a safety default if most items should never be oversold and overdraft should be allowed only selectively; leave it **Yes** if your business routinely issues before receiving.
+**Over Draft Policy** `value.overDraftPolicy` — The company-wide fallback answer to "may stock go negative?". It is consulted only when the item's policy is **Inherited** and the item either has no section or its section's policy is also **Inherited**. An empty item or section policy does not reach it — it counts as **No**. Leaving this global policy itself empty allows overdraft. Set it to **No** as a safety default if most items should never be oversold and overdraft should be allowed only selectively; leave it **Yes** if your business routinely issues before receiving.
 
 **Allow Creating Closing Entry if Negative Stock Balance Found** `value.allowClosingIfNegativeBalanceFound` — Governs the year-end / period-closing entry. When off, the system blocks closing if any item has a negative balance as of the period end (forcing you to fix negatives first). Turn on only if you deliberately close with negative balances.
 
@@ -25,12 +44,10 @@ Two checks can run when a stock document is saved. The **immediate balance check
 By default, issues generated from manufacturing, assembly/processing, and stock transfers are **never** allowed to go negative — even when the item's own policy would permit it. The switches below relax that, each strictly for one kind of document.
 
 ::: danger Very dangerous — do not enable casually
-These three options are flagged as critical: turning one on triggers a confirmation prompt. Enabling them lets production/transfer documents create negative stock, which can distort costs. Enable only when you must record production or movement before the matching materials/receipts are in stock, and you accept temporary negatives.
+These options are flagged as critical: turning one on triggers a confirmation prompt. Enabling them lets production/transfer documents create negative stock, which can distort costs. Enable only when you must record production or movement before the matching materials/receipts are in stock, and you accept temporary negatives.
 :::
 
 **Allow Overdraft in Manufacturing Issues** `value.allowOverdraftInManufacturingIssues` — Lets stock issues generated from a manufacturing raw-material issue fall back to the normal item policy instead of being forced non-negative.
-
-**Allow Overdraft in Assembly and Processing Issues** `value.allowOverdraftInAssemblyAndProcessingIssues` — The same relaxation for assembly/processing material consumption.
 
 **Allow Overdraft in Stock Transfers** `value.allowOverdraftInStockTransfers` — The same relaxation for stock transfers (and issues generated from assembly documents).
 
@@ -41,6 +58,8 @@ These three options are flagged as critical: turning one on triggers a confirmat
 These settings tune the date-aware overdraft check — the one that guarantees the timeline never goes negative, which matters when documents are entered out of date order.
 
 **Check Overdraft by Date** `value.checkOverdraftByDate` *(default on)* — Turns on the date-aware check. When saving, the system replays each item's movements chronologically and refuses to let the running balance go negative at any historical point, not just at the final total. Turn off only for performance when back-dating never happens.
+
+With it off, only the immediate balance check runs, and that check does not look at dates at all: it compares the item's total in against its total out across every movement entered so far, including receipts dated **after** the document being saved. A back-dated issue therefore passes as long as a later receipt already covers it, and the stock balance on the issue's own date — the one reports show — goes negative until that later receipt. Seeing negative balances in a date-ordered report with this option off is expected behaviour, not a failure of the overdraft policy.
 
 **How Many Later Transactions to Check** `value.checkOverdraftNextTransCount` *(default 10)* — On screen the option is spelled out as a question — "How many transactions should the system make sure did not go overdraft" — so search for that wording when hunting for it on the tab. After validating the current document, the system also re-checks this many *later* transactions for the item to make sure inserting/editing this document doesn't push a future document negative. Increase for tighter guarantees on heavily back-dated data; set to 0 to disable the look-ahead.
 

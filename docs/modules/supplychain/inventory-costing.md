@@ -13,6 +13,22 @@ That work does not happen inside the save. Saving a stock document raises an **i
 
 But reality imposes cases where this automatic tracking needs intervention: freight charges that arrive after the receipt, a market value that drops, or a monthly close at which cost must be fixed. Those are the cases this page covers.
 
+## When a Receipt Carries the Wrong Cost
+
+Most wrong costs start from a wrong entry rather than from the costing itself: a purchase entered at the wrong price, or against the wrong item. Issues are priced from the average that receipts build, and uncosted receipts can copy their cost from the latest purchase (see [Ignore Current Average for Uncosted Receipt](./configuration/costing-configuration.md#Uncosted-Receipts)), so one wrong line can spread across many documents.
+
+**Correcting it.** Fix the source document — the price or the item on the purchase — and save it. Saving raises a new inventory transaction request, and processing it recalculates that item's cost from the document's position onwards: it starts from the balances stored for the movements before it and replays everything after, recalculating uncosted receipts, returns and stock-taking receipts on the way. If you change a costing setting to repair the damage, the change alone recalculates nothing; reprocess the inventory transaction request of a document of that item dated before the first wrong one from [Business Requests](/platform/background-processing/business-requests), and the recalculation runs forward from there. When many items are affected, **Partial Reprocess of Average Cost (Fast)** on [Reprocessing Quantity, Cost, and Stock Ages](/admin/reprocessing/reprocess-qty-and-cost) reprocesses every item from a date.
+
+**Where a recalculation keeps the old cost.** Uncosted receipts, returns and stock-taking receipts keep the cost they have:
+
+- in a period that **When to Recalculate Cost of Uncosted Receipts, Returns and Stock Taking** treats as closed;
+- when they covered an overdraft and **Do not Re-Calculate Sales Return and Stock Taking, Uncosted Receipt Cost From Overdraft** is on;
+- when **Line Cost** is the cost source that answers for them.
+
+In those cases, adjust the value with a [Cost Revaluation](#Cost-Revaluation-CostRevaluation).
+
+**Telling a wrong first calculation from a later change.** For support staff who query the database: every cost line (the `CostInTransLine` and `CostOutTransLine` tables) keeps, beside its current `unitCost`, a `firstUnitCost` column — the first non-zero unit cost the line was ever given, never overwritten afterwards. If the two match, the line has carried this cost since it was first processed. If they differ, something processed later changed it: a back-dated document, a correction to a source document, or a change to the costing settings. Changing the **item** on a document line, as opposed to its price or quantity, removes the old cost line and creates a new one, so its `firstUnitCost` history goes with it — note the old cost before correcting if you still need to trace where it came from.
+
 ## Additional Costs on Receipts (ReceiptAdditionalCost)
 
 The supplier's item price isn't the whole true cost. There's freight, insurance, customs, clearance, and commissions. The **Additional Cost** document distributes these charges across the receipt's items to arrive at the true **landed cost**.

@@ -139,7 +139,7 @@ where l.item_id = {item_id}
 For this query to be used in calculating the receipt cost, you must enable the following option in Supply Chain settings:
 <SupplyChainOption option-code="value.ignoreCurrentAvgForUnCostedReceipt" link-title="Ignore current average cost for uncosted receipts" />
 
-This option forces the system to ignore the current average cost when a custom cost source is available, such as the query shown above.
+This option makes the system skip the current average for every uncosted receipt and take its cost from the cost sources, starting with the query above. If the query returns no row, the next source on the line is tried.
 :::
 
 ## How do I set a specific price for a wholesale invoice classification in Point of Sale or the sales invoice in the system?
