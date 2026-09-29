@@ -1000,11 +1000,11 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 | `listDisplayType` | No | UI affordance for `listParam: true` filters: `"Default"`, `"Dropdown"`, or `"Chips"` (the chip strip is the most common). `Chips` shows a search box and a "show more" control whenever the list has more than one page of options (page size 25), so long lists remain pickable; `Dropdown` remains the compact choice for very long lists. |
 | `referencedEntityType` | If `paramType=Reference` | Entity type (e.g., `"Branch"`, `"Customer"`, `"InvItem"`) |
 | `arTitle` / `enTitle` | No | Localized labels shown in the filter bar. |
-| `sqlLeftHandSide` | Yes | SQL expression on the left of the WHERE condition (e.g., `"l.branch_id"`). For `Reference` filters, point at the **ID column** — never a name/code column; binary(16) encoding is handled automatically. |
+| `sqlLeftHandSide` | Yes | The left side of the WHERE condition: a column (e.g., `"l.branch_id"`) or, from the 20260929 release, any SQL expression — see **Filtering on a computed value** below. For `Reference` filters, point at the **ID column** — never a name/code column; binary(16) encoding is handled automatically. |
 | `operator` | Yes | Comparison operator (see §6). `"In"`/`"NotIn"` require `listParam: true`. |
 | `customWhereClause` | No | Full custom WHERE fragment (overrides `sqlLeftHandSide` + `operator`). |
 | `required` | No | Filter must have a value before any widget query runs. |
-| `defaultValue` | No | Initial value applied when the dashboard loads. |
+| `defaultValue` | No | Initial value applied when the dashboard loads. A `Reference` filter also accepts `$currentUser()` and `$currentUserEmployee()` — see **Defaulting to the current user** below. |
 | `allowedValues` | No | Long-text whitelist of accepted literal values (validation only). |
 | `hidden` | No | Hide from the filter bar (still appliable via URL or click-emit). |
 | `requiredGroup` | No | Multi-filter "at least one of" group code — any filter in the group satisfies the requirement. |
@@ -1021,6 +1021,27 @@ Cross-filters are master-file entities that define reusable filter parameters. T
 |---|---|---|
 | `Equal` / `NotEqual` / `>` / `>=` / `<` / `<=` / `Contains` / `StartsWith` | `false` (or omitted) | Single value. |
 | `In` / `NotIn` | `true` (required) | Multi-value; emits `IN (...)` / `NOT IN (...)`. Setting `In` without `listParam: true` is a configuration error. |
+
+**Filtering on a computed value** — from the 20260929 release, `sqlLeftHandSide` accepts any SQL expression, not just a column. Suppose deliveries with no status should count as "not delivered":
+
+```json
+"sqlLeftHandSide": "ISNULL(d.delivStatus, 'NotDelivered')"
+```
+
+The server places the expression on the left of the filter's operator exactly as written — `ISNULL(d.delivStatus, 'NotDelivered') = ?` — so functions, `CASE` and arithmetic all work, commas included. The expression must not contain curly braces `{ }`, which the query engine reserves for its parameter placeholders. On a wizard widget, a plain dotted name is still read as a wizard field path; anything else is passed to SQL as-is.
+
+If a widget shows the message below, the server is on a release before 20260929, when these conditions on `sqlLeftHandSide` were relaxed:
+
+*Invalid cross-filter SQL expression: {0}. Must be a simple column reference (e.g., invoice.valueDate, t.customerId).*
+
+**Defaulting to the current user** — a `Reference` filter can open already set to whoever is looking at the dashboard:
+
+| `defaultValue` | Resolves to |
+|---|---|
+| `$currentUser()` | The logged-in user. Use it on a filter whose `referencedEntityType` is `User`. |
+| `$currentUserEmployee()` | The employee linked to the logged-in user (from the 20260929 release). Use it on a filter whose `referencedEntityType` is `Employee`, for example a driver or salesperson filter that shows each employee only their own records. |
+
+These functions are resolved each time the dashboard loads, so one dashboard serves every user. A user with no linked employee still gets the filter, but it matches nothing, so the widgets bound to it come back empty for that user. Link an employee to the user, or leave `defaultValue` empty on dashboards that such users open.
 
 ---
 
