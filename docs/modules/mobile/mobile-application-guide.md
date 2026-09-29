@@ -1,3 +1,7 @@
+---
+entities: [MobileAppMenuDefinition, MobileAppShortcut]
+---
+
 # Nama Mobile App — Overview, Navigation & Settings
 
 **Nama Mobile** is the mobile front end for the Nama ERP system. It puts a connected endpoint in the hands of the employee, the sales rep, the warehouse keeper and the maintenance technician — all talking to the same ERP server the back-office team uses. From the phone they can clock in, issue invoices, count stock and follow up customer visits.
@@ -49,11 +53,11 @@ The home screen is the employee's daily launch point. At the top it shows the us
 
 ![Home screen — monthly summary and HR shortcuts](../../ar/modules/mobile/images/overview/home-monthly-stats.jpg)
 
-Below the summary are **quick shortcuts** for the most frequent actions, such as requesting a vacation or a permission. The administrator can customize the shortcut cards shown here from server settings.
+Below the summary are **quick shortcuts** for the most frequent actions, such as requesting a vacation or a permission. The administrator can replace this whole home page with a grid of shortcut cards of their own — see [Customizing the home screen and the menu](#Customizing-the-home-screen-and-the-menu) below.
 
 ### The bottom navigation bar
 
-The bottom of the screen has five fixed tabs:
+The bottom of the screen has five fixed tabs. Their number and order are the same for every user; what the administrator can change is what sits behind the **Home**, **Menu** and **More** tabs.
 
 | Tab | Purpose |
 |-----|---------|
@@ -76,7 +80,7 @@ The groups shown change with your organization's license and your permissions; e
 The **Basics** group, for example, gathers the shared screens: approvals, notifications, the Dashboard, customer/currency/item data, reports, plus the note types (remark, detailed remark, meeting remark).
 
 ::: info The menu order is customizable
-The administrator can completely redefine the structure of menus and groups on the server side, and can choose the four items shown in the bottom app bar. So your order may differ from the screenshots.
+The administrator can completely redefine the structure of menus and groups on the server side (see [Customizing the home screen and the menu](#Customizing-the-home-screen-and-the-menu)), so your order may differ from the screenshots.
 :::
 
 ## Approvals, notifications and messages
@@ -114,6 +118,77 @@ Settings are divided into several tabs:
 ::: tip Changing the password and admin PIN
 From the profile screen the user can change their password, and the administrator can change the **Admin PIN** that protects access to the Settings screen.
 :::
+
+## Customizing the home screen and the menu
+
+Out of the box every user gets the same home page (the attendance card and the monthly summary) and the same menu, built from the organization's licensed modules. A delivery driver does not need the attendance dashboard, though, and a sales rep would rather open straight on a new sales order. Two screens in the ERP let the administrator reshape what each user sees, without touching the phones:
+
+- **Mobile App Menu Definition** — decides which groups and screens appear in the **Menu** and **More** tabs, and which shortcut grid replaces the home page.
+- **Mobile App Shortcut** — a set of shortcut cards (icon, colours, and the screen each card opens).
+
+Both are under **Basic → Mobile Apps**.
+
+### Which menu definition a user gets
+
+The app picks the menu definition in this order:
+
+1. The **Mobile App Menu Definition** set on the user's own record, if there is one.
+2. Otherwise, the menu definition that has **System Default Menu** ticked.
+3. Otherwise, the built-in menu.
+
+So a typical setup is one definition marked as the system default for everyone, plus a few special ones (drivers, sales reps) assigned directly on those users. The user sees the change after logging in again or using **Reload app data**.
+
+### Building a menu definition
+
+The quickest start is the **Create Mobile App Default Menu** button on a new record: it fills both grids with the standard layout — the groups Basics, Accounting, Payroll, Shipments, CRM, Sales, Warehouse Management and so on, each with its usual screens — which you can then trim or rearrange.
+
+The record has two grids:
+
+**Groups** — one line per card on the **Menu** tab:
+
+| Column | Purpose |
+|---|---|
+| **Code** | A short code that the items grid refers to |
+| **Arabic** / **English** | The group title in each language |
+| **Group Icon Name** | The card's icon, chosen from the suggested list |
+
+**Target Items** — one line per screen:
+
+| Column | Purpose |
+|---|---|
+| **Group Code** | The group the screen belongs to. Leave it empty to put the item in the **More** tab instead of the **Menu** tab |
+| **Link Target** | The app screen to open (vacation request, sales order, customer visit, settings, log out…) |
+| **Mobile Dashboard** | Required when the target is the dashboard: the dashboard to show |
+| **Report Definition** | Required when the target is **Reports**: the report to run |
+| **App Shortcut** | Required when the target is **Home Shortcut**: the shortcut set to open |
+| **Arabic Title** / **English Title** | Optional titles for the line |
+| **App Home Replacement** | Makes this screen the user's home page — see below |
+
+Screens from modules the organization is not licensed for stay hidden, even when they are listed here.
+
+The header has two more options:
+
+- **Add To Default Menu** — when ticked, your groups are **added** to the built-in menu and your More items are added after the built-in ones. When it is not ticked, your definition **replaces** the built-in menu and More tab entirely, so remember to include items such as Settings and Log out.
+- **Home Shortcuts** — see the next section.
+
+### Replacing the home page with shortcut cards
+
+To give a user a home page made of big shortcut cards, first create a **Mobile App Shortcut** record. Each line of its grid is one card:
+
+| Column | Purpose |
+|---|---|
+| **Target Item** | The screen the card opens; it also gives the card its title |
+| **Shortcut Type** | **Create View** opens a new, empty document of that kind. **List View** opens the list of existing records |
+| **Group Icon Name** | The card's icon, using the same icon names as the menu groups |
+| **Icon Color** / **Background Color** | The card's colours |
+
+Then pick that record in the **Home Shortcuts** field of the menu definition. From then on the user's **Home** tab shows only this grid of cards; the attendance card and the monthly summary no longer appear.
+
+A shortcut set can also sit in the menu rather than on the home page: add a **Target Items** line with the target **Home Shortcut** and pick the shortcut set in its **App Shortcut** column. Without a group code it appears as a **Shortcut** card on the **Menu** tab that opens the grid of cards.
+
+### Opening the app on a different screen
+
+Tick **App Home Replacement** on one **Target Items** line to make that screen the user's home: whenever the app would go back to the home page, it opens this screen instead — useful for a driver who should always land on their delivery tasks. Only one line per definition may carry the option, and it takes effect only on a line that has a **Group Code**.
 
 ## Syncing and working offline
 
