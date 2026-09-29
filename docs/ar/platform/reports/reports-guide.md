@@ -517,8 +517,8 @@ id:entityType:code@A=@Xid:entityType:code@A=@X...
 
 - **`NamaRep.canDisplay($P{param})`** — استخدمه في `printWhenExpression` ليختفي العنصر عن المستخدمين غير المسموح لهم برؤية موضوع ذلك المدخل
 - **`no-mirror = true`** — يمنع انعكاس العنصر في التصاميم من اليمين إلى اليسار
-- **`fromParam`** — يربط مدخل «إلى» بمدخل «من» المقابل له
-- **`fromParamMaxGapInDays`** — أوسع مدى مسموح للمستخدم بين التاريخين
+- **`fromParam`** — يربط مدخل التاريخ «إلى» بمدخل التاريخ «من» المقابل له، ليتمكن التقرير من تقييد المدى بينهما
+- **`fromParamMaxGapInDays`** — أوسع مدى مسموح للمستخدم بين التاريخين، بالأيام
 
 ```xml
 <parameter name="toDate" class="java.util.Date">
@@ -527,6 +527,25 @@ id:entityType:code@A=@Xid:entityType:code@A=@X...
     <property name="fromParam" value="fromDate"/>
     <property name="fromParamMaxGapInDays" value="30"/>
 </parameter>
+```
+
+الخاصيتان تُستخدمان معاً. فـ `fromParam` قاعدة وليست مجرد ربط: متى وُضعت فحص النظام التاريخين في كل مرة يعمل فيها التقرير، وفعل ثلاثة أشياء.
+
+1. **يصبح التاريخان إلزاميين.** إن تُرك أحدهما فارغاً توقف التقرير بالرسالة المذكورة أدناه، ولذلك لا يمكن لتاريخين مربوطين بهذه الطريقة أن يستعملا `type` لترك أحد طرفي المدى مفتوحاً.
+2. **يُقيَّد المدى.** لا يجوز أن يزيد عدد الأيام بين التاريخين على `fromParamMaxGapInDays`. ولا يهم الترتيب: التاريخان المدخلان بالعكس يُقاسان بالطريقة نفسها.
+3. **غياب الحد يعني صفراً.** إن وضعت `fromParam` دون `fromParamMaxGapInDays` صار المدى المسموح صفر أيام، فلا يمر إلا يوم واحد. واختيار الفترة من 1 سبتمبر إلى 19 سبتمبر يُرفض بالرسالة:
+
+```
+The gap 18 between the dates 2026-09-01 and 2026-09-19 is greater than maximum allowed gap 0 for parameters fromDate and toDate
+```
+
+فإن أردت المطالبتين دون حد فاحذف الخاصيتين كلتيهما، ولا تضع `fromParam` وحدها.
+
+لا توجد ترجمة عربية لأي من الرسالتين، فتظهران بالإنجليزية على الشاشات العربية أيضاً:
+
+```
+The parameter {0} can not be empty
+The gap {0} between the dates {1} and {2} is greater than maximum allowed gap {3} for parameters {4} and {5}
 ```
 
 #### التسميات وما بقي

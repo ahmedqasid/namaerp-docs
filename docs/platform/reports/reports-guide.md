@@ -521,8 +521,8 @@ Two things about this catch people out. A numeric parameter answered with **zero
 
 - **`NamaRep.canDisplay($P{param})`** — use it in a `printWhenExpression` so an element disappears for users who are not allowed to see that parameter's subject
 - **`no-mirror = true`** — keeps an element from being mirrored in right-to-left layouts
-- **`fromParam`** — links a "to" parameter back to its "from" parameter
-- **`fromParamMaxGapInDays`** — the widest span the user may request between the two
+- **`fromParam`** — links a "to" date parameter back to its "from" date parameter, so the report can limit the span between them
+- **`fromParamMaxGapInDays`** — the widest span, in days, the user may request between the two
 
 ```xml
 <parameter name="toDate" class="java.util.Date">
@@ -531,6 +531,25 @@ Two things about this catch people out. A numeric parameter answered with **zero
     <property name="fromParam" value="fromDate"/>
     <property name="fromParamMaxGapInDays" value="30"/>
 </parameter>
+```
+
+The two properties belong together. `fromParam` is a rule, not just a link: once it is set, Nama checks the pair every time the report runs, and it does three things.
+
+1. **Both dates become mandatory.** Leaving either one blank stops the report with the message below, so a pair linked this way cannot also use `type` to leave one end of the range open.
+2. **The span is capped.** The number of days between the two dates may not exceed `fromParamMaxGapInDays`. The order doesn't matter: dates entered backwards are measured the same way.
+3. **A missing cap means zero.** Set `fromParam` without `fromParamMaxGapInDays` and the allowed span is 0 days, so only a single day passes. Choosing 1 September to 19 September is refused with:
+
+```
+The gap 18 between the dates 2026-09-01 and 2026-09-19 is greater than maximum allowed gap 0 for parameters fromDate and toDate
+```
+
+If you want the two prompts without a limit, leave both properties out. Don't add `fromParam` on its own.
+
+Neither message has an Arabic translation, so they appear in English on Arabic screens as well:
+
+```
+The parameter {0} can not be empty
+The gap {0} between the dates {1} and {2} is greater than maximum allowed gap {3} for parameters {4} and {5}
 ```
 
 #### Labels and the rest
