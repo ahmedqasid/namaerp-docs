@@ -56,7 +56,11 @@ On screen, the two time columns sit under a shared **Time** heading and are head
 
 `PTA101PUBLIC202600008` reserves the El Minya crew twice on 23 September 2026: 11:00–12:00 and 13:00–14:00. Two rows rather than one long block, because the crew has another job in between.
 
-At least one row is required, and two rules govern the grid:
+A period with an empty From-Time starts at the beginning of its day, and one with an empty To-Time runs to the end of its day.
+
+## The booking rules
+
+At least one row is required. The rules below are checked when the appointment is committed, whether it was saved on this screen or on the booking calendar. When a rule fails, the message sits on the row that broke it and nothing is saved.
 
 ::: warning Every row must name the same crew
 An appointment books **one** crew. If you put two different crews on two rows, the commit is rejected with *"All Lines must have same Crew"* on the row that differs.
@@ -67,6 +71,16 @@ If the work genuinely needs two crews, raise two appointments. That keeps each c
 ::: warning No period may start in the past
 A row you add, or a row whose day or times you change, must start after the current moment. Otherwise the save is refused with *"Cannot book a period that starts before the current time"* on that row's From-Time. This includes changing only the end time of a visit that has already started. Rows you leave untouched are never checked, so you can still edit an appointment whose earlier visits are already in the past.
 :::
+
+**To-Time must be after From-Time.** A row whose To-Time is not after its From-Time is refused with *"To-Time must be after From-Time"*. An empty To-Time is always accepted, because it means the end of the day. Unlike the rules below, this one is checked on every row.
+
+Three more rules protect the crew's time. Like the past-time rule, they look only at **new or moved** periods, so an appointment booked before these rules existed can still be edited without tripping over old clashes:
+
+- **Periods of one appointment cannot overlap.** Two rows of the same appointment that share any time are refused with *"This period overlaps another period of the same appointment"*.
+- **A crew cannot be booked twice.** If another committed appointment that is not cancelled already has the same crew in an overlapping period, the row is refused with *"The crew is already booked in appointment {0} during this period"*, naming that appointment.
+- **A crew cannot be booked while one of its technicians is unavailable.** If a committed [Technician Unavailability](/modules/crm/technician-appointments/crm-technician-unavailability.md) blocks any technician of the crew in that time, the row is refused with *"Technician {0} is unavailable during this period"*, naming the technician.
+
+Touching periods do not overlap: a visit ending at 12:00 and another starting at 12:00 are fine.
 
 ## The Items And Services grid — what the visit uses
 
@@ -130,4 +144,19 @@ Two habits worth adopting:
 - **To move a visit**, change the Day and times on the existing rows — on this screen or by dragging on the calendar — rather than raising a new appointment. The appointment turns *Rescheduled* by itself, and the Change History keeps the old and the new times side by side.
 - **To change the crew**, change it on every row — the same-crew rule is checked on save, so a half-finished change will simply be refused.
 
+When an approval definition applies to technician appointments, a change you save goes into the approval cycle like any other document, and the appointment keeps its committed times until the change is approved. While that change is waiting, the booking calendar will not let anybody change the appointment again. See [Changes that need approval](/modules/crm/technician-appointments/crm-technician-appointment-calendar#Changes-that-need-approval).
+
 The list view shows Status, Department Section and Technician Procedure as columns, which makes "what installations are still only *Booked* this week" a straightforward filter.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *All Lines must have same Crew* — «يجب أن تكون جميع السطور لنفس الفريق» | Two rows name different crews | Put the same crew on every row, or raise a second appointment |
+| *Cannot book a period that starts before the current time* — «لا يمكن حجز فترة تبدأ قبل الوقت الحالي» | A new or changed row starts in the past | Move the row to a future time |
+| *To-Time must be after From-Time* | The row ends before, or when, it starts | Correct the times, or empty To-Time to run to the end of the day |
+| *This period overlaps another period of the same appointment* | Two rows of this appointment share time | Merge the rows or move one |
+| *The crew is already booked in appointment {0} during this period* | The crew has another visit then | Pick another time, or move the other appointment first |
+| *Technician {0} is unavailable during this period* | A committed Technician Unavailability blocks a crew member | Pick another time, or another crew |
+
+The last four messages have no Arabic translation yet, so they appear in English on the Arabic screens too.

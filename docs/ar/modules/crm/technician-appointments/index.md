@@ -15,9 +15,10 @@ title: مواعيد الفنيين
 كتالوج العمل، والفرق التي تؤديه، والساعات التي يمكن حجزها فيها. ابنِ هذه بالترتيب؛ فكل واحدة تضيّق منتقيات التي تليها.
 
 <LandingGrid>
-  <LandingCard icon="📅" title="كيف تترابط القطع" link="/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="الشاشات التسع، والسلسلة التي تجمعها، وخطوة تجهيز القسم الوظيفي التي بدونها لا يعمل شيء." />
+  <LandingCard icon="📅" title="كيف تترابط القطع" link="/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="الشاشات العشر، والسلسلة التي تجمعها، وخطوة تجهيز القسم الوظيفي التي بدونها لا يعمل شيء." />
   <LandingCard icon="🧰" title="الخدمات والإجراءات الفنية" link="/ar/modules/crm/technician-appointments/crm-technician-services-and-procedures.md" details="المهمة الواحدة والعمل الذي تنتمي إليه، ولماذا يُحجز الإجراء ويُبلَّغ عن الخدمات." />
   <LandingCard icon="👷" title="فرق الفنيين" link="/ar/modules/crm/technician-appointments/crm-technician-crews.md" details="الفريق ومشرفه ولونه على التقويم، وقاعدة انتماء الفني إلى فريق واحد." />
+  <LandingCard icon="🚫" title="سندات إيقاف الفنيين عن الحجز" link="/ar/modules/crm/technician-appointments/crm-technician-unavailability.md" details="أوقف فنياً عن الحجز في إجازة أو تدريب أو يوم مرضي، فلا يُحجز أي فريق ينتمي إليه في ذلك الوقت." />
   <LandingCard icon="⏰" title="إعدادات حجز المواعيد" link="/ar/modules/crm/technician-appointments/crm-appointment-booking-settings.md" details="ساعات العمل المستعارة من ملف الدوام، ومدة الفترة، ودفتر ترقيم المواعيد لكل قسم." />
 </LandingGrid>
 

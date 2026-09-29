@@ -10,7 +10,7 @@
 
 ![تقويم حجز مواعيد الفنيين](../images/technician-appointments/technician-appointment-calendar-ar.png)
 
-## الشاشات التسع، وترتيب التعرف عليها
+## الشاشات العشر، وترتيب التعرف عليها
 
 يقع هذا كله تحت مجموعة قوائم واحدة اسمها **مواعيد الفنيين** داخل وحدة خدمة العملاء. وتسرد القائمة الشاشات في الترتيب الذي ستبنيها به تقريباً. وهي تعرض للمستندات والملفات أسماء شاشات القوائم، أي صيغ الجمع (مثل **فرق الفنيين**):
 
@@ -19,6 +19,7 @@
 | إجراء فني (Technician Procedure) | العمل الذي تُحجز من أجله — «تركيب مكيف» | [الخدمات والإجراءات](/ar/modules/crm/technician-appointments/crm-technician-services-and-procedures.md) |
 | خدمة فنية (Technician Service) | مهمة واحدة داخل ذلك العمل — «تركيب الوحدة الداخلية» | [الخدمات والإجراءات](/ar/modules/crm/technician-appointments/crm-technician-services-and-procedures.md) |
 | فريق فنيين (Technician Crew) | الفريق الذي يخرج للميدان ومَن يشرف عليه | [فرق الفنيين](/ar/modules/crm/technician-appointments/crm-technician-crews.md) |
+| سند إيقاف فني عن الحجز (Technician Unavailability) | إجازة أو تدريب أو يوم مرضي يُخرج الفني، ومعه فريقه، من التقويم | [إيقاف الفنيين عن الحجز](/ar/modules/crm/technician-appointments/crm-technician-unavailability.md) |
 | إعدادات حجز المواعيد (Appointment Booking Settings) | ساعات العمل ومدة الفترة والدفاتر التي تُرقَّم بها المواعيد | [إعدادات الحجز](/ar/modules/crm/technician-appointments/crm-appointment-booking-settings.md) |
 | موعد فني (Technician Appointment) | الحجز نفسه، بمواده وسجل تغييراته | [الموعد الفني](/ar/modules/crm/technician-appointments/crm-technician-appointment.md) |
 | إنشاء موعد فني (Technician Appointment Creator) | التقويم الأسبوعي الذي تحجز عليه الزيارات وتعيد ترتيبها | [تقويم الحجز](/ar/modules/crm/technician-appointments/crm-technician-appointment-calendar.md) |
@@ -34,6 +35,8 @@
 
 - **سند توزيع الخدمات** لا يقبل إلا الخدمات التابعة لإجراء الموعد، ولا يقبل إلا الفنيين الأعضاء في فريق الموعد. فإذا أحكمت قائمة خدمات الإجراء صار السند قائمة اختيار قصيرة لا نموذجاً حراً.
 - **الفني ينتمي إلى فريق واحد لا غير.** شاشة الفريق تتحقق من ذلك، وسند النقل هو الطريق لنقل شخص دون كسر هذه القاعدة.
+
+وقاعدتان أخريان تحميان التقويم نفسه: فالفريق لا يُحجز مرتين في الوقت نفسه، ولا يُحجز ما دام أحد فنييه موقوفاً بـ[سند إيقاف فني عن الحجز](/ar/modules/crm/technician-appointments/crm-technician-unavailability.md) مرحَّل. فأدخل الإجازة بمجرد اعتمادها، ولن يعرض موظفو الحجز ذلك الفريق في تلك الأيام أبداً.
 
 ويجري **القسم الوظيفي** في هذا كله مجرى المحور المنظِّم. فالفرق تتبع قسماً، والإجراءات يمكن قصرها على أقسام، والأهم أن تقويم الحجز وقواعد الترقيم كليهما يُستدلّ عليهما من القسم. فإن كنت تدير التركيب في الجيزة والقاهرة من قسمين مختلفين حصل كل فريق على تقويمه وساعات عمله وترقيم مستنداته دون أي إعداد إضافي.
 

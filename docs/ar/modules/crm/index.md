@@ -102,7 +102,7 @@ title: خدمة العملاء
 نظام حجز قائم بذاته لمن يرسل فرقاً إلى عناوين العملاء: فرق وإجراءات وتقويم أسبوعي.
 
 <LandingGrid>
-  <LandingCard icon="📅" title="نظرة عامة على مواعيد الفنيين" link="/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="الشاشات التسع وترتيبها، وكيف تترابط، وخطوة تجهيز القسم الوظيفي التي بدونها لا يعمل شيء." />
+  <LandingCard icon="📅" title="نظرة عامة على مواعيد الفنيين" link="/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="الشاشات العشر وترتيبها، وكيف تترابط، وخطوة تجهيز القسم الوظيفي التي بدونها لا يعمل شيء." />
   <LandingCard icon="🧰" title="الخدمات والإجراءات الفنية" link="/ar/modules/crm/technician-appointments/crm-technician-services-and-procedures.md" details="المهمة الواحدة والعمل الذي يتكون منها، ولماذا يُحجز الإجراء ويُبلَّغ عن الخدمات." />
   <LandingCard icon="👷" title="فرق الفنيين" link="/ar/modules/crm/technician-appointments/crm-technician-crews.md" details="الفريق ومشرفه ولونه على التقويم، وقاعدة انتماء الفني إلى فريق واحد." />
   <LandingCard icon="⏰" title="إعدادات حجز المواعيد" link="/ar/modules/crm/technician-appointments/crm-appointment-booking-settings.md" details="ساعات العمل من ملف الدوام، ومدة الفترة، ودفتر ترقيم المواعيد لكل قسم." />

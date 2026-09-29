@@ -10,7 +10,7 @@ Some businesses sell a product and then have to turn up at the customer's addres
 
 ![The technician booking calendar](../../../ar/modules/crm/images/technician-appointments/technician-appointment-calendar-en.png)
 
-## The nine screens, and the order to meet them in
+## The ten screens, and the order to meet them in
 
 Everything lives under one menu group, **Technician Appointments** (*مواعيد الفنيين*), inside the CRM module. The menu lists the screens in roughly the order you will build them. For the documents and master files it shows the list names, which are the plural forms (for example *Technician Crews*):
 
@@ -19,6 +19,7 @@ Everything lives under one menu group, **Technician Appointments** (*مواعي�
 | Technician Procedure (*إجراء فني*) | A job you are booked for — "Split unit installation" | [Services and Procedures](/modules/crm/technician-appointments/crm-technician-services-and-procedures.md) |
 | Technician Service (*خدمة فنية*) | One task inside that job — "Fit the indoor unit" | [Services and Procedures](/modules/crm/technician-appointments/crm-technician-services-and-procedures.md) |
 | Technician Crew (*فريق فنيين*) | The team that goes out, and who supervises it | [Crews](/modules/crm/technician-appointments/crm-technician-crews.md) |
+| Technician Unavailability (*سند إيقاف فني عن الحجز*) | Leave, training or a sick day that takes a technician, and so their crew, off the calendar | [Technician Unavailability](/modules/crm/technician-appointments/crm-technician-unavailability.md) |
 | Appointment Booking Settings (*إعدادات حجز المواعيد*) | Working hours, slot length, and the books to number appointments with | [Booking Settings](/modules/crm/technician-appointments/crm-appointment-booking-settings.md) |
 | Technician Appointment (*موعد فني*) | The booking itself, with its materials and its change history | [The Appointment](/modules/crm/technician-appointments/crm-technician-appointment.md) |
 | Technician Appointment Creator (*إنشاء موعد فني*) | The weekly calendar you book and rearrange visits on | [The Booking Calendar](/modules/crm/technician-appointments/crm-technician-appointment-calendar.md) |
@@ -34,6 +35,8 @@ Two of those links are enforced when you save, and they are the reason the setup
 
 - A **service distribution** will only accept services that belong to the appointment's procedure, and only technicians who are members of the appointment's crew. Get the procedure's service list right and the distribution becomes a short pick-list rather than a free-text form.
 - A **technician belongs to exactly one crew**. The crew screen checks it, and the transfer document is the way to move somebody without breaking that rule.
+
+Two more rules protect the calendar itself. A crew cannot be booked twice for the same time, and it cannot be booked while one of its technicians is blocked by a committed [Technician Unavailability](/modules/crm/technician-appointments/crm-technician-unavailability.md). Enter leave as soon as it is approved, and the booking staff will never offer that crew for those days.
 
 The department section (*القسم الوظيفي*) runs through the whole thing as the organising axis. Crews belong to a section, procedures can be restricted to sections, and — most importantly — the booking calendar and the numbering rules are both looked up from the section. If you run installation in Giza and Cairo out of two different sections, the two teams get their own calendars, their own working hours and their own document numbering without any further setup.
 

@@ -51,6 +51,8 @@ Each block is one period of a committed appointment. It is labelled with the cre
 - **The status is a coloured strip on the block's leading edge.** A *Booked* visit has no strip. *Rescheduled*, *No Show* and *Executed* each have their own colour, and an executed visit also shows a padlock 🔒.
 - **A cancelled visit is still shown**, but faded and struck through, so the technician knows it is off.
 
+Only appointments are drawn here. A technician's leave or training entered as a [Technician Unavailability](/modules/crm/technician-appointments/crm-technician-unavailability.md) does not appear on this screen; it shows as an *Unavailable* block on the [booking calendar](/modules/crm/technician-appointments/crm-technician-appointment-calendar#Unavailable-time).
+
 The screen loads up to 200 appointments for the period on screen. On a busy week, narrow the view with the filters below.
 
 ## The Available crews panel

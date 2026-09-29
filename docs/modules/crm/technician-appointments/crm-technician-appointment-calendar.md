@@ -50,10 +50,16 @@ A booking that is filtered out still occupies its crew's time. You cannot move a
 
 The toolbar has **Today**, the ‹ › arrows to page back and forward, the period title with the week number underneath, and the **Day / Week / Month** views. The **Confirm each change immediately** tick box is explained under [Saving your changes](#Saving-your-changes).
 
+### Unavailable time
+
+When a technician is blocked by a committed [Technician Unavailability](/modules/crm/technician-appointments/crm-technician-unavailability.md), their crew's week shows a grey, hatched block labelled *Unavailable* (*غير متاح*) followed by the crew's name. A crew is one bookable unit, so one blocked member takes the whole crew out for that time.
+
+The block cannot be clicked, moved or resized. Right-clicking it offers a single action, **Open the record** (*فتح المستند*), which opens the unavailability document in a new tab. Unticking the crew hides its blocks together with its appointments.
+
 ## Drawing a booking
 
 1. Drag down the column for the day you want, from the start time to the end time. The drag snaps to the slot length set in booking settings, which is one hour in the screenshot.
-2. A dialog asks you to **Choose the crew for this period**, with a search box for sites that have many crews. It lists only the ticked crews. When exactly one crew is ticked, it is chosen for you without asking. When no crew is ticked, the calendar tells you to *"Pick Crew"*.
+2. A dialog asks you to **Choose the crew for this period**, with a search box for sites that have many crews. It lists only the ticked crews, and it leaves out any crew that is unavailable at any point of the time you selected. When exactly one crew is left, it is chosen for you without asking. When no crew is ticked, the calendar tells you to *"Pick Crew"*. When crews are ticked but every one of them is unavailable then, it tells you *"This crew is unavailable during that period"* and nothing is drawn.
 3. The block appears in that crew's colour. Until you save, you can drag it to another time or drag its edge to resize it. Repeat for as many periods as the job needs, for example a morning block and an afternoon block, or three mornings in a row.
 4. Press **Save**.
 
@@ -80,7 +86,7 @@ The calendar does not fill in the **Items And Services** grid. If the visit need
 
 A confirmation shows *Appointment created* with the new code, and the drawn blocks become an existing appointment like the others. You stay on the same week with the same section and procedure, ready to book the next customer.
 
-If the appointment cannot be committed, the errors are shown and nothing is created. Typical causes are a missing book, an approval rule, a required dimension, or a period that starts before the current time. Your drawn periods stay on screen so you can fix the cause and press Save again.
+If the appointment cannot be committed, the errors are shown and nothing is created. Typical causes are a missing book, a required dimension, a period that starts before the current time, or one of the [booking rules](/modules/crm/technician-appointments/crm-technician-appointment.md#The-booking-rules): the crew is already booked in another appointment then, or one of its technicians is unavailable. Your drawn periods stay on screen so you can fix the cause and press Save again.
 
 ## Changing a booking on the calendar
 
@@ -88,9 +94,11 @@ Plans change after a visit is booked: the customer asks for the afternoon instea
 
 **To move a period**, drag it to another time or day. To make it longer or shorter, drag its bottom edge. Some moves are refused as you make them:
 
-- A move that overlaps another period of the same crew is refused with *"This period overlaps another period of the same crew"*.
+- A move that overlaps another period of the same crew, or one of its *Unavailable* blocks, is refused with *"This period overlaps another period of the same crew"*.
 - A drop into the past, outside working hours or on a rest day is refused without a message.
 - An executed appointment cannot be moved. Clicking it shows *"An executed appointment cannot be changed"*.
+
+The server checks the moved period again when you save, against the [booking rules](/modules/crm/technician-appointments/crm-technician-appointment.md#The-booking-rules). That catches what the calendar cannot see, such as a clash with a booking hidden by the filters or with an appointment somebody else saved a minute ago.
 
 **Right-click** an existing appointment for everything else. The menu is headed by the appointment code. Right-clicking an empty slot opens no calendar menu.
 
@@ -140,7 +148,17 @@ The Save button now reads **Save changes**, with a badge counting the appointmen
 
 Pressing **Save changes** saves every changed appointment one by one. Then, if you have also drawn new periods, it creates the new appointment. The message tells you how many appointments were updated.
 
-The system can refuse an appointment, for example because a moved period now clashes with an approval rule. That appointment stays pending and is reported as *could not be saved and is still pending*, with the errors, so you can fix it and save again. Before saving, the system may also need you to confirm something. Each such question appears as a Yes/No dialog titled *Confirm Before Starting*, and the save is sent again with your answers.
+The system can refuse an appointment, for example because a moved period now clashes with another booking of the crew, or one of its technicians is unavailable then. That appointment stays pending and is reported as *could not be saved and is still pending*, with the errors, so you can fix it and save again.
+
+Before saving, the system may also need you to confirm something, exactly as it would on the appointment's own screen. Each such question appears as a Yes/No dialog titled *Confirm Before Starting*, and the save is sent again with your answers. If you answer No to any of them, that appointment is not saved.
+
+#### Changes that need approval
+
+When an approval definition applies to technician appointments, a change you save does not take effect straight away. It goes into the approval cycle, and the calendar tells you *"The change was sent for approval and shows once it is approved"* (*«أُرسل التغيير للاعتماد ولن يظهر قبل اعتماده»*), followed by the appointment code.
+
+The change leaves your pending list and is not counted among the updated appointments. Until it is approved, the calendar keeps showing the appointment at its old time, because it draws only what is committed.
+
+While that change is waiting, the appointment cannot be changed again from the calendar. A move or status change on it is refused on save with *"This appointment has a change waiting for approval, it cannot be changed until the approval finishes"* (*«لهذا الموعد تعديل في انتظار الموافقة، ولا يمكن تعديله قبل الموافقة»*), followed by the appointment code, and the change stays in your pending list. Finish the approval first, or discard the change.
 
 If you want each change to take effect immediately, tick **Confirm each change immediately**. Every move or status change is then saved as soon as you make it, and there is nothing to discard. Keep in mind:
 
@@ -200,6 +218,7 @@ None of the working week is configured on this screen. Each limit comes from som
 | Which crews are listed | Committed crews, by their Department Section and Procedures grid |
 | Each crew's colour | Color Code on the crew, or an automatic colour |
 | Which appointments are drawn | Committed, not cancelled appointments of the ticked crews that match the filters, up to 200 for the period on screen |
+| *Unavailable* blocks | Committed Technician Unavailability documents for the crew's technicians |
 | The book the appointment is numbered in | Appointment Books And Terms Per Section |
 
 If the calendar is not offering what you expect, go through this table row by row.

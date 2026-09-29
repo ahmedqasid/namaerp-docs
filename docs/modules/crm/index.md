@@ -102,7 +102,7 @@ The parallel suite for businesses that service sites rather than machines.
 A self-contained booking system for businesses that send crews to customer addresses: crews, procedures and a weekly calendar.
 
 <LandingGrid>
-  <LandingCard icon="📅" title="Technician Appointments" link="/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="The nine screens in the order you build them, how they fit together, and the department-section step nothing works without." />
+  <LandingCard icon="📅" title="Technician Appointments" link="/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="The ten screens in the order you build them, how they fit together, and the department-section step nothing works without." />
   <LandingCard icon="🧰" title="Services and Procedures" link="/modules/crm/technician-appointments/crm-technician-services-and-procedures.md" details="The single task and the job it belongs to — and why you book the procedure but report the services." />
   <LandingCard icon="👷" title="Technician Crews" link="/modules/crm/technician-appointments/crm-technician-crews.md" details="The crew, its supervisor, its colour on the calendar, and the one-crew-per-technician rule." />
   <LandingCard icon="⏰" title="Appointment Booking Settings" link="/modules/crm/technician-appointments/crm-appointment-booking-settings.md" details="Working hours borrowed from an attendance shift, slot length, and the book each section numbers appointments in." />

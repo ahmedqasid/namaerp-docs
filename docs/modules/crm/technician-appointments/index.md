@@ -15,9 +15,10 @@ It is a self-contained booking system with its own licence, `crm-technician-appo
 The catalogue of work, the teams that do it, and the hours they are bookable in. Build these in order; each one narrows the pickers on the next.
 
 <LandingGrid>
-  <LandingCard icon="📅" title="How It All Fits Together" link="/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="The nine screens, the chain that joins them, and the department-section step nothing works without." />
+  <LandingCard icon="📅" title="How It All Fits Together" link="/modules/crm/technician-appointments/crm-technician-appointments-overview.md" details="The ten screens, the chain that joins them, and the department-section step nothing works without." />
   <LandingCard icon="🧰" title="Services and Procedures" link="/modules/crm/technician-appointments/crm-technician-services-and-procedures.md" details="The single task and the job it belongs to — and why you book the procedure but report the services." />
   <LandingCard icon="👷" title="Technician Crews" link="/modules/crm/technician-appointments/crm-technician-crews.md" details="The crew, its supervisor, its colour on the calendar, and the one-crew-per-technician rule." />
+  <LandingCard icon="🚫" title="Technician Unavailability" link="/modules/crm/technician-appointments/crm-technician-unavailability.md" details="Block a technician's leave, training or sick day so no crew they belong to can be booked then." />
   <LandingCard icon="⏰" title="Appointment Booking Settings" link="/modules/crm/technician-appointments/crm-appointment-booking-settings.md" details="Working hours borrowed from an attendance shift, slot length, and the book each section numbers appointments in." />
 </LandingGrid>
 
