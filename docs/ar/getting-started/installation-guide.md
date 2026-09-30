@@ -212,7 +212,7 @@ Arguments = " -Dprint-process-output=true -jar \""+oFolder.path+"\\nama-installe
 * **Load From Tomcat** (Ctrl+L): يستورد الإعداد من تثبيت موجود
 
 ### العمليات المتقدمة
-* **Request Key**: طلب مفتاح ترخيص تلقائي من سيرفرات Nama مع متابعة الموافقة
+* **Request Key**: طلب مفتاح ترخيص تلقائي من سيرفرات Nama مع متابعة الموافقة — انظر [الترخيص](/ar/getting-started/licensing)
 * **Install SSL**: يشغّل معالج تثبيت شهادة Let's Encrypt
 * **Migrate Tomcat**: ترقية من Tomcat 9 إلى Tomcat 10 مع الحفاظ على الإعداد
 * **DB Scripts**: يولّد سكريبتات إعداد قاعدة البيانات

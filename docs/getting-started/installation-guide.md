@@ -212,7 +212,7 @@ This will display the output of all commands executed by the installer, helping 
 * **Load From Tomcat** (Ctrl+L): Imports configuration from existing installation
 
 ### Advanced Operations  
-* **Request Key**: Automated license key request from Nama servers with approval monitoring
+* **Request Key**: Automated license key request from Nama servers with approval monitoring — see [Licensing](/getting-started/licensing)
 * **Install SSL**: Launches Let's Encrypt certificate installation wizard
 * **Migrate Tomcat**: Upgrades from Tomcat 9 to Tomcat 10 with configuration preservation
 * **DB Scripts**: Generates database setup scripts

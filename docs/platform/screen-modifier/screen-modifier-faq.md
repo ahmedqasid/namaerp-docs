@@ -13,6 +13,8 @@ Saving a Screen Modifier records your *instructions* — it does not rebuild the
 
 Then reopen the screen to see your change. See [Making your changes take effect](/platform/screen-modifier/screen-modifier-overview.md#Making-your-changes-take-effect) for the full picture.
 
+If the field is still missing after that, it may be hidden for a reason that has nothing to do with the modifier — [why can't I see field Y](/getting-started/licensing#Why-cant-I-see-field-Y) lists them all.
+
 ## How can I control the fields displayed in the discussions block?
 
 **Example: I want to remove references or attachments from the discussions section in the "Sales Invoice" screen.**

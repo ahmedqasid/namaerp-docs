@@ -81,7 +81,7 @@ row; these are the messages that send you there.
 
 ## Licence, users and login
 
-These stop everybody, not one user, and they are the ones worth recognising instantly.
+These stop everybody, not one user, and they are the ones worth recognising instantly. The licence itself — where it lives, what it limits, and the messages about reaching Namasoft's licence servers — is on [Licensing](/getting-started/licensing).
 
 | Message | Why | What to do |
 |---|---|---|

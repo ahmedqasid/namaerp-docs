@@ -143,7 +143,7 @@ The **Treat As Admin** flag in user settings does *not* grant data permissions â
 
 ### User Level
 
-Licenses can define named user levels with different counts. The **User Level** field places the user in one of the levels available in your license; the system verifies the level exists and enforces the licensed counts (integrated with **Users Counter** records that can also be linked at the Security Profile level).
+Licenses can define named user levels with different counts. The **User Level** field places the user in one of the levels available in your license; the system verifies the level exists and enforces the licensed counts (integrated with **Users Counter** records that can also be linked at the Security Profile level). What the licence holds and how to read it is on [Licensing](/getting-started/licensing).
 
 ## Messages you may see
 

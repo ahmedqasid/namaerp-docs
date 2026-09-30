@@ -14,6 +14,7 @@
 - [Nama ERP Installation Guide](https://docs.namasoft.com/getting-started/installation-guide.html): Nama ERP is a Java-based web application that runs on Apache Tomcat and uses Microsoft SQL Server as its default database engine.
 - [nama.properties](https://docs.namasoft.com/getting-started/nama-properties.html): nama.properties is the one file that tells an installation what it is: which database to open, what to call itself, where its files live, and which of the system's safety valves are open.
 - [Two-Factor Authentication (2FA) Guide](https://docs.namasoft.com/getting-started/two-factor-authentication.html): Two-Factor Authentication (2FA) adds an extra layer of security to the Nama ERP login process by requiring users to provide a second form of verification beyond their username and password. - entities: ConfigEntry - menu: Administration → Settings → System Settings
+- [Licensing, and Why a Screen or Field Is Missing](https://docs.namasoft.com/getting-started/licensing.html): Most "I can't see it" tickets have the same handful of causes: a customer who bought a module but cannot find its screens, a field that was added but never appears, a morning when nobody can log in, a...
 
 ## Architecture
 

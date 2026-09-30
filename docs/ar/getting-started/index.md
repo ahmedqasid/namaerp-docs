@@ -15,4 +15,5 @@ title: بدء الاستخدام
   <LandingCard icon="📦" title="دليل تثبيت Nama ERP" link="/ar/getting-started/installation-guide.md" details="خطوات تفصيلية لتشغيل نظام نما على خادمك." />
   <LandingCard icon="⚙️" title="إعدادات Nama Properties" link="/ar/getting-started/nama-properties.md" details="ملف الإعدادات nama.properties — ماذا يفعل كل إعداد وكيف تضبطه." />
   <LandingCard icon="🔐" title="المصادقة الثنائية (2FA)" link="/ar/getting-started/two-factor-authentication.md" details="أضف عامل تسجيل دخول ثانيًا للحفاظ على أمان الحسابات." />
+  <LandingCard icon="🔑" title="الترخيص، والشاشات والحقول الغائبة" link="/ar/getting-started/licensing.md" details="ما يحده الترخيص، وما تفعله حين يتغير، وكل سبب لغياب شاشة أو حقل تتوقع وجوده." />
 </LandingGrid>

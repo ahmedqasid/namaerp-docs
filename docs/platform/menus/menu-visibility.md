@@ -143,7 +143,7 @@ When somebody says a menu entry is missing:
 1. **Are they on the menu you think they are?** User record, then security profile, then legal
    entity.
 2. **Have they reloaded the page since the change?** If not, nothing else matters.
-3. **Is the module licensed?** A whole branch missing points here.
+3. **Is the module licensed?** A whole branch missing points here. If it was licensed recently, see [when the licence changes](/getting-started/licensing#When-the-licence-changes); for every other reason a screen can be missing, the [full checklist](/getting-started/licensing#Why-cant-I-see-screen-X).
 4. **Do they have permission to open it?** One entry missing for one person points here.
 5. **Is a role blocking it?** Check the menu allow/block rules on their security profile.
 6. **Is the row still in the menu at all?** A group or entry whose parent code was mistyped is
