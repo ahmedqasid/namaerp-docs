@@ -237,6 +237,13 @@ entities: [DashBoardWidget, DashBoard, BICrossFilter, DashBoardWidgetWizard, BIP
 | **CrossFilterControl** | مُقسِّم (slicer) — يعرض فلتراً متقاطعاً واحداً كمنتقي على شبكة لوحة المعلومات، فيضبط المستخدم الفلتر دون فتح حوار الفلاتر |
 | **TextBlock** | نص ثابت غني — رؤوس أقسام وعناوين فرعية وتعليمات تُوضع بين الـ widgets البيانية. ويُكتب محتواه مرة لكل لغة |
 
+::: warning بعض أنواع العناصر تحتاج الواجهة الجديدة
+الأنواع **EChart** و**Table v2 (Enhanced)** و**Metrics Cards** و**Metrics Cards v2 (Enhanced)** و**Timeline**
+و**Recent Visits** و**Card Menu** و**CrossFilterControl** و**TextBlock** تُعرض في الواجهة الجديدة فقط.
+إذا فتحت لوحة تحتوي عليها من الواجهة القديمة، فسيظهر مكان كل عنصر منها رسالة تفيد بأن نوعه مدعوم في الواجهة الجديدة فقط،
+وتحتها رابط **فتح في الواجهة الجديدة** يفتح اللوحة نفسها في الواجهة الجديدة في تبويب جديد.
+:::
+
 ---
 
 ## لوحات المعلومات ذات التبويبات (Tabbed Dashboards)

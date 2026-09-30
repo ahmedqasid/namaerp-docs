@@ -236,6 +236,14 @@ While ECharts are the star of the show, dashboards support several other widget 
 | **CrossFilterControl** | A slicer — renders one cross-filter as a picker sitting on the dashboard grid, so users set the filter without opening the Filters dialog |
 | **TextBlock** | Static rich text — section headers, subtitles, and instructions placed between the data widgets. Its content is written once per language |
 
+::: warning Some widget types need the new UI
+**EChart**, **Table v2 (Enhanced)**, **Metrics Cards**, **Metrics Cards v2 (Enhanced)**, **Timeline**,
+**Recent Visits**, **Card Menu**, **CrossFilterControl** and **TextBlock** are drawn by the new UI only.
+Open a dashboard that contains them from the old interface and each of these widgets shows a message
+saying its type is supported in the new UI only, with an **Open in the new UI** link under it that opens the
+same dashboard in the new UI in a new tab.
+:::
+
 ---
 
 ## Tabbed Dashboards
