@@ -408,6 +408,37 @@ The order was for 100, but you produced 108. If your permitted percentage allows
 
 Now you have extra inventory - bonus! The costing system will account for this properly when you close the order.
 
+### Scenario 5: One Step Keeps Producing Past the Order
+
+Some lines do not produce in one neat pass. A corrugator is the classic case: the order says 1,000 sheets, but the machine runs the order several times through the shift, and nobody knows the final count until the last run is over. Each run is its own production execution, and together they end up well above 1,000.
+
+Every execution moves quantity *out of* one operation-and-step and *into* another, and a step can only give what it holds. Operation 1 starts with the order quantity (1,000) and nothing more. After the first execution moves all 1,000 to operation 10, operation 1 holds zero, and the next execution out of it is refused, even for 10 sheets:
+
+*The quantity of operation {0} step {4} in production order {1} does not have enough quantity, you are trying to move {2} while the available is {3}*
+
+With **Use Production Movement System Entry** switched on, the same situation reads:
+
+*The document {0} will lead to negative quantity for order {1}, operation {2}*
+
+Neither message has an Arabic translation, so both appear in English on Arabic screens too.
+
+::: warning The tolerance fields do not lift this limit
+**Permitted Percentage** and **Unlimited Overcompletion** only compare a line's **To Qty** with its own quantity: move 1,000 out, report 1,300 arriving. They say nothing about how much the "from" step holds, so ticking them does not help a second execution that has nothing left to move.
+:::
+
+There are two ways to record the extra output:
+
+1. **One execution, with the real output in To Qty.** If the whole run is recorded in one execution, move the 1,000 and enter the real figure in **To Qty**. With **Unlimited Overcompletion For Operation 1** ticked on the order, any figure is accepted. **To Qty** only appears on the execution when **Use To Quantity In Execution** is on in the manufacturing configuration.
+2. **Several executions against a step that may run dry.** Tick **Allow Negative Quantity For Operation 1** on the production order, or **Allow Negative Quantity** on the order's routing line for a later step. That step then lets executions move out more than it holds. Its balance stops at zero instead of going negative, so it never shows a quantity that does not exist, and the steps downstream receive everything that was recorded.
+
+The flag covers every state of the step (to move, rejected, scrap and sample), and it only works with **Use Production Movement System Entry** switched on. Saving an order with either flag ticked while that setting is off is refused (see [Production Orders](/modules/manufacturing/production-orders#Messages-you-may-see)).
+
+::: tip Switching the setting on for orders already in progress
+**Use Production Movement System Entry** records one movement per document and rebuilds each step's balance from them. Orders that were already running before the switch have no movements yet. Select their executions in the Production Execution list and use **More → Recreate Quantity Movements**, which rebuilds the movements of every order those executions touch.
+:::
+
+The flags are copied down like the tolerance fields: set **Allow Negative Quantity** on a standard operation or a routing line, and **Allow Negative Quantity For Operation 1** on a routing, and orders built from them start with the flags already ticked.
+
 ## Configuration That Matters
 
 A few settings control how execution works:
@@ -428,6 +459,8 @@ Module-wide settings like:
 - **Subtract Lines Quantities From Operation Calculated Quantities**: When suggesting quantities to move, should the system subtract quantities already entered in other lines of the same execution? Useful to prevent accidentally moving the same units twice in one document.
 
 - **Do Not Suggest From Time**: Some shops don't want the system pre-filling start times - they want to enter them manually for accuracy.
+
+- **Use Production Movement System Entry**: Records every quantity movement as its own entry and rebuilds each step's balance from them in date order. Needed for **Allow Negative Quantity** (see Scenario 5).
 
 ### Production Order Term Configuration
 

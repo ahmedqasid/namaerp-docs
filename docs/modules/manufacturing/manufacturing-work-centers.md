@@ -56,6 +56,8 @@ This is the richer of the two files, because a step carries more meaning than a 
 
 **Permitted Percentage** (5 here) and **Unlimited Overcompletion** set the over-production tolerance for this step, in the same way the routing header sets it for the first operation.
 
+**Allow Negative Quantity** lets executions move more out of this step than it holds, for steps that run an order several times past the planned quantity; the step's balance stops at zero. It is copied onto routing lines and production orders that use the operation, and needs **Use Production Movement System Entry** in the manufacturing configuration.
+
 **Allow Over (Turn On Parallel)** is the field worth pausing on. Normally a unit finishes one operation before starting the next — strict sequence. Ticking this allows the step to run in parallel with its neighbours, which is what you need for a line where cutting on the next batch starts while taping on the current one is still going. Leave it unticked and the system will hold work back until the preceding step has released it.
 
 **List** and **Quality Assurance List** attach the checks that gate the step, and **Description** is free text for the operators.

@@ -26,6 +26,8 @@ You'll find routings under **Manufacturing → Master Files → Routing** (ال�
 Both field labels say "For Operation 1", and they mean it. Tolerances for later operations are set on the operations themselves, not here. Setting a generous percentage on the routing does not quietly loosen the whole line.
 :::
 
+**Allow Negative Quantity For Operation 1** answers a different question: not how much one execution may report, but whether operation 1 may give away more than the order quantity across several executions. Tick it for a first step that runs the order again and again past the planned figure; its balance then stops at zero instead of refusing the execution. The same flag on a row of the details grid, **Allow Negative Quantity**, does this for that step. Both are copied into production orders built from the routing and need **Use Production Movement System Entry** in the manufacturing configuration — see [Production Execution](/modules/manufacturing/production-execution#Scenario-5-One-Step-Keeps-Producing-Past-the-Order).
+
 **Quality Assurance List** attaches a checklist that has to be satisfied for the product. **Group**, **Item Classifier**, **Revision ID**, **Size**, **Lot ID**, **Color**, **Box** and the **Active / Inactive Percentage** pair are optional refinements, as on the BOM.
 
 ## The Details Grid: The Operations
