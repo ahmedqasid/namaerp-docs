@@ -205,7 +205,7 @@ template's values are applied — so a book can carry a whole set of sensible de
 
 **Field Filter** attaches field-level visibility and validation rules that apply to every document
 using this book. It is the same mechanism described in
-[field filters with criteria](/platform/field-filter-with-criteria). One restriction: the filter you
+[field filters with criteria](/platform/field-filtering/field-filter-with-criteria). One restriction: the filter you
 choose must not be an *automatic* filter — those apply themselves globally and are rejected here.
 
 **Dimensions.** A book carries its own dimensions, and selecting the book copies them onto the

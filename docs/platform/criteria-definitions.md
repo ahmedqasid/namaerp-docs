@@ -160,7 +160,7 @@ pattern repeats through the modules — but it covers what support is asked abou
 | [Entity Flows](/platform/entity-flows/) | **Criteria** and **Reversed Criteria Definition** — run the flow only when the record matches, or only when it does not |
 | [Required Fields](/platform/required-fields) | The **When** column of the criteria-based rules |
 | [Criteria-Based Validation](/platform/criteria-based-validation) | The **When** and **Then** halves of a rule, when you would rather not write a query |
-| [Field Filter with Criteria](/platform/field-filter-with-criteria) | The condition the offered records have to satisfy |
+| [Field Filter with Criteria](/platform/field-filtering/field-filter-with-criteria) | The condition the offered records have to satisfy |
 | [Fields and Entities Settings](/platform/fields-and-entities-settings/) | A **Criteria** column on most of its grids — automatic coding, input validation, reference lookups |
 | [Quick Filters](/platform/list-views/quick-filters) | **Quick Filter Values Criteria**, filtering which values become buttons |
 | [Screen Modifier](/platform/screen-modifier/) | **List View Default Criteria** and **Search View Default Criteria** — the filter a screen opens with |

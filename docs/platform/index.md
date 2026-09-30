@@ -67,8 +67,7 @@ Let the system do repetitive work for you, and build reusable rules and data blo
   <LandingCard icon="🧱" title="Virtual Entities" link="/platform/virtual-entity-guide.md" details="Reusable SQL building blocks that power reports and dashboards." />
   <LandingCard icon="🧮" title="Criteria Definitions" link="/platform/criteria-definitions.md" details="The saved, named filter that approvals, notifications, flows, required fields and lookups all point at — how to build one, how to test it, and where it is used." />
   <LandingCard icon="🗃️" title="Entity Type Lists" link="/platform/entity-type-lists.md" details="One named list of screens, so a single setting can apply to a whole family of them — and the Add From Group shortcut that builds it from a menu." />
-  <LandingCard icon="🔎" title="Field Filter with Criteria" link="/platform/field-filter-with-criteria.md" details="Restrict what a lookup field can pick using criteria — plus the field-filtering FAQ." />
-  <LandingCard icon="❓" title="Field Filtering FAQ" link="/platform/field-filter-faq.md" details="Worked answers to the filtering questions that come up most — looping over detail lines, filtering by a value on the same screen, and the mistakes that make a filter return nothing." />
+  <LandingCard icon="🔎" title="Field Filtering" link="/platform/field-filtering/" details="Why a lookup offers the records it does — loosening the branch and legal-entity narrowing on one field, or narrowing it by a criteria condition." />
   <LandingCard icon="📝" title="Text Criteria Parser" link="/platform/text-criteria-guide.md" details="Write criteria as plain text and have the parser turn them into filters." />
 </LandingGrid>
 

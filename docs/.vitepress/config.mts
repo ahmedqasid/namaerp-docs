@@ -29,6 +29,12 @@ const REDIRECT_CANONICAL_TARGETS = {
     'EASalesRecalculateFreeAndRelatedItems': '/entity-flows/supplychain/EASalesRecalculateFreeAndRelatedItems.html'
 }
 
+// Pages deleted after their content was merged into another page. They have no basename left to
+// map, so name the page that absorbed them here to keep old links and search results working.
+const RETIRED_PAGE_REDIRECTS = {
+    'field-filter-faq': '/platform/field-filtering/field-filter-with-criteria.html'
+}
+
 function writeRedirectsMap(destDir) {
     const map = new Map()
     const collisions = new Map()
@@ -69,6 +75,10 @@ function writeRedirectsMap(destDir) {
         }
         map.delete(base)
         console.warn(`[redirects] duplicate basename "${base}" — no redirect generated:\n  ` + paths.join('\n  '))
+    }
+
+    for (const [base, target] of Object.entries(RETIRED_PAGE_REDIRECTS)) {
+        if (!map.has(base)) map.set(base, target)
     }
 
     const lines = [...map.entries()]

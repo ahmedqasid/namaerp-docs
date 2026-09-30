@@ -253,7 +253,7 @@ master records and no other.
 | Field | What it does |
 |---|---|
 | Template | A [Default Values Template](/platform/default-values-templates) applied to records in the group. |
-| Field Filter | A [field filter](/platform/field-filter-with-criteria) that hides or protects fields on those records. An automatic filter is refused here. |
+| Field Filter | A [field filter](/platform/field-filtering/field-filter-with-criteria) that hides or protects fields on those records. An automatic filter is refused here. |
 | View / Update / Usage Capability | Security capabilities copied onto records that join the group. |
 | Dimensions | Legal entity, sector, branch, department and analysis set, copied onto records that join the group. |
 | Revise With Commit | Makes the records in the group revise as they commit. |

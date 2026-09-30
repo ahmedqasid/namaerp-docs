@@ -62,7 +62,7 @@ Use a **Criteria Definition** when the rule is fixed and does not depend on the 
 Before wiring a criteria definition into this grid, open the record file it applies to and confirm that filtering by that criteria returns exactly the records you expect. A lookup that silently returns nothing is almost always a criteria problem, not a configuration problem — and it is much easier to see that on the list screen than inside a drop-down.
 :::
 
-Field filtering has a dedicated screen of its own with a fuller feature set; this grid is the quick, per-field version of the same idea. See [Field Filter with Criteria](/platform/field-filter-with-criteria) and the [FAQ about Field Filtering](/platform/field-filter-faq) for the full picture, [Criteria Based Validation](/platform/criteria-based-validation) for how criteria definitions are written, and the [Tempo Language Manual](/admin/tempo) for the dynamic version.
+Field filtering has a dedicated screen of its own with a fuller feature set; this grid is the quick, per-field version of the same idea. See [Field Filter with Criteria](/platform/field-filtering/field-filter-with-criteria) for the full picture (its worked examples cover the mistakes that make a filter return nothing), [Criteria Based Validation](/platform/criteria-based-validation) for how criteria definitions are written, and the [Tempo Language Manual](/admin/tempo) for the dynamic version.
 
 ## Descriptors
 
@@ -256,8 +256,8 @@ There can be several Fields and Entities Settings records, and all their active 
 
 - [Fields and Entities Settings — Overview](/platform/fields-and-entities-settings/fields-settings-overview) — the scope columns, wildcards and lookup order used by every grid on this page.
 - [Relaxing Restrictions and Checks](/platform/fields-and-entities-settings/fields-settings-relaxing-restrictions) — lifting the prevented-record and dimension checks that also decide what a lookup is allowed to return.
-- [Field Filter with Criteria](/platform/field-filter-with-criteria) — the dedicated screen for filtering what a reference field offers.
-- [FAQ about Field Filtering](/platform/field-filter-faq) — common questions and pitfalls when a filter does not behave as expected.
+- [Field Filter with Criteria](/platform/field-filtering/field-filter-with-criteria) — the dedicated screen for filtering what a reference field offers.
+- [Field Filtering by Dimension](/platform/field-filtering/field-filtering-by-dimension) — when the lookup hides records of another branch or legal entity rather than failing a condition.
 - [Criteria Based Validation](/platform/criteria-based-validation) — how criteria definitions are built, before you use one in Extra Filter.
 - [Performance and Search](/platform/global-config/global-config-performance) — the system-wide search-operator defaults that this page's lines override.
 - [Importing Records](/platform/import-export/importing-records) — why the name-fallback and extra-code settings change how imported files are matched.

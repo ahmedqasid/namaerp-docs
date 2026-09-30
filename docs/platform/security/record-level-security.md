@@ -33,6 +33,8 @@ When a user creates a document, the system automatically stamps it with the sess
 
 ::: info Loosening the dimension rules
 Two related knobs live outside security, in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-relaxing-restrictions): you can declare an extra record type **public across dimensions**, so it behaves like the built-in global master files above, and you can switch off the dimension consistency check on a single reference field when a document legitimately needs to point at a record from another branch or department.
+
+That check runs when the document is **saved**. If the problem is earlier — the lookup never *offers* the other branch's record, so the user cannot pick it in the first place — the setting is on a different screen: [Field Filtering](/platform/field-filtering/field-filtering-by-dimension) loosens the dimension narrowing of one lookup on one screen. A document that has to reach across branches usually needs both.
 :::
 
 ### Login Context and the Alternate Login Context Table
