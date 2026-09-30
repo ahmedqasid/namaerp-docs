@@ -90,6 +90,28 @@ support switches them on for the session (see [Keyboard shortcuts](/platform/sho
 repair tools for a record whose effects went wrong, not part of daily work, and they leave the menu
 again as soon as the page is reloaded.
 
+### Show System Transaction: the entries a document produced
+
+"Where is the journal entry this invoice made?" is answered from the More menu, not from a report.
+On any saved document that posts to the ledger, **Show System Transaction** opens the journal entry
+the document produced in a window over the screen — accounts, amounts and dimensions, read-only. The
+item only appears once the document has been saved; a new, unsaved document has nothing to show yet.
+
+Stock documents that carry a cost get more than one. Alongside the journal entry, the menu lists one
+**Show System Transaction** item for each cost entry the document produced — the receipt cost, the
+issue cost, or the FIFO cost entry on a FIFO installation — each labelled with the kind of entry it
+opens. Only entries that actually exist are listed, so a missing cost item means the document has not
+produced that effect.
+
+If the journal entry window opens empty, the document's accounting effect has not been produced yet.
+A draft never produces one. For a saved document, effects are created in the background after the save, as a
+[business request](/platform/background-processing/business-requests). Check its processing status
+there before looking anywhere else.
+
+The items are hidden from users whose [security profile](/platform/security/security-profiles) ticks
+**Prevent View System Transaction** for that document type — which is why one user sees them and the
+colleague next to them does not.
+
 ## Printing, and the export dialog
 
 Print sends the record straight to its default printing form. **Multi Printing** stops first and asks
