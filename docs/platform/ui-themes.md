@@ -11,6 +11,10 @@ Every theme comes in two versions, a **light** one and a **dark** one, and each 
 
 The modern interface ships with **thirteen ready-made system themes**, shown in full at the end of this page. An administrator can also build custom themes, and can set the theme a company starts on.
 
+This two-minute video walks through all thirteen, each in light and dark and in English and Arabic:
+
+<iframe style="width:100%;max-width:800px;aspect-ratio:16/9;border:0" src="https://www.youtube.com/embed/4R_-jWcGN8k" title="Nama ERP themes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Picking a theme
 
 The quickest way is the user menu: click your name at the top of the screen and open **GUI Themes List**. Each theme is listed with four colour dots — the light main colour, the light background, the dark main colour and the dark background — so you can tell them apart before clicking. The new theme applies at once; nothing has to be saved or reloaded.
