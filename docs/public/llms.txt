@@ -66,6 +66,7 @@
 - [Currencies Tafqeet](https://docs.namasoft.com/platform/global-config/global-config-currencies.html): Tafqeet is writing an amount in words — the line on a cheque or an invoice that reads "One thousand two hundred Egyptian Pounds and fifty Piasters only". - entities: ConfigEntry - menu: Administration → Settings → System Settings
 - [Utility Links](https://docs.namasoft.com/platform/utils.html): ::: danger This file contains potentially dangerous links.
 - [Keyboard Shortcuts](https://docs.namasoft.com/platform/shortcuts.html): These are global shortcuts (handled anywhere in the app) intended for support staff and developers.
+- [Themes](https://docs.namasoft.com/platform/ui-themes.html): A theme decides how the modern interface looks, and since people spend the whole working day in front of it, that is not cosmetic. - entities: GUITheme - menu: Administration → Display Customization → New GUI Theme
 
 ### Screen Modifier
 

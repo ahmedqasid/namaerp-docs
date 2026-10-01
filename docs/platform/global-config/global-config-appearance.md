@@ -31,6 +31,8 @@ Both of those settings are read while the menu is being built, not while it is b
 
 **Show Old Barcode Menu** `value.info.showOldBarcodeMenu` — Keeps the legacy barcode menu visible. Only needed where an older barcode workflow is still in use.
 
+**Default System Theme** `value.info.defaultSystemTheme` — The built-in theme a user starts on until they pick one of their own: Pink, Navy, Teal, Green and so on. It applies to every user and every new browser, and never overrides a theme someone has chosen. A custom theme marked as the default takes precedence over it. Every option is shown in light and dark mode on [Themes](/platform/ui-themes).
+
 ## Login page and background
 
 **Company Name for Login Page** `value.info.companyNameForLoginPage` — The name shown on the login screen.

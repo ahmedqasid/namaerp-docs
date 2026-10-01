@@ -93,4 +93,5 @@ title: الخصائص العامة للنظام
   <LandingCard icon="🚫" title="منع استعمال سجل" link="/ar/platform/prevent-usage.md" details="تقاعد ملف رئيسي أو مستند فيتوقف عن الظهور في شاشات الاختيار، دون حذفه ودون المساس بتاريخه." />
   <LandingCard icon="🔗" title="روابط الأدوات المساعدة" link="/ar/platform/utils.md" details="روابط مباشرة مفيدة داخل النظام للمهام الشائعة." />
   <LandingCard icon="⌨️" title="اختصارات لوحة المفاتيح" link="/ar/platform/shortcuts.md" details="اعمل أسرع باستخدام لوحة المفاتيح عبر شاشات نظام نما." />
+  <LandingCard icon="🎨" title="الثيمات" link="/ar/platform/ui-themes.md" details="ثيمات النظام الثلاثة عشر بالوضعين الفاتح والداكن، وكيف يختار المستخدم ثيمه، وكيف تحدد الشركة ثيمها الافتراضي." />
 </LandingGrid>

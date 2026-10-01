@@ -94,4 +94,5 @@ Small helpers that speed up daily work.
   <LandingCard icon="🚫" title="Preventing a Record From Being Used" link="/platform/prevent-usage.md" details="Retire a master file or document so it stops appearing in the pickers, without deleting it or touching its history." />
   <LandingCard icon="🔗" title="Utility Links" link="/platform/utils.md" details="Handy direct links into the system for common tasks." />
   <LandingCard icon="⌨️" title="Keyboard Shortcuts" link="/platform/shortcuts.md" details="Work faster with the keyboard across Nama ERP screens." />
+  <LandingCard icon="🎨" title="Themes" link="/platform/ui-themes.md" details="The thirteen built-in themes in light and dark, how a user picks one, and how a company sets its default." />
 </LandingGrid>
