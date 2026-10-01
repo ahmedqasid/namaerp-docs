@@ -1115,6 +1115,28 @@
 - [Omniful Integration Guide](https://docs.namasoft.com/modules/ecommerce/omniful-integration.html): Nama ERP integrates with Omniful, a unified supply chain platform that provides comprehensive warehouse management and order fulfillment capabilities. - entities: OmnifulConfig - menu: ims → Master Files → Omniful Configuration
 - [Amazon Order Notifications](https://docs.namasoft.com/modules/ecommerce/amazon-order-notifications.html): If you sell on Amazon, you don't want to sit refreshing Seller Central waiting for orders to ship so you can punch them into the ERP by hand. - entities: MAGMagentoSite
 
+### Integrations
+
+- [Integrations](https://docs.namasoft.com/modules/integrations/): The Integrations module is where Nama keeps its ready-made links to outside platforms that a customer is required to report to.
+
+#### Eltezam (MCS)
+
+- [Eltezam (MCS)](https://docs.namasoft.com/modules/integrations/eltezam/)
+- [Eltezam (MCS) Integration — Overview](https://docs.namasoft.com/modules/integrations/eltezam/eltezam-overview.html): A Saudi government agency does not only pay its employees; it also has to tell the Ministry of Civil Service (MCS) about them. - entities: EltezamSubmissionDoc, EltezamConfiguration, EltezamCodeTable
+- [Setting up Eltezam](https://docs.namasoft.com/modules/integrations/eltezam/eltezam-setup.html): Before Nama can send anything to the Ministry of Civil Service, it needs to know three things: where the ministry's Eltezam service is, who the agency is in the ministry's eyes, and which employees... - entities: EltezamConfiguration - menu: integrations → Master Files → MCS Eltezam Configuration
+- [Eltezam Code Tables](https://docs.namasoft.com/modules/integrations/eltezam/eltezam-code-tables.html): The ministry does not want to hear that an employee is "Male", works in "Riyadh Branch" and holds the position "Senior Accountant". - entities: EltezamCodeTable - menu: integrations → Master Files → MCS Eltezam Code Table
+- [What Nama Sends to Eltezam](https://docs.namasoft.com/modules/integrations/eltezam/eltezam-data-sources.html): Sooner or later a customer calls with "MCS says the job number of employee 1045 is wrong — where does Nama get it from?". - entities: EltezamSubmissionDoc, EltezamConfiguration
+- [Eltezam Submissions and Sending](https://docs.namasoft.com/modules/integrations/eltezam/eltezam-submissions-and-sending.html): Every time the agency reports to MCS — the monthly payslips, a batch of new hires, the year's appraisals — it does so through an MCS Eltezam Submission (إرسال بيانات التزام), under Documents → MCS... - entities: EltezamSubmissionDoc - menu: integrations → Documents → MCS Eltezam Submission
+- [Eltezam Troubleshooting](https://docs.namasoft.com/modules/integrations/eltezam/eltezam-troubleshooting.html): Eltezam problems fall into three kinds, and the error code on the request log tells you which one you are looking at before you read a word of the message: - entities: EltezamSubmissionDoc, EltezamConfiguration, EltezamCodeTable
+
+#### Alwatania Distributors
+
+- [Alwatania Distributors](https://docs.namasoft.com/modules/integrations/alwatania/)
+- [Alwatania Distributors Integration](https://docs.namasoft.com/modules/integrations/alwatania/alwatania-overview.html): A company that distributes for Alwatania has to keep the distributor's platform informed: which customers it sells to, which salesmen visit them, which items it carries, and every invoice and return... - entities: AlwataniaDistConfig - menu: integrations → Master Files → Alwatania Distributors Config
+- [Setting Up the Alwatania Config](https://docs.namasoft.com/modules/integrations/alwatania/alwatania-setup.html): Everything Nama needs to reach the Alwatania platform lives on one record, the Alwatania Distributors Config. - entities: AlwataniaDistConfig - menu: integrations → Master Files → Alwatania Distributors Config
+- [Sending Master Data and Invoices to Alwatania](https://docs.namasoft.com/modules/integrations/alwatania/alwatania-sending-data.html): The Alwatania config screen has no Send button.
+- [Alwatania Send Logs and Resending](https://docs.namasoft.com/modules/integrations/alwatania/alwatania-send-logs.html): Every time Nama sends something to Alwatania it writes down what it sent and what the platform answered. - entities: AlwataniaDistConfig - menu: integrations → Master Files → Alwatania Distributors Config
+
 ### Artificial Intelligence
 
 - [Artificial Intelligence](https://docs.namasoft.com/modules/ai/): The AI module brings language-model capabilities inside Nama ERP — but in a governed way: the AI can do nothing except through tools the system administrator defines, and every tool executes as a real...

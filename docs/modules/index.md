@@ -90,6 +90,10 @@ features:
     title: e-commerce Integration
     details: Integration with Magento, Omniful, and e-commerce platforms
     link: /modules/ecommerce/
+  - icon: 🔗
+    title: Integrations
+    details: Two Saudi integrations — reporting employees to the Ministry of Civil Service's Eltezam service, and pushing master data and sales invoices to the Alwatania distributors platform
+    link: /modules/integrations/
   - icon: 🤖
     title: Artificial Intelligence
     details: The in-system AI assistant, tool definitions, and the Nama MCP server

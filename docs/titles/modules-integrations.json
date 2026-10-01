@@ -1,0 +1,22 @@
+{
+  "sortedPaths": [
+    "/modules/integrations",
+    "/modules/integrations/eltezam",
+    "/modules/integrations/eltezam/eltezam-overview.md",
+    "/modules/integrations/eltezam/eltezam-setup.md",
+    "/modules/integrations/eltezam/eltezam-code-tables.md",
+    "/modules/integrations/eltezam/eltezam-data-sources.md",
+    "/modules/integrations/eltezam/eltezam-submissions-and-sending.md",
+    "/modules/integrations/eltezam/eltezam-troubleshooting.md",
+    "/modules/integrations/alwatania",
+    "/modules/integrations/alwatania/alwatania-overview.md",
+    "/modules/integrations/alwatania/alwatania-setup.md",
+    "/modules/integrations/alwatania/alwatania-sending-data.md",
+    "/modules/integrations/alwatania/alwatania-send-logs.md"
+  ],
+  "folderTitles": {
+    "/modules/integrations": { "ar": "التكاملات", "en": "Integrations" },
+    "/modules/integrations/eltezam": { "ar": "التزام (وزارة الخدمة المدنية)", "en": "Eltezam (MCS)" },
+    "/modules/integrations/alwatania": { "ar": "موزعو الوطنية", "en": "Alwatania Distributors" }
+  }
+}
