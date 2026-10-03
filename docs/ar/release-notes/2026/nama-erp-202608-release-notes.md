@@ -30,7 +30,7 @@
 
 - في توجيه الإشعارات المدينة والدائنة، تمت إضافة حقل (send As) لتحديد طبيعة المستند المرسَل إلى الهيئة (تعامل كفاتورة مبيعات / كمردود مبيعات / كإشعار مدين)، وتُربط القيمة المختارة بالحقل (InvoiceTypeCode) في ملف الـ XML المرسل. وأُضيف الحقل نفسه إلى توجيه سند إنهاء عقد الإيجار (RECancelContract) وسند الغرامة (REFineDoc).
 - أصبح بالإمكان إرسال بيانات بنك البائع مع الفواتير المرسَلة إلى مصلحة الضرائب المصرية. للتفاصيل:
-  [https://docs.namasoft.com/ar/modules/invoicing/egypt-einvoice-bank-details.html](/ar/modules/invoicing/egypt-einvoice-bank-details.html)
+  [https://docs.namasoft.com/ar/modules/invoicing/egypt-einvoice-guide.html](/ar/modules/invoicing/egypt-einvoice-guide.html)
 - تمت إضافة جدول جديد (SFDARSDDocStatus) وعرض قائمة له يعرض آخر حالة لكل مستند في هيئة تتبع الدواء (RSD) مرة واحدة، بدلًا من تتبعها في سطور (SFDARSDReportTask) التي تتكرر مع كل إعادة إرسال، مع إمكانية اختيار مجموعة من المستندات وإعادة إرسالها.
 
 ### نظام المقاولات

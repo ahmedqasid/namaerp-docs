@@ -30,7 +30,7 @@
 
 - In the Debit and Credit Notes term config, added a field (send As) to determine the nature of the document sent to the Authority (treated as a Sales Invoice / as a Sales Return / as a Debit Note), and the selected value is linked to the (InvoiceTypeCode) field in the sent XML file. The same field was added to the term config of the Lease Contract Cancellation voucher (RECancelContract) and the Fine voucher (REFineDoc).
 - It is now possible to send the seller's bank details with invoices sent to the Egyptian Tax Authority. For details:
-  [https://docs.namasoft.com/modules/invoicing/egypt-einvoice-bank-details.html](/modules/invoicing/egypt-einvoice-bank-details.html)
+  [https://docs.namasoft.com/modules/invoicing/egypt-einvoice-guide.html#Bank-details-and-payment-terms](/modules/invoicing/egypt-einvoice-guide.html#Bank-details-and-payment-terms)
 - Added a new table (SFDARSDDocStatus) and a list screen for it that shows the latest status of each document in the Drug Tracking Authority (RSD) just once, instead of tracking it in the (SFDARSDReportTask) lines, which repeat with every resend, with the ability to select a group of documents and resend them.
 
 ### Contracting

@@ -48,7 +48,7 @@ The configuration is long, but it answers only five questions. Knowing which que
 
 **Who are we?** — the tax registration number, the activity code, and the branch or legal entity whose address and commercial registration are sent as the seller. Authorities validate the seller's address in detail, so an incomplete branch address is one of the most common reasons a first submission fails.
 
-**Which documents are eligible?** — a grid of rules, each naming a document type (or a list of types), optionally narrowed to a particular document book, term or date range. A document that matches no rule is never collected. This is also where you decide the finer points that vary by document type, such as which order reference travels with the invoice.
+**Which documents are eligible?** — this one is answered on the documents' side, not here. A document is sent when its **document book** or **term** has **Send To Tax Authority** ticked and names this configuration in its **Tax Configuration** field; a document whose book and term do neither is never collected. The configuration only adds the date limits described below.
 
 **How do our items and taxes translate?** — authorities do not accept your internal item codes and tax names as they stand. Here you say where the item code comes from and how to build it, where the item's description comes from, and how each of the four tax slots maps to the authority's tax type and sub-type — including which code to send for exempt, zero-rated and out-of-scope lines, and whether a tax with a zero value should be sent at all.
 
@@ -99,7 +99,7 @@ There is also a retry flow that walks the submission documents still holding lin
 
 ## When a document does not arrive
 
-Work from the line outward. The submission line holds the authority's own message, and it is usually specific: a buyer with no tax number and no accepted identity document, an item whose code is not registered, a tax with no mapped category, an address missing a building number. Fix it on the source document rather than on the submission — the submission is a snapshot, and the next collection will pick up the corrected version.
+Work from the line outward. The submission line holds the authority's own message, and it is usually specific: a buyer with no tax number and no accepted identity document, an item whose code is not registered, a tax with no mapped category, an address missing a building number. For Egypt, the messages Nama itself raises before anything is sent are listed under [Messages you may see](./egypt-einvoice-guide.md#Messages-you-may-see). Fix it on the source document rather than on the submission — the submission is a snapshot, and the next collection will pick up the corrected version.
 
 If the authority accepted a document but you have since changed it, the two export actions settle the argument. **Export Cleared / Sent XML For Selected Lines** gives you the payload the authority actually holds; **Export Current XML For Selected Lines** regenerates it from today's data. If the two differ, the document was edited after submission — which in most countries means it must be cancelled and re-issued rather than quietly corrected.
 
@@ -110,7 +110,6 @@ Deadlines are the other frequent cause. A document older than **Max Days To Send
 | Country | Guide |
 |---|---|
 | 🇸🇦 Saudi Arabia | [ZATCA (Fatoora)](./zatca-guide.md) — onboarding, clearance vs. reporting, VAT categories and buyer identity |
-| 🇪🇬 Egypt | [Electronic Receipt and e-Invoice](./electronic-receipt-egypt-tax-eInvoice.md) — registering sending devices, receipts vs. invoices, ID requirements |
-| 🇪🇬 Egypt | [Bank details on Egyptian e-invoices](./egypt-einvoice-bank-details.md) — sending the issuer's bank, account, IBAN and payment terms |
+| 🇪🇬 Egypt | [e-Invoice and e-Receipt](./egypt-einvoice-guide.md) — connecting, buyer identity, EGS and GS1 item codes, receipts and POS devices, bank details, signing, cancelling |
 | 🇦🇪 UAE | [UAE e-Invoicing through Orchida osTax](./uae-orchida-einvoice-guide.md) |
 | 🇯🇴 Jordan | [JoFotara](./jofotara-jordan-guide.md) — credentials, buyer identity, and what the portal returns |

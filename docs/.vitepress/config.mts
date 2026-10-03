@@ -32,7 +32,9 @@ const REDIRECT_CANONICAL_TARGETS = {
 // Pages deleted after their content was merged into another page. They have no basename left to
 // map, so name the page that absorbed them here to keep old links and search results working.
 const RETIRED_PAGE_REDIRECTS = {
-    'field-filter-faq': '/platform/field-filtering/field-filter-with-criteria.html'
+    'field-filter-faq': '/platform/field-filtering/field-filter-with-criteria.html',
+    'electronic-receipt-egypt-tax-eInvoice': '/modules/invoicing/egypt-einvoice-guide.html',
+    'egypt-einvoice-bank-details': '/modules/invoicing/egypt-einvoice-guide.html'
 }
 
 function writeRedirectsMap(destDir) {
