@@ -128,6 +128,8 @@ Three of the sources behave in ways worth knowing. **Real In Cost on Date** look
 
 **Overdraft Cost Sources** `value.overdraftCostSources` — Same structure, but for valuing overdrawn (negative-stock) quantities. Built-in fallback: last cost → current average → average cost → last cost → standard cost.
 
+**When more than one line matches.** In both tables the system reads the lines from top to bottom and uses the **first** line that matches the receipt. It does not look for the most specific line. A line matches when each document type, accounting dimension and item dimension cell is either empty or equal to the receipt's value, so an empty cell matches anything. Say the table holds a general line for legal entity *A* with no document type, and a second line for *A* with document type **End Stock Taking**. If the general line comes first, it catches the stock-taking receipts too, and the second line is never reached. Put the specific line above the general one. Once a line matches, it is the only line used. If all five of its sources come back zero, the receipt is costed at zero. The system does not try the next matching line or the built-in fallback order, which applies only when no line matches at all.
+
 **Cost Schedule** `value.costSchedule` — A list of time windows (start/stop) that restricts when automatic cost processing may run. If the current time falls inside any window, processing runs; an empty table means it can run any time. Use it to confine heavy recalculation to off-peak hours.
 
 ## Specific Dimensions in LC, Receipt Cost and Tender Prices
