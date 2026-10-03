@@ -109,13 +109,13 @@ Nama decides which catalogue a code belongs to by looking at it: a code that sta
 
 With **Validate EGS Codes** ticked, **Validate Tax Authority Documents** and sending both look each EGS code up on the portal, among the codes your company has registered, before anything is sent:
 
-- If the code is not there, the line fails with *Item code is not registered*. Either the code was mistyped, or it was never registered under this tax registration number.
-- If the code is there but the document's date falls outside its active-from/active-to period, the line fails with *Item code is not active*. Usually the document is dated before the authority approved the code.
+- If the code is not there, or the authority rejected the request, the line fails with *Item code is not registered*. Either the code was mistyped, or it was never registered under this tax registration number.
+- If the request is still under review, or the document's date falls outside the code's active-from/active-to period, the line fails with *Item code is not active*. Usually the authority hasn't approved the code yet, or the document is dated before it did.
 
 GS1 codes are not looked up — the portal checks them when the document arrives.
 
 ::: info Registering a code fixes the error straight away
-A code the portal doesn't have is asked about again on every validation, so registering it on the portal and validating again is enough. Codes the portal does find are remembered until the server restarts or the system cache is cleared, so if the authority changes an existing code's active dates, clear the cache before checking again.
+A code that isn't approved yet is asked about again on every validation, so registering it on the portal — or waiting for the authority's approval — and validating again is enough. Approved codes are remembered until the server restarts or the system cache is cleared, so if the authority changes an approved code's active dates, clear the cache before checking again.
 :::
 
 With the box unticked, Nama sends the codes unchecked and the portal itself refuses an unknown one, recording the rejection against your tax file. Turn it on.
@@ -322,7 +322,9 @@ The e-seal is a USB token, and Nama talks to it through the **Nama eInvoice Sign
 
 **Signing from the browser (the default).** On the **Tax Authority Submission Document**, **Sign Documents** or **Sign Selected Documents** hands the documents to the signer on the computer of the user pressing the button. The token has to be plugged into that computer, with the signer running and the token's own driver installed (ITIDA Web Sign for Egypt Trust e-seals, or MCDR's). In Chrome, the `chrome://flags/#block-insecure-private-network-requests` flag must be disabled, or the browser blocks the call.
 
-**Signing on the server.** Tick **Sign Documents On Server Side** to have the ERP server sign instead. The token and the signer then live on the server: Nama starts the signer itself if it isn't running, from **E Signer Installation Folder Path** and **E Signer Execution File Name**, and passes it the **E Invoice Signer Type** (E Seal or MCDR) and **E Invoice Signer Pin**. **E Invoice Signer URL** points at a signer on another address. The scheduled flows that send automatically always sign on the server.
+**Signing on the server.** Tick **Sign Documents On Server Side** to have the ERP server sign instead. The token and the signer then live on the server: Nama starts the signer itself if it isn't running, from **E Signer Installation Folder Path** and **E Signer Execution File Name**. **E Invoice Signer URL** points at a signer on another address. The scheduled flows that send automatically always sign on the server.
+
+Either way, Nama passes the signer the **E Invoice Signer Type** (E Seal or MCDR) and the token's **E Invoice Signer Pin** from the configuration.
 
 ## Cancelling an accepted e-invoice
 
@@ -355,7 +357,7 @@ Most Egyptian messages share one frame — the document, the line, and the field
 | Message | Why | What to do |
 |---|---|---|
 | *Error while validating tax authority document {0} at line {1} field {2} with invalid value {3}* — «خطأ عند التحقق من المستند  الخاص بمصلحة الضرائب {0} في السطر {1} الحقل {2} قيمة غير صالحة {3}» | Field {2} is *Item code is not registered* — «كود الصنف غير مُسجل»: the EGS code in {3} is not among your company's codes on the portal. | Check the item's **Tax Authority Code** (or whichever record **Calculate Item Code From** points at) against the portal, register the code if it is missing, then validate again. |
-| Same message, field *Item code is not active* — «كود الصنف غير مٌفعل» | The code is registered, but the document's date is outside its active period. | Compare the document date with the code's active-from date on the portal. |
+| Same message, field *Item code is not active* — «كود الصنف غير مٌفعل» | The code's request is still under review, or the document's date is outside the code's active period. | Check the request's status and active-from date on the portal. |
 | *Error while validating tax authority document {0} at line {1} field {2} is required* — «خطأ عند التحقق من المستند  الخاص بمصلحة الضرائب {0} في السطر رقم {1} الحقل {2} مطلوب» | Something the authority needs on a line is empty — commonly the item code, the unit, or a tax code. | Fill the **Tax Authority Code** on the item, unit or tax mapping named in {2}. |
 | *Error while validating tax authority document {0} field {1} is required* — «خطأ عند التحقق من المستند  الخاص بمصلحة الضرائب {0} الحقل {1} مطلوب» | Something the authority needs on the document or its customer is empty — such as the customer's legal entity, ID, or an address field. | Fill the field named in {1}, usually on the customer. |
 | *Error while validating tax authority document {0} at line {1} field {2} invalid code {3}* — «خطأ عند التحقق من المستند  الخاص بمصلحة الضرائب {0} في السطر {1} الحقل {2} كود غير صالح {3}» | A unit, currency or tax code is not on the authority's list. | Correct the **Tax Authority Code** on that unit or currency, or the tax mapping. |
