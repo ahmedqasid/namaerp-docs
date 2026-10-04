@@ -251,6 +251,32 @@ Everything else on this screen runs through the standard gates, so a tool never 
 Before it runs, the statement is validated with **JSqlParser 5.0**, which is stricter than SQL Server itself: anything JSqlParser cannot parse is rejected even if the server would run it. As an example, JSqlParser rejects `FOR XML PATH(''), TYPE).value(...)` and `ORDER BY` inside a `FOR XML PATH` subquery, so use `STRING_AGG(expr, ', ') WITHIN GROUP (ORDER BY …)` for string aggregation. Braces `{…}` inside string literals are passed through to the database unchanged.
 :::
 
+### Server administration tools
+
+Most of what an administrator does on the **utilities** page (`/utils`) — checking who is logged in, what the server is busy with, whether a new release is out — is a question an assistant can answer just as well, and the few actions on that page that are safe at any time are things it can take for you. Two classes bring them to the assistant:
+
+| Tool Class Name | Generated tool(s) | Purpose |
+|---|---|---|
+| `AITServerAdminTools` | `<prefix>ListLoggedInUsers`, `<prefix>ListRunningTasks`, `<prefix>ListCaches`, `<prefix>ListWebSocketSessions`, `<prefix>ListCostProcessingRequests`, `<prefix>ListPendingAsyncSaves` and `<prefix>CheckForNewRelease` | Look without touching: the users logged in now, the tasks running (both server tasks and those started from screens), the in-memory caches, the open WebSocket connections, the queued inventory cost recalculations, the supply chain document lines still being saved in the background, and which release the server runs against the latest one available to it |
+| | `<prefix>EvictCaches`, `<prefix>ReloadConfiguration`, `<prefix>RegenerateDefaultUIs`, `<prefix>RefreshCriticalErrors` and `<prefix>KillReport` | The safe actions: clear the caches of screens and services, re-read the settings file, translations and application configuration without a restart, regenerate the default screens (keeping users' screen modifiers), re-check the critical errors after fixing one, and stop a runaway report |
+| `AITServerDangerousTools` | `<prefix>UpgradeToLatestRelease` | Upgrade the server to the latest release of its sub-release — which stops Tomcat and disconnects every user. See below |
+
+Both classes are for **administrators only**. The check is made on the user the call signs in as, every time, and the access-control grid cannot widen it: a definition that lists these classes simply gets a refusal back when a non-administrator calls them. Every call is also written to the **Actions History**, under the operation's name prefixed with `MCP:`.
+
+Regenerating the default screens takes several minutes, so `RegenerateDefaultUIs` starts it and answers at once; the assistant can follow it with `ListRunningTasks`. Only one regeneration runs at a time — a second one started while the first is still running is refused, and the refusal is written to the application log.
+
+::: danger The upgrade is confirmed by you, not by the assistant
+An upgrade stops the server: Tomcat shuts down, every user is disconnected and loses unsaved work, and nobody can work for several minutes. So `UpgradeToLatestRelease` never goes ahead on the assistant's say-so. Before it does anything, your MCP client shows **you** a confirmation form — the customer, the release it moves from and to, the users logged in and the tasks running right now — with a choice that defaults to **Cancel** and a box where you must **type the customer name exactly**. The upgrade starts only if you choose **Upgrade now** and the name matches; declining, closing the form, a mistyped name, or two minutes without an answer all leave the server untouched.
+
+The form is shown by the client, not written by the assistant, and your answer goes straight back to the server, so an assistant cannot fill it in on your behalf. That needs a client that can show such forms (MCP *elicitation*): Claude Code does. A client that cannot — including the [in-app AI assistant](./ai-assistant.md) — gets a refusal and nothing happens. The tool also refuses when there is nothing to upgrade to, or when the server's support contract has expired.
+
+Once the upgrade has started the server stops answering for a while; when it is back, `GetAppVersion` (from `AITAppVersionTools`) confirms the release it now runs.
+:::
+
+::: tip Keep the dangerous class off by default
+No button adds either class — pick them by name from the **Tool Class Name** suggestion list. Give `AITServerDangerousTools` its own definition, restricted to the administrators who are actually allowed to upgrade, rather than adding it next to everyday tools. Servers on releases older than 20261004 do not have these tools.
+:::
+
 ## Where Are These Tools Used?
 
 - **[The in-app AI assistant](./ai-assistant.md)** calls the tools while chatting with the user to answer questions and carry out requests.

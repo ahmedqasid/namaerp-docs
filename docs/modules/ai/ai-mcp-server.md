@@ -86,6 +86,10 @@ After connecting, list the tools from the client — you will find every committ
 The server exposes **every** committed tool the linked user is allowed to use — query, report, entity-flow, and system tools — not only the export tools. This page details the export tools because of their importance with external clients; the other types are documented in [AI Tool Definitions](./ai-tool-definitions.md).
 :::
 
+::: warning Some tools ask you before they act
+A few tools do something that cannot be taken back — upgrading the server, which stops it for everyone, is the one today. Those tools do not act on the assistant's request alone: the client shows **you** a confirmation form, and only your answer, sent straight back to the server, lets them go ahead. Claude Code shows these forms. A client that cannot show them gets a refusal, and nothing happens. See [Server administration tools](./ai-tool-definitions.md#Server-administration-tools).
+:::
+
 ## The Record Export/Import Tools
 
 The most useful group for external MCP clients is the export/import system tools — nine of them, from three tool classes, all added in one click with the **Add Export Tools** button on the System Tool page of the tool definition screen (see [AI Tool Definitions](./ai-tool-definitions.md)).
