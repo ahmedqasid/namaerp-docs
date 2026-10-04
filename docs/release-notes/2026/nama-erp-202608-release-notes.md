@@ -29,8 +29,7 @@
 ### E-Invoicing & Government Portals
 
 - In the Debit and Credit Notes term config, added a field (send As) to determine the nature of the document sent to the Authority (treated as a Sales Invoice / as a Sales Return / as a Debit Note), and the selected value is linked to the (InvoiceTypeCode) field in the sent XML file. The same field was added to the term config of the Lease Contract Cancellation voucher (RECancelContract) and the Fine voucher (REFineDoc).
-- It is now possible to send the seller's bank details with invoices sent to the Egyptian Tax Authority. For details:
-  [https://docs.namasoft.com/modules/invoicing/egypt-einvoice-guide.html#Bank-details-and-payment-terms](/modules/invoicing/egypt-einvoice-guide.html#Bank-details-and-payment-terms)
+- It is now possible to send the seller's bank details with invoices sent to the Egyptian Tax Authority. For details: [Egyptian e-Invoice and e-Receipt](/modules/invoicing/egypt-einvoice-guide)
 - Added a new table (SFDARSDDocStatus) and a list screen for it that shows the latest status of each document in the Drug Tracking Authority (RSD) just once, instead of tracking it in the (SFDARSDReportTask) lines, which repeat with every resend, with the ability to select a group of documents and resend them.
 
 ### Contracting
@@ -53,8 +52,7 @@
 
 ### Customer Relationship Management (CRM)
 
-- Added a new group of screens for the Technician Appointments system. For details:
-  [https://docs.namasoft.com/modules/crm/technician-appointments/crm-technician-appointments-overview.html](/modules/crm/technician-appointments/crm-technician-appointments-overview.html)
+- Added a new group of screens for the Technician Appointments system. For details: [Technician Appointments Overview](/modules/crm/technician-appointments/crm-technician-appointments-overview)
 - In the Technician Appointments system, added the (Technician Appointments Schedule) screen where each technician sees only their own appointments, in a daily or weekly view, without seeing others' appointments; also added a (Create New) button inside the Technician Appointment Creator screen, and (Descriptors) are now taken into account in the appointment name shown on the appointment creation page.
 - In the (Update Customer Info) screen, the screen now includes all editable customer fields instead of a limited number of them, so modification dates and previous values are recorded for data such as contact methods, address, and national ID number.
 - In the Questionnaire Template file, added the options (showAttachment1InQuestionnaire through showAttachment8InQuestionnaire) to show the attachment fields inside the questionnaire page, so the customer can upload attachments while answering.
@@ -64,9 +62,7 @@
 - In the Job Candidate screen (HRCandidate), added residence data (number, issue date, and expiry date) on the Personal Information page, transferred to the Employee file when choosing to create an employee.
 - In the Residence Renewal voucher (ResidenceRenewReq), added attachments 2 through 5.
 - In the entity flow (EATimeAttendanceFromDBImporter), it is now possible to specify an employee or group of employees via a query to import only their fingerprint data without the rest of the employees.
-- It is now possible to integrate with the (timetaag) site via (attcron) to import attendance and departure records. For details:
-  [https://docs.namasoft.com/integration/attendance-machines-integration.html](/integration/attendance-machines-integration.html)
-  and[https://docs.namasoft.com/modules/hr/attendance/attendance-machines.html](/modules/hr/attendance/attendance-machines.html)
+- It is now possible to integrate with the (timetaag) site via (attcron) to import attendance and departure records. For details: [Integration with Attendance Machines](/integration/attendance-machines-integration) and [Attendance Machines](/modules/hr/attendance/attendance-machines)
 
 ### Point of Sale
 
@@ -93,13 +89,11 @@
 - In the Report Builder tool, added a field (borderLinePreset) in the document header with the options (No Lines / Outer Lines Only / Inner Lines Only), and two fields (horizontalBorders, verticalBorders) on the lines to control the lines of each column separately.
 - In the Report Builder tool, added an option (allowSelectingMultipleGroupsAsParameter) to select more than one group through a parameter.
 - Added an action (Create Print Template From This Screen) in the (More) menu on list screens and edit screens.
-- Documented how to use the function (getVacationAssignedConsumedRemainder) to extract the accrued, consumed, and remaining amounts, each separately. For details:
-  [https://docs.namasoft.com/platform/reports/reports-namarep-reference.html](/platform/reports/reports-namarep-reference.html)
+- Documented how to use the function (getVacationAssignedConsumedRemainder) to extract the accrued, consumed, and remaining amounts, each separately. For details: [NamaRep Expression Reference](/platform/reports/reports-namarep-reference)
 
 ### Import & Export
 
-- In the Record Import settings (RecordImportConfig), it is now possible to reference a direct cell address in the Excel sheet such as (B3) or (A99), and the same capability is available in Excel import via entity flows and in SQL statements. For details:
-  [https://docs.namasoft.com/platform/import-export/advanced-record-import.html](/platform/import-export/advanced-record-import.html)
+- In the Record Import settings (RecordImportConfig), it is now possible to reference a direct cell address in the Excel sheet such as (B3) or (A99), and the same capability is available in Excel import via entity flows and in SQL statements. For details: [Advanced Record Import](/platform/import-export/advanced-record-import)
 
 ### New GUI
 

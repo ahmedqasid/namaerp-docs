@@ -13,9 +13,7 @@
   - Enable checking the reservation quantity by date for warehouses
   - Enable checking the reservation quantity by date for locations
 
-  For more details, please refer to the following document:
-
-  [https://docs.namasoft.com/modules/supplychain/ignore-reservation-qty-check-by-date.html](https://docs.namasoft.com/modules/supplychain/ignore-reservation-qty-check-by-date.html)
+  For more details, please refer to the following document: [Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date](/modules/supplychain/ignore-reservation-qty-check-by-date)
 
 - Added an option named "Do Not Send the Next Save to Point of Sale" in the Item file.
 - Created a new file in the Sales files named "Monthly Sales Offers".
@@ -40,8 +38,7 @@
 
 ### Accounting
 
-- Connected and activated the UAE E-Invoicing. Please refer to the following document:
-  https://docs.namasoft.com/modules/invoicing/uae-orchida-einvoice-guide.html
+- Connected and activated the UAE E-Invoicing. Please refer to the following document: [UAE E-Invoicing Integration via Orchida osTax](/modules/invoicing/uae-orchida-einvoice-guide)
 
 ### Human Resources
 

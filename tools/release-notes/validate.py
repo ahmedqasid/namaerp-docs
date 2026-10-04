@@ -36,6 +36,14 @@ IDENT = re.compile(r"\b[A-Za-z][A-Za-z0-9_]*(?:\.[A-Za-z][A-Za-z0-9_]*)+\b"
 STOP = {"ERP", "Nama"}
 
 
+def link_target_exists(link):
+    """Internal docs links are extension-less (/modules/x/page); legacy ones end in .html or .md."""
+    path = link.split("#")[0].lstrip("/")
+    path = re.sub(r"\.(html|md)$", "", path).rstrip("/")
+    base = os.path.join(DOCS, path)
+    return os.path.exists(base + ".md") or os.path.exists(os.path.join(base, "index.md"))
+
+
 def idents(text):
     return {m.group(0) for m in IDENT.finditer(text)} - STOP
 
@@ -120,9 +128,11 @@ def check(ym):
     for l in en_links:
         if l.startswith("/ar/"):
             errs.append("English page still links to %s" % l)
-        elif not l.lstrip("/").startswith("release-notes"):
-            if not os.path.exists(os.path.join(DOCS, l.lstrip("/").replace(".html", ".md"))):
-                errs.append("dead link %s (the strict build will fail)" % l)
+        elif not l.lstrip("/").startswith("release-notes") and not link_target_exists(l):
+            errs.append("dead link %s (the strict build will fail)" % l)
+    for l in ar_links:
+        if not l.lstrip("/").startswith(("release-notes", "ar/release-notes")) and not link_target_exists(l):
+            errs.append("dead link %s on the Arabic page (the strict build will fail)" % l)
 
     # Identifiers appearing only in an Arabic *heading* are dropped on purpose: headings are mapped
     # whole by the playbook's table (### الفاتورة الإلكترونية (ZATCA) -> E-Invoicing & Government Portals).

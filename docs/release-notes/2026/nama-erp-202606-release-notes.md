@@ -18,8 +18,7 @@
   - **Supply Date (BR-KSA-15)**: Now sent from the actual delivery date, or from the invoice date if it does not exist.
   - **Invoices with a Discount (BR-CO-11 / BR-CO-13 / BR-KSA-EN16931-03)**: Corrected the discount calculation so it is not counted twice, and only the amount is sent in the discount item.
   - **Invoice Stamped by the Authority (Cleared Invoice)**: The system now stores the version stamped by the authority for standard invoices (B2B) and uses it for printing and for the QR code, reads the QR code / hash from the invoice actually sent, and fixes the retry logic when the connection is interrupted.
-  - For all the details and the new required settings (the buyer's identity type in the Customer file, and the exemption-reason codes in the Tax Authority setting) please refer to the document:
-    [https://docs.namasoft.com/modules/invoicing/zatca-guide.html](/modules/invoicing/zatca-guide.html)
+  - For all the details and the new required settings (the buyer's identity type in the Customer file, and the exemption-reason codes in the Tax Authority setting) please refer to the document: [Integration with ZATCA (Saudi Arabia – Fatoora)](/modules/invoicing/zatca-guide)
 - Added a field in the Tax Authority settings named (Extra Discount Location at the Document Level / extraDiscountLocation), in which the discount slot among the line's discount slots (Discount 1 through Discount 8) that holds the extra discount is specified, so it is sent in the extra-discount field to the portal instead of being included in the regular discount total. The selected discount slot is required to be applied after all taxes, otherwise the system stops the sending with a clear error message.
 - Added a new entity flow named (EASendNotSentTaxAuthorityDocuments) to send the batch-submission documents that were not sent automatically to the Tax Authority, running via a Scheduled Task at intervals.
 
@@ -117,13 +116,11 @@
 
 ### Document Management (DMS)
 
-- Added a Groovy entity flow named (EADownloadURLsIntoAttachments) that converts links into attachments. For details:
-  [https://docs.namasoft.com/entity-flows/core/EADownloadURLsIntoAttachments.html](/entity-flows/core/EADownloadURLsIntoAttachments.html)
+- Added a Groovy entity flow named (EADownloadURLsIntoAttachments) that converts links into attachments. For details: [EADownloadURLsIntoAttachments](/entity-flows/core/EADownloadURLsIntoAttachments)
 
 ### e-commerce Integration
 
-- In the Amazon integration, it is now possible to read only orders whose status is (Shipped), excluding pending orders (Pending), with the (Amazon SP-API Order Change) webhook activated to read orders and automatically convert their status. For details:
-  [https://docs.namasoft.com/modules/ecommerce/amazon-order-notifications.html](/modules/ecommerce/amazon-order-notifications.html)
+- In the Amazon integration, it is now possible to read only orders whose status is (Shipped), excluding pending orders (Pending), with the (Amazon SP-API Order Change) webhook activated to read orders and automatically convert their status. For details: [Amazon Order Notifications](/modules/ecommerce/amazon-order-notifications)
 
 ### New GUI
 
@@ -147,8 +144,7 @@
 - Added an option named (allowCancelWithNonSystemRelatedStockDocs) in the term configs of (Sales Invoice, Sales Return, Purchase Invoice, Purchase Return) to allow saving the Cancellation document even if the document has non-system related documents.
 - In the Fields & Screens Settings (GenericReferenceOverrider), the grid (Add Related Documents To - addRelatedDocumentsTo) now works with the new Screen Edit via the option (Allow System Modifiers) in the Screen Edit screen.
 - In Scheduled Tasks, added the option (Run Log) to display the task's run log (succeeded/failed + completion time) in a table within the task file.
-- Added support for running Nama as an MCP Server to make it easier to connect with AI tools, with the ability to set the MCP subscription's expiry date from the License Manager. For details:
-  [https://docs.namasoft.com/modules/ai/ai-mcp-server.html](/modules/ai/ai-mcp-server.html)
+- Added support for running Nama as an MCP Server to make it easier to connect with AI tools, with the ability to set the MCP subscription's expiry date from the License Manager. For details: [Nama ERP MCP Server](/modules/ai/ai-mcp-server)
 - Increased the number of attachments in the Customer screen.
 - In the Approval with Amendment for documents, rejection is now prevented, since a previously saved document cannot be rejected.
 - Added the option (removeOtherEmployeesWhenEscalate) in the Approval Definition, so that the rest of the employees required to approve are removed upon escalation, leaving it to the escalated-to employee only.

@@ -29,8 +29,7 @@
 ### الفاتورة الإلكترونية والجهات الحكومية
 
 - في توجيه الإشعارات المدينة والدائنة، تمت إضافة حقل (send As) لتحديد طبيعة المستند المرسَل إلى الهيئة (تعامل كفاتورة مبيعات / كمردود مبيعات / كإشعار مدين)، وتُربط القيمة المختارة بالحقل (InvoiceTypeCode) في ملف الـ XML المرسل. وأُضيف الحقل نفسه إلى توجيه سند إنهاء عقد الإيجار (RECancelContract) وسند الغرامة (REFineDoc).
-- أصبح بالإمكان إرسال بيانات بنك البائع مع الفواتير المرسَلة إلى مصلحة الضرائب المصرية. للتفاصيل:
-  [https://docs.namasoft.com/ar/modules/invoicing/egypt-einvoice-guide.html](/ar/modules/invoicing/egypt-einvoice-guide.html)
+- أصبح بالإمكان إرسال بيانات بنك البائع مع الفواتير المرسَلة إلى مصلحة الضرائب المصرية. للتفاصيل: [الفاتورة الإلكترونية والإيصال الإلكتروني في مصر](/ar/modules/invoicing/egypt-einvoice-guide)
 - تمت إضافة جدول جديد (SFDARSDDocStatus) وعرض قائمة له يعرض آخر حالة لكل مستند في هيئة تتبع الدواء (RSD) مرة واحدة، بدلًا من تتبعها في سطور (SFDARSDReportTask) التي تتكرر مع كل إعادة إرسال، مع إمكانية اختيار مجموعة من المستندات وإعادة إرسالها.
 
 ### نظام المقاولات
@@ -53,8 +52,7 @@
 
 ### نظام إدارة علاقات العملاء
 
-- تمت إضافة مجموعة شاشات جديدة لنظام حجز مواعيد الفنيين. للتفاصيل:
-  [https://docs.namasoft.com/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.html](/ar/modules/crm/technician-appointments/crm-technician-appointments-overview.html)
+- تمت إضافة مجموعة شاشات جديدة لنظام حجز مواعيد الفنيين. للتفاصيل: [نظرة عامة على مواعيد الفنيين](/ar/modules/crm/technician-appointments/crm-technician-appointments-overview)
 - في نظام حجز مواعيد الفنيين، تمت إضافة شاشة (جدول مواعيد الفني) يرى فيها كل فني مواعيده هو فقط بعرض يومي أو أسبوعي دون الاطلاع على مواعيد غيره، كما تمت إضافة زر (إنشاء جديد) داخل شاشة منشئ موعد فني، وأصبحت الـ (Descriptors) مراعاة في اسم الموعد الظاهر في صفحة إنشاء الموعد.
 - في شاشة (تحديث بيانات العميل - Update Customer Info)، أصبحت الشاشة تشمل جميع حقول العميل القابلة للتعديل بدلًا من عدد محدود منها، فتُسجَّل تواريخ التعديل والقيم السابقة لبيانات مثل وسائل الاتصال والعنوان والرقم القومي.
 - في ملف قالب الاستبيان، تمت إضافة الاختيارات (showAttachment1InQuestionnaire إلى showAttachment8InQuestionnaire) لإظهار حقول المرفقات داخل صفحة الاستبيان، بحيث يستطيع العميل رفع المرفقات أثناء الإجابة.
@@ -64,9 +62,7 @@
 - في شاشة المتقدم للعمل (HRCandidate)، تمت إضافة بيانات الإقامة (الرقم وتاريخ الإصدار وتاريخ الانتهاء) في صفحة المعلومات الشخصية، وتُنقل إلى ملف الموظف عند اختيار إنشاء موظف.
 - في سند تجديد الإقامة (ResidenceRenewReq)، تمت إضافة المرفقات من 2 إلى 5.
 - في مسار الكيان (EATimeAttendanceFromDBImporter)، أصبح بالإمكان تحديد موظف أو مجموعة موظفين عبر استعلام لاستيراد بيانات بصماتهم فقط دون باقي الموظفين.
-- أصبح بالإمكان الربط مع موقع (timetaag) عبر (attcron) لاستيراد الحضور والانصراف. للتفاصيل:
-  [https://docs.namasoft.com/ar/integration/attendance-machines-integration.html](/ar/integration/attendance-machines-integration.html)
-  و[https://docs.namasoft.com/ar/modules/hr/attendance/attendance-machines.html](/ar/modules/hr/attendance/attendance-machines.html)
+- أصبح بالإمكان الربط مع موقع (timetaag) عبر (attcron) لاستيراد الحضور والانصراف. للتفاصيل: [الربط مع ماكينات الحضور والانصراف](/ar/integration/attendance-machines-integration) و [أجهزة البصمة (Attendance Machines)](/ar/modules/hr/attendance/attendance-machines)
 
 ### نقاط البيع
 
@@ -93,13 +89,11 @@
 - في أداة إنشاء التقارير، تمت إضافة حقل (borderLinePreset) في رأس المستند بالاختيارات (بدون خطوط / خطوط خارجية فقط / خطوط داخلية فقط)، وحقلي (horizontalBorders، verticalBorders) على السطور للتحكم في خطوط كل عمود على حدة.
 - في أداة إنشاء التقارير، تمت إضافة أوبشن (allowSelectingMultipleGroupsAsParameter) لاختيار أكثر من مجموعة من خلال مدخل.
 - تمت إضافة إجراء (إنشاء نموذج طباعة من هذه الشاشة) في قائمة (المزيد) بشاشات عرض القائمة وشاشات التحرير.
-- تم توثيق طريقة استخدام الدالة (getVacationAssignedConsumedRemainder) لاستخراج المستحق والمستهلك والمتبقي كلًّا على حدة. للتفاصيل:
-  [https://docs.namasoft.com/ar/platform/reports/reports-namarep-reference.html](/ar/platform/reports/reports-namarep-reference.html)
+- تم توثيق طريقة استخدام الدالة (getVacationAssignedConsumedRemainder) لاستخراج المستحق والمستهلك والمتبقي كلًّا على حدة. للتفاصيل: [مرجع تعبيرات NamaRep](/ar/platform/reports/reports-namarep-reference)
 
 ### الاستيراد والتصدير
 
-- في إعدادات استيراد السجلات (RecordImportConfig)، أصبح بالإمكان الإشارة إلى عنوان خلية مباشر في شيت الإكسل مثل (B3) أو (A99)، والإمكانية نفسها متاحة في الاستيراد من الإكسل بمسارات الكيان وفي جمل الـ SQL. للتفاصيل:
-  [https://docs.namasoft.com/ar/platform/import-export/advanced-record-import.html](/ar/platform/import-export/advanced-record-import.html)
+- في إعدادات استيراد السجلات (RecordImportConfig)، أصبح بالإمكان الإشارة إلى عنوان خلية مباشر في شيت الإكسل مثل (B3) أو (A99)، والإمكانية نفسها متاحة في الاستيراد من الإكسل بمسارات الكيان وفي جمل الـ SQL. للتفاصيل: [الاستيراد المتقدم للسجلات](/ar/platform/import-export/advanced-record-import)
 
 ### GUI 3
 

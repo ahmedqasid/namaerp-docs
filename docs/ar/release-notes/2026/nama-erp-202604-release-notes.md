@@ -15,9 +15,7 @@
   - تفعيل التحقق من كمية الحجز بالتاريخ للمخازن
   - تفعيل التحقق من كمية الحجز بالتاريخ للمواقع
 
-  لمزيد من التوضيح، يرجى الاطلاع على المستند التالي:
-
-  [https://docs.namasoft.com/ar/modules/supplychain/ignore-reservation-qty-check-by-date.html](https://docs.namasoft.com/ar/modules/supplychain/ignore-reservation-qty-check-by-date.html)
+  لمزيد من التوضيح، يرجى الاطلاع على المستند التالي: [تجاهل مخازن/مواقع معينة في التحقق من كمية الحجز بالتاريخ](/ar/modules/supplychain/ignore-reservation-qty-check-by-date)
 
 - تم إضافة خيار باسم "عدم إرسال الحفظ التالي لنقاط البيع" في ملف الصنف.
 - تم إنشاء ملف جديد في ملفات المبيعات باسم "عروض المبيعات الشهرية".
@@ -42,8 +40,7 @@
 
 ### نظام الحسابات
 
-- تم  ربط وتشغيل الفاتورة الالكترونية للإمارات. يرجى الاطلاع على المستند التالي:
-  https://docs.namasoft.com/ar/modules/invoicing/uae-orchida-einvoice-guide.html
+- تم  ربط وتشغيل الفاتورة الالكترونية للإمارات. يرجى الاطلاع على المستند التالي: [الربط مع الفاتورة الإلكترونية في الإمارات عبر Orchida osTax](/ar/modules/invoicing/uae-orchida-einvoice-guide)
 
 ### نظام الموارد البشرية
 

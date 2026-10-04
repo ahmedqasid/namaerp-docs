@@ -16,8 +16,7 @@
 - Added the two fields (n4, n5) to the Sizes & Colors lines inside the Item file.
 - In the (Colors & Sizes Matrix) file, the system now prevents saving when there is a duplicate in the item dimension lines (Size / Color / Version).
 - Sped up Stock Aging processing so that it now starts after the last fully covered lines. Please verify the data is correct after updating the version.
-- For items with Lots, completed the handling of quantities without a Lot number at Point of Sale and in full and partial return cases, with the Lot number copied from the invoice to the return, and the invoice now prevented from saving without entering the Lot and serial number values for items that require them. For details:
-  [https://docs.namasoft.com/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date.html](/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date.html)
+- For items with Lots, completed the handling of quantities without a Lot number at Point of Sale and in full and partial return cases, with the Lot number copied from the invoice to the return, and the invoice now prevented from saving without entering the Lot and serial number values for items that require them. For details: [Allowing Items With Batch & Expiry to Hold Untagged Quantities](/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date)
 
 ### Purchasing
 
@@ -103,8 +102,7 @@
 ### Settings
 
 - In Scheduled Tasks, the Execution Log now records all successful and failed attempts when the option (Enable Execution Log - enableExecutionLog) is turned on, with a field added (Execution Log Retention Days - logRetentionDays) to avoid data bloat.
-- In the Approval Definition, added two fields on the step lines: (Step Apply When Query - stepApplyWhenQuery) and (Step Criteria - stepCriteria), so that the step's approval is only requested when a certain condition is met, and if the last optional step is not met, the document is considered saved. For details:
-  [https://docs.namasoft.com/platform/approvals/approvals-system.html](/platform/approvals/approvals-system.html)
+- In the Approval Definition, added two fields on the step lines: (Step Apply When Query - stepApplyWhenQuery) and (Step Criteria - stepCriteria), so that the step's approval is only requested when a certain condition is met, and if the last optional step is not met, the document is considered saved. For details: [Approvals System - Approval Definition Full Guide](/platform/approvals/approvals-system)
 - In Approvals, it is now possible to send the approval back to a previous step in the chain instead of only being able to reject it.
 - In the User & Permission file, added a table (Search Extra Filters) to specify the fields and types for which the normal extra filters are canceled during search, to handle cases like selecting a substitute employee in the Leave voucher even though the user is restricted to their subordinates only.
 - In Fields & Screens Settings (GenericReferenceOverrider), added a (dynamic filter) in the Extra Filter, as already exists in the User & Permission file.

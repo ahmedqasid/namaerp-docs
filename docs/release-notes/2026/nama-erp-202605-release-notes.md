@@ -16,7 +16,7 @@
   - Purchase Returns
 - Added a new button in the Stock-Taking Start document to open a screen and add a Stock-Taking End voucher.
 - Added a new option in the term config of Supply Chain documents that adds lines based on those having the same warehouse as the one on the document header - taking into account, for Transfer documents, the warehouse in the From Warehouse field rather than the To Warehouse field.
-- Added an option to Warehouses and Locations named "Not Considered When Verifying Reservation Quantities at the Legal Entity Level". Also added two options named "Enable Not Considering When Verifying Reservation Quantities" - one for warehouses and another for locations - to prevent saving the warehouse or location if the user checked this option while not checking the corresponding option in the Supply Chain settings. For more details, you may refer to the document [https://docs.namasoft.com/modules/supplychain/ignore-reservation-qty-check-by-date.html](https://docs.namasoft.com/modules/supplychain/ignore-reservation-qty-check-by-date.html)
+- Added an option to Warehouses and Locations named "Not Considered When Verifying Reservation Quantities at the Legal Entity Level". Also added two options named "Enable Not Considering When Verifying Reservation Quantities" - one for warehouses and another for locations - to prevent saving the warehouse or location if the user checked this option while not checking the corresponding option in the Supply Chain settings. For more details, you may refer to the document [Ignoring Specific Warehouses/Locators in Reservation Quantity Check by Date](/modules/supplychain/ignore-reservation-qty-check-by-date)
 - Added the entity flow EAUpdateItemPricesFromPriceList. The flow is used when saving or editing price lists, for the items listed in the price list. Also added a Scheduled Tasks entity flow, "EAUpdateItemPricesFromQuery".
 
 ### Real Estate
@@ -39,12 +39,10 @@
 
 ### Human Resources
 
-- Added an option that respects the fingerprint type inferred from the Work Schedule when pairing check-in and check-out fingerprints within a single shift, instead of only taking the first and last fingerprint.
-  https://docs.namasoft.com/modules/hr/attendance-machine-formula.html
+- Added an option that respects the fingerprint type inferred from the Work Schedule when pairing check-in and check-out fingerprints within a single shift, instead of only taking the first and last fingerprint. For details: [Attendance and Departure Formulas](/modules/hr/attendance-machine-formula)
 - Added 15 reference fields to the Job Section screen.
 - Improved the use of Cron for transferring attendance from ZK to Nama. When re-reading according to the duration specified in AttendanceMachineConfig, the system now re-reads the previous two days, and if prior data exists it is deleted and the latest check-in and check-out fingerprints are added.
-- Added substantial modifications to the Attendance Voucher. For more details, please refer to the following document:
-   https://docs.namasoft.com/modules/hr/ignore-overlapping-attendance.html
+- Added substantial modifications to the Attendance Voucher. For more details, please refer to the following document: [Ignoring Overlapping Attendance and Departure Lines](/modules/hr/ignore-overlapping-attendance)
 
 ### Point of Sale
 
@@ -69,10 +67,8 @@
 
 - Hidden the Dashboard's toolbox by default - shown to whoever wants it.
 - Added the ability to "merge" or "shrink" the charts within the Dashboard.
-- Added the ability to use complex queries in the report builder tool and the Dashboard, easily, the same way it works with system tables and records. Please refer to the following document:
-  [https://docs.namasoft.com/platform/virtual-entity-guide.html](https://docs.namasoft.com/platform/virtual-entity-guide.html)
-- Added the **showAsRange** property to enable selecting ready-made date ranges (such as: Today, Current Month, Previous Week) or specifying a manual range (**Manual Range**). When enabled, **Date From / To** is used instead of a single date, with support for input validation and the ability to specify the allowed ranges.
-  https://docs.namasoft.com/platform/reports/reports-guide.html
+- Added the ability to use complex queries in the report builder tool and the Dashboard, easily, the same way it works with system tables and records. Please refer to the following document: [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](/platform/virtual-entity-guide)
+- Added the **showAsRange** property to enable selecting ready-made date ranges (such as: Today, Current Month, Previous Week) or specifying a manual range (**Manual Range**). When enabled, **Date From / To** is used instead of a single date, with support for input validation and the ability to specify the allowed ranges. For details: [Jasper Reports Complete Guide for Nama ERP](/platform/reports/reports-guide)
 - Improved so that double-clicking the date field opens the date-picker window.
 - Improved so that the system remembers the user's choice of whether to use the timeline or not, as soon as the timeline button is clicked.
 - Added a new option to show the card list as dots on the dashboard-widget page - "Card List" tab - the option "Show Card Lists as Dots".
