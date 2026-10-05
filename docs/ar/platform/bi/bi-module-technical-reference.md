@@ -1748,7 +1748,7 @@ widget واحداً لكل شاشة. أما الـ widgets ذاتية الارت
 
 → [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md)
 
-يغطي: `tableOptions`، وتعريفات الأعمدة، و`formatting` (مع `currencySymbol`/`currencyPlacement`)، والمُصيِّرات (`badge`/`bar`/`progress`/`sparkline`/`icon`)، والتنسيق الشرطي (خلية + صف، وصفة traffic-light)، وتخطيط pivot (cross-tab) — أبعاد الصفوف/الأعمدة والمقاييس والإجماليات الجزئية والإجماليات الكلية.
+يغطي: `tableOptions` (ومنها الترقيم من الخادم عبر `rowModel` / `serverPageSize`)، وتعريفات الأعمدة، و`formatting` (مع `currencySymbol`/`currencyPlacement`)، والمُصيِّرات (`badge`/`bar`/`progress`/`sparkline`/`icon`)، والتنسيق الشرطي (خلية + صف، وصفة traffic-light)، وتخطيط pivot (cross-tab) — أبعاد الصفوف/الأعمدة والمقاييس والإجماليات الجزئية والإجماليات الكلية.
 
 ---
 

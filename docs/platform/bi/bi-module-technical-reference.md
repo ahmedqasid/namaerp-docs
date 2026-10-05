@@ -1777,7 +1777,7 @@ Detail moved to a companion file. Load when authoring `type: "EnhancedTable"` wi
 
 → [`bi-reference-enhanced-table.md`](./bi-reference-enhanced-table.md)
 
-Covers: `tableOptions`, column definitions, `formatting` (with `currencySymbol`/`currencyPlacement`), renderers (`badge`/`bar`/`progress`/`sparkline`/`icon`), conditional formatting (cell + row, traffic-light recipe), pivot (cross-tab) layout — row/col dimensions, measures, subtotals, grand totals.
+Covers: `tableOptions` (including server-side paging via `rowModel` / `serverPageSize`), column definitions, `formatting` (with `currencySymbol`/`currencyPlacement`), renderers (`badge`/`bar`/`progress`/`sparkline`/`icon`), conditional formatting (cell + row, traffic-light recipe), pivot (cross-tab) layout — row/col dimensions, measures, subtotals, grand totals.
 
 ---
 

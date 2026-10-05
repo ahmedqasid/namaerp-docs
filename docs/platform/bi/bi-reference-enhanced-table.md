@@ -53,17 +53,44 @@ No `dataMapping` / `echartOption` — EnhancedTable does not use ECharts.
   "wrapText":           true,
   "autoHeight":         true,
   "enableRtl":          "auto",
-  "cellSelection":      true
+  "cellSelection":      true,
+  "rowModel":           "clientSide",
+  "serverPageSize":     100
 }
 ```
 
 | Field | Default | Notes |
 |---|---|---|
-| `pagination` | `false` | Off by default — load-all-and-scroll. When on, AG Grid paginates the in-memory data (no server-side paging). |
+| `pagination` | `false` | Off by default — load-all-and-scroll. When on, AG Grid paginates the in-memory data. For paging on the server, use `rowModel` instead (§2.1). |
 | `grandTotalRow` | `null` | `"top"` / `"bottom"` / `null`. Computed client-side from visible rows. **Only columns with `aggFunc` set show a value in the grand-total row** — others render blank. |
 | `enableRowGroup` / `enablePivot` | `true` / `false` | AG Grid row-grouping / pivot modes. Columns need `rowGroup: true` / `pivot: true` to be grouped/pivoted by default. |
 | `groupDefaultExpanded` | `-1` in pivot mode | How many grouping levels are open on load; `-1` expands every level. The server fills in `-1` for pivot widgets that don't set it, because collapsed groups make a fresh cross-tab look empty. Set it yourself to override. |
 | `groupIncludeFooter` | `true` when pivot row subtotals are on | Adds a subtotal footer row under each group. Set it explicitly to force it on or off. |
+| `rowModel` | `"clientSide"` | `"clientSide"` sends every row to the browser. `"serverSide"` keeps the rows on the server and sends one page at a time — see §2.1. Designer label: **Row Loading**. |
+| `serverPageSize` | `100` | Page size used when `rowModel` is `"serverSide"`. One of `25`, `50`, `100`, `250`, `500`, `1000`, `2500`, `5000`, `50000`. Ignored in client-side mode, where `pageSize` applies. |
+
+### 2.1 Server-side paging (`rowModel: "serverSide"`)
+
+A table with tens of thousands of rows is slow to open when every row travels to the browser. With `rowModel: "serverSide"` the widget query still runs once, exactly as before, but the server keeps the built rows and the grid asks for one page at a time. Sorting, column filters and the filter value lists are all answered by the server against the full result, so they behave as they would on the complete data.
+
+In the designer this is **Table Options → Row Loading → Load page by page from the server**, with a **Page Size (server paging)** box next to it.
+
+**When it is ignored.** Server paging needs a table the server can cut into pages without the browser seeing the whole result. The widget quietly falls back to the normal client-side mode when any of these is true:
+
+- a `pivot` block is set (§8);
+- `grandTotalRow` is set, or `groupIncludeFooter` is `true`;
+- any column has `rowGroup: true`, `pivot: true` or an `aggFunc`.
+
+The designer shows this rule under the Row Loading box: *Server paging is not used when the table has a pivot, row grouping, aggregation or total rows.*
+
+**What changes for the user in server mode:**
+
+- Pagination is always on; the page-size picker offers the list above.
+- Row grouping and pivot are not offered: columns cannot be dragged into groups, and the Columns panel has no pivot mode.
+- Clicks, cross-filter emission, drill-down, drill-by and record links work as in client-side mode.
+- **Export to Excel** exports every row that matches the current filters and sort, not just the loaded page.
+- The rows stay on the server for 15 minutes without use. After that (or after a server restart), the next page request makes the widget re-run its query and reload by itself. The cache is shared by all users and capped at one million rows in total by default (system property `nama.bi.enhancedTable.maxCachedRows`); when it is full, the least recently used tables are dropped first and reload the same way.
+- The admin **Copy Data JSON** button shows an empty `rows` array plus a `serverSide` entry carrying the row count, because the rows are no longer in the browser.
 
 ## 3. Column definition
 
@@ -173,7 +200,7 @@ Mixing `simple` and `interactive` in one row is supported and often useful — e
 | Type | Visual | Notes |
 |---|---|---|
 | `text` | Plain string | Default. No renderer block needed. |
-| `html` | Raw HTML via `v-html` | Trust model matches legacy `Param_INHTML` — no client sanitization. |
+| `html` | Raw HTML via `v-html` | Trust model matches legacy `Param_INHTML` — no client sanitization. Export to Excel and the column filter use the cell's visible text: tags, scripts, styles and hidden elements are dropped and `<br>` becomes a line break. |
 | `badge` | Pill/square with cell text | `bg`/`color` come from `conditionalFormatting`; falls back to subtle blue. `outline` variant pairs with conditional `bg` for tinted-pill effect. |
 | `bar` | Horizontal filled bar (CSS by default, ECharts when `style: "interactive"`) | Value scaled `min`→`max`. **`max` is optional** — when omitted, renderer auto-scales to the column's data max (the common pattern). |
 | `progress` | Same mechanism as `bar`, blue fill | Semantically "progress toward target". |

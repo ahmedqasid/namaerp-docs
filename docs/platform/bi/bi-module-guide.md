@@ -570,6 +570,8 @@ Not everything needs to be a chart. Table widgets display query results in an gr
 
 Table widgets respect cross-filters just like chart widgets do, so when you click a branch on a bar chart, the table next to it filters to show only that branch's records.
 
+The export icon in a table's header downloads the grid as an Excel file. The file is named after the widget's English title (or its Arabic title when there is no English one) followed by the date and time of the export, for example `Sales by Branch.20261005.1112.xlsx`. When a table shows HTML in its cells, Excel gets the text a user actually sees in the cell — the markup, hidden elements and styling are left out, and line breaks are kept. The column filter matches on the same visible text. This applies to both the classic Table and the Enhanced Table.
+
 ---
 
 ## Enhanced Table Widget
@@ -615,6 +617,16 @@ In addition to per-cell rules, you can style whole rows based on any column's va
 
 Everything you know about BI interactions still works: cross-filter emission on click, drill-down to widgets or dashboards on right-click, entity links in the "Navigate To" menu, and the single-click `clickAction` override. The only addition is that each click/drill/link mapping can optionally include a `column` field — when set, the mapping fires only when the user clicks a cell in that specific column. When `column` is absent, the mapping fires on any cell in the row (classic Table behavior).
 
+### Large Tables — Paging From the Server
+
+Normally an Enhanced Table sends all of its rows to the browser when the dashboard opens. For a table of a few hundred rows that is the fastest option, but a table with tens of thousands of rows makes the dashboard slow to open and heavy to scroll.
+
+For those tables, open **Table Options** and set **Row Loading** to **Load page by page from the server**, then pick a **Page Size (server paging)** (100 by default). The query still runs once, as before; the difference is that the server keeps the result and the browser receives one page at a time. Sorting and column filters are applied by the server to the full result, so a filter on page 1 still finds a matching row that was on page 300, and **Export to Excel** exports every row that matches the current filters — not just the page on screen.
+
+Server paging only works on a plain list. If the table has a pivot layout, a grand-total or subtotal row, row grouping, or any column with an aggregation, the widget quietly keeps loading all rows at once — the designer says so under the Row Loading box. In server mode users can't drag columns into groups or pivot, but clicks, cross-filters, drill-downs and record links all work as usual. If the table sits unused for 15 minutes, the next page request makes it re-run its query and reload by itself.
+
+The [Enhanced Table reference §2.1](./bi-reference-enhanced-table.md) has the exact rules and settings.
+
 ### Admin Conveniences
 
 When logged in as `admin` (or any user with `treatAsAdmin` enabled), the widget toolbar shows two extra buttons:
@@ -634,7 +646,7 @@ From that tab you can:
 - Edit each column's id, field, headers, width, pinning, renderer type, formatting type inline
 - Bootstrap from a SQL query via the **Generate Columns From Result Set** button — this runs the data-source SQL and seeds one default column per result-set header, so you're not starting from zero
 
-A companion **Table Options** tab covers the grid-level switches (pagination, row grouping, grand total row, etc.).
+A companion **Table Options** tab covers the grid-level switches (pagination, row grouping, grand total row, row loading, etc.).
 
 For more advanced configuration — specifically column groups, per-renderer options like bar min/max or icon mappings, and the full conditional-formatting rule DSL — use the **Raw JSON** tab. The [Technical Reference §14](./bi-module-technical-reference.md#14-EnhancedTable----JSON-Driven-Grid) has the complete schema.
 
