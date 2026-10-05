@@ -157,7 +157,7 @@ Picking classes one by one from the suggestion list is slow, and a tool group is
 | Button | What it adds | Who it is for |
 |---|---|---|
 | **Add Export Tools** | 3 classes, 9 tools — understand an entity, search and read records, import records | anyone connecting an external MCP client to read and write data |
-| **Add Report Tools** | 2 classes, 4 tools — read a report's SQL, run it, correct it | administrators and support staff chasing wrong figures in a report |
+| **Add Report Tools** | 3 classes, 7 tools — read a report's SQL, run it, correct it; run a dashboard and check what each chart shows | administrators and support staff chasing wrong figures in a report or a dashboard |
 | **Add Term and Config Tools** | 2 classes, 4 tools — read and change document terms and configuration entries | administrators who configure documents |
 | **Add Discussion Tools** | 2 classes, 2 tools — add a discussion to a record, list a record's discussions | an in-app assistant that comments on records |
 
@@ -198,6 +198,36 @@ So `RunReport` refuses the run instead of answering with unfiltered figures: whe
 
 ::: warning A report is never saved unless it still compiles
 `UpdateReportQuery` and `UpdateReportContent` compile the report before sending it, and refuse to save anything that does not compile — the answer comes back with the compiler's own complaint and the stored report untouched, so a bad query costs a failed call rather than a broken report. The file is rewritten by JasperReports itself: the design survives exactly, but XML comments (the Jaspersoft Studio banner among them) and the original indentation do not.
+:::
+
+#### Dashboard tools (Add Report Tools)
+
+A dashboard widget is written blind. Its SQL and its chart configuration are edited as text, and nothing says that the query returned no rows, that a join counted every invoice twice, or that the cross filter for the branch never reached the query — until somebody opens the dashboard and looks. These three tools let the assistant do the looking: they run a dashboard or a single widget and answer with what each chart would draw, as numbers it can check.
+
+| Tool Class Name | Generated tool(s) | Purpose |
+|---|---|---|
+| `AITDashboardTools` | `<prefix>RunDashboard`, `<prefix>RunDashboardWidget` and `<prefix>PreviewDashboardWidget` | Run a dashboard (or one of its tabs) and return what every widget shows; run one widget and also return the SQL it executed; and run a widget as it would be after a change to its SQL or chart configuration, without saving anything |
+
+The answer is what the server rendered, not the raw query output: a chart's categories and its series with their values (after its sorting, grouping and Top-N have been applied), a table's columns and rows, a metrics card's values, and the error message of any widget that failed. Colours, fonts and the rest of the styling are left out, because they are most of the bytes and none of the meaning. Long lists are cut at the number of rows the call asks for, and the full length is reported next to them. A dashboard runs with the permissions of the user the tool acts for, and its cross filter defaults apply exactly as they do on screen; the answer lists the cross filters and the values that were applied, and the tabs of a tabbed dashboard.
+
+Cross filters and widget parameters are passed by code — the cross filter's code, not its title. A filter that points at a record takes the record's **code** as readily as its id, so `{"nileLE":"01","nileFrom":"01-03-2026"}` filters a dashboard to legal entity `01` for March onwards; a filter that takes several values takes a list, `{"nileLE":["01","03"]}`. A filter that belongs to one widget only is keyed by the filter code and the widget code, `nileLE@nile-sales-branch`.
+
+::: tip See the SQL that actually ran
+The SQL stored on a widget is only where the query starts. By the time it reaches the database the cross filter conditions have been written into it, a wizard widget's query has been rebuilt, and the parameters have been bound — so reading the stored SQL does not tell you why a chart is empty. `RunDashboardWidget` and `PreviewDashboardWidget` return every statement the widget executed (a period comparison runs two), each with:
+
+- the SQL as it reached the database, with the parameters still written as `{name}`;
+- the same statement with every value written in, ready to paste into the read-only SQL tool;
+- the value each parameter received — a parameter that shows as `NULL` is one that never got a value;
+- the columns and rows the database returned, before the chart grouped, sorted or cut them;
+- how long it took, and the database's own error message when it failed.
+
+Comparing those rows with the chart's series tells a wrong query from a wrong chart configuration at a glance. Seeing the SQL needs the right to edit dashboard widgets; without it the widget's figures are still returned, and the answer says why the statements are missing. `RunDashboard` does not return SQL — run the widget in question on its own.
+:::
+
+`PreviewDashboardWidget` starts from a saved widget, from scratch, or both: it takes the widget's code and a set of changes — typically a new SQL, a new chart configuration or a different widget type — runs the result with the parameters and cross filters given, and returns what it would show. Nothing is saved, so the assistant can try a query, read the figures, correct it and try again, and save the widget with `ImportRecord` only once the numbers are right. Only the widget's own text, number and yes/no fields can be changed this way; its grids (inputs, cross filter bindings) are taken from the saved widget as they are.
+
+::: info A parameter the widget does not have is reported, not refused
+A widget's parameters are the lines of its **inputs** grid. A value sent for an id that is not one of them cannot reach the query, so the widget runs without it — and a `{name}` in its SQL that matches no input is bound to `NULL`, which usually means no rows at all. The widget tools say so in their answer, naming the parameters that were not applied, so an empty chart is not mistaken for a period with no sales.
 :::
 
 #### Term and configuration tools (Add Term and Config Tools)
