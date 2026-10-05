@@ -785,3 +785,13 @@ Here's a workflow that works well:
 
 This is dramatically faster than building each widget by hand, especially for dashboards with many interconnected charts and complex cross-filter setups.
 :::
+
+### Letting the AI Check Its Own Work
+
+An assistant that writes a widget without seeing it run is guessing: it cannot tell that its query returns no rows, that a join counts every invoice twice, or that a cross filter never reaches the query. Connect it to the system over [MCP](../../modules/ai/ai-mcp-server.md) and give it the [dashboard tools](../../modules/ai/ai-tool-definitions.md#Dashboard-tools-Add-Report-Tools) — the **Add Report Tools** button on the AI Tool Definition screen adds them — and it can close that loop itself:
+
+- **Run a dashboard** and read what every chart, table and card shows, as numbers rather than a picture, with the cross filters you choose.
+- **Run one widget** and read the SQL it actually executed — with the cross filter conditions written into the `/*AND-FILTERS*/` placeholder and the parameters filled in — next to the rows the database returned. That is usually enough to tell a wrong query from a wrong chart configuration.
+- **Preview a change** to a widget's SQL or chart configuration without saving it, correct it until the figures are right, and only then import it.
+
+The assistant runs everything with the permissions of the user its connection signs in as, and seeing a widget's SQL needs the right to edit dashboard widgets.

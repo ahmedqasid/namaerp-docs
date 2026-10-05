@@ -104,7 +104,7 @@ The endpoint, the authentication headers, the **API Credentials** record the key
 
 ## Step 8: Give the assistant the right tools
 
-An MCP connection on its own exposes nothing. The assistant can only call the tools an administrator has defined on the **AI Tool Definition** screen, so this step is where you decide how capable — and how dangerous — it is. Three groups of ready-made [system tools](./ai-tool-definitions.md) are worth setting up deliberately.
+An MCP connection on its own exposes nothing. The assistant can only call the tools an administrator has defined on the **AI Tool Definition** screen, so this step is where you decide how capable — and how dangerous — it is. Four groups of ready-made [system tools](./ai-tool-definitions.md) are worth setting up deliberately.
 
 ### The record tools — for everyone, bounded by permissions
 
@@ -131,6 +131,10 @@ What it cannot do is change anything. Only a single `SELECT` is accepted: `INSER
 Add `AITTermAndConfigReadTools` and the assistant gains three tools covering the settings screens: one that lists what can be configured, one that describes the settings of a document type's term (توجيه) or of a configuration entry — grouped exactly the way the screen groups them, with the Arabic and English label of each setting — and one that reads the current values. `AITTermAndConfigWriteTools`, a separate class, adds the fourth: the one that changes them. Leave it out and the assistant can explain any setting in the system without being able to touch it.
 
 For a system administrator this is the difference between knowing a setting exists and finding it. The global configuration holds thousands of settings across seventeen tabs, and a single document term holds hundreds. Asking "how is the sales invoice term configured for the cost centre, and which setting controls it" now gets you the setting, its labels, its tab, and its current value in one answer instead of a tour of the screens. The update tool merges a patch onto the stored settings rather than replacing them, reports the old and the new value of everything it changed, and can create a term that does not exist yet.
+
+### The report and dashboard tools — for chasing a wrong figure
+
+Most support tickets about numbers end at a report or a dashboard: "this total is wrong", "this chart is empty", "the branch filter does nothing". The **Add Report Tools** button adds the tools that answer those questions with evidence rather than a guess. For a report, the assistant can read its query and parameters, run it, and — if you keep the writing class — correct the query. For a dashboard, it can run the whole dashboard or a single widget with the filters the customer used, read the figures each chart shows, and see the exact SQL a widget sent to the database together with the rows that came back. It can also try a corrected widget query without saving anything. See [Dashboard tools](./ai-tool-definitions.md#Dashboard-tools-Add-Report-Tools) for what they return.
 
 ::: warning Everything the AI does must be reviewed
 This is not a caveat about Nama — it is true of every AI tool. A model can misread a question, pick a plausible but wrong field, or write a query that answers a slightly different question than the one you asked. Read what it did before you act on it: check the query it ran, check the setting it changed, check the record it created. Import as a draft first when the change matters. It is an extremely fast assistant, not an unsupervised one, and reviewing it takes a fraction of the time the work would have.

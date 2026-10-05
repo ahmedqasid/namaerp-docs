@@ -150,6 +150,16 @@ The **Tool Class Name** field has a suggestion list showing **every system tool 
 What you pick in **Tool Class Name** is a *class*, and most classes generate several tools: pick `AITReadRecordTools` and the model ends up with two tools, `<prefix>FindRecords` and `<prefix>GetRecord`. The suggestion list also offers the class under its full name — `com.namasoft.modules.ai.services.tools.AITReadRecordTools` — so when you are looking for a particular tool, search the **Generated tool(s)** column of the tables below and add the class in its row; typing the tool's own name into the field finds nothing.
 :::
 
+::: warning Tools that disappear after an upgrade
+Tool classes are occasionally renamed or split in two between releases. A line saved under the old name keeps it after the upgrade, and that line's tools quietly stop appearing — in the in-app assistant and in every MCP client alike. The other lines of the same definition are not affected, and the server log names the line that was skipped.
+
+So when some tools go missing after an upgrade, open the definition and look for a line whose **Tool Class Name** is no longer offered by the field's suggestion list, and pick the class that replaced it. Saving the definition refuses such a line anyway, with:
+
+*There is no AI tool class named {0}, choose one of the classes suggested on the field*
+
+That message has no Arabic translation, so it appears in English on Arabic screens too.
+:::
+
 ### The buttons above the grid
 
 Picking classes one by one from the suggestion list is slow, and a tool group is rarely useful half-added — so the page carries a row of buttons, each adding a whole group in one press:
