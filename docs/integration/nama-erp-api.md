@@ -99,13 +99,14 @@ The OpenAPI specification includes detailed schema definitions for each entity:
 - **Boolean Fields**: Boolean type fields
 - **Reference Fields**: Returns the referenced entity's code
 - **Generic References**: Object with `entityType` and `code` properties
+- **Attachment Fields**: Objects — read as `{"id", "fileName", "size"}`, written on save as `{"uploadId": ...}` or `{"url": ...}` — see [Uploading and Attaching Files](#Uploading-and-Attaching-Files)
 - **Collections/Details**: Arrays of objects (e.g., invoice lines, payment details)
 
 #### Excluded Fields
 The API automatically excludes:
 - System-generated fields (unless specifically requested)
 - Calculated fields
-- Binary fields (images, documents)
+- The contents of binary fields (images, documents) from read responses — an attachment field comes back as its id, file name and size instead, and can be written on save; see [Uploading and Attaching Files](#Uploading-and-Attaching-Files)
 - Internal user tracking fields
 
 ### Working with Entity Collections
@@ -390,6 +391,101 @@ Content-Type: application/json
   ]
 }
 ```
+
+## Uploading and Attaching Files
+
+A save request is JSON, and JSON carries text — so a PDF of a signed contract or a scanned commercial registration cannot simply be put in it. Instead, an attachment field takes a small JSON object that tells the server where to get the file. There are two forms:
+
+| Value | Meaning |
+|---|---|
+| `{"uploadId":"<fileId>"}` | A file you sent beforehand to the upload endpoint, which answered with that `fileId` |
+| `{"url":"<http or https address>"}` | The server downloads the file itself from that address |
+
+Either form may also carry `"fileName"`, the name to store the file under. It wins over the name the file was uploaded with or the name taken from the address.
+
+A few values deserve a word:
+
+- **Both `uploadId` and `url` in one object** fails that record — give one or the other.
+- **An object with neither** is ignored, and the record keeps the attachment it already has. That is deliberate: a read returns an attachment as `{"id":...,"fileName":...,"size":...}` (see [Reading attachment fields](#Reading-attachment-fields)), so a record you read, change elsewhere and send back as it came leaves its attachments alone.
+- **A plain string** — a file path on your machine or on the server, such as `C:\docs\contract.pdf`, or anything else — is **not** accepted. It fails that record with a message, in English whatever the caller's language, that begins `An attachment is given as an object` and spells out the two object forms.
+
+::: warning Release 20261007 or later
+Writing attachment fields through the save endpoint, and the upload endpoint below, exist only on servers from release 20261007 onwards.
+:::
+
+### Finding the attachment field's id
+
+Attachment fields are listed in the entity's OpenAPI/Swagger schema like any other field. Their type is `object`, with the properties `uploadId`, `url` and `fileName` — that is how you tell them apart from ordinary fields. The customer master file, for example, has an attachment field with the id `attachment`.
+
+### Option 1: upload the file, then save
+
+Uploading is a two-step job: send the file, then save the record that points at it.
+
+**Step 1 — upload.** Send the file to the upload endpoint, authenticated with the same API key as every other call, as `multipart/form-data` with one file part:
+
+```http
+POST http[s]://<server>/erp/rest/v1/upload
+X-API-Key: {api-key}
+Content-Type: multipart/form-data
+```
+
+With curl:
+
+```bash
+curl -X POST "https://<server>/erp/rest/v1/upload" -H "X-API-Key: <api-key>" -F "file=@invoice-1001.pdf"
+```
+
+The server answers with the id it gave the file:
+
+```json
+{"fileId":"..."}
+```
+
+**Step 2 — save.** Put that id in the attachment field as `uploadId`:
+
+```http
+POST /erp/rest/v1/Customer/save
+X-API-Key: {api-key}
+Content-Type: application/json
+
+{"Customer":[{"code":"CUST001","attachment":{"uploadId":"<fileId>"}}]}
+```
+
+::: tip Upload shortly before you save
+An uploaded file is held in the server's temporary storage until a save picks it up. It does not survive a server restart, so upload right before the save that uses it rather than uploading a batch of files in advance.
+:::
+
+### Option 2: let the server fetch the file
+
+When the file already sits at a web address the server can reach, skip the upload and give the address — here with a `fileName` as well, so the attachment is stored under a clearer name than the one in the address:
+
+```json
+{"Customer":[{"code":"CUST001","attachment":{"url":"https://files.example.com/contracts/cust001.pdf","fileName":"cust001-contract.pdf"}}]}
+```
+
+The server downloads the file during the save, under these rules:
+
+- **Only `http` and `https` addresses.**
+- **No addresses inside the server's own network.** The server refuses an address that points at the server itself or at a link-local address, and — unless `import-url-allow-private-network=true` is set in `nama.properties` — an address on a private network. This stops a save request from being used to pull files off internal machines the caller could not otherwise reach.
+- **Size limit of 50 MB** by default; change it with the `import-url-max-file-size-mb` property in `nama.properties`.
+- **Up to 5 redirects** are followed.
+- **The file name**, when `fileName` is not given, is taken from the response's `Content-Disposition` header, or failing that from the last part of the address path.
+
+A refused or failed download fails that record, with a message (in English only) naming the address and the reason.
+
+### Reading attachment fields
+
+Read responses — a single record, or a list — show an attachment field as a short description of the file, never its contents:
+
+```json
+"attachment": {"id": "...", "fileName": "cust001-contract.pdf", "size": 48213}
+```
+
+`size` is in bytes. An empty attachment field has no description. Because an object without `uploadId` or `url` is ignored on save, this description can travel back in a save request unchanged without touching the stored file.
+
+### Trying it from the Swagger UI
+
+Each entity's Swagger page carries an **Attachments** section with the upload operation, which you can try directly from the page: pick a file, run it, and copy the `fileId` from the answer into `{"uploadId":"..."}` in the body of the save operation. The save operation's own description repeats the two object forms.
 
 ## Testing APIs
 
@@ -694,5 +790,5 @@ Fine-tune import behavior with request headers:
 
 #### Missing Fields in Response
 - System fields excluded by default
-- Binary fields not included in API responses
+- File contents are not included in API responses — an attachment field returns only its id, file name and size (and can be written — see [Uploading and Attaching Files](#Uploading-and-Attaching-Files))
 - Calculated fields not available via API

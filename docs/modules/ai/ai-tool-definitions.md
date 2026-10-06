@@ -166,7 +166,7 @@ Picking classes one by one from the suggestion list is slow, and a tool group is
 
 | Button | What it adds | Who it is for |
 |---|---|---|
-| **Add Export Tools** | 3 classes, 9 tools — understand an entity, search and read records, import records | anyone connecting an external MCP client to read and write data |
+| **Add Export Tools** | 4 classes, 12 tools — understand an entity, search and read records, import records, upload and download attachment files | anyone connecting an external MCP client to read and write data |
 | **Add Report Tools** | 3 classes, 7 tools — read a report's SQL, run it, correct it; run a dashboard and check what each chart shows | administrators and support staff chasing wrong figures in a report or a dashboard |
 | **Add Term and Config Tools** | 2 classes, 4 tools — read and change document terms and configuration entries | administrators who configure documents |
 | **Add Discussion Tools** | 2 classes, 2 tools — add a discussion to a record, list a record's discussions | an in-app assistant that comments on records |
@@ -175,15 +175,20 @@ A button adds only the lines that are not on the definition yet and fills each l
 
 #### Record export/import tools (Add Export Tools)
 
-The most-used group with external MCP clients: three classes generating nine tools between them, which let a client read system data and import new records as JSON.
+The most-used group with external MCP clients: four classes generating twelve tools between them, which let a client read system data, import new records as JSON, and move attachment files in and out.
 
 | Tool Class Name | Generated tool(s) | Purpose |
 |---|---|---|
 | `AITEntityMetadataTools` | `<prefix>ResolveEntityType`, `<prefix>DescribeFields`, `<prefix>GetEnumValues`, `<prefix>GetEntitySchema` and `<prefix>SearchByTranslation` | Everything a client needs to understand an entity before it queries it: resolve an Arabic or English term to an entity type, list the field ids that can be used as search criteria, list the allowed values of enum fields, return the physical table and column names behind the entity, and resolve a term to entity types, fields and enum values at once |
 | `AITReadRecordTools` | `<prefix>FindRecords` and `<prefix>GetRecord` | Search records by entity type and criteria, and read a single record as JSON |
 | `AITImportTools` | `<prefix>GetImportSchema` and `<prefix>ImportRecord` | Get the JSON import schema of an entity type, and import one or more records into the system |
+| `AITAttachmentTools` | `<prefix>PrepareAttachmentUpload`, `<prefix>PrepareAttachmentDownload` and `<prefix>PrepareAttachmentDownloadById` | Hand the assistant a one-time link to upload a file that `ImportRecord` then attaches to a record, and a one-time link to download a file already attached to a record — named either by its record and field, or by the attachment id that `GetRecord` and `FindRecords` return |
 
 The details of these tools — their parameters and usage examples — are documented on the [Nama ERP MCP Server](./ai-mcp-server.md) page.
+
+::: info Attachments need an assistant that can run commands
+An MCP tool call carries text only, so the attachment tools do not pass the file itself: they hand the assistant a link, and the assistant sends or fetches the file with `curl`. That suits assistants that can run commands on your machine — Claude Code, or the Code tab of Claude Desktop. See [Moving attachment files](./ai-mcp-server.md#Moving-attachment-files).
+:::
 
 #### Report tools (Add Report Tools)
 

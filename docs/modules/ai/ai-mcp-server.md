@@ -92,7 +92,7 @@ A few tools do something that cannot be taken back — upgrading the server, whi
 
 ## The Record Export/Import Tools
 
-The most useful group for external MCP clients is the export/import system tools — nine of them, from three tool classes, all added in one click with the **Add Export Tools** button on the System Tool page of the tool definition screen (see [AI Tool Definitions](./ai-tool-definitions.md)).
+The most useful group for external MCP clients is the export/import system tools — twelve of them, from four tool classes, all added in one click with the **Add Export Tools** button on the System Tool page of the tool definition screen (see [AI Tool Definitions](./ai-tool-definitions.md)).
 
 The tools are named with a prefix taken from the tool definition (the Tool Name, Alt Code, or code field). The examples below assume the prefix is `import`.
 
@@ -143,7 +143,7 @@ A paged search over an entity type's records, going through the standard list ga
 | `page` | No | 1-based page number |
 | `pageSize` | No | Page size — default 25, maximum 200 |
 
-Returns `totalRecordsCount`, the page number and size, and the `records` array.
+Returns `totalRecordsCount`, the page number and size, and the `records` array. An attachment field asked for in `fields` comes back as `{"id", "fileName", "size"}` — the file's description, never its contents — and `fields` accepts a detail-table field too (`collection.field`), so one call can list every line's attachment; the `id` is what `PrepareAttachmentDownloadById` takes.
 
 ### import_GetRecord — read a record
 
@@ -155,6 +155,8 @@ Reads a single record as JSON through the standard read gate. The output has the
 | `idOrCode` | Yes | The record's business code or id |
 | `mode` | No | `visible` (default): only on-screen fields — or `all`: every field |
 | `fields` | No | Specific field ids to return on their own (overrides `mode`) |
+
+An attachment field is returned as `{"id": "...", "fileName": "...", "size": 123}` (size in bytes); the file's contents are never included. Sending that object back unchanged in `ImportRecord` leaves the attachment as it is.
 
 ### import_GetEnumValues — allowed values of an enum field
 
@@ -218,6 +220,61 @@ The general shape:
 
 Records are persisted through the standard entity gate, so all validations and effects (journal entries, inventory transactions, ...) work exactly as if the record were entered from the screen. If a record fails, the error details are returned to the model so it can correct and retry.
 
+**Attachments.** An attachment field cannot carry the file itself, so it takes a small object instead: `{"uploadId":"<token>"}` — exactly the `importValue` that `PrepareAttachmentUpload` returned, once the file has been sent to its link — or `{"url":"<http or https address>"}`, which makes the server download the file itself. Either may add `"fileName"` to store the file under another name. The `url` form follows the same rules as in the REST API: no addresses on the server itself or a private network, 50 MB at most by default — see [Uploading and Attaching Files](../../integration/nama-erp-api.md#Uploading-and-Attaching-Files). Giving both `uploadId` and `url` fails the record; an object with neither — such as the `{"id", "fileName", "size"}` object `GetRecord` returns — is ignored and the attachment stays as it is. A plain string, a file path included, is never accepted: it fails the record with an English message explaining the two object forms.
+
+### import_PrepareAttachmentUpload — a link to upload a file
+
+The first step of attaching a file to a record. It returns a one-time link the assistant sends the file to, and the value to put in the attachment field afterwards.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `fileName` | No | The name to store the attachment under, extension included, such as `invoice-1001.pdf`. When left out, the name the upload carries is used |
+
+The answer carries the `uploadUrl`, the `importValue` (already shaped as the object `{"uploadId":"<token>"}`), the largest file accepted in bytes, and how long the link and the uploaded file stay valid. The assistant then sends the file to the link with an HTTP `POST` (or `PUT`), either as the raw request body or as a multipart form file:
+
+```bash
+curl --data-binary @"invoice-1001.pdf" "<uploadUrl>"
+curl -F file=@"invoice-1001.pdf" "<uploadUrl>"
+```
+
+No API key goes with it — the link is its own authorisation. Finally it calls `ImportRecord` with the attachment field set to the `importValue`.
+
+- The link takes **one file**, and expires after **15 minutes** if nothing is sent to it.
+- Once uploaded, the file stays attachable for **60 minutes**, so an import refused by a validation can be corrected and sent again with the same `importValue`.
+- Only the **same Nama user** who prepared the upload can attach the file.
+- The largest file accepted is **50 MB** by default; change it with the `ai-upload-max-file-size-mb` property in `nama.properties`.
+
+### import_PrepareAttachmentDownload — a link to download an attachment
+
+The reverse direction: fetch a file already attached to a record so the assistant can save it locally and read it.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `entityType` | Yes | The entity type of the record |
+| `idOrCode` | Yes | The record's business code or id |
+| `fieldId` | Yes | The attachment field id as it appears in the import schema. For a field in a detail table, give the full `collection.field` id |
+| `lineNumber` | No | The 1-based line number — required for a field in a detail table |
+
+The record is read through the normal permission checks, so the user must be allowed to see it. A header field is read on its own — a single column — so it costs the same however many lines the record has. A field in a detail table reads the whole record; on a record with many lines, use the by-id tool below instead. The answer carries the file name and size, a one-time `downloadUrl`, and a ready-made command:
+
+```bash
+curl -o "<file name>" "<downloadUrl>"
+```
+
+The link works **once** and for **10 minutes**; if the download fails, prepare it again.
+
+### import_PrepareAttachmentDownloadById — a download link from an attachment id
+
+The same one-time link, prepared from the attachment's own id rather than from a record and a field.
+
+| Parameter | Required | Description |
+|---|---|---|
+| `attachmentId` | Yes | The `id` of the `{"id", "fileName", "size"}` object that `GetRecord` or `FindRecords` returned for an attachment field |
+
+It reads nothing but the file, which makes it the cheap way to fetch one line's attachment from a large record: `FindRecords` lists the lines' attachments, and this tool turns the chosen `id` into a link — see [Moving attachment files](#Moving-attachment-files). The link is the same as above: it works once, for 10 minutes, with no API key.
+
+It does not check whether the user may see the record the attachment belongs to: any signed-in user who has the id can fetch the file, just as with the attachment links on Nama's own screens. `PrepareAttachmentDownload`, by contrast, checks access to the record.
+
 ## A Complete Workflow
 
 The usual pattern an MCP client follows to import data:
@@ -228,3 +285,31 @@ The usual pattern an MCP client follows to import data:
 4. **import_FindRecords**: find the reference codes (customer, item) before using them.
 5. **import_ImportRecord**: import as a draft first for review, or save and commit directly.
 6. **import_GetRecord**: read the imported record back to verify the result.
+
+## Moving attachment files
+
+An MCP tool call carries text only, so the attachment tools never pass a file inside the conversation. They hand the assistant a link instead, and the assistant moves the file over that link with `curl`. That makes them useful only to assistants that can run commands — Claude Code, or the Code tab of Claude Desktop. A typical exchange, asked to "attach the signed contract to customer CUST001":
+
+1. **import_PrepareAttachmentUpload** with `fileName` = `contract-cust001.pdf` → an `uploadUrl` and `importValue` = `{"uploadId":"<token>"}`.
+2. `curl --data-binary @"contract-cust001.pdf" "<uploadUrl>"` — run by the assistant on your machine.
+3. **import_ImportRecord** with `importMode` = `UpdateOnly` and `{"Customer":[{"code":"CUST001","attachment":{"uploadId":"<token>"}}]}`.
+4. **import_PrepareAttachmentDownload** on the same field, if you want to check what was stored.
+
+Fetching an attachment from a detail line of a large record — say one line's file on a document with thousands of lines — goes the other way round, so the whole record is never read:
+
+1. **import_FindRecords** with `fields` = `<collection>.<field>` and `criteria` = `code,Equal,<code>,AND;` → one `{"id", "fileName", "size"}` per line.
+2. **import_PrepareAttachmentDownloadById** with the `id` of the line you want → a one-time `downloadUrl`.
+3. `curl -o "<file name>" "<downloadUrl>"`.
+
+The links point at two endpoints that live in the services web app next to the MCP endpoint:
+
+```
+http[s]://<server-ip-or-domain>/basic-services/ai-upload
+http[s]://<server-ip-or-domain>/basic-services/ai-download
+```
+
+The second is the same endpoint that serves the single-use links of rendered reports. Both links are absolute, built from the address the MCP client used to reach the server; the `X-Forwarded-Proto` and `X-Forwarded-Host` headers are honoured. When that address is not the one the assistant's machine can reach — behind a reverse proxy, typically — set `ai-file-download-base-url` in `nama.properties` to the server's public address, and every link is built on it instead.
+
+::: warning Release 20261007 or later
+The attachment tools, and attachment values in `ImportRecord`, exist only on servers from release 20261007 onwards.
+:::
