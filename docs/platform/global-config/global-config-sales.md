@@ -13,7 +13,7 @@ A short tab with three unrelated jobs: deciding who counts as the salesman on a 
 
 The salesman on a sales document drives commission, targets and often pricing, so it matters that the right name lands there without anyone having to think about it. These four options describe how the system chooses.
 
-**Use Current User as Salesman** `value.info.useCurrentUserAsSalesMan` *(default on)* — The logged-in user's employee record becomes the document's salesman, provided that employee is flagged as a salesman. This is the natural setting where the person entering the order is the person who sold it — a showroom, a counter, a field sales tablet.
+**Use Current User as Salesman** `value.info.useCurrentUserAsSalesMan` *(default on)* — The logged-in user's employee record becomes the document's salesman, provided that employee is flagged as a salesman. This is the natural setting where the person entering the order is the person who sold it — a showroom, a counter, a field sales tablet. It also decides whose discount limits a sales document is checked against: with it on, the logged-in user's employee; with it off, the document's salesman — see [Salesman Discount Limits](/modules/invoicing/salesman-discount-limits).
 
 **Do Not Override Salesman with Customer** `value.info.doNotOverrideSalesManWithCustomer` — Customers can have a default salesman, and selecting the customer normally applies it, overwriting whatever was there. With this on, a salesman already chosen on the document is left alone. Turn it on where the person selling is not always the customer's assigned representative.
 

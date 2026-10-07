@@ -36,7 +36,7 @@ This page documents the **Sales & Offers** tab — settings for sales documents,
 
 **Allow Repeating Offer and Price Lists Priority** `value.allowRepeatingOfferPriority` — By default each offer / price list needs a unique priority and duplicates are rejected. When on, two or more may share the same priority number.
 
-**Prevent Non-Offered Discounts** `value.preventNonOfferedDiscounts` — When on, manual discounts are blocked so that only discounts coming from defined offers are allowed — stopping users from giving ad-hoc discounts outside approved promotions. (Enforced in the POS pricing path.)
+**Prevent Non-Offered Discounts** `value.preventNonOfferedDiscounts` — When on, manual discounts are blocked so that only discounts coming from defined offers are allowed — stopping users from giving ad-hoc discounts outside approved promotions. Concretely, when a line is priced, a discount that no offer covers is set back to zero; this happens in both the sales documents and the POS. See [Salesman Discount Limits](/modules/invoicing/salesman-discount-limits).
 
 **Ignore Other Offers if There is an Item Count Offer** `value.ignoreOtherOffersIfThereIsItemCountOffers` — When on, if an item-count offer flagged to stop other discounts applies, the system cancels the other line discounts and free items so promotions don't stack.
 

@@ -293,6 +293,11 @@ Provides sophisticated item-specific discount structures with comprehensive targ
 - **Discount Max Value** - Maximum discount ceiling  
 - **Discount Default Value** - Standard discount amount
 - **Special Discount** - Flag for exceptional discount handling
+- **Deactivate Salesman Discounts Validations** - Discounts from this line are not checked against the employee's maximum discount
+
+::: tip Min, Default and Max form a range
+A discount the user types survives only if it lies between Min and Max; anything else is replaced by the Default, silently. An empty Max counts as zero, so a line with only a Default locks the discount at that Default. How this range works together with each employee's own limit is explained in [Salesman Discount Limits](./salesman-discount-limits.md).
+:::
 
 **Quantity & Value Controls:**
 - **Quantity** - Minimum purchase quantity for discount eligibility

@@ -17,6 +17,7 @@ title: الفواتير والضرائب والخصومات
 <LandingGrid>
   <LandingCard icon="🧮" title="الخصومات وحساب الضرائب" link="/ar/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md" details="دليل شامل لكيفية اجتماع خصومات الفاتورة وخصومات السطور مع الضريبة لإنتاج الإجماليات النهائية." />
   <LandingCard icon="🏷️" title="الأسعار والعروض" link="/ar/modules/invoicing/pricing-and-offers-guide.md" details="قوائم الأسعار وعروض البيع والتحديث الآلي للأسعار لإبقاء أسعار البيع دقيقة وتنافسية." />
+  <LandingCard icon="🎚️" title="حدود خصم البائع" link="/ar/modules/invoicing/salesman-discount-limits.md" details="تحديد أقصى خصم لكل موظف في مستندات المبيعات ونقاط البيع، ولماذا يرجع خصم العرض من تلقاء نفسه." />
 </LandingGrid>
 
 ## الولاء والمدفوعات

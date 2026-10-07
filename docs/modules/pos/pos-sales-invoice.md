@@ -62,7 +62,7 @@ If an item carries **add-ons** — sizes, colours, or extras like sugar and milk
 
 There are two levels, and they stack:
 
-- **Line discounts.** Select a line and press `Alt+1` through `Alt+8` for up to eight discount levels, entering a percentage or a fixed amount. Whether a cashier may do this — and how deep — is governed by their permission.
+- **Line discounts.** Select a line and press `Alt+1` through `Alt+8` for up to eight discount levels, entering a percentage or a fixed amount. Whether a cashier may do this at all is a permission on their POS Security Profile; how deep each discount may go is set per employee — see [Salesman Discount Limits](/modules/invoicing/salesman-discount-limits), which also explains why an offer's discount can snap back when you change it.
 - **Invoice discount.** Press `F10` to discount the whole invoice; `Ctrl+F10` removes it.
 
 

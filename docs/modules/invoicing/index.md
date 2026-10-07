@@ -17,6 +17,7 @@ How an invoice's numbers come together — discounts, taxes, price lists and pro
 <LandingGrid>
   <LandingCard icon="🧮" title="Discounts & Tax Calculation" link="/modules/invoicing/invoice-discounts-and-tax-calculation-guide.md" details="A comprehensive guide to how invoice-level and line-level discounts combine with tax to produce the final totals." />
   <LandingCard icon="🏷️" title="Pricing & Offers" link="/modules/invoicing/pricing-and-offers-guide.md" details="Price lists, sales offers and automated price updates that keep your selling prices accurate and competitive." />
+  <LandingCard icon="🎚️" title="Salesman Discount Limits" link="/modules/invoicing/salesman-discount-limits.md" details="Cap how deep each employee may discount, in sales documents and on the POS, and why an offer's discount can snap back." />
 </LandingGrid>
 
 ## Loyalty & Payments
