@@ -44,10 +44,12 @@ Use `web_fetch` on each DM URL provided. From the DM page, extract:
 ### Package & Class Naming
 
 ```groovy
-package com.Namasoft.entiyactions
+package com.namasoft.entiyactions
 // OR for plug-n-play:
-package com.Namasoft.modules.supplychain.domain.utils.plugnplay.groovy
+package com.namasoft.modules.supplychain.domain.utils.plugnplay.groovy
 ```
+
+Package names are always lowercase `com.namasoft...`. Groovy resolves imports case-sensitively, so `com.Namasoft...` fails to compile.
 
 Class name format: `EA` + `[ClientName]` + `[DescriptiveName]`
 Example: `EAKuwaitPreventRemarkMoreThan1DayConsideringLineDate`
@@ -62,18 +64,19 @@ import com.namasoft.common.fieldids.newids.basic.IdsOf[Entity]
 import com.namasoft.common.utilities.CollectionsUtility
 import com.namasoft.common.utilities.NamaLogger
 import com.namasoft.common.utilities.ObjectChecker
-import com.Namasoft.infra.domainbase.common.criteria.CriteriaBuilder
-import com.Namasoft.infra.domainbase.datafields.DateDF
-import com.Namasoft.infra.domainbase.datafields.DecimalDF
-import com.Namasoft.infra.domainbase.datafields.LongTextDF
-import com.Namasoft.infra.domainbase.datafields.TextDF
-import com.Namasoft.infra.domainbase.entity.base.EntityAction
-import com.Namasoft.infra.domainbase.entity.generic.GenericReference
-import com.Namasoft.infra.domainbase.persistence.repos.ListPageMatchingParameters
-import com.Namasoft.infra.domainbase.persistence.repos.Persister
-import com.Namasoft.infra.domainbase.util.Result
-import com.Namasoft.modules.basic.domain.details.[DetailLineClass]
-import com.Namasoft.modules.basic.domain.entities.[EntityClass]
+import com.namasoft.infra.domainbase.common.criteria.CriteriaBuilder
+import com.namasoft.infra.domainbase.datafields.BooleanDF
+import com.namasoft.infra.domainbase.datafields.DateDF
+import com.namasoft.infra.domainbase.datafields.DecimalDF
+import com.namasoft.infra.domainbase.datafields.LongTextDF
+import com.namasoft.infra.domainbase.datafields.TextDF
+import com.namasoft.infra.domainbase.entity.base.EntityAction
+import com.namasoft.infra.domainbase.entity.generic.GenericReference
+import com.namasoft.infra.domainbase.persistence.repos.ListPageMatchingParameters
+import com.namasoft.infra.domainbase.persistence.repos.Persister
+import com.namasoft.infra.domainbase.util.Result
+import com.namasoft.modules.basic.domain.details.[DetailLineClass]
+import com.namasoft.modules.basic.domain.entities.[EntityClass]
 ```
 
 ---
@@ -113,6 +116,15 @@ public class EA[Name] implements EntityAction<[EntityClass]> {
 ObjectChecker.isEmptyOrNull(l.getRef1())
 !ObjectChecker.isEmptyOrNull(l.getRef1())
 ```
+
+**Yes/no (BooleanDF) fields:**
+```groovy
+BooleanDF.isTrue(l.getB1())    // null counts as false
+BooleanDF.isFalse(l.getB1())   // true when false or null
+```
+Never pass a BooleanDF to `ObjectChecker.isTrue(...)` — it only accepts `Boolean` and `String`, and fails at runtime with
+`MissingMethodException: No signature of method ObjectChecker.isTrue() ... (BooleanDF)`.
+Never write `!BooleanDF.isTrue(x)`; use `BooleanDF.isFalse(x)`.
 
 **Has numeric values:**
 ```groovy
@@ -244,7 +256,32 @@ DecimalDF.fromQueryResult(...)
 
 ---
 
-## Step 4 — Output
+## Step 4 — Wire the Script into an Entity Flow
+
+Tell the user how to attach the script. On the Entity Flow screen, each line of the actions grid has its own **Groovy Script** column:
+
+1. Paste the complete script into **Groovy Script**.
+2. Leave **Class Name** empty. On save the system fills it with the script's own class name (e.g. `com.namasoft.entiyactions.EAKuwaitPrevent...`) before the required-field check runs — that is expected.
+3. Choose the **Target Action** (e.g. Validate On Save for a validator).
+4. Fill **Parameter 1..15** if the script reads parameters. They arrive in order: Parameter 1 = `parameters[0]`, Parameter 2 = `parameters[1]`, ... Parameter 15 = `parameters[14]`.
+5. Save. Saving compiles the script, so a syntax or import error shows at save time. The parameter titles are filled from the script's `columnNames()`.
+
+Older flows instead put `EAGroovyAction` in Class Name and the script in **Parameter 1**. In that setup `parameters[0]` is the script text itself and the script's first real input is Parameter 2 (`parameters[1]`). Prefer the Groovy Script column for new flows; if both are filled, the Groovy Script column wins.
+
+When the script reads parameters, override `columnNames()` so the user sees a title above each one:
+
+```groovy
+@Override
+List<String> columnNames() {
+    return ["Minimum remarks length"]
+}
+```
+
+Full page: https://docs.namasoft.com/entity-flows/core/EAGroovyAction.html
+
+---
+
+## Step 5 — Output
 
 - Provide the **complete `.groovy` file** — no placeholders, no "fill this in" comments
 - Class name and package must be correct
@@ -261,6 +298,8 @@ DecimalDF.fromQueryResult(...)
 - Always filter null dates before passing to `.in(dates)` in CriteriaBuilder
 - Use `computeIfAbsent` for map initialization, not `putIfAbsent`
 - `shouldNotDisplayEntityFlowNameWhenFailure()` should return `true` when the action is a pure validator
+- Yes/no fields: `BooleanDF.isTrue/isFalse`, never `ObjectChecker.isTrue`
+- Packages and imports are lowercase `com.namasoft...`
 
 ---
 
@@ -278,41 +317,40 @@ Groovy does not allow `def` inside generic type parameters `<>`. Always use a co
 
 ---
 
-### ❌ `Result.isFailure()` does not exist
+### ❌ `Result.isFailure()` does not exist — use `result.failed()`
 ```groovy
 // WRONG — runtime error: "No signature of method: Result.isFailure()"
 if (result.isFailure()) {
     return result
 }
 
-// CORRECT — use a boolean flag instead
-boolean hasErrors = false
-// ... inside loop: hasErrors = true
-if (hasErrors) {
+// CORRECT
+if (result.failed()) {
     return result
 }
 ```
-The `Result` class in Nama does **not** have an `isFailure()` method. To do early-exit after accumulating errors, track failures with a plain `boolean` flag.
+An accumulating result turns failed as soon as a failure is added to it, so `failed()` works for early exit too:
+
+```groovy
+Result result = Result.createAccumulatingResult()
+for (def l : object.getDetails()) {
+    // ... validate ...
+    if (someConditionFails)
+        Result.createFailureResult("رسالة الخطأ {0}", param).addToAccumulatingResult(result)
+}
+if (result.failed())
+    return result  // stop here, don't proceed to next phase
+
+// continue with next validation phase...
+```
 
 ---
 
-### ✅ Correct pattern for early-exit on first validation phase
+### ❌ `ObjectChecker.isTrue(...)` on a yes/no field
 ```groovy
-Result result = Result.createAccumulatingResult()
+// WRONG — runtime error: "MissingMethodException: No signature of method ObjectChecker.isTrue() ... (BooleanDF)"
+if (ObjectChecker.isTrue(l.getB1())) { ... }
 
-boolean hasErrors = false
-for (int i = 0; i < object.getDetails().size(); i++) {
-    def l = object.getDetails()[i]
-    // ... validate ...
-    if (someConditionFails) {
-        hasErrors = true
-        Result.createFailureResult("رسالة الخطأ {0}", param).addToAccumulatingResult(result)
-    }
-}
-
-if (hasErrors) {
-    return result  // stop here, don't proceed to next phase
-}
-
-// continue with next validation phase...
+// CORRECT
+if (BooleanDF.isTrue(l.getB1())) { ... }
 ```
