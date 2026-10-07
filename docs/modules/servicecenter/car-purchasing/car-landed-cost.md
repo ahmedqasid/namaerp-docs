@@ -99,10 +99,49 @@ Quote 76,500 wherever a car's cost is mentioned. It is the number, not 74,000.
 
 ## Where the accounting goes
 
-The additional-cost side of the entry comes from the invoice term's
-**التكاليف الإضافية (Additional Cost)** accounting side, backed by the module-level additional-cost
-debit and credit accounts. It is a standard accounting-side configuration; the amounts and the
-distribution are what this mechanism contributes.
+Moving the 15,000 into the cars takes an entry from the generated additional-cost document and an
+entry from the stock receipt, and the two only cancel out if their accounts are set up to match. The
+car purchase invoice's term has no accounting setting for this: on that term, the additional-cost
+options only create the document and pick its book and term.
+
+**1. The Receipt Additional Cost document records the charge.** Each line is copied from a service
+line on the invoice, and its accounts come from that line's **expense item**. The line debits the
+expense item's debit side, or the additional-cost document term's **debit** side if the expense item
+has none. It credits the expense item's credit side, which can be a specific account, the supplier,
+or a customs, shipping or insurance company. If the expense item has no credit side, the term's
+**credit** side is used. Al-Sahra's three expense items all debit an *Import Charges Clearing* account.
+
+**2. The stock receipt capitalises it.** The purchase invoice brings the cars into stock through a
+generated stock receipt, filed under the **توجيه الأصناف المستلمة (Received Items Term)** named on the
+invoice term. Once the 15,000 has been spread over the cars, that stock receipt's entry gains two
+more lines, taken from the **التكاليف الإضافية (Additional Cost)** group on the *stock receipt's*
+term:
+
+- **مدين التكاليف الإضافية (Additional Cost Debit)** — if left empty, the stock receipt's own main
+  debit side is used, which is the inventory account.
+- **دائن التكاليف الإضافية (Additional Cost Credit)** — if left empty, the stock receipt's own main
+  credit side is used.
+
+With *Additional Cost Credit* set to the same clearing account, the entry is:
+
+| Account | Debit | Credit |
+|---|---|---|
+| Inventory (6 cars × 2,500) | 15,000 | |
+| Import Charges Clearing | | 15,000 |
+
+The clearing account is back to zero, and the inventory account now carries each car at 76,500.
+
+**3. The sale relieves it.** When a car is sold, its stock issue moves 76,500 from inventory to cost
+of sales, the additional cost included. Nothing extra needs setting up for this step.
+
+::: warning Leaving Additional Cost Credit empty
+If the stock receipt term's *Additional Cost Credit* is empty, step 2 credits the receipt's main
+credit side instead. Inventory still receives its 15,000. But unless that main credit side is the
+same account the additional-cost document debited in step 1, the two entries never meet: the account
+from step 1 keeps a 15,000 debit and the receipt's credit side keeps an extra 15,000 credit. Either
+point *Additional Cost Credit* at the account the additional-cost document debits, or make that
+document debit the receipt's credit account.
+:::
 
 ## The other three documents add nothing
 

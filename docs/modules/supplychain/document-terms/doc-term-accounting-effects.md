@@ -205,7 +205,7 @@ Four pairs of debit/credit account sides for separate service-fee charges on the
 
 Different documents add (landed) additional cost and purchase-return cost differences in different ways.
 
-**Additional Cost Debit / Credit (stock receipt)** `termConfig.config.additionalCostDebit` / `termConfig.config.additionalCostCredit` — Enable the additional-cost debit/credit posting on a stock receipt.
+**Additional Cost Debit / Credit (stock receipt)** `termConfig.config.additionalCostDebit` / `termConfig.config.additionalCostCredit` — The account sides for the two lines a stock receipt's entry gains when a Receipt Additional Cost document spreads a charge onto it. They are not on/off switches: an empty debit falls back to the receipt's main debit side (the inventory account), and an empty credit falls back to its main credit side. Set the credit to the account the additional-cost document debits, or the two entries will not offset each other. See [Freight, Customs and Landed Cost](/modules/servicecenter/car-purchasing/car-landed-cost#Where-the-accounting-goes) for a worked example.
 
 **Additional Cost side (transfers)** `termConfig.additionalCostConfig` — On Stock Transfer / Receipt Stock Transfer / Issue Stock Transfer, the account side used to post additional (landed) cost added to transferred stock, under the *Additional Cost* group.
 
