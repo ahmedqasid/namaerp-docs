@@ -1,5 +1,5 @@
 ---
-entities: [WhatsAppMessageConfiguration]
+entities: [WhatsAppMessageConfiguration, WhatsAppMessage]
 ---
 # SMS and WhatsApp Configuration in Nama ERP
 
@@ -16,7 +16,7 @@ The **SMS settings** Provider list reads:
 
 The **WhatsApp message settings** Provider list reads:
 
-`Unifonic` · `Rasayel` · `Wati` · `Morasalaty` · `WaApi` · `UltraMsg` · `WaPilot.net` · `respond.io` · `WasenderAPI`
+`Unifonic` · `Rasayel` · `Wati` · `Morasalaty` · `WaApi` · `UltraMsg` · `WaPilot.net` · `respond.io` · `WasenderAPI` · `Yeastar`
 
 A few entries read as bare lower-case identifiers (`mobilyws`, `maktoobicom`, `androidsmsgateway`, `waboxapp`) — that is how they appear on screen. Pick the entry by its text, not by the provider's marketing name: the same company is called one thing on its own site and another in the list.
 
@@ -224,6 +224,80 @@ WasenderAPI paid plans accept roughly one message every 5 seconds per session; t
 ::: tip
 WasenderAPI can also be used as an SMS provider through the SMS settings screen (Provider `WasenderAPI`, Password = session API Key), where messages are sent via WhatsApp instead of traditional SMS.
 :::
+
+---
+
+## WhatsApp Integration Through a Yeastar PBX
+
+Some companies already run their WhatsApp Business number through a Yeastar P-Series PBX, so that agents answer customers from their extensions. Nama can send its template messages through that same number, and each message can be attributed to the extension of the employee responsible for the record: a quotation sent to a customer shows up in the PBX under the sales representative who owns it.
+
+Nama does not talk to the PBX directly. The company publishes a small web endpoint in front of the PBX, protected by a token, and Nama posts every message to that endpoint. The endpoint then hands the message to Yeastar.
+
+::: info Templates only
+This provider sends **approved WhatsApp templates** only. There is no free-text message and no media type to choose: the attachment, when there is one, travels as the template's document.
+:::
+
+### What the Company Prepares on the Yeastar Side
+
+1. The WhatsApp channel is connected to the PBX and the message templates are approved, each with its named variables (for example `code1` and `code2`).
+2. The endpoint is published on a public address and given a token. These two values are everything Nama needs: the **link** and the **token**.
+
+### WhatsApp Message Configuration for Yeastar
+
+In the **WhatsApp Message Configuration** screen:
+
+* **Service Provider**: `Yeastar`
+* **Public Id / API Endpoint**: the endpoint link
+* **Secret / Access Token**: the token. Nama sends it as a bearer token with every message
+* **Phone Number Corrector Query**: the endpoint expects the recipient in international format with a leading `+` (`+201065837043`). If mobile numbers are stored differently, use this query to put them in that form
+
+### The Yeastar Page of the WhatsApp Message
+
+Open the **WhatsApp Message** screen and fill the **Yeastar** page:
+
+| Field | What to enter |
+|-------|---------------|
+| **Configuration** | The Yeastar configuration created above |
+| **Template Name** | The template's name exactly as it is approved, e.g. `salsequotion_ar` |
+| **Sender Code Extension** | The extension the message is sent on behalf of. It accepts Tempo syntax, so it can be a fixed extension (`102`) or read from the record (`{n1}`) |
+| **Media URL** | Optional. A link to the file to attach, e.g. the printed quotation. It must be reachable from the internet |
+| **File Name Template** | Optional. The name the recipient sees for the attached file, e.g. `{code}` |
+| **Parameters** | One row per template variable: **Parameter** holds the variable's name (`code1`) and **Parameter Template** holds its value (`{code}`) |
+
+With those values, a quotation `SQ260902208` leaves Nama as:
+
+```json
+{
+  "to": "+201065837043",
+  "template": "salsequotion_ar",
+  "sender_ext": "102",
+  "file_url": "https://erp.example.com/erp/r/sq/SQ260902208.pdf",
+  "file_name": "SQ260902208",
+  "params": {
+    "code1": "SQ260902208",
+    "code2": "SQ260902208"
+  }
+}
+```
+
+::: warning The sender extension is mandatory
+The message cannot be saved without a **Sender Code Extension**. And when the field reads its value from the record, a record where that value is empty is not sent at all: the task fails instead of sending a message with no extension.
+:::
+
+::: tip Message state
+A message counts as sent once the PBX accepts it, and it then appears in the message's related records with the PBX message number. The endpoint does not report back later, so the state does not move on to delivered or read.
+:::
+
+### Messages You May See with Yeastar
+
+Three of these messages have no Arabic text and appear in English on Arabic screens as well.
+
+| Message | Why | What to do |
+|---------|-----|------------|
+| *Public Id / API Endpoint field is required with {0} Provider* — «حقل Public Id / API Endpoint مطلوب مع مزود الخدمة {0}» | The configuration was saved without the endpoint link | Enter the link in **Public Id / API Endpoint** |
+| *Sender code extension is required with {0} Provider* | The WhatsApp message uses a Yeastar configuration and its **Sender Code Extension** is empty | Fill the field with an extension or a Tempo expression |
+| *Could not send whatsapp message {0} via Yeastar: template name and sender code extension are required* | At sending time the template name is empty, or the extension expression gave an empty value for this record | Fill **Template Name**, and make sure the record carries the value the extension is read from |
+| *Could not send whatsapp message via Yeastar, response: {0}* | The endpoint or the PBX refused the message; the text after the colon is the PBX's own reason | Check the template name, the variable names and the recipient's number against what is approved on the PBX |
 
 ---
 
