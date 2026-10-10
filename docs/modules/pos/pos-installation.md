@@ -75,7 +75,7 @@ Then it starts the Nama POS desktop application.
 
 The very first time POS starts it has no idea where its database or its server are, so before anything else it opens the **Settings** dialog. Everything POS needs to connect lives here, in two groups of fields.
 
-![POS settings dialog](../../ar/modules/pos/images/installation/pos-settings-ar.png)
+![POS settings dialog](../../ar/modules/pos/images/installation/pos-settings-en.png)
 
 **The database group** describes the local SQL Server you set up in steps 1 and 2:
 
