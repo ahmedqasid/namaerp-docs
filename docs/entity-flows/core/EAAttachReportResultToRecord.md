@@ -1,13 +1,12 @@
 ---
 title: EAAttachReportResultToRecord
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAAttachReportResultToRecord
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

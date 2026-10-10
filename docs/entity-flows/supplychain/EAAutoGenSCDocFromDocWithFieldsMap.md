@@ -1,14 +1,13 @@
 ---
 title: EAAutoGenSCDocFromDocWithFieldsMap
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAAutoGenSCDocFromDocWithFieldsMap
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

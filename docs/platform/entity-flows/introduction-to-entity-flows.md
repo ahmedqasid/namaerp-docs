@@ -26,11 +26,15 @@ Not every trigger is a person clicking something. An **integrator endpoint**, re
 
 1. Open the **Entity Flows** screen.
 2. Select the entity type (e.g., Sales Invoice, Purchase Order, Customer, Supplier...).
-3. You can optionally specify a condition via the **"Apply When Matching Query"** field, to apply the flow only to records for which the query returns any value (other than 0 or NULL).
+3. You can optionally specify a condition via the **"Apply When Query"** field, to apply the flow only to records for which the query does not return 0. Only a first value of 0 (or false) stops the flow — a query that returns no rows, or NULL, lets it run.
 4. You can also specify:
     - A specific book
     - A specific term config (توجيه)
     - Additional criteria to filter the targeted records
+
+::: tip The flow did not run?
+A flow has a dozen header settings that can stop it silently, and a few timing traps on top. [Why an Entity Flow Did Not Run](/platform/entity-flows/entity-flow-troubleshooting) walks through them in the order the system checks them.
+:::
 
 ## Components of Flow Details
 
@@ -42,6 +46,31 @@ In the details table of each Entity Flow, you will find:
 - **With Action**: Specifies when this element is executed within the flow's execution stages (e.g., after save, after revision, ...etc.).
 
 The system supports up to 15 parameters per element, allowing great flexibility in customizing the desired behavior.
+
+## The Elements Used Most
+
+There are a few hundred elements, but a handful do most of the work. Across the customer configurations Namasoft holds, the elements below appear in the most installations — learn these first. Each link opens the element's reference page, with its parameters in order. The [Entity Flows Reference](/entity-flows/) lists every other element, module by module.
+
+| Purpose | Element | What it does |
+|---|---|---|
+| Fill or change fields | [EAFieldsValuesCalculator](/entity-flows/core/EAFieldsValuesCalculator) | Sets fields from a field map: copy one field to another, a fixed value, or the result of a SQL query. It is used by almost every installation. |
+| | [EAIgnoringNotFoundTargetFieldsValuesCalculator](/entity-flows/core/EAIgnoringNotFoundTargetFieldsValuesCalculator) | The same field map, but a target field that does not exist on the record is skipped instead of stopping the flow. |
+| Create one record from another | [EAGenerateEntityFromEntityAction](/entity-flows/core/EAGenerateEntityFromEntityAction) | Creates and saves a record of another type while this one is saved — a payment voucher from an invoice, for example. |
+| | [EAGenerateEntityFromEntityActionWithApproval](/entity-flows/core/EAGenerateEntityFromEntityActionWithApproval) | The same, for a target that has an approval definition, so the new record goes to approval. |
+| | [EAGenerateDraftEntityFromEntityAction](/entity-flows/core/EAGenerateDraftEntityFromEntityAction) | The same, but the new record is saved as a draft for someone to review. |
+| | [DeleteRelatedEntityAction](/entity-flows/core/DeleteRelatedEntityAction) | Deletes the record created above when the source record is deleted. |
+| | [EAGenSCDocFromDocWithFieldsMap](/entity-flows/supplychain/EAGenSCDocFromDocWithFieldsMap) | Creates a supply-chain document from another document, line by line, through a field map. |
+| Accounting | [EAAddAccountingEffect](/entity-flows/accounting/EAAddAccountingEffect) | Adds extra debit and credit lines to the document's journal, from field values on the document. |
+| Lines | [EAGuessSourceLineIdByItem](/entity-flows/supplychain/EAGuessSourceLineIdByItem) | Links each line to the matching line of the document it came from, by item, when that link is missing. |
+| | [EADetailsRemover](/entity-flows/core/EADetailsRemover) | Removes the lines that match a condition. |
+| Protect data | [EAPreventChangingFields](/entity-flows/core/EAPreventChangingFields) | Refuses the save when chosen fields of an already-saved record are changed. |
+| | [EAMakeCreationDateInValueDate](/entity-flows/core/EAMakeCreationDateInValueDate) | Moves the document's creation date to its value date, keeping the time. |
+| Bulk work by query | [EAExecuteUpdateQuery](/entity-flows/core/EAExecuteUpdateQuery) | Runs a SQL update, insert or delete statement. |
+| | [EARecommitFromQuery](/entity-flows/core/EARecommitFromQuery) | Saves again every record a query returns, so their effects and flows run again. |
+| | [SQLImporter](/entity-flows/core/SQLImporter) | Creates records from the rows of a SQL query — see [Importing Data from Excel or Queries](/platform/entity-flows/excel-and-sql-import-by-entity-flow). |
+| Documents and scripts | [EAWordTemplate](/entity-flows/core/EAWordTemplate) | Fills a Word template with the record's data and saves the result in an attachment field. |
+| | [EAGroovyAction](/entity-flows/core/EAGroovyAction) | Runs a custom Groovy script when no ready-made element fits. |
+| | [EARunEntityFlow](/entity-flows/core/EARunEntityFlow) | Runs another entity flow by its code, so a common sequence is written once. |
 
 ## Running a Flow in the Background
 
@@ -271,7 +300,7 @@ Elements attached to this action are executed when any record is opened by any u
 ::: danger
 Because this event occurs very frequently, the system **disables** running Entity Flows attached to it by default.
 
-To enable this type of flow, you must set the following option in the global settings:
+To enable this type of flow, you must set the following option in Global Configuration:
 <GlobalConfigOption option-code="value.info.enableRecordViewEntityFlows" title="Enable Record View Entity Flows"/>
 :::
 

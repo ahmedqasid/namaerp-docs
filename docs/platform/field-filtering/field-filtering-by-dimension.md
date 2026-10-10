@@ -10,7 +10,7 @@ Nothing disappeared. Every lookup in Nama is narrowed by dimensions — legal en
 
 ## What a lookup offers out of the box
 
-When a user searches in a reference field on a document, the records offered are narrowed on each of the five [dimensions](/platform/dimensions-and-composite-dimensions):
+When a user searches in a reference field on a document, the records offered are narrowed on each of the five [dimensions](/platform/shared-master-files/dimensions-and-composite-dimensions):
 
 1. **By the document's own dimensions.** If the document you are editing carries the Jeddah branch, the lookup searches as if you were in Jeddah — even though your session is logged into Riyadh.
 2. **By what the user is allowed to reach.** The search can never go beyond the dimensions the user may log into.
@@ -26,7 +26,7 @@ Open **Administration → Display Customization → Field Filtering**. A record 
 | Column | What it does |
 |---|---|
 | **Entity Type** | The screen the field belongs to — Stock Transfer, Sales Invoice. |
-| **Entity Type List** | A saved [list of screens](/platform/entity-type-lists), for when the same field should behave the same way on several documents. Fill this, the Entity Type, or both. |
+| **Entity Type List** | A saved [list of screens](/platform/automation-and-rules/entity-type-lists), for when the same field should behave the same way on several documents. Fill this, the Entity Type, or both. |
 | **On Field** | The reference field whose lookup you are changing, such as `warehouse` for a document's header warehouse or `details.specificDimensions.warehouse` for the warehouse on its lines. Name the lookup field itself, not the code or name that is filled from it. |
 | **Prevent Filter By LegalEntity** / **Branch** / **Sector** / **Department** / **Analysis Set** | Stop taking this dimension from the document. |
 | **Ignore Login Legal Entity** / **Branch** / **Sector** / **Department** / **Analysis Set** | Stop narrowing by this dimension at all. |

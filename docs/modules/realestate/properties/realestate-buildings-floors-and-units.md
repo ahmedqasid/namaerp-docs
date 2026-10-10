@@ -156,7 +156,7 @@ filled in:
 
 | Button | Opens | Refuses when |
 |---|---|---|
-| *(rent)* | a new rent contract, with the previous contract on the unit already linked as its predecessor | — |
+| **Rent** (تأجير) | a new rent contract, with the previous contract on the unit already linked as its predecessor | — |
 | **Sell** (بيع) | a new sales contract | the unit is already sold ("it is sold before !!") |
 | **Reserve** (حجز) | a new reservation document, in a pop-up | the unit is sold or already reserved |
 | **Initial Sale** (بيع مبدئي) | a new initial sales contract | the unit is already sold |
@@ -219,6 +219,18 @@ which is why getting the model right matters more than it looks.
 
 Models are also used to key the tax fallback rules in the module's own configuration, so a "Type A"
 and a "Type B" can carry different tax treatment without touching each unit.
+
+## Actions on these screens
+
+Each button is described in the section for its screen above; all of them need the record saved
+first.
+
+- **RE Building:** **Create floors** and **Generate Units** — the two generators.
+- **RE Floor:** **Generate Units** — creates rental units on the floor from a unit model.
+- **Rental Unit:** **Rent**, **Sell**, **Reserve** and **Initial Sale** — each opens the matching
+  document already filled with the unit, its owner and its location.
+
+The unit group and the unit model have no buttons of their own.
 
 ## Where to Go Next
 

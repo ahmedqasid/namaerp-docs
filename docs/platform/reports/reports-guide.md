@@ -20,16 +20,49 @@ Everything to do with report definitions sits under **Administration → Reports
 | **Report Definition** | The report itself — the uploaded layout file, its code, its group, its subreports and its resources. This is where a hand-drawn design is registered so that users can run it. |
 | **Report Wizard** | The build-it-for-me route: pick a table, pick fields, save, and a report definition is generated for you. |
 | **Printing Form Wizard** | The same idea for printed forms rather than list-style reports. |
-| **Data Source** | A reusable query block that a wizard report can pull extra columns from. |
-| **Virtual Entity** | A saved SQL statement that behaves like a table — see [Virtual Entities](/platform/virtual-entity-guide). |
+| **Data Source** | A reusable query block that a wizard report can pull extra columns from — see [Data Sources](/platform/reports/report-data-sources). |
+| **Virtual Entity** | A saved SQL statement that behaves like a table — see [Virtual Entities](/platform/automation-and-rules/virtual-entity-guide). |
 | **Report Style** | Named styles reports can share, instead of every design carrying its own fonts and borders. |
 | **Custom Report Menu** | A hand-built menu of reports, for when the group-based menu is not the arrangement you want. |
 
-If a user tells you a report is "missing", this is where to look first: the report usually exists, but its group puts it in a menu that user cannot see.
+If a user tells you a report is "missing", this is where to look first: the report usually exists, but its group puts it in a menu that user cannot see, or its security keeps it from them — see [Who may run a report](#Who-may-run-a-report).
 
 ::: tip Building with the wizard instead
 If you are not going to hand-draw the layout, start at the [Report Wizard Guide](/platform/reports/report-wizard-guide) — it walks through building a report from the screen, field by field. Come back here for the parts the wizard does not cover: parameters written by hand, subreports, page sizes, fonts and security constraints.
 :::
+
+### Where a report appears in the menu
+
+The **Reports** menu is built from the report's **Group** field: each top-level group becomes an entry, and the reports filed under it are listed inside. A **Report Group** is an extra, hand-picked collection on top of that. List its reports in its **Details** grid — or add the group to a report's own **Report Groups** grid; the two stay in step — and tick **Automatically Add To Menu** to have it appear as its own entry in the Reports menu, at the position given by **Order In Menu**. Neither one is security. A report someone can find in the menu still has to pass the checks below before it runs.
+
+## Who may run a report
+
+"Why can only one person see this report?" and "restrict this report to the finance team" are the same question asked from two ends. A report definition answers it with four checks, applied in this order every time someone runs it:
+
+1. **The report's own security grid.** The **Security Capability Types** tab carries a grid of **Applicable For** (a user, a security profile or a user group) and **Allow - Disallow** lines. A line naming the user wins over one naming their profile or group. An **Allow** line that matches lets the user run the report at once, and the remaining checks are skipped. A **Prevent** line that matches refuses them. And if *every* line is an **Allow** line, the grid is a guest list: anybody it does not name is refused. This is why allowing one user can lock everyone else out — add the others, or add a **Prevent** line for someone so the grid stops being allow-only. The same grid also hides the report from the menu and the report list of the users it shuts out. Users whose security profile has full authority are never stopped by it.
+2. **Dimensions.** A report filed under a legal entity, branch, sector, department or analysis set runs only for users whose login gives them that dimension.
+3. **View Capability.** If the report carries one, the user's security profile must grant that capability. Shipped system reports carry one automatically — see [System reports](#System-reports).
+4. **Security Type and Security Equivalent.** These tie the report to the security of an ordinary screen. With **Standard**, the user needs the **Standard Capability** (List View if left empty) on the **Security Equivalent** type: a customer-balance report whose equivalent is Customer runs for anyone who may open the customer list. With **Custom**, they need the **Custom Capability** on that type instead. **None** skips this check.
+
+A refusal reads *You are not allowed to run the report {0}* when it comes from the grid. The global configuration option **Allow Report If User/Group/Security Profile Allowed Through Security Table Regardless Of Security** on the [Reports and Printing](/platform/global-config/global-config-reports#Report-definitions) tab makes an **Allow** line enough to list the report even where the other filters would hide it.
+
+Two fields look like security but are not. **For User** is used only when choosing which [printed form](/platform/reports/printed-form-selection) to print. It does not decide who may run a report from the menu. **Allow Run Report Without Authentication** decides whether the report may be opened through a [no-login link](#Sharing-a-report-with-someone-who-has-no-login). Such a link skips every check above, and without the tick it is refused with *You can not run this report without authentication*.
+
+To control who sees the rows *inside* a report, see [Limiting what each user sees](#Limiting-what-each-user-sees).
+
+![The security grid of a report definition: one Allow line for a security profile, one Prevent line for a user](../../ar/platform/images/reports/report-definition-security-tab-en.png)
+
+![The Security Equivalent and Security Type fields of a report definition](../../ar/platform/images/reports/report-definition-security-type-en.png)
+
+## System reports
+
+A **system report** is one of the reports and printed forms that Namasoft ships ready-made. It has **System** ticked on the **Advanced** tab. They are filed under groups such as *System Reports - Accounting*. Each one gets that group's capability as its **View Capability**, so a user needs that capability in their security profile, or full authority, to run it. The **View System Reports** flag on a security profile grants only the general *System Reports* capability, which covers just the system reports filed without a group.
+
+**Where they come from.** **Update System Reports** downloads the current catalogue from Namasoft's server, so the server needs internet access. You find it on the utilities page under *System Update*, or in the More menu of the Report Definition screen after pressing **Ctrl + Alt + X** (see [Keyboard shortcuts](/platform/everyday-tools/shortcuts)). It asks for confirmation. For every module you have installed it creates the reports you are missing. It also overwrites the existing ones: their layout, type, security type, names and group. Your own **Security Capability Types** lines, **For User** and **Report Groups** survive. Afterwards it deletes the system reports whose module is no longer installed or that Namasoft has withdrawn, and removes system groups left empty. The same run also refreshes the shipped notifications, dashboards, tooltips and scheduled tasks.
+
+**Changing one.** The design of a system report is frozen. Saving a change to it is refused — see [Messages you may see](#Messages-you-may-see). Use **Duplicate** instead: the copy is your own report, with **System** cleared, and for printed forms a non-system form always [beats a system one](/platform/reports/printed-form-selection#The-order-the-survivors-are-tried-in). A report of your own that carries a system report's code is overwritten by the next update and turned back into a system report. That happens to a report converted with **Allow Change System Report To Non System**, for instance. The only exception is when **Do Not Update Report That Is Not a System Report but Has the Same Code** is on in the global configuration.
+
+**Deleting one.** Deleting a system report is allowed, but it does not last: the next update creates it again. To keep a shipped report away from people, add **Prevent** lines to its security grid instead.
 
 ## How a form knows which record to print
 
@@ -587,7 +620,7 @@ Two things escape the rewrite. A date prompt declared as a `list` is never touch
 
 - **Never** — leave the user's answer alone.
 - **Always** — replace it with the login dimension every time, so the prompt becomes decoration.
-- **When Not Public** — replace it *unless* the user is logged into a composite dimension and answered with that dimension itself or one of the dimensions beneath it. A user logged into the public dimension is never overridden. This is the setting for letting the manager of a [composite branch](/platform/dimensions-and-composite-dimensions) report across the branches underneath it, and no further.
+- **When Not Public** — replace it *unless* the user is logged into a composite dimension and answered with that dimension itself or one of the dimensions beneath it. A user logged into the public dimension is never overridden. This is the setting for letting the manager of a [composite branch](/platform/shared-master-files/dimensions-and-composite-dimensions) report across the branches underneath it, and no further.
 
 ## Publishing several variants of one report
 
@@ -700,6 +733,8 @@ NamaRep.repLinkByCode($P{REPORT_PARAMETERS_MAP}, "ARG000046-report")
 
 The builder behind this — passing parameters, passing references, copying the current report's parameters across — is documented on the [NamaRep expression reference](/platform/reports/reports-namarep-reference).
 
+The link works only for a report that has **Allow Run Report Without Authentication** ticked. It then skips every check in [Who may run a report](#Who-may-run-a-report). The answers to the report's prompts travel inside the link itself, so tick it only on a report that is safe for anyone holding the link to rerun with different answers.
+
 ::: tip Publishing a printed form for customers to fetch themselves
 A public link only helps if you have somewhere to send it. Nominate the printed form the public link should render in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-integrations) — that is where you say which layout a public invoice link opens, so a customer following a link from an e-mail or a QR code downloads exactly the form you intended, without an account.
 :::
@@ -770,7 +805,7 @@ Everything you can call from inside a report expression — names and translatio
 
 ## Messages you may see
 
-Refusals raised when you save a report definition.
+Refusals raised when you save or run a report definition.
 
 | Message | Why | What to do |
 |---|---|---|
@@ -778,3 +813,5 @@ Refusals raised when you save a report definition.
 | *Report Group {0} can not be repeated* — «مجموعة التقارير {0} لا يمكن تكرارها» | The same report group appears twice in the report's groups grid. | Delete the duplicate row — one group per report, once. |
 | *You can not make changes to the report {0} because it is a system report.* — «لا يمكن تعديل التقرير {0} لأنه تقرير نظامي.» | A frozen part of a report shipped with Nama was changed: its entity, book, term, report type, page, order, view, security equivalent, base report, scriptlet, or the content of the layout, its subreports or its resources. Code, names, groups and the report's own security lines are *not* frozen. | Copy the report into one of your own and change the copy. If the original really must change, an administrator can enable **Allow Change System Report To Non System** in the global configuration — after which upgrades no longer refresh it. |
 | *Can not change system reports* — «لا يمكن تعديل أو إنشاء التقارير النظامية» | A brand-new report was saved with **System** already ticked. Only the shipped set may be system reports. | Untick **System** and save it as your own report. |
+| *You are not allowed to run the report {0}* — «لا تملك الصلاحيه لتشغيل هذ التقرير {0}» | The report's security grid shuts this user out: a **Prevent** line names them, their profile or their group, or the grid holds only **Allow** lines and none of them matches. | Add an **Allow** line for the user, their profile or their group — see [Who may run a report](#Who-may-run-a-report). |
+| *You can not run this report without authentication* | A no-login link was opened for a report that does not have **Allow Run Report Without Authentication** ticked. This message has no Arabic translation and shows in English on Arabic screens. | Tick the option on the report, if the report is really meant to be public. |

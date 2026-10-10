@@ -107,7 +107,7 @@ The **Billing** page holds the payment schedule. Marina Plaza pays quarterly:
 The contract is refused if the payment-schedule lines do not sum to exactly the money net value. That is a genuine, useful validation — if the contract will not save, add the schedule up first.
 :::
 
-The buttons on that page — **Generate Payments**, **Generate Receipt Voucher For Selected Payments**, **Generate Receipt Voucher** and **Collect Receipt Vouchers** — are the standard payment-schedule helpers. Generating a receipt voucher opens a pre-filled voucher that you review and save; nothing is created behind your back.
+The two buttons on that page — **GeneratePayments** and **Generate Receipt Voucher For Selected Payments** — are the standard payment-schedule helpers; see [Actions on this screen](#Actions-on-this-screen). The receipt voucher opens pre-filled for you to review and save; nothing is created behind your back.
 
 ## What Committing the Contract Does
 
@@ -156,6 +156,27 @@ Because the generated contract is a copy, it arrives with the same totals as the
 The last page of the contract is a read-only list of the **Maintenance Visit** documents that point back at it. It fills up as visits are typed, and each one raises the header's *number of performed visits* — `MC-0021` goes from 0 to 1 when `MVIS-0055` is saved on 1 April 2026.
 
 It is a genuinely useful "has anyone actually been there?" view, with one honest caveat: nothing generates those visit documents, so the counter only reflects the trips somebody bothered to type in. See [Maintenance Visits](/modules/crm/maintenance-cycle/crm-maintenance-visits.md).
+
+## Actions on this screen
+
+**Main page:**
+
+- **Collect All Machines Related To The Customer** (*تجميع كل الألات المرتبطة بالعميل*) — replaces the
+  Machines grid with every machine of the header customer that is not a sub-machine of another,
+  carrying each one's building, floor and room. It is refused when the customer is empty.
+- **Generate Work Plans** (*إنشاء خطط عمل*) — builds the work plans from the machine lines' visit
+  types, saves them and refreshes the contract; see [Generating the Work Plans](#Generating-the-Work-Plans).
+  The contract must be saved first.
+
+**Billing page:**
+
+- **GeneratePayments** (*إنشاء الدفعات*) — splits the net value into an instalment schedule. It asks
+  for the number of payments, the period between them and its unit, the start date, a grace period,
+  down / first / second / last payment values and a rounding mode. The English label ships as the
+  raw name shown here.
+- **Generate Receipt Voucher For Selected Payments** (*إنشاء سند قبض للدفعات المختارة*) — opens an
+  unsaved receipt voucher for the instalment lines you ticked. It is refused when no line is
+  selected, or when none of the selected lines has a remaining value.
 
 ## Reporting
 

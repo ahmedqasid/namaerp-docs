@@ -35,8 +35,8 @@ entities: [ScreenModifier, QuickFilterCriteria]
 تظهر الفلاتر السريعة كأزرار تفاعلية في أعلى قوائم المستندات، وتعرض أكثر القيم شيوعًا للحقول المحددة:
 
 - **النقر على الزر**: يطبّق الفلتر فورًا على الجدول
-- **الألوان**: تتغير حسب نوع البيانات (أخضر للمدفوع، أحمر لغير المدفوع)
-- **العداد**: يعرض عدد السجلات والنسبة المئوية
+- **الألوان**: زر القيمة من قائمة خيارات أو من نوع نعم/لا يأخذ اللون المضبوط لتلك القيمة، وغيره يأخذ لون الواجهة
+- **العداد**: إذا عُلِّم **Show Count** في المجموعة، يعرض عدد السجلات ونسبتها المئوية
 
 #### 3. استخدام الفلاتر المخصصة
 
@@ -69,8 +69,8 @@ entities: [ScreenModifier, QuickFilterCriteria]
    - **Show Count**: فعّل هذا الخيار لعرض عدد السجلات
    - **Max Button Count**: حدد الحد الأقصى لعدد الأزرار (عادةً 5-10)
    - **Remove**: ضع علامة هنا لإخفاء/إزالة مجموعة فلتر سريع (مفيد للتجاوز عند الإرث من إعدادات أخرى)
-   - **Quick Filter Values Criteria**: اختر [تعريف معايير](/ar/platform/criteria-definitions) لتصفية القيم التي تظهر في أزرار الفلتر السريع
-   - **Quick Filter Values Dynamic Criteria**: أدخل نص المعايير مباشرة لتصفية القيم المعروضة (يستخدم نفس صياغة [Text Criteria](../text-criteria-guide.md))
+   - **Quick Filter Values Criteria**: اختر [تعريف معايير](/ar/platform/automation-and-rules/criteria-definitions) لتصفية القيم التي تظهر في أزرار الفلتر السريع
+   - **Quick Filter Values Dynamic Criteria**: أدخل نص المعايير مباشرة لتصفية القيم المعروضة (يستخدم نفس صياغة [Text Criteria](../automation-and-rules/text-criteria-guide.md))
 
 ##### تصفية قيم الفلتر السريع
 يمكنك التحكم في القيم التي تظهر في أزرار الفلتر السريع باستخدام المعايير. تُصفّي هذه المعايير استعلام قاعدة البيانات الذي يجلب القيم المتمايزة، ويمكن تطبيقها على **أي عمود في الجدول** — وليس فقط العمود المعروض في الفلتر السريع.
@@ -91,8 +91,8 @@ entities: [ScreenModifier, QuickFilterCriteria]
    - أنشئ سجلًا جديدًا لنوع الكيان المستهدف
 
 2. **إضافة سطور المعايير**:
-   - **Dynamic Criteria**: أدخل نص المعايير (مثل `dueDate,LessThanOrEqual,$today()'`)
-     - لمزيد من التفاصيل راجع: [Text Criteria Guide](../text-criteria-guide.md)
+   - **Dynamic Criteria**: أدخل نص المعايير (مثل `dueDate,LessThanOrEqual,$today()`)
+     - لمزيد من التفاصيل راجع: [Text Criteria Guide](../automation-and-rules/text-criteria-guide.md)
    - **العنوان بالعربية**: العنوان بالعربية
    - **English Title**: Title in English
 

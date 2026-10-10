@@ -58,6 +58,13 @@ For *Add* and *Delete*, and for *Edit*, the code has to be findable — if the c
 
 **5. Save and commit.** On commit the document rebuilds the contract's term list: it writes the snapshot back first, re-establishing the pre-amendment state, then applies your Add, Edit and Delete lines on top, then sets the contract's end date from *Updated End In* if you filled it, and re-commits the contract. If both the *Terms* and the *Conditions* grids are empty, nothing happens at all — an update document with no lines is a no-op.
 
+## Actions on this screen
+
+The three buttons sit on the **Terms and Conditions Before Edit** page, above the snapshot grid:
+
+- **Select All Lines** and **Unselect All Lines** — tick or clear the selection box on every line of the "before" terms grid.
+- **Copy Lines To Editable Terms** — copies the ticked "before" lines into the editable terms grid on the main page, stamping each with the header's **Edit Type** when one is set. If the editable grid is empty the copied lines replace it; otherwise they are added under what is there. With nothing ticked you are asked to select rows.
+
 ## The Tower A variation order, end to end
 
 The contract before, with the quantities the two certificates have already billed:

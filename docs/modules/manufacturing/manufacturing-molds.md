@@ -18,6 +18,10 @@ The list view is the tooling register — every mold you hold, with its status.
 
 ![The manufacturing mold list view](../../ar/modules/manufacturing/images/molds/mold-list-en.png)
 
+::: info Required license
+Molds are part of the `manufacturing-molds` license, a sub-license of the Manufacturing module. It covers the five screens under **Manufacturing → Manufacturing Molds**. Without it that menu does not appear, even when the core `manufacturing` license is on.
+:::
+
 ## The Mold Master File
 
 **Code** and **Name1 / Name2** identify the tooling — `MLD-001`, AC Bracket Press Die.

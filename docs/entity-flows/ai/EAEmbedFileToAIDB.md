@@ -1,13 +1,12 @@
 ---
 title: EAEmbedFileToAIDB
 module: ai
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAEmbedFileToAIDB
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

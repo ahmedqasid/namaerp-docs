@@ -25,11 +25,13 @@ The same period record also exists as its own standalone entity at **Payroll > S
 Two ordinary periods can share the same **Aggregated Period Code**, which lets reports and aggregated documents roll several periods up under one label — for example, treating two half-month runs as a single reporting month. It doesn't change how salary is calculated; it only affects how periods are grouped afterwards.
 :::
 
-Three actions sit on the HR Year screen:
+### Actions on this screen
 
-- **Close Periods** (غلق الفترات) — locks the selected periods (their status becomes Closed), which blocks further salary generation against them. This is the safety switch once a month's payroll is finalized. Every payroll document that names a closed period is refused with *Hr period {0} is closed* — «فترة الرواتب {0} حالتها مغلقة» — salary sheets, payslips, loans and increases alike, so this one message on a payroll screen almost always means "someone closed the month".
-- **Open Periods** (فتح الفترات) — reverses that, for the rare case a closed period needs a correction.
-- **Create Next HR Year** (إنشاء سنة الرواتب التالية) — rolls a brand-new year (and its periods) forward automatically, so payroll admins don't rebuild the calendar from scratch every year.
+Three buttons sit on the HR Year screen, above the periods grid. The first two act on **every** period in the grid at once; to close or reopen a single month, change that line's **Status** by hand instead. Either way, the change only counts once you save the year.
+
+- **Close Periods** (غلق الفترات) — sets every period's status to Closed, which blocks further salary generation against them. This is the safety switch once the year's payroll is finalized. Every payroll document that names a closed period is refused with *Hr period {0} is closed* — «فترة الرواتب {0} حالتها مغلقة» — salary sheets, payslips, loans and increases alike, so this one message on a payroll screen almost always means "someone closed the month".
+- **Open Periods** (فتح الفترات) — sets every period back to Opened.
+- **Create Next HR Year** (إنشاء سنة الرواتب التالية) — opens a new HR Year one year on: same HR calendar, start and end dates moved forward a year, coded with the new year's number, and a copy of every period (dates, days in month and aggregated period code carried over, codes and names regenerated). The new periods start **Closed**, so open the ones you are about to use before running payroll. The current year must be saved first, and the new one is not stored until you save it.
 
 ## Salary Issuance: a payroll-stream tag, not a payment
 

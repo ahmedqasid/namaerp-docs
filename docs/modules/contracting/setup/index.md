@@ -10,6 +10,7 @@
   - [Phases and Work Areas](/modules/contracting/setup/contracting-phases-and-work-areas.md)
   - [Contract Templates](/modules/contracting/setup/contracting-contract-templates.md)
   - [Contractors and Consultants](/modules/contracting/setup/contracting-contractors-and-consultants.md)
+  - [Modify Contractor Info Request](/modules/contracting/setup/contracting-modify-contractor-info-request.md)
   - [Units, Tasks and Other Lookups](/modules/contracting/setup/contracting-lookups.md)
 
 </div>

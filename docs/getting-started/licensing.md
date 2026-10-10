@@ -22,7 +22,7 @@ Restoring the database on another server does not carry the licence with it. The
 | **POS machines** | Active POS **Register** records beyond the licensed count are refused. Captain Order sub-registers have a count of their own. Inactive registers do not count. |
 | **Magento sites** | Active Magento sites beyond the licensed count are refused. |
 
-The limit on users signed in at the same time is the licence's. Inside it, you can set tighter limits of your own for groups of users with a **Users Counter** record — see [Users and Login](/platform/security/users-and-login).
+The limit on users signed in at the same time is the licence's. Inside it, you can set tighter limits of your own for groups of users with a **Users Counter** record — see [Users Counter and Capability Types](/admin/users-counter-and-security-capabilities).
 
 ## Reading your licence
 
@@ -66,7 +66,7 @@ A licence says what the installation *may* use. A company often uses less, and a
 - **Unused Entities** — screens to hide.
 - **Unused Features** — features to hide: every field, grid, button and screen that belongs to the feature goes with it.
 
-Both grids appear on the **Legal Entity** screen and on the **Configuration Group** screen (*Administration → Settings → Configuration Group*). A legal entity follows its own grids plus those of the configuration group it names, so a group is the way to apply one set to several companies.
+Both grids appear on the **Legal Entity** screen and on the **Configuration Group** screen (*Administration → Settings → Configuration Group*). A legal entity follows its own grids plus those of the configuration group it names. There is only one configuration group (`default`) and every company names it, so a line there applies to every company at once — see [System Settings and Configuration Group](/admin/system-settings-and-configuration-group).
 
 What gets hidden:
 
@@ -134,7 +134,7 @@ A screen reached but refused on save with *The user {0} level ({1}) does not inc
 
 ## Messages you may see
 
-Only the support-contract and POS messages have an Arabic translation; the others appear in English in both languages. The concurrent-user and legal-entity messages raised at login are listed under [Licence, users and login](/platform/messages-and-refusals#Licence-users-and-login).
+Only the support-contract and POS messages have an Arabic translation; the others appear in English in both languages. The concurrent-user and legal-entity messages raised at login are listed under [Licence, users and login](/platform/documents-and-records/messages-and-refusals#Licence-users-and-login).
 
 | Message | Why | What to do |
 |---|---|---|

@@ -242,4 +242,4 @@ https://portal.example.com/customers/{code}?class={customerClass.code}
 - **[تعديلات شاشة التعديل](/ar/platform/screen-modifier/screen-modifier-edit-screen.md)** — بقية جداول
   السجل نفسه.
 - **[دليل لغة تِمبو](/ar/admin/tempo.md)** — لغة القوالب كاملة، والمُنشئ من ضمنها.
-- **[أزرار كل شاشة](/ar/platform/screen-buttons.md)** — الأزرار القياسية التي سيقف زرّك الجديد بجوارها.
+- **[أزرار كل شاشة](/ar/platform/everyday-tools/screen-buttons.md)** — الأزرار القياسية التي سيقف زرّك الجديد بجوارها.

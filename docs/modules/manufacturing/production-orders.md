@@ -27,6 +27,10 @@ Think of a production order as a work packet that contains everything needed for
 
 The beauty is that most of this information is automatically filled in based on your master data. You select a product and quantity, and the system does the heavy lifting of calculating materials, operations, and resources.
 
+::: info Required license
+Production orders and aggregated production orders are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## Creating Your First Production Order
 
 Let's walk through actually creating a production order to see how it all comes together.
@@ -189,24 +193,21 @@ It also handles tricky scenarios like:
 
 Before production can start, you need to identify which actual inventory you'll use. If you track by lot numbers (common in food, pharma, chemicals), this is critical for traceability.
 
-Nama ERP has "Collect Lots" functionality. You tell it which component you need, and it searches your inventory for available lots. It can apply rules like FIFO (First In, First Out) or FEFO (First Expired, First Out). You review the suggestions and approve them.
-
-Similarly, if you track items by boxes or pallets, there's "Collect Boxes" functionality.
-
-Once you know which lots you're using, you can create **Reservation Documents** to lock that inventory for this production order. This prevents the warehouse from shipping that material to customers or using it for another order.
+The components tab carries two buttons for this. **Collect Lots** (تجميع الشحنات) fills in lot numbers on the component lines from the stock available in the header's warehouse and locator; it first asks whether to clear the lots already on the lines. **Create Reservation Document For Quantities** (إنشاء سند حجز للكميات) opens a new **Reservation Document** in a pop-up, already filled with one line per component — item, quantity, dimensions and dates — so you can save it and hold that stock for this order. The order must be saved before this second button works.
 
 You might also create Material Issues at this stage to physically move materials from the warehouse to the shop floor, ready for production. Or you might wait and issue materials as each operation needs them. It depends on your factory's workflow.
 
 ### Starting the Order
 
-When everything's ready, you click the **Start Production** button. This is significant because:
+When everything's ready, press **Start Production Order** (بدء أمر الإنتاج). The button sets the order's status to **In Progress** on screen; **save** the order to make it stick. A closed or terminated order refuses with *This order is closed or terminated* — «هذا الأمر انتهي او تم اغلاقة».
 
-1. The order status changes from "Initial" to "In Progress"
-2. The BOM and routing structure gets locked - you can't add/remove components or operations anymore
-3. The system records the actual start date
-4. Shop floor personnel can now start recording work against this order
+From then on, unless the production order term allows it with **Allow Editing Routing And Bom After Starting Production Order**, saving the order with changed component, routing or routing-resource lines is refused with one of:
 
-If you realize you made a mistake and need to go back, there's a **Cancel Start** action - but it only works if no production has been executed yet and no downstream documents have been created.
+- *Can not modify component lines* — «لا يمكن تغير سطور مكونات المنتج»
+- *Can not modify routing lines* — «لا يمكن تغيير سطور سطور عمليات التشغيل»
+- *Can not modify routing resource lines* — «لا يمكن تععديل سطور موارد التشغيل»
+
+To go back, use **More → Cancel Start Production Order** (إلغاء بدء أمر الإنتاج) and save. It is refused with *Can not revert to initial, there are documents depend on it* — «لا يمكن لهذا الأمر أن يرجع لحاله بإنتظار المعالجة لأن هناك مستندات تعتمد عليه» — as soon as any document has been raised against the order: an execution, an issue, a delivery.
 
 ### Production Execution
 
@@ -351,6 +352,16 @@ If you're running a weekly planning cycle and have dozens or hundreds of small r
 It's a time-saver for high-volume, make-to-stock environments.
 
 The system can even merge similar lines. If you have three separate requirements for the same product in the same week, it can combine them into one larger production order.
+
+The aggregated order's own buttons, under **Manufacturing → Documents → Aggregated Production Order**:
+
+- **Collect Production Order Requests** (تجميع طلبات أوامر الإنتاج) adds to the **Details** grid every production order request that has not yet become a production order and falls inside the ranges in the header — request code, value date, item, legal entity, branch, sector, department and analysis set. Requests already on the grid are skipped. With **Merging Similar Lines** ticked, requests that describe the same line are combined into one.
+- **Spread Required Quantities Lines** (فرد سطور الكميات المطلوبة) works the other way round: it reads the **Required Quantities** tab, adds the quantities up per item and rewrites the **Details** grid with one line per item.
+- **Collect Raw Materials** (تجميع الخامات الخاصة بأوامر الإنتاج) needs a saved document. For every item on the Details grid it walks down the item's default BOM, level by level, and fills two grids: **Manufactured Materials** for intermediate items that have a BOM of their own, and **Final Raw Materials** for the purchased materials at the bottom. It saves the document when it finishes.
+
+To take started orders back to Initial in bulk, select the aggregated orders in their list and use **More → Cancel Start Aggregated Production Order** (إلغاء بدء أمر الإنتاج المجمع).
+
+![The Main tab of an Aggregated Production Order with its three buttons](../../ar/modules/manufacturing/images/production-order/aggregated-production-order-en.png)
 
 ## Common Workflows
 

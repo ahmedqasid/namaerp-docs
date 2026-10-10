@@ -1,13 +1,12 @@
 ---
 title: EAUpdateExtractsEffectsOnPaymentDocs
 module: contracting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAUpdateExtractsEffectsOnPaymentDocs
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

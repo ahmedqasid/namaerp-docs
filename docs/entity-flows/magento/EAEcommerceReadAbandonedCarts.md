@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceReadAbandonedCarts
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceReadAbandonedCarts
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

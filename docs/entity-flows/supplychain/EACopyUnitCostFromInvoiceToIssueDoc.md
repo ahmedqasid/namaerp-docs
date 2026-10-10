@@ -1,14 +1,13 @@
 ---
 title: EACopyUnitCostFromInvoiceToIssueDoc
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACopyUnitCostFromInvoiceToIssueDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

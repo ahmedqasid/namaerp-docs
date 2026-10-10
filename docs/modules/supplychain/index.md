@@ -58,56 +58,76 @@ The Supply Chain module is large, so we've split it into related groups that fol
 
 Before you buy, sell, or store anything, you need to define **what** you deal in and **where** you keep it.
 
-- **[Understanding Inventory Items](./understanding-items.md)** — Items are the cornerstone: how you define them, classify them (by brand, category, color, size), track them by batch and serial number, and handle multiple units of measure.
-- **[Creating and Maintaining Items](./item-maintenance.md)** — The screens around the item card: opening requests, creating many items at once, the configuration profile that decides how an item is tracked, updating stocking policy, linking items to customers and suppliers, item relations, and storage allocation.
-- **[Item Classification Files](./item-classification-files.md)** — The master files behind the classification slots: item classes 1–10, sections and brands, colours and sizes, revisions, the size/colour matrix, and assortments.
-- **[Units of Measure](./units-of-measure.md)** — Units, unit groups, conversions and standard measures: choosing a base unit, and setting up an item you buy by the carton and sell by the piece.
-- **[Warehouses & Locators](./warehouses-and-locators.md)** — Where your stock physically lives: warehouses and their groups, locators within each warehouse, and linking items to their preferred warehouses.
-- **[The Anatomy of a Supply Chain Document](./the-document-screen.md)** — The parts every document screen shares — header, lines grid, dimensions, the term behind it, pricing and totals, sub-items, and the Collect/Apply pair — worked through the sales invoice.
+<LandingGrid>
+  <LandingCard icon="📦" title="Understanding Inventory Items" link="/modules/supplychain/understanding-items.md" details="Items are the cornerstone: how you define them, classify them (by brand, category, color, size), track them by batch and serial number, and handle multiple units of measure." />
+  <LandingCard icon="🛠️" title="Creating and Maintaining Items" link="/modules/supplychain/item-maintenance.md" details="The screens around the item card: opening requests, creating many items at once, the configuration profile that decides how an item is tracked, updating stocking policy, linking items to customers and suppliers, item relations, and storage allocation." />
+  <LandingCard icon="🏷️" title="Item Classification Files" link="/modules/supplychain/item-classification-files.md" details="The master files behind the classification slots: item classes 1–10, sections and brands, colours and sizes, revisions, the size/colour matrix, and assortments." />
+  <LandingCard icon="📏" title="Units of Measure" link="/modules/supplychain/units-of-measure.md" details="Units, unit groups, conversions and standard measures: choosing a base unit, and setting up an item you buy by the carton and sell by the piece." />
+  <LandingCard icon="🏬" title="Warehouses & Locators" link="/modules/supplychain/warehouses-and-locators.md" details="Where your stock physically lives: warehouses and their groups, locators within each warehouse, and linking items to their preferred warehouses." />
+  <LandingCard icon="🧾" title="The Anatomy of a Supply Chain Document" link="/modules/supplychain/the-document-screen.md" details="The parts every document screen shares — header, lines grid, dimensions, the term behind it, pricing and totals, sub-items, and the Collect/Apply pair — worked through the sales invoice." />
+</LandingGrid>
 
 ### Stock Movement
 
 Everything that enters your inventory, leaves it, or moves around inside it.
 
-- **[Receiving Stock](./receiving-stock.md)** — All the ways items enter your warehouse: stock receipts, opening balances, and initial receipts.
-- **[Issuing Stock](./issuing-stock.md)** — Issuing items to production, internal use, or writing off damaged goods.
-- **[Moving Stock Between Warehouses](./moving-stock.md)** — Two-sided stock transfers (issue and receipt) and aggregated transfers.
-- **[Stock Taking](./stock-taking.md)** — Physical counting through start/end stock-taking documents, electronic counting, and reconciling differences.
-- **[Inventory Costing & Revaluation](./inventory-costing.md)** — Cost revaluation, additional costs on receipts, and freezing cost at period close.
+<LandingGrid>
+  <LandingCard icon="📥" title="Receiving Stock" link="/modules/supplychain/receiving-stock.md" details="All the ways items enter your warehouse: stock receipts, opening balances, and initial receipts." />
+  <LandingCard icon="📤" title="Issuing Stock" link="/modules/supplychain/issuing-stock.md" details="Issuing items to production, internal use, or writing off damaged goods." />
+  <LandingCard icon="🔄" title="Moving Stock Between Warehouses" link="/modules/supplychain/moving-stock.md" details="Two-sided stock transfers (issue and receipt) and aggregated transfers." />
+  <LandingCard icon="📋" title="Stock Taking" link="/modules/supplychain/stock-taking.md" details="Physical counting through start/end stock-taking documents, electronic counting, and reconciling differences." />
+  <LandingCard icon="💲" title="Inventory Costing & Revaluation" link="/modules/supplychain/inventory-costing.md" details="Cost revaluation, additional costs on receipts, and freezing cost at period close." />
+</LandingGrid>
 
 ### Purchases
 
-- **[The Purchasing Journey](./purchasing-journey.md)** — The full purchase cycle: item request, quotation request, quotation, purchase order, receipt, purchase invoice, returns, and purchase price lists and comparisons.
-- **[How a Purchase Price Is Decided](./purchase-pricing.md)** — How a purchase price is arrived at: purchase price lists, vendor discounts and their eight slots, and invoice classification.
-- **[Purchase Forecast](./purchase-forecast.md)** — Estimating future needs based on sales history or other quantity sources.
+<LandingGrid>
+  <LandingCard icon="🛒" title="The Purchasing Journey" link="/modules/supplychain/purchasing-journey.md" details="The full purchase cycle: item request, quotation request, quotation, purchase order, receipt, purchase invoice, returns, and purchase price lists and comparisons." />
+  <LandingCard icon="🏷️" title="How a Purchase Price Is Decided" link="/modules/supplychain/purchase-pricing.md" details="How a purchase price is arrived at: purchase price lists, vendor discounts and their eight slots, and invoice classification." />
+  <LandingCard icon="🔮" title="Purchase Forecast" link="/modules/supplychain/purchase-forecast.md" details="Estimating future needs based on sales history or other quantity sources." />
+</LandingGrid>
 
 ### Sales
 
-- **[The Sales Journey](./sales-journey.md)** — From quotation to sales order to delivery to invoice, then returns and replacement.
-- **[Sales and Purchase Operations Documents](./sales-operations-documents.md)** — The small documents around the sales cycle: shortages, replacement requests, reservation cancellation, salesman and status changes, sales limits and discount updates.
-- **[Pricing, Offers & Coupons](./pricing-offers-and-coupons.md)** — Sales price lists, offers and free items, post-sales offers, coupons, and automatic pricing.
-- **[Offer Apply Rules](./offer-apply-rules.md)** — The reusable line filter that decides which lines of a document an offer or coupon is measured against, and what happens when it matches nothing.
-- **[Comprehensive Reservation System Guide](./reservation-system-guide.md)** — How the system reserves items for specific customers and tracks reserved quantities.
-- **[Delivery & Loading](./delivery-and-loading.md)** — Delivery and loading documents, delivery queues, driver setup, and pick rules.
+<LandingGrid>
+  <LandingCard icon="🤝" title="The Sales Journey" link="/modules/supplychain/sales-journey.md" details="From quotation to sales order to delivery to invoice, then returns and replacement." />
+  <LandingCard icon="🗂️" title="Sales and Purchase Operations Documents" link="/modules/supplychain/sales-operations-documents.md" details="The small documents around the sales cycle: shortages, replacement requests, reservation cancellation, salesman and status changes, sales limits and discount updates." />
+  <LandingCard icon="🎟️" title="Pricing, Offers & Coupons" link="/modules/supplychain/pricing-offers-and-coupons.md" details="Sales price lists, offers and free items, post-sales offers, coupons, and automatic pricing." />
+  <LandingCard icon="🎯" title="Offer Apply Rules" link="/modules/supplychain/offer-apply-rules.md" details="The reusable line filter that decides which lines of a document an offer or coupon is measured against, and what happens when it matches nothing." />
+  <LandingCard icon="🔒" title="Comprehensive Reservation System Guide" link="/modules/supplychain/reservation-system-guide.md" details="How the system reserves items for specific customers and tracks reserved quantities." />
+  <LandingCard icon="🚚" title="Delivery & Loading" link="/modules/supplychain/delivery-and-loading.md" details="Delivery and loading documents, delivery queues, driver setup, and pick rules." />
+</LandingGrid>
 
 ### Specialized Sub-Modules
 
-- **[Assembly & Packaging](./assembly-and-packaging.md)** — Bills of materials (BOM), assembly documents, packaging methods, and processing.
-- **[Quality Control](./quality-control.md)** — Quality control and assurance documents, checklists, and integration with receiving and production.
-- **[Letters of Credit](./letters-of-credit.md)** — The letter-of-credit lifecycle: opening, shipments, costs, and expenses.
-- **[Weight Scale](./weight-scale.md)** — Weight scale configuration and the preparation documents tied to it.
-- **[Specialized Scenarios](./specialized-scenarios.md)** — Other cases such as glass job orders, automatic document-generation rules, and tenders.
+<LandingGrid>
+  <LandingCard icon="🧩" title="Assembly & Packaging" link="/modules/supplychain/assembly-and-packaging/" details="Bills of materials (BOM), assembly documents, packaging methods, and processing." />
+  <LandingCard icon="✅" title="Quality Control" link="/modules/supplychain/quality-control.md" details="Quality control and assurance documents, checklists, and integration with receiving and production." />
+  <LandingCard icon="📜" title="Letters of Credit" link="/modules/supplychain/letters-of-credit.md" details="The letter-of-credit lifecycle: opening, shipments, costs, and expenses." />
+  <LandingCard icon="⚖️" title="Weight Scale" link="/modules/supplychain/weight-scale.md" details="Weight scale configuration and the preparation documents tied to it." />
+  <LandingCard icon="🧪" title="Specialized Scenarios" link="/modules/supplychain/specialized-scenarios.md" details="Other cases such as glass job orders, automatic document-generation rules, and tenders." />
+</LandingGrid>
 
 ### Setting the Rules
 
 Everything above behaves the way two settings files tell it to. When the system does something you did not expect — a cost calculated differently, a quantity refused, a price picked from the wrong list — the answer is almost always in one of these.
 
-- **[Supply Chain Configuration](./configuration/)** — the single module-wide configuration file, with one reference page per tab: costing, overdraft and quantity checking, pricing and price lists, purchasing, sales and offers, stock taking, item properties, barcode specifications, and more.
-- **[Document Terms](./document-terms/)** — the term attached to each document type, which decides what it copies from its source document, how it tracks and reserves quantity, how it prices, taxes and discounts its lines, what it records in the general ledger, and which documents it generates. One reference page per tab.
+<LandingGrid>
+  <LandingCard icon="⚙️" title="Supply Chain Configuration" link="/modules/supplychain/configuration/" details="the single module-wide configuration file, with one reference page per tab: costing, overdraft and quantity checking, pricing and price lists, purchasing, sales and offers, stock taking, item properties, barcode specifications, and more." />
+  <LandingCard icon="📑" title="Document Terms" link="/modules/supplychain/document-terms/" details="the term attached to each document type, which decides what it copies from its source document, how it tracks and reserves quantity, how it prices, taxes and discounts its lines, what it records in the general ledger, and which documents it generates. One reference page per tab." />
+</LandingGrid>
+
+### Reports
+
+<LandingGrid>
+  <LandingCard icon="📊" title="Supply Chain and Sales Reports" link="/modules/supplychain/supplychain-reports.md" details="the catalogue of the shipped inventory, purchasing, sales and point-of-sale reports: item movement statements, balances and valuation, overdraft checks, purchase and sales detail, profitability, year comparisons and customer statements." />
+</LandingGrid>
 
 ### Questions & Answers
 
-- **[Supply Chain FAQ](./supply-chain-faq.md)** — the questions support is asked most about distribution, warehousing, sales and purchasing, each with a worked answer.
+<LandingGrid>
+  <LandingCard icon="❓" title="Supply Chain FAQ" link="/modules/supplychain/supply-chain-faq.md" details="the questions support is asked most about distribution, warehousing, sales and purchasing, each with a worked answer." />
+</LandingGrid>
 
 ::: info Point of Sale Has Its Own Module Now
 The Point of Sale (POS) guides have moved to the standalone [Point of Sale module](/modules/pos/). There you'll find the guides for fingerprint login, free items in POS, and technical points of use.
@@ -117,7 +137,9 @@ The Point of Sale (POS) guides have moved to the standalone [Point of Sale modul
 
 Some client requests change how a core part of the module behaves in ways worth explaining on their own. The **[Development Request Notes](./development-requests/)** section keeps the story behind those changes — the business problem, what the feature does, and when to enable it.
 
-- **[Ignoring Specific Warehouses or Locators in the Reservation Quantity Check by Date](./ignore-reservation-qty-check-by-date.md)** — how to keep a warehouse or locator out of the available balance the by-date check uses, for reservations only.
+<LandingGrid>
+  <LandingCard icon="📅" title="Ignoring Specific Warehouses or Locators in the Reservation Quantity Check by Date" link="/modules/supplychain/ignore-reservation-qty-check-by-date.md" details="how to keep a warehouse or locator out of the available balance the by-date check uses, for reservations only." />
+</LandingGrid>
 
 ## A Note About Document Types
 

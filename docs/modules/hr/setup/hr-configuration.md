@@ -213,7 +213,7 @@ Then three grids decide *when* regeneration is allowed, and they are the useful 
   Approval* — so that a downstream document that is still a draft need not block the payroll.
 
 Each grid row can carry a **Criteria** so the rule applies to some employees or documents and not
-others; criteria are written on [Criteria Definitions](/platform/criteria-definitions).
+others; criteria are written on [Criteria Definitions](/platform/automation-and-rules/criteria-definitions).
 
 The two templates, **Salary Documents Regeneration Notification Template**
 `value.regenSalaryDocsNotificationTemplate` and **Salary Documents Regeneration Failure Notification
@@ -498,9 +498,11 @@ employee code is matched within the legal entity as well, which is what you need
 in one database use overlapping employee numbers on their readers.
 
 **Attendance Machine Formula** `value.attendanceMachineFormula` — the parsing formula that turns a
-machine's raw log file into attendance lines, with around forty token buttons on the screen beside it
-(`hrfEmployeeID`, `hrfInDateTime`, `hrfAlternatingPunch`, `hrfSeparator` and the rest). The formula
-language has its own page: [Attendance Machine Formula](/modules/hr/attendance-machine-formula).
+machine's raw log file into attendance lines. The about forty buttons under it (**Employee ID**,
+**In Date Time**, **Alternating Punch**, **Separator** and the rest) are the only buttons on the HR
+configuration screen; each appends its token to the end of the formula. The formula language, and
+what every button inserts, has its own page:
+[Attendance Machine Formula](/modules/hr/attendance-machine-formula#The-buttons-under-the-formula-field).
 Machine setup is on [Attendance Machines](/modules/hr/attendance/attendance-machines).
 
 ## Logging and throughput
@@ -590,4 +592,4 @@ That is the product's behaviour, not a gap in this page.
 
 Messages raised by the generic layer on every screen — the draft and revised refusals, authority,
 licence, duplicate code — are on
-[Messages and Refusals](/platform/messages-and-refusals).
+[Messages and Refusals](/platform/documents-and-records/messages-and-refusals).

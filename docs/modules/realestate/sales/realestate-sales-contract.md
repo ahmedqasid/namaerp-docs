@@ -44,7 +44,7 @@ Just below the parties sits a small group of three read-only fields — the waiv
 
 ### The money
 
-The whole middle of page 0 — the price block, the installment-construction block, the *Multiple Construction Info* grid, the action buttons and the Installments grid — is the money model shared by every sales-family document. It has [its own page](/modules/realestate/sales/realestate-installment-plans.md), and it is the page to read before you fill anything here. In outline: the price block derives 1,200,000 from the areas and meter prices (or you type it), takes off the 240,000 down payment, adds fees and the maintenance deposit, and leaves a remaining value; the construction block describes how that remaining value becomes sixty lines; and **Create Installments** builds them.
+The whole middle of page 0 — the price block, the installment-construction block, the *Multiple Construction Info* grid, the action buttons and the Installments grid — is the money model shared by every sales-family document. It has [its own page](/modules/realestate/sales/realestate-installment-plans.md), and it is the page to read before you fill anything here. In outline: the price block derives 1,200,000 from the areas and meter prices (or you type it), takes off the 240,000 down payment, adds fees and the maintenance deposit, and leaves a remaining value; the construction block describes how that remaining value becomes sixty lines; and **Create installments** builds them.
 
 If your organisation publishes price books and payment templates, pick a **Sales Payment Method** and the whole plan arrives pre-filled — see [price lists and payment plan templates](/modules/realestate/sales/realestate-price-lists-and-payment-methods.md).
 
@@ -146,6 +146,39 @@ Tax marked as a deduction is held as a negative amount on the line and is booked
 The **Type** field offers *Contract* (عقد) and *Extension* (ملحق). An extension is an annex on an existing contract: an agreed price increase, an extra fee, a rescheduling. Choosing *Extension* makes the **Extension For** (مٌلحق ل) field mandatory — it points at the sales contract, opening sales contract or waiver being annexed — and choosing *Contract* requires that field to be empty.
 
 The important difference is behavioural: an extension **does not re-run the property bookkeeping**. It does not re-mark the estate, does not touch the reservation and does not rewrite the system entries. It only adds money lines to a contract that already exists. An extension dated on or after the date of a waiver on the contract it extends is rejected, and every extension shows up on the parent contract's *Related Records* page.
+
+## Actions on this screen
+
+The sales contract's buttons sit in the action block above the **Installments** grid, and nearly all of them work on the rows you have ticked in that grid. The same toolbar, or most of it, appears on every sales-family document — the offer, the reservation, the initial contract, the opening sale and the waiver — so this list is the reference the other pages point to.
+
+**Building and reshaping the plan:**
+
+- **Create installments** — the generator. Rebuilds the whole **Installments** grid from the price block, the construction block, the *Multiple Construction Info* grid and the fee lines; see [Building the Installment Plan](/modules/realestate/sales/realestate-installment-plans.md). It replaces every row, so use it before anything is collected.
+- **Select all installment lines** — ticks every row, ready for the buttons below.
+- **Merge installments** — early settlement. The ticked rows leave the grid and their value is spread over the remaining rows inside the code or due-date range you give, with an optional discount percentage spread over the same rows. Worked through on [Building the Installment Plan](/modules/realestate/sales/realestate-installment-plans.md).
+- **Create Fees** — on page 1, *Terms And Fees*: expands the **Fees Info Lines** into dated rows of the **Other Fees** grid, as described under *Fees and commissions* above.
+
+**Collecting the ticked rows** — each of these opens a new, unsaved document carrying the buyer and one installment line per ticked row. Rows with nothing remaining are skipped, and with no qualifying row ticked the button refuses with *Please select installment line with remaining value*:
+
+- **Create Receipt Voucher From Selected Line** — a receipt voucher for the total remaining value of the ticked rows.
+- **Create Bank Transfer From Selected Line** — a bank transfer for that total, with the buyer on the transfer line and the account taken from the buyer's main account.
+- **Create RE Return Payment Doc From Selected Line** — a [return payment document](/modules/realestate/collections/realestate-exemptions-and-returns.md) with one return line per ticked row, for money being handed back.
+
+**Working with commercial papers** — these four take only ticked rows that already carry a **Commercial Paper** (cheque or note); with none ticked they refuse with *Please select installment lines with commercial papers*. Each opens the named accounting document with one line per paper at the row's remaining value:
+
+- **Create A Bank Portfolio For Selected Installments** — a **Bank Portfolio**, to hand the cheques to the bank for collection.
+- **Create Postponed Bank Portfolio for Selected Installments** — a **Postponed Bank Portfolio**.
+- **Create A Partial Payment For Selected Installments** — a **Commercial Papers Partial Payment**, for a cheque that was only partly honoured.
+- **Create Notification For Selected Installment** — a **Bank Notice**.
+
+**Fines:**
+
+- **Create Fine Document** — opens a new [fine document](/modules/realestate/collections/realestate-fines.md) in a pop-up, linked to this contract in **Related To**, with the parties, the estate and its site copied across, and the contract's installment lines copied in (unless the fine's term has *Do Not Copy Installments With Related To* switched on).
+- **Create Fine Document From Selected Line** — the same, but only the ticked rows with a remaining value are copied in.
+
+Finally, each row of the **Installments** grid — and of the *Multiple Construction Info* grid — carries a **Create collect doc from selected line** button. It opens a new [collect document](/modules/realestate/collections/realestate-collect-documents.md) in a pop-up for the ticked installments, or for the row you pressed it on when nothing is ticked.
+
+![The sales contract's action block above the installments grid](../../../ar/modules/realestate/images/sales/re-sales-doc-actions-en.png)
 
 ## The validations you will actually meet
 

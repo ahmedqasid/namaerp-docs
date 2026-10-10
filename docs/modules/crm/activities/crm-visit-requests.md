@@ -43,9 +43,9 @@ Visit, and they are correctly kept off the screen. If a site puts them back with
 or fills them through an import, nothing will happen — this document has no write-back behaviour.
 :::
 
-## Convert To Visit
+## Actions on this screen
 
-One button, **Convert To Visit** (*تحويل إلى زيارة*). Pressing it opens a **new, unsaved Visit** in a
+One button, **Convert To Visit** (*تحويل إلى زيارة*), and the request must be **saved** first. Pressing it opens a **new, unsaved Visit** in a
 pop-up, pre-filled from the request with: the subject (Related To), escalated-to, visit date, start
 and end times, visit location, job, the three expense boxes, responsible employee, mediator, customer
 representative and status, plus the remarks lines and the employee lines copied row for row.

@@ -1,14 +1,13 @@
 ---
 title: EAPreventChangingFields
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAPreventChangingFields
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -1,14 +1,13 @@
 ---
 title: EAClearFromDateIfFromTimeEmpty
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAClearFromDateIfFromTimeEmpty
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

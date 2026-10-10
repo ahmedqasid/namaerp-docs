@@ -1,14 +1,13 @@
 ---
 title: EACollectStockDocsIfEmpty
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACollectStockDocsIfEmpty
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

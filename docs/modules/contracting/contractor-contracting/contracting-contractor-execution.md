@@ -95,6 +95,10 @@ You can also add lines by hand. Pick a term code (and a phase if the term has ph
 descriptive columns, unit price, unit cost, contracted quantity and previous quantity fill
 themselves; the phase picker is narrowed to the phases that term actually uses.
 
+## Actions on this screen
+
+- **Collect Terms** — loads the Executions grid from the subcontract named on the header, one line per term, so you only type this period's quantities.
+
 ## What the save checks
 
 Five things, and all five are worth understanding because each has a business reason:

@@ -1,14 +1,13 @@
 ---
 title: EAEmpAttendanceSysEntryCalculator
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEmpAttendanceSysEntryCalculator
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

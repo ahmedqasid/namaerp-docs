@@ -73,11 +73,22 @@ The **الحالة / Status** field offers *مبدئي / Initial*, *منتهي /
 It is a manual label. If your desk relies on it, put a step in your own procedure that says who updates it and when, because the system will not. (*Escalated* has no translation in either language and shows as a raw Latin word in the dropdown.)
 :::
 
-::: warning Escalate To is a field, not a state
-**تصعيد الي / Escalate To** stamps the chosen employee onto the complaint and immediately saves and commits it — the version stored on the server, so any unsaved edits on screen are lost. It does not change the status, does not notify the person named, and there is no queue of escalated complaints anywhere.
+::: warning escaleted to is a field, not a state
+**تصعيد الي / escaleted to** stamps the chosen employee onto the complaint and immediately saves and commits it — the version stored on the server, so any unsaved edits on screen are lost. It does not change the status, does not notify the person named, and there is no queue of escalated complaints anywhere.
 :::
 
 More broadly: **the complaint validates nothing.** Beyond the product check on Convert To Ticket, you can commit a complaint with no customer, no product, no type and no problem rows. Whatever discipline your desk needs has to come from your own procedure and, if necessary, from required-field settings you configure yourself.
+
+## Actions on this screen
+
+All four sit in the action block on the Basic Information tab; **Select** appears on each row of the Details grid.
+
+- **Search** (*بحث*) — refills the Details grid for the chosen customer, according to the **Source** field: lines of the customer's committed sales invoices, or of their committed service contracts. Pick the customer first.
+- **Select** (*إختيار*) — copies the row's source document into Invoice and its product into Product, and pulls the warranty, delivery and supplier details described in [Finding the product](#Finding-the-product).
+- **escaleted to** (*تصعيد الي*) — needs the complaint **saved** first; asks for an employee, then saves and commits the stored complaint with that name in it. See the warning above.
+- **Convert To Ticket** (*تحويلة إلي طلب دعم*) — needs the complaint **saved** first and a Product; opens a new, unsaved Trouble Ticket. See [Converting to a ticket](#Converting-to-a-ticket).
+
+![The complaint's action block, and the Details grid after Search with a Select button on each row](../../../ar/modules/crm/images/support/crm-complaint-actions-en.png)
 
 ## Do you need complaints at all?
 

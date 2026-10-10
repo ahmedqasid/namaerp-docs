@@ -1,14 +1,13 @@
 ---
 title: EAImportItemsFromLongTextField
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAImportItemsFromLongTextField
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -108,11 +108,11 @@ these:
   for "invoices over 100,000 print on the letterhead form": the condition lives on the form, not on
   the document.
 - **For User** — deliberately loose about what you put in it. It accepts a **user**, a **security
-  profile**, or a [master group](/platform/master-groups). Point it at a profile and every user
+  profile**, or a [master group](/platform/documents-and-records/master-groups). Point it at a profile and every user
   carrying that profile gets the form; point it at a master group and every user in the group does.
   Leave it empty and the form serves everyone.
 - **Dimensions** — the same five dimensions again, this time as a match rather than a filter, and
-  slightly more forgiving: a [composite dimension](/platform/dimensions-and-composite-dimensions) on the form that *contains* the record's dimension
+  slightly more forgiving: a [composite dimension](/platform/shared-master-files/dimensions-and-composite-dimensions) on the form that *contains* the record's dimension
   counts as a match, so a form set to a branch group covers every branch inside it.
 - **Menu Code** — a form carrying a menu code is taken only when the print request arrives with the
   same code. Almost all forms leave this empty.
@@ -139,7 +139,7 @@ part support most often gets wrong:
 
 - the global option **Allow Printing Drafts** in
   [Reports and Printing](/platform/global-config/global-config-reports), and
-- the same option on the record's **[document book](/platform/document-books)**, and
+- the same option on the record's **[document book](/platform/documents-and-records/document-books)**, and
 - the same option on the record's **document term**.
 
 The book and the term each override the global setting on their own. So "we do not allow draft
@@ -195,7 +195,7 @@ A successful print is not silent in the data.
 
 - The record's **Print Count** goes up by one. It is written as a step of its own, and it is the
   only marker that a record has ever been printed.
-- A **Print** entry appears in the record's [audit trail](/platform/audit-trail), naming the form
+- A **Print** entry appears in the record's [audit trail](/platform/governance/audit-trail), naming the form
   that was used. This is the fastest way to answer "which layout did the customer actually receive?"
   long after the fact — and where prints are counted per user, these are the entries the cap is
   measured against.

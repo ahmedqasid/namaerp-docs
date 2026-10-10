@@ -14,7 +14,7 @@ The cost is that a document can be saved and correct while its effects are missi
 happens, this is the screen that tells you why.
 
 ::: info Where to find it
-**Basic → Administration → Settings → Business Requests.** The neighbouring entry, **Saved Business
+**Administration → Settings → Business Requests.** The neighbouring entry, **Saved Business
 Requests**, is part of the same machinery and is covered further down.
 :::
 
@@ -166,5 +166,5 @@ usually this.
 - [Pending Tasks](/platform/background-processing/pending-tasks) — the outbound message queue, a
   different queue with a similar screen
 - [Report Monitoring](/platform/background-processing/report-monitoring) — watching reports run
-- [Fiscal Period Control](/platform/fiscal-period-control-guide) — the closed-period rule behind a
+- [Fiscal Period Control](/platform/governance/fiscal-period-control-guide) — the closed-period rule behind a
   large share of failed accounting requests

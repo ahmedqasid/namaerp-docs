@@ -1,14 +1,13 @@
 ---
 title: SQLImporterFromDifferentDataSource
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # SQLImporterFromDifferentDataSource
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

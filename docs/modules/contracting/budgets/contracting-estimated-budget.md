@@ -104,6 +104,23 @@ On top of that, the conditions grid is validated the way a contract's is, and th
 Not one of them compares a quantity or a value against anything. A budget will happily save with lines whose costs bear no relation to the contract, and saving it never stops any other document from being raised. If you are looking for the answer to "does the budget stop overspending?", it is on [Budget Item Requests](/modules/contracting/budgets/contracting-budget-item-requests.md) — and the short version is that the budget itself blocks nothing.
 :::
 
+## Actions on this screen
+
+Every button on the budget sits on the **Terms** page.
+
+- **Collect Executive Budget Terms** — replaces the terms grid with a copy of every term line of the paired executive budget (see the warning above).
+- **Convert Contract** — opens a new, unsaved project contract built from this document's terms and conditions, for you to review and save. The document must be saved first.
+- **Convert Contract With Selected Lines Only** — the same, carrying only the term lines you ticked.
+- **Convert Contractor Contract** and **Convert Contractor Contract With Selected Lines Only** — the same pair, producing a subcontract instead.
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+
+Above the cost grids:
+
+- **Collect Contract Items From Standard Terms** — explodes every term line into its cost ingredients: it reads each line's standard term, scales the term's cost recipe to the line's quantity (allowing for waste and productivity) and routes each row into the Material, Workers, Contractors or Other Expenses grid. It also fills any empty term codes first.
+- **Collect Sub Items Cost** — the reverse: sums those four cost grids by term code and writes the result back onto each term line as its total cost and unit cost.
+- **Create Sales Offer for Selected Items**, **Create Contracting Purchase Order for Selected Items** and **Create Material Issue Order for Selected Items** — each opens a new, unsaved contracting offer, miscellaneous contracting order or project material issue in a pop-up, carrying the rows you ticked in the cost grids. With nothing ticked you are asked to select rows.
+
 ## Turning a budget into a contract
 
 The four *Convert* buttons above the terms grid — to a project contract, to a subcontract, and the two "selected lines only" variants — are the same actions an offer or an assay carries. Each opens a new, unsaved contract pre-filled from this budget's header and term lines, for you to review and save. It is a genuine route into the contract chain, useful when the budget was built before anything was signed, and it explains why a budget can exist with no Project Contract of its own: it may be the thing the contract came from rather than the thing that describes it.

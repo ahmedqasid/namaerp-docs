@@ -1,5 +1,5 @@
 ---
-entities: [OrderCloseVoucher, OverheadType, ActualOverheadCalculator]
+entities: [OrderCloseVoucher, OverheadType, ActualOverheadCalculator, ActualProductionOverhead]
 menu: Manufacturing → Documents → Order Close
 ---
 # Production Costing: Following the Money
@@ -17,6 +17,10 @@ This is what production costing is all about. It's the financial truth-telling p
 You'll find the main document under **Manufacturing > Documents > Order Close** (التصنيع > المستندات > إغلاق أمر إنتاج).
 
 ![The order close voucher screen](../../ar/modules/manufacturing/images/order-close/order-close-en.png)
+
+::: info Required license
+Order close, overhead types and the actual overhead calculator are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
 
 ## Understanding Manufacturing Costs: The Three Buckets
 
@@ -166,6 +170,18 @@ Order A: 200 hours → gets charged $15,200 × (200/1900) = $1,600
 Order B: 500 hours → gets charged $15,200 × (500/1900) = $4,000
 Order C: 300 hours → gets charged $15,200 × (300/1900) = $2,400
 ```
+
+#### Running it: the Actual Production Overhead document
+
+The calculator is only the recipe. The run itself is an **Actual Production Overhead** document, under **Manufacturing → Master Files → Actual Production Overhead** (التصنيع ← الملفات ← تكاليف الإنتاج الغير مباشرة الفعلية), and it is driven by three buttons used in order:
+
+1. Fill in the ranges — **From Term** / **To Term**, **From Book** / **To Book**, **From Date** / **To Date**, **From Period** / **To Period** — and press **Collect Production Orders** (تجميع أوامر الإنتاج). The **Details** grid fills with the order close vouchers in those ranges, each with its production order.
+2. Pick the **Actual Overhead Calculator**, save, and press **Calculate Overhead Values** (حساب قيمة التكاليف الغير مباشرة). The **Actual Overheads** grid is cleared and rebuilt with one line per calculator line, carrying the actual amount found, and the document is saved.
+3. Press **Distribute Actual Overhead values** (توزيع القيمة الفعلية للتكليف الغير مباشرة). The actual amounts are spread over the collected order close vouchers and each voucher is saved again, so its overhead and its accounting effect carry the actual figures.
+
+Both of the last two buttons simply refresh the screen when they finish. Check the **Actual Overheads** grid after the second, and open one of the close vouchers after the third, to confirm the figures landed.
+
+![An Actual Production Overhead document with its date range and Collect Production Orders button](../../ar/modules/manufacturing/images/order-close/actual-production-overhead-en.png)
 
 ## Closing Production Orders: The Final Reckoning
 

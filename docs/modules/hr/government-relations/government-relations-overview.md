@@ -134,6 +134,10 @@ here there is **no ledger effect to process** — they record facts and (for vis
 transactions) write dates back to the employee. The money itself is accounted for by the treasury
 payment that settles the fee, not by the request that logged it.
 
+## Actions on this screen
+
+The **Transaction Type**, the **Definition Letter** and the **HO Payment Request** have no buttons of their own; you fill them in and save.
+
 ## The rest of the toolkit
 
 The government-relations desk is spread across several focused pages, all sharing the pick-employee →

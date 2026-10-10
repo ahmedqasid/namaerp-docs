@@ -135,3 +135,13 @@ the fields of the car on its own lines.
 Everything else stays exactly where it was: no accounting is reversed (neither document posts
 anything to reverse), no stock moves, no reservation is released. For the broader pattern, see
 [Cancellation Documents](/modules/servicecenter/car-sales/car-cancellation-documents.md).
+
+## Actions on these screens
+
+The Car Allocation and the Car Allocation Cancel carry one action each, in the More menu:
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*) — for every line whose item
+  has sub items, creates the car record (or refreshes the one already on the line) from the line's
+  data and writes it back onto the line. The car record is saved straight away, even before you save
+  the document. It does nothing, and shows no message, unless the term's *Create Sub Item From Line
+  Info* option is on.

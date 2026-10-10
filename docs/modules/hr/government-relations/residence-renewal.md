@@ -125,6 +125,20 @@ the only thing that reaches out and changes something else in the system is the 
 Information** action, which is retried like any other business request if it fails — from the
 **Business Requests** view.
 
+## Actions on this screen
+
+Each of the two screens carries its own buttons, both explained in full above.
+
+**On the Residence Renew Request:**
+
+- **Update Employee Information** â€” writes the new residency and work-licence end dates onto the employee's file, after the paid / renewed / not-earlier checks described in [Writing the new dates back](#Writing-the-new-dates-back-Update-Employee-Information). The request must be saved first.
+- **Update Employee Information For Selected Lines** (list view, More menu) — the same update for every request you tick in the Residence Renew Request list, so a batch of renewals approved one by one can be written back in a single step.
+
+**On the Aggregated Residence Renew Request:**
+
+- **Collect Employees** â€” fills the **Details** grid with every employee whose residency ends by the document's date plus **Collect Only Residencies Expiring In (Days)**, skipping the nationalities the document term excludes and stopping at **Max Employees To Collect**. It replaces whatever the grid held.
+- **Update Employees Residence And Work Licence Info** â€” runs the same update as the single request, line by line. The document must be saved first.
+
 ## Related pages
 
 - [Government Relations Overview](./government-relations-overview) — the shared pick-employee →

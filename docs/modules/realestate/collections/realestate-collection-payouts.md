@@ -46,6 +46,15 @@ Commit posts one debit and one credit on the header total, exactly as the bank r
 
 So Ahmed's settlement is: pick Ahmed, press *Collect*, get every unpaid collection against his shops, see 42,000 in the total, commit — and next month those collections are gone from the sweep while any new ones appear automatically.
 
+## Actions on these screens
+
+Each of the two documents has one button, **Collect**, and both need the document saved first:
+
+- **On the pay request for bank** — fills the grid with the un-banked remainder of every collect document whose value date falls inside **From Date** / **To Date**. At least one of the two dates is required.
+- **On the pay request for owner** — fills the grid with the unpaid remainder of every collect document belonging to the chosen **Owner**. The owner is required.
+
+Neither button saves anything: review the rows, then save and commit.
+
 ## Where the two figures meet
 
 Because the two documents maintain two independent figures on the same collect document, a collection can be fully banked and not yet paid to its owner, or the reverse. That is intentional: banking is about where the cash physically sits, owner settlement is about who it belongs to. Reading them together on the collect document screen tells you the whole story of a single collection at a glance.

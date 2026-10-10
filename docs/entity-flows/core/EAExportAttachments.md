@@ -1,14 +1,13 @@
 ---
 title: EAExportAttachments
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAExportAttachments
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

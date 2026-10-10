@@ -285,9 +285,9 @@ Every business is different. So items have custom fields (numbers, true/false fl
 
 Each item can also carry several attachments: product images, technical specs, safety data sheets, supplier catalogs, and usage instructions - stored with the item definition and always available when needed.
 
-## Revisions and Version Control
+## Revisions
 
-In engineering and manufacturing, items can have **revisions**. Each revision has a version number, an effective date, a statement of what changed, and who approved it. This is critical when you improve a product design but need to support both the old and new versions during a transition period.
+When a product changes design but the old version is still in stock, switch **Has Revisions** on. The item then gets a revisions grid with one row per revision id, and no id may repeat. From then on every stock line for the item carries a revision next to its colour, size and batch, so the old and new versions are counted apart. A revision that already has stock movements cannot be deleted from the grid unless the supply chain option *Allow Delete From Item Revisions After Transactions* is on.
 
 ## Actions on these screens
 

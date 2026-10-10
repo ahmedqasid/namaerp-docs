@@ -1,14 +1,13 @@
 ---
 title: TimeAttendanceAddExtraHoursToEmpty
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # TimeAttendanceAddExtraHoursToEmpty
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

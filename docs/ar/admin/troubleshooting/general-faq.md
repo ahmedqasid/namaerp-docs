@@ -1,6 +1,9 @@
 <rtl>
 
 # أسئلة عامة 
+
+إجابات عن أسئلة دعم متكررة لا تخص شاشة واحدة: الخطأ الفارغ عند البحث بالعدسة، ومنح الصلاحيات على كل أنواع السجلات دفعة واحدة، وتثبيت SQL Server على أقراص SSD الحديثة، وإضافة لوحة النقاش إلى شاشة، وترميز رسائل SMS، وعدد من رسائل الخطأ وحلولها.
+
 <ServerBaseURL/>
 
 ### للبحث عن مستندات عن طريق العدسة بعض الأحيان يظهر خطأ فارغ
@@ -143,6 +146,43 @@ org.hibernate.query.sqm.PathElementException: Could not resolve attribute 'value
 ### الحل
 
 قم بإزالة العمود `valueDate` من الأعمدة الظاهرة في هذا التعديل العام (لكل الشاشات أو كل الملفات) أو قم بتحديد نوع الشاشة بدقة بحيث لا يتم تطبيق هذا التعديل على ملفات لا تحتوي على هذا الحقل.
+
+## فتح مصروف اعتماد أصل يفشل برسالة «لم يمكن تنفيذ العملية»
+
+ترفض الشاشة الفتح برسالة «لم يمكن تنفيذ العملية»، ويظهر في سجل الخادم:
+
+```log
+Could not extract column [19] from JDBC ResultSet [The conversion from nvarchar to NCLOB is unsupported.]
+```
+
+أعمدة الملاحظات في جداول سطور الأصول الثابتة ما زالت في قاعدة البيانات هذه بالنوع النصي القديم محدود الطول، بينما يقرؤها التطبيق الآن كنص طويل. وتوسيعها يحل المشكلة:
+
+::: details استعلام SQL لتوسيع أعمدة الملاحظات إلى NVARCHAR(MAX)
+```sql
+ALTER TABLE FACustodyScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOrderScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOfferScheduledPay ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAInitialReceiptScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAOpeningDocumentScheduleLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAInitialReceiptLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOfferLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOrderLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchOrderReqLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FALcExpenseLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FALCScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAReceiptDocLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAScheduleTemplateLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FATakingActualLine ALTER COLUMN remarks NVARCHAR(MAX);
+
+ALTER TABLE CustodyCustodianLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyDeliveryLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyDeliveryEmpLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyTransferFromLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyTransferToLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodianLine ALTER COLUMN remark NVARCHAR(MAX);
+```
+:::
 
 ## تنبيهات عند الدخول للنظام
 

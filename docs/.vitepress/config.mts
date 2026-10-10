@@ -34,7 +34,77 @@ const REDIRECT_CANONICAL_TARGETS = {
 const RETIRED_PAGE_REDIRECTS = {
     'field-filter-faq': '/platform/field-filtering/field-filter-with-criteria.html',
     'electronic-receipt-egypt-tax-eInvoice': '/modules/invoicing/egypt-einvoice-guide.html',
-    'egypt-einvoice-bank-details': '/modules/invoicing/egypt-einvoice-guide.html'
+    'egypt-einvoice-bank-details': '/modules/invoicing/egypt-einvoice-guide.html',
+    'screen-modifier-faq': '/platform/screen-modifier/screen-modifier-overview.html',
+    'approvals-faq': '/platform/approvals/approvals-system.html',
+    'ea-gen-entity-from-entity': '/entity-flows/core/EAGenerateEntityFromEntityAction.html',
+    'invoice-retriever': '/platform/fields-and-entities-settings/fields-settings-integrations.html',
+    'oracle-jdbc-connection': '/integration/system-integration-scenarios.html',
+    'mobile-apps-faq': '/modules/mobile/mobile-application-guide.html',
+    'database-error-related-faq': '/admin/troubleshooting/general-faq.html',
+    'real-estate-fq': '/modules/realestate/costs/realestate-cost-distribution.html',
+    'invoices-faq': '/modules/invoicing/payment-schedules-user-guide.html',
+    'docs-quick-guide': '/platform/import-export/importing-records.html',
+    'dev-request-guidelines': '/admin/dev-request-guidelines.html',
+    'shortcuts-ar': '/platform/shortcuts.html',
+    'gui-post-actions-faq': '/platform/automation-and-rules/gui-post-actions.html',
+    'utils': '/admin/reprocessing/batch-utilities-from-file.html',
+    'assembly-and-packaging': '/modules/supplychain/assembly-and-packaging/',
+    // Omniful flows are documented only inside the Omniful guide (decision 2026-10-10)
+    'EAReadOmnifulOrders': '/modules/ecommerce/omniful-integration.html',
+    'EAReadOmnifulOrdersByIds': '/modules/ecommerce/omniful-integration.html',
+    'EAReReadOmnifulOrder': '/modules/ecommerce/omniful-integration.html'
+}
+
+// Pages moved to a new folder (basename unchanged), and pages replaced by a folder landing. The
+// basename map above only serves the English tree through Apache, so each old URL also gets a
+// static meta-refresh stub at its old path — in English and under /ar/ — written after the build.
+// Keys and values are site paths without .html; a value ending in "/" is a folder landing.
+const MOVED_PAGE_REDIRECTS = {
+    '/modules/supplychain/assembly-and-packaging': '/modules/supplychain/assembly-and-packaging/',
+    // The developer/ folder was dropped (2026-10-10); its only content was a card to GUI Post Actions
+    '/developer/index': '/platform/automation-and-rules/gui-post-actions',
+    '/developer': '/platform/automation-and-rules/gui-post-actions',
+    ...Object.fromEntries(Object.entries({
+        'documents-and-records': ['document-lifecycle', 'document-books', 'document-cancel-document',
+            'why-a-record-will-not-save-or-delete', 'messages-and-refusals', 'master-groups', 'attachments',
+            'form-documents', 'spare-master-files'],
+        'shared-master-files': ['dimensions-and-composite-dimensions', 'customers-suppliers-and-parties',
+            'currencies-and-exchange-rates', 'accounting-side-config'],
+        'payments': ['payment-methods-and-terminals', 'pgw-card-terminal-app', 'pgw-card-payment-flow',
+            'pgw-card-refusal-codes', 'receipt-books'],
+        'governance': ['revise-and-unrevise', 'fiscal-period-control-guide', 'freeze-processing-and-dates-overrider',
+            'criteria-based-validation', 'required-fields', 'audit-trail'],
+        'automation-and-rules': ['gui-post-actions', 'scheduled-tasks', 'recurring-documents', 'virtual-entity-guide',
+            'criteria-definitions', 'entity-type-lists', 'text-criteria-guide'],
+        'everyday-tools': ['screen-buttons', 'remarks-and-agenda', 'default-values-templates', 'prevent-usage',
+            'shortcuts', 'global-search', 'field-help-and-tooltips', 'ui-themes']
+    }).flatMap(([folder, pages]) => pages.map(p => [`/platform/${p}`, `/platform/${folder}/${p}`])))
+}
+
+// Runs after writeRedirectsMap so the stubs never enter the basename map (they would collide with the
+// real pages and knock them out of it).
+function writeMovedPageStubs(outDir) {
+    let written = 0
+    for (const [from, to] of Object.entries(MOVED_PAGE_REDIRECTS)) {
+        for (const prefix of ['', '/ar']) {
+            const target = prefix + (to.endsWith('/') ? to : to + '.html')
+            const stub = path.join(outDir, (prefix + from).replace(/^\//, '') + '.html')
+            if (fs.existsSync(stub)) {
+                console.warn(`[moved-pages] ${prefix + from}.html exists — no stub written`)
+                continue
+            }
+            fs.mkdirSync(path.dirname(stub), {recursive: true})
+            fs.writeFileSync(stub, `<!doctype html><html><head><meta charset="utf-8"><title>Moved</title>` +
+                `<link rel="canonical" href="${HOSTNAME}${target.replace(/^\//, '')}">` +
+                `<meta name="robots" content="noindex">` +
+                `<meta http-equiv="refresh" content="0; url=${target}">` +
+                `<script>location.replace(${JSON.stringify(target)} + location.hash)</script></head>` +
+                `<body><a href="${target}">${target}</a></body></html>`, 'utf8')
+            written++
+        }
+    }
+    console.log(`[moved-pages] wrote ${written} redirect stub(s)`)
 }
 
 function writeRedirectsMap(destDir) {
@@ -245,6 +315,7 @@ gtag('config', 'G-H68GM8HY15');`]
     },
     buildEnd: (siteConfig) => {
         writeRedirectsMap(siteConfig.outDir)
+        writeMovedPageStubs(siteConfig.outDir)
         writeSearchIndexJSON(siteConfig.outDir, SEARCH_INDEX_STABLE_PATH)
         validateComponentLinks(siteConfig.outDir, siteConfig.site.base)
     }

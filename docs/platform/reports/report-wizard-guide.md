@@ -104,7 +104,7 @@ This field helps you narrow down the selection of the Main Table for the report 
 * **`Virtual Entity`**
   Lets you choose one of the virtual entities defined by the user via a custom SQL query (such as a `UNION` of two tables or joining several tables with calculated expressions). These entities appear in the main table list just like real entities, with the same field-selection mechanism, translations, and automatic entity reference fields (Reference Fields).
 
-  To define a new virtual entity or understand how to set up column mappings and the Bootstrap mechanism, see the [Virtual Entity Guide](/platform/virtual-entity-guide).
+  To define a new virtual entity or understand how to set up column mappings and the Bootstrap mechanism, see the [Virtual Entity Guide](/platform/automation-and-rules/virtual-entity-guide).
 
 ---
 

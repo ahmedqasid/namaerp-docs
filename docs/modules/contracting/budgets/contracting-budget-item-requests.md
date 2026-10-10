@@ -35,7 +35,16 @@ The document's term options are covered on [Other Contracting Document Terms](/m
 | **Term Code** (كود البند) | filled by the system from the submittal |
 | **Term Remarks** (وصف البند) | filled by the system from the submittal |
 
-Then the payments block — a payment template, a **Generate Payments** action and the instalment grid, validated against the amount still outstanding — the totals block, and the **Dimensions** (المحددات) block.
+Then the payments block — a payment template, a **GeneratePayments** action and the instalment grid, validated against the amount still outstanding — the totals block, and the **Dimensions** (المحددات) block.
+
+## Actions on this screen
+
+- **GeneratePayments** — the label really reads like that on English screens. It splits the request's value into an instalment schedule from the payment template: it asks for the number of payments, the period between them and its unit, the start date, a grace period, a day of the month, down / first / second / last payment values and a rounding mode, then fills the payments grid.
+
+In the **More** menu:
+
+- **Reset discounts** — clears all eight discount columns on every line of the request, so the prices go back to undiscounted.
+- **Installment Payments** — opens, in a pop-up list, the payment documents that have settled this request's instalments.
 
 ## Does the budget stop me overspending?
 

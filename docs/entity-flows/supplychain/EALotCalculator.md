@@ -1,14 +1,13 @@
 ---
 title: EALotCalculator
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EALotCalculator
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -296,6 +296,130 @@ Template Configuration:
 - Payment Date at Day: 1 (First of month)
 ```
 
+### Scenario 5: Ten Monthly Instalments Plus Two Lump Sums
+
+A customer wants to pay an invoice over twelve instalments: ten monthly instalments of 5% each, plus two extra instalments of 25% in months 5 and 10.
+
+```
+Template Configuration:
+- Payment Type: Variable Payments
+- Details (each line a Percentage, period in Months):
+  Lines 1-10: 5% at months 1, 2, ... 10
+  Line 11: 25% at month 5
+  Line 12: 25% at month 10
+```
+
+The ten monthly lines make 50% and the two lump sums the other 50%, so the plan totals 100%. Months 5 and 10 each produce **two** instalments on the same date — one of 5% and one of 25%.
+
+::: details JSON for direct import
+```json
+{
+  "paymentType": "VariablePayments",
+  "roundingType": "CEILING",
+  "details": [
+    {
+      "paymentPeriod": {
+        "value": 1,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 2,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 3,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 4,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 5,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 6,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 7,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 8,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 9,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 10,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 5,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 25
+    },
+    {
+      "paymentPeriod": {
+        "value": 10,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 25
+    }
+  ]
+}
+```
+
+Open a new Payment Schedule Template, then **More → Import Into Current Record** and paste it — see [Importing Into the Record You Have Open](/platform/import-export/importing-records.md#Importing-Into-the-Record-You-Have-Open).
+:::
+
 ## Payment Documents and Installment Tracking
 
 Once payment schedules are created and applied to sales documents, the system provides comprehensive tracking through payment documents that can mark installments as paid.

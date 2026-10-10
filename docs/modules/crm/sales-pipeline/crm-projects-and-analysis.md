@@ -83,19 +83,24 @@ Below the grid sits the same meeting-notes grid you saw on the Offer, and it has
 
 The third tab is read-only: the Contacts, CRM Tasks, CRM Calls and Visits that point at this project.
 
-### The buttons, including two with no label
+### Actions on this screen
 
-The project's toolbar offers **create CRM Task**, **Create Contact**, and buttons that create a Call and a Visit linked to the project.
+The four buttons on the Basic Information tab need the project **saved** first, and each opens a new, unsaved record in a pop-up with this project as its subject — nothing is saved for you:
 
-::: warning Two buttons show their internal name instead of a label
-On the CRM Project screen the visit button has **no Arabic and no English label at all** and renders as the raw text `CreateVisit`; the call button has an Arabic label (إنشاء اتصال) but no English one, so an English-language user sees `CreateCalling`. They work — they just have not been given names. Do not go looking for a differently-named button; these are the ones.
-:::
+- **create CRM Task** (*إنشاء مهمة خدمة العملاء*) — a new CRM Task.
+- **Create Visit** (*إنشاء زيارة*) — a new Visit.
+- **Create Calling** (*إنشاء اتصال*) — a new Call.
+- **Create Contact** (*إنشاء جهة اتصال*) — a new Contact linked back to the project.
 
-::: warning Do not use "Convert To Project Contract" on a service contract
-The CRM Service Contract screen carries a button that creates a CRM Project from the contract. It has the same missing-label problem — it renders as `convertToProjectContract` — but the more important issue is that **the project it produces is pointed at a type its own reference field does not accept**. A contract is not one of the values *Related To* allows, so the project comes back holding something the picker cannot re-select, and the behaviour of that record has not been verified.
+On the Preparing and Training tab, each row of the phase grid carries **Create Visit From Selected Line** (*إنشاء زيارة من السطر المختار*). It opens a new Visit for the project with the row's serial, phase and description already filled in its Action Plan group — the same values the Visit's own Serial picker would bring.
+
+::: warning Do not use "convert to Project" on a service contract
+The CRM Service Contract screen carries a button, **convert to Project** (*تحويله الي مشروع*), that creates a CRM Project from the contract. The important issue is that **the project it produces is pointed at a type its own reference field does not accept**. A contract is not one of the values *Related To* allows, so the project comes back holding something the picker cannot re-select, and the behaviour of that record has not been verified.
 
 Treat Service Contract → CRM Project as unsupported. If you need the link, create the project from its own menu and point *Related To* at the customer instead.
 :::
+
+![The action block on the CRM Project's Basic Information tab](../../../ar/modules/crm/images/sales-pipeline/crm-project-actions-en.png)
 
 ### Nothing here is validated
 
@@ -117,12 +122,29 @@ You can tell from the screen itself: its status list names NaMaSoft's internal d
 
 Two practical notes for anybody who does open it:
 
-- The nine status buttons along the toolbar (تطوير, دعم فني, مخطّطة, تأجيل, بدء, انهاء, إغلاق, رفض and إعادة فتح) simply write a value into the on-screen **Status** field. Nothing is saved until you save the record yourself, and nothing else happens.
+- Eight of the nine buttons along the toolbar simply write a value into the on-screen **Status** field; the ninth, **ReOpen**, starts a new request. Details under *Actions on this screen* below.
 - The **Complete Description** column on the list view is built from a specific e-mail template that must exist in the installation under a fixed code. Where that template has not been created, the column is permanently blank — that is the explanation, and there is no setting to change it.
 
 ::: warning Development Requests cannot be deleted
 The Delete action is refused unconditionally on this screen — there is no setting and no permission that allows it. The refusal message is written in English only and is addressed to NaMaSoft's own staff, so it will look out of place to anybody else who triggers it. If a request was created in error, close or reject it instead.
 :::
+
+### Actions on this screen
+
+The first eight buttons only set the **Status** field on screen. Nothing is saved until you save the record yourself, and nothing else happens.
+
+| Button | Sets Status to |
+|---|---|
+| **Development** (*تطوير*) | Feedback from Development |
+| **Support** (*دعم فني*) | Feedback from Technical Support |
+| **Planned** (*مخطّطة*) | Planned |
+| **Postpone** (*تأجيل*) | Postponed |
+| **Start** (*بدء*) | In Progress |
+| **Finish** (*انهاء*) | Finished |
+| **Close** (*إغلاق*) | Closed |
+| **Reject** (*رفض*) | Rejected |
+
+**ReOpen** (*إعادة فتح*) needs the request **saved** first. It does not touch this request: it opens a new, unsaved Development request whose **From Document** points back at this one, carrying over the customer, priority, request kind, product, concerned entity and relative weight.
 
 ## Reporting
 

@@ -6,7 +6,7 @@ menu: Administration → Display Customization → Entity Flow
 # Entity Flow Examples
 
 ### Create an Entity Flow to change the resource rate in resource vouchers in the system (simulates the user clicking the "Recalculate Rate with Save" option in the resource voucher)
-Create an Entity Flow with the action "Manual" of type `EAFieldsValuesCalculator` and place it in the edit screen. Enter the following in Parameter 1:
+Create an Entity Flow with the action "Manual" of type [`EAFieldsValuesCalculator`](/entity-flows/core/EAFieldsValuesCalculator) and place it in the edit screen. Enter the following in Parameter 1:
 
 ```ini
 runCommand="edit"
@@ -40,7 +40,7 @@ Excel sheet for direct import:
 
 [Gen production order req from transfer req.xlsx](https://drive.google.com/file/d/1EL8HmxkM5via_44KfWgNa4IaeRLFyKvQ/view?usp=sharing)
 
-Element name: `EAGenerateEntityFromEntityAction`
+Element name: [`EAGenerateEntityFromEntityAction`](/entity-flows/core/EAGenerateEntityFromEntityAction)
 ::: details JSON code for Import Into Current Record
 ```json
 {

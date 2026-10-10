@@ -21,7 +21,7 @@ MCS publishes 29 code lists, and there can be only one table per list — saving
 a list that already has one is refused. Rather than create them one by one, run the entity action
 **`EACreateEltezamCodeTables`** once. It takes no parameters and can run from anywhere; the
 simplest way is a task schedule of type **Action** that you run with **Run Now** (see
-[Scheduled Tasks](/platform/scheduled-tasks)). In **Class Name**, write the full name
+[Scheduled Tasks](/platform/automation-and-rules/scheduled-tasks)). In **Class Name**, write the full name
 `com.namasoft.modules.integrations.utils.actions.EACreateEltezamCodeTables`, or type the short name
 and pick the full one from the suggestion list.
 

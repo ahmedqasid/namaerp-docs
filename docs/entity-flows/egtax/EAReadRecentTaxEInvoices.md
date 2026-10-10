@@ -1,14 +1,13 @@
 ---
 title: EAReadRecentTaxEInvoices
 module: egtax
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAReadRecentTaxEInvoices
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

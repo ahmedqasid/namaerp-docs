@@ -1,5 +1,7 @@
 # Fixed Assets Module Utilities
 
+Two SQL repairs for the fixed assets module: resetting an asset's last depreciation date after its depreciation was deleted, and fixing addition/deduction entries that always show zero.
+
 ## Fix Last Depreciation date of fixed assets whose depreciation was deleted
 ::: details
 ```sql

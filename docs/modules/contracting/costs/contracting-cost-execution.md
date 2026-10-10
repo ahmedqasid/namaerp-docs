@@ -131,6 +131,11 @@ So the workflow is: press the button, then reduce or zero the rows you do not wa
 what you leave in this grid is absorbed, and the seven cost columns are built from that instead of
 from the whole sweep.
 
+## Actions on this screen
+
+- **Collect Terms** — rebuilds the Executions grid from the contract's term lines, one line per term or per phase (see the warning above).
+- **Collect Cost Documents** — fills the **Manually Cost Documents** grid with the unabsorbed cost slices for this contract up to the value date. It does nothing unless **Manually Collect Cost Documents** is ticked on the document term.
+
 ## The Statistics page
 
 The second page carries two read-only lists that answer the two questions people ask about a committed

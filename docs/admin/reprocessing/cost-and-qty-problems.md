@@ -1,4 +1,7 @@
 # Queries to Check for (and Fix) Cost And Qty Problems
+
+SQL queries that check whether inventory cost agrees with the ledger, and repair the usual causes when it does not: stale accounting configuration on inventory requests, zombie inventory requests, quantities that reached zero but still carry cost, and bad FIFO cost transactions. Run the checking queries first, and take a database backup before any statement that updates or deletes.
+
 ## Check Cost and Ledger are consistent
 ::: details
 ```sql

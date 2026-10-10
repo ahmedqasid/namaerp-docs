@@ -13,16 +13,9 @@ title: الخصائص العامة للنظام
 كيف يُرقَّم كل سجل في النظام ويُوثَّق ويُتتبَّع — الآليات التي تقوم تحت المستندات والملفات الرئيسية معًا.
 
 <LandingGrid>
-  <LandingCard icon="🔄" title="حياة المستند" link="/ar/platform/document-lifecycle.md" details="المسودة والاعتماد والموافقة والمراجعة والإلغاء — الحالات التي يمرّ بها كل مستند وما تسمح به كل حالة." />
-  <LandingCard icon="🚫" title="لماذا يرفض النظام حفظ سجل أو حذفه" link="/ar/platform/why-a-record-will-not-save-or-delete.md" details="كل رفض للحذف والتعديل بترتيب فحص النظام له، ومنه تعليم الاستخدام على الدفاتر والأطراف والإجراء المخفي الذي يرفعه." />
-  <LandingCard icon="💬" title="الرسائل وحالات الرفض" link="/ar/platform/messages-and-refusals.md" details="الرسائل التي قد ترفعها أي شاشة — الصلاحيات والرخصة والفترات والموازنات — وأين يوجد جواب كل واحدة." />
-  <LandingCard icon="🔢" title="دفاتر المستندات" link="/ar/platform/document-books.md" details="سلسلة الترقيم التي يأخذ منها كل مستند رقمه — البادئات والمتسلسلات والتصفير السنوي، والسلوك الذي يفرضه الدفتر على مستنداته." />
-  <LandingCard icon="↩️" title="مستند إلغاء مستند" link="/ar/platform/document-cancel-document.md" details="الطريقة الوحيدة للتراجع عن مستند مُرحَّل — ماذا يعكس، وما الذي يرفض الإلغاء، وكيف تعيد المستند مسودةً." />
-  <LandingCard icon="🗂️" title="المجموعات" link="/ar/platform/master-groups.md" details="توأم دفتر المستند في جانب الملفات الرئيسية — تُكوِّد العملاء والأصناف وغيرها، وتصنّفها في الشجرة المجاورة لكل قائمة." />
-  <LandingCard icon="🧭" title="المحددات والمحددات المركبة" link="/ar/platform/dimensions-and-composite-dimensions.md" details="الشركة والقطاع والفرع والإدارة والمجموعة التحليلية — الملفات الخمسة التي يُصنَّف تحتها كل سجل، والقيمة «عام»، والمحدد المركب الذي ينوب عن عدة محددات." />
-  <LandingCard icon="🤝" title="العملاء والموردون وجهات الصلة" link="/ar/platform/customers-suppliers-and-parties.md" details="ملفات العميل والمورد وجهة الاتصال وجهة الصلة — التصنيفات والحسابات وحدود الائتمان وما لا يفعله حد الائتمان، والمستندات التي تعدّل الجهة بعد إنشائها." />
-  <LandingCard icon="⚖️" title="جانب محاسبي" link="/ar/platform/accounting-side-config.md" details="جانب محاسبي واحد — الحساب والحافظة والمحددات والبيان — محفوظ مرة كملف رئيسي ومُشترك بين كل توجيه يحتاجه." />
-  <LandingCard icon="📎" title="المرفقات" link="/ar/platform/attachments.md" details="تخزين الملفات على السجل: حقول المرفقات في الرأس وفي سطور التفاصيل، والمسح الضوئي والتوقيع، وأين تُحفظ الملفات." />
+  <LandingCard icon="📄" title="المستندات والسجلات" link="/ar/platform/documents-and-records/" details="حياة المستند، ودفاتر الترقيم، والإلغاء، والمجموعات، والمرفقات، ولماذا يرفض النظام حفظ سجل أو حذفه، والمستندات الاحتياطية المحفوظة للحاجات الخاصة." />
+  <LandingCard icon="🧭" title="الملفات الرئيسية المشتركة" link="/ar/platform/shared-master-files/" details="المحددات، والعملاء والموردون، والعملات وأسعار الصرف، والجوانب المحاسبية الجاهزة — الملفات الرئيسية التي تقرؤها كل الوحدات." />
+  <LandingCard icon="💳" title="المدفوعات وأجهزة البطاقات" link="/ar/platform/payments/" details="طرق الدفع وأين تُرحَّل، ودفاتر الإيصالات، وربط أجهزة البطاقات عبر PGW." />
 </LandingGrid>
 
 ## تطويع النظام
@@ -45,11 +38,7 @@ title: الخصائص العامة للنظام
 <LandingGrid>
   <LandingCard icon="🔐" title="الصلاحيات والأمان" link="/ar/platform/security/" details="ملفات الصلاحيات، وصلاحيات الحقول والصفحات وقوائم العرض، والصلاحيات على مستوى السجلات، والمستخدمون وتسجيل الدخول، والتفويض المؤقت." />
   <LandingCard icon="✅" title="الموافقات" link="/ar/platform/approvals/" details="مرّر المستندات عبر دورات موافقة، مع نماذج بريد إلكتروني ودليل شامل للتعريف." />
-  <LandingCard icon="🖊️" title="المراجعة وإلغاء المراجعة" link="/ar/platform/revise-and-unrevise.md" details="اعتمد السجلات المعتمدة مستوىً بعد مستوى، وسمِّ كل خطوة وصاحبها، واقفل ما تمت مراجعته." />
-  <LandingCard icon="🗓️" title="التحكم في إقفال الفترات" link="/ar/platform/fiscal-period-control-guide.md" details="أقفل الفترات المحاسبية حتى لا يتمكن أحد من التسجيل في شهر مُقفل." />
-  <LandingCard icon="🛡️" title="التحقق المبني على المعايير" link="/ar/platform/criteria-based-validation.md" details="امنع أو نبّه على المستندات التي لا تستوفي معايير تحددها أنت." />
-  <LandingCard icon="❗" title="الحقول المطلوبة" link="/ar/platform/required-fields.md" details="اجعل أي حقل في أي شاشة إلزامياً — دائماً أو عند تحقق شرط — واستثنِ من شئت من الفروع والمستخدمين." />
-  <LandingCard icon="🕓" title="سجل التعديل وتاريخ النسخ" link="/ar/platform/audit-trail.md" details="من غيّر السجل وماذا كان يقول قبل التغيير — تاريخ النسخ، والتدقيق التفصيلي للحقول، ومقارنة النسخ، والعودة إلى نسخة سابقة." />
+  <LandingCard icon="🖊️" title="الرقابة والحوكمة" link="/ar/platform/governance/" details="مستويات المراجعة، والتحكم في إقفال الفترات، وتجميد الماضي، والتحقق المبني على المعايير، والحقول المطلوبة، وسجل التعديل." />
 </LandingGrid>
 
 ## الأتمتة والبيانات
@@ -60,14 +49,9 @@ title: الخصائص العامة للنظام
   <LandingCard icon="📦" title="استيراد السجلات وتصديرها" link="/ar/platform/import-export/" details="أخرج السجلات إلى Excel أو JSON، وعدّلها، ثم أعدها — مع قوائم التصدير المحفوظة والربط المتقدم للاستيراد." />
   <LandingCard icon="🗄️" title="إدارة المستندات" link="/ar/platform/dms/" details="سجل للأوراق المادية: الأرشيفات والمجلدات والمواضيع، ومن استعار ماذا، وتحميل أرشيف كامل من ملف مضغوط." />
   <LandingCard icon="🔄" title="مسارات الكيان" link="/ar/platform/entity-flows/" details="أتمت ما يفعله النظام عند حفظ السجل أو تعديله أو مراجعته — المفاهيم والأمثلة العملية والفهرس الكامل للمسارات الجاهزة." />
-  <LandingCard icon="⏰" title="المهام المجدولة" link="/ar/platform/scheduled-tasks.md" details="شغّل المهام تلقائيًا وفق جدول زمني — مجدول المهام." />
+  <LandingCard icon="⏰" title="الأتمتة والقواعد" link="/ar/platform/automation-and-rules/" details="الإجراءات بعد الإدخال، والمهام المجدولة، والمستندات الدورية، ومعها المعايير وقوائم الأنواع والكيانات الافتراضية التي يشير إليها بقية النظام." />
   <LandingCard icon="⏳" title="المعالجة في الخلفية" link="/ar/platform/background-processing/" details="الطوابير التي تنفّذ آثار المستندات وترسل رسائلك وتشغّل تقاريرك — وأين تنظر حين يتعثّر أحدها في صمت." />
-  <LandingCard icon="🔁" title="المستندات الدورية" link="/ar/platform/recurring-documents.md" details="أعد إنتاج مستند نموذجي على إيقاع ثابت — تلقائيًا وفق جدول أو دفعة عند الطلب." />
-  <LandingCard icon="🧱" title="الكيانات الافتراضية" link="/ar/platform/virtual-entity-guide.md" details="وحدات SQL قابلة لإعادة الاستخدام تُغذّي التقارير ولوحات المعلومات." />
-  <LandingCard icon="🧮" title="تعريف المعايير" link="/ar/platform/criteria-definitions.md" details="الفلتر المحفوظ باسم الذي تشير إليه الموافقات والتنبيهات والمسارات والحقول المطلوبة وحقول المرجع — كيف تبنيه، وكيف تختبره، وأين يُستعمل." />
-  <LandingCard icon="🗃️" title="قوائم الأنواع" link="/ar/platform/entity-type-lists.md" details="قائمة شاشات واحدة باسم، ليطبَّق الإعداد الواحد على عائلة شاشات كاملة — وزر الإضافة من مجموعة المنيو الذي يبنيها لك." />
   <LandingCard icon="🔎" title="فلترة الحقول" link="/ar/platform/field-filtering/" details="لماذا يعرض حقل المرجع ما يعرضه — إرخاء التضييق بالفرع والشركة على حقل واحد، أو تضييقه بشرط من المعايير." />
-  <LandingCard icon="📝" title="معايير من المحلل النصي" link="/ar/platform/text-criteria-guide.md" details="اكتب المعايير كنص عادي ودع المحلل يحوّلها إلى فلاتر." />
 </LandingGrid>
 
 ## الرؤية والتواصل
@@ -85,13 +69,5 @@ title: الخصائص العامة للنظام
 أدوات صغيرة تسرّع العمل اليومي.
 
 <LandingGrid>
-  <LandingCard icon="🖲️" title="الأزرار الموجودة في كل شاشة" link="/ar/platform/screen-buttons.md" details="أشرطة الأدوات الثلاثة التي تشترك فيها كل شاشة — شريطا التحرير والقائمة، وقائمة المزيد، وأزرار الجدول — ولماذا يغيب زر أحياناً." />
-  <LandingCard icon="📝" title="الملحوظات والأجندة ومهام العمل" link="/ar/platform/remarks-and-agenda.md" details="ملحوظات تُرفق بأي سجل، وأجندة الموظف التي يكتب فيها أمر الإضافة إلى الاجندة، ومهام العمل المسنَدة إلى شخص." />
-  <LandingCard icon="🚪" title="النماذج — باب الخروج الآمن" link="/ar/platform/form-documents.md" details="ستة عشر مستندًا فارغًا عن عمد تحوّلها إلى ما يحتاجه عميل واحد بعينه — ومتى تلجأ إلى فريق التطوير بدلًا من ذلك." />
-  <LandingCard icon="🗄️" title="الملفات الرئيسية الاحتياطية" link="/ar/platform/spare-master-files.md" details="الفكرة نفسها للملفات لا للمستندات — خمس ذمم احتياطية ترحّل لدفتر الأستاذ، وعائلة الملحوظات." />
-  <LandingCard icon="🧩" title="قوالب القيم الافتراضية" link="/ar/platform/default-values-templates.md" details="مجموعات محفوظة من قيم الحقول تملأ السجل الجديد لحظة فتحه، تلقائيًا أو عند الطلب." />
-  <LandingCard icon="🚫" title="منع استعمال سجل" link="/ar/platform/prevent-usage.md" details="تقاعد ملف رئيسي أو مستند فيتوقف عن الظهور في شاشات الاختيار، دون حذفه ودون المساس بتاريخه." />
-  <LandingCard icon="🔗" title="روابط الأدوات المساعدة" link="/ar/platform/utils.md" details="روابط مباشرة مفيدة داخل النظام للمهام الشائعة." />
-  <LandingCard icon="⌨️" title="اختصارات لوحة المفاتيح" link="/ar/platform/shortcuts.md" details="اعمل أسرع باستخدام لوحة المفاتيح عبر شاشات نظام نما." />
-  <LandingCard icon="🎨" title="الثيمات" link="/ar/platform/ui-themes.md" details="ثيمات النظام الثلاثة عشر بالوضعين الفاتح والداكن، وكيف يختار المستخدم ثيمه، وكيف تحدد الشركة ثيمها الافتراضي." />
+  <LandingCard icon="⌨️" title="أدوات يومية" link="/ar/platform/everyday-tools/" details="أزرار الشاشات، واختصارات لوحة المفاتيح، والبحث من الشريط العلوي، ومساعدة الحقول، والثيمات، والملحوظات والأجندة، وقوالب القيم الافتراضية، ومنع استعمال سجل." />
 </LandingGrid>

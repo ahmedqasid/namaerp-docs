@@ -1,13 +1,12 @@
 ---
 title: EASaveToAnotherServerUsingJSON
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EASaveToAnotherServerUsingJSON
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

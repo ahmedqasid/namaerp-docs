@@ -131,7 +131,7 @@ Two behaviours are worth knowing at the screen:
 
 - Picking a **Block** fills in the price, the block's original owner and the square, and clears the
   land plot — so start from the block and narrow down, rather than the other way round.
-- The **Status** field is read-only. The *Cancelling* action is what moves it to Cancelled.
+- The **Status** field is read-only.
 
 When the customer comes back on Friday, press **Create Reservation Doc**. The record must be saved
 first; the button then opens a new reservation document carrying the temporary reservation, the
@@ -139,6 +139,15 @@ buyer, the owner, the mediator, the block, the square, the currency and the plot
 reservation price. From there the story continues on
 [Reservations and Initial Sales Contracts](/modules/realestate/sales/realestate-reservations-and-initial-contracts.md),
 where our 20,000 becomes a confirmed reservation and then a contract.
+
+## Actions on these screens
+
+**On the sales offer:** the sales contract's installment toolbar, so the quotation can be shaped exactly as the contract will be — **Create installments**, **Select all installment lines**, **Merge installments**, **Create Receipt Voucher From Selected Line**, **Create RE Return Payment Doc From Selected Line**, **Create Fine Document**, and the four commercial-paper buttons (**Create A Bank Portfolio For Selected Installments**, **Create Postponed Bank Portfolio for Selected Installments**, **Create A Partial Payment For Selected Installments**, **Create Notification For Selected Installment**). Each is described on [The Sales Contract](/modules/realestate/sales/realestate-sales-contract#Actions-on-this-screen). In practice only the first three matter on a quotation.
+
+**On the temporary reservation:**
+
+- **Create Reservation Doc** — on the saved hold, opens the formal reservation document as described above.
+- **Installment Payments** (in the **More** menu) — lists, in a pop-up, the payment documents recorded against this hold.
 
 ## Where to go next
 

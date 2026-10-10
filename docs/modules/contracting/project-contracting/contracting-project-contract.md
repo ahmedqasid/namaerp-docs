@@ -127,7 +127,7 @@ Four columns: the execution company's tasks with remarks, and the customer's tas
 
 ### The Payments grid — the client's instalment plan
 
-Instalment code (mandatory), description, percentage, value, paid value, remaining, payment date, and the commercial paper the instalment is settled by. You can type the lines, or choose a **Payment Template** (نموذج الدفع) and press **Generate Payments**, which asks for a number of instalments, a period, a grace period, a preferred day of week, a rounding rule and any explicit down/first/second/last amounts, then fills the grid.
+Instalment code (mandatory), description, percentage, value, paid value, remaining, payment date, and the commercial paper the instalment is settled by. You can type the lines, or choose a **Payment Template** (نموذج الدفع) and press **GeneratePayments**, which asks for a number of instalments, a period, a grace period, a preferred day of week, a rounding rule and any explicit down/first/second/last amounts, then fills the grid.
 
 Two things follow from filling this grid. First, if a payment template is set, the contract will not save unless the instalment lines add up to the contract's total price — 230,000 on `PC-2026-001`. Second, each line can create a **commercial paper** (a cheque or promissory note, received from the client) automatically when the contract is committed, if your [configuration](/modules/contracting/contracting-configuration.md) permits this document type to create them.
 
@@ -219,6 +219,27 @@ Committing a contract does not post anything, but it can start two things off.
 ## Carving out a subcontract
 
 **Convert Selected Lines To Contractor Contract** (تحويل السطور المختارة لعقد مقاول باطن) is the single bridge from the owner side to the cost side. Tick the term lines you are giving away — on `PC-2026-001`, `3.01` *Blockwork*, all 2,000 m² of it — and press it. A new, unsaved [subcontract](/modules/contracting/contractor-contracting/contracting-contractor-contract.md) opens, pre-filled with this contract as its project contract, the same project and customer, the price before discount and both discount figures, the remarks, the contract type and the main-contract reference, a source reference back to this contract, and the converted term and condition lines. You review the rates you are prepared to pay, save, and the subcontractor chain takes over from there.
+
+## Actions on this screen
+
+Everything sits on the working page.
+
+Above the terms grid:
+
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+- **Convert Selected Lines To Contractor Contract** — opens a new, unsaved subcontract carrying the ticked term lines and the conditions, pointing back at this contract (see [Carving out a subcontract](#Carving-out-a-subcontract)).
+
+Above the payments grid:
+
+- **Select all installment lines** — ticks every instalment line.
+- **GeneratePayments** — the label really reads like that on English screens. Splits the contract's due value into instalments from the payment template.
+- **Generate Receipt Voucher** — opens a receipt voucher against the customer for the whole remaining amount.
+- **Generate Receipt Voucher For Selected Payments** — the same, for the ticked instalment lines only.
+
+In the **More** menu: **Installment Payments** opens, in a pop-up list, the payment documents that have settled this contract's instalments.
+
+![The payments block of a project contract with its four buttons](../../../ar/modules/contracting/images/project-contracting/contracting-project-contract-payments-actions-en.png)
 
 ## Where to read next
 

@@ -154,6 +154,13 @@ that the sheet is where you price by hand. See
 [Contracting Price Lists](/modules/contracting/setup/contracting-price-lists) for the full list of
 screens the lookup does run on.
 
+## Actions on this screen
+
+The sheet carries only the two code buttons, above its terms grid:
+
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+
 ## Where a Sheet Goes Next
 
 A term sheet does not push itself anywhere. The receiving document pulls it, and there is exactly one

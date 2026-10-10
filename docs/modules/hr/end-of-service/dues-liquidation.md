@@ -166,6 +166,18 @@ Committing the settlement is also the event that **resets the provision accrual*
 end-of-service and vacation liability has now been paid out, so the next accrual cycle starts fresh.
 See [HR Provisions](./hr-provisions).
 
+## Actions on this screen
+
+Five buttons on the Dues Liquidation Document carry the settlement from figures to payment:
+
+- **Generate Liquidation** — runs the termination formulas and fills the liquidation grids (see [How the numbers are built](#How-the-numbers-are-built)). The document must be saved first and must have a document term. A document that was never saved as final stays a draft; one that was already saved is saved again, through approvals if it needs them.
+- **Collect Unpaid Salary Documents** — brings the employee's unpaid salary documents into the settlement and saves the document again. It only works on a document already saved as final, and only when its document term has **Collect Unpaid Salary Documents For Employee With First Save Only** (تجميع سندات الرواتب الغير مسددة للموظف مع الحفظ أول مرة فقط) ticked.
+- **Collect Remaining Loans** — adds a line for every outstanding installment of the employee's loans, skipping disabled loans and installments already on the document. A dialog asks **Copy Remaining To Paid**: tick it to fill each line's paid amount with the installment value; leave it clear to fill zero and enter what is actually being recovered yourself.
+- **Generate Payment Voucher** — opens a new **Payment Voucher** filled from the settlement: its company and dimensions, a link back to this document, one line per amount to pay and the total. Check it and save. The document must be saved first.
+- **Generate Payment Voucher Request** — the same, but opens a **Payment Voucher Request**, for companies whose payments go through approval first.
+
+The Aggregated Dues Liquidation Document has no buttons of its own.
+
 ## Settling many employees at once
 
 For end-of-project releases the **Aggregated Dues Liquidation Document**

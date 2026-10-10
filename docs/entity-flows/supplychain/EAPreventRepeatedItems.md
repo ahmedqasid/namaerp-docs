@@ -1,14 +1,13 @@
 ---
 title: EAPreventRepeatedItems
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAPreventRepeatedItems
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

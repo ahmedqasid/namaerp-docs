@@ -1,14 +1,13 @@
 ---
 title: EACancelReservationOfDocsByQuery
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACancelReservationOfDocsByQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

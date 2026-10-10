@@ -17,7 +17,7 @@ The menu next to this one holds **Field Filtering**, a different screen with a s
 ## How to Define a Field Filter with Criteria
 
 1. **Create a Criteria Record**
-    - In the [Criteria Definition](/platform/criteria-definitions) file, define the condition you want to apply (e.g., non-service items).
+    - In the [Criteria Definition](/platform/automation-and-rules/criteria-definitions) file, define the condition you want to apply (e.g., non-service items).
 
 2. **Create a Field Filter Record**
     - Open the **Field Filter with Criteria** screen and create a new record.
@@ -141,7 +141,7 @@ A common request: a stock issue should offer only items that have a balance, and
 
 **Items with no balance, on a stock receipt.** The obvious reverse — `quantities.data.net` less than or equal to zero — does not work. An item that has never moved has **no quantity row at all**, so the condition finds nothing to compare, and those are exactly the items this filter is meant to show. The way around it is to keep the total in a spare numeric field of the item (`n5` here) and filter on that.
 
-First, a [scheduled task](/platform/scheduled-tasks) that writes every item's total into `n5` — zero for an item with no rows:
+First, a [scheduled task](/platform/automation-and-rules/scheduled-tasks) that writes every item's total into `n5` — zero for an item with no rows:
 
 ::: details JSON for direct import
 
@@ -176,7 +176,7 @@ Then the filter on the receipt:
 ```
 :::
 
-`n5` is only as fresh as its last update. To update it the moment stock moves instead of waiting for the task, run the same query from an [entity flow](/platform/entity-flows/) that fires after a stock issue, receipt or transfer is saved and its quantities are processed. The flow below does that for save and delete; its `entityTypeList` is the code of an [Entity Type List](/platform/entity-type-lists) holding the three document types, which must exist before you import it.
+`n5` is only as fresh as its last update. To update it the moment stock moves instead of waiting for the task, run the same query from an [entity flow](/platform/entity-flows/) that fires after a stock issue, receipt or transfer is saved and its quantities are processed. The flow below does that for save and delete; its `entityTypeList` is the code of an [Entity Type List](/platform/automation-and-rules/entity-type-lists) holding the three document types, which must exist before you import it.
 
 ::: details JSON for direct import
 ```json

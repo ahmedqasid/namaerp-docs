@@ -14,6 +14,10 @@ So two master files sit underneath routings and hold that detail once:
 
 A routing then just points at them. Change the rate on the standard operation and every routing that references it is corrected at once.
 
+::: info Required license
+Work centers and standard operations are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## Work Centers
 
 You'll find them under **Manufacturing → Master Files → Work Center** (التصنيع ← الملفات ← صالة إنتاج).

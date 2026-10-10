@@ -61,6 +61,23 @@ One column decides whether this budget can drive purchasing at all: **Item** (ا
 
 That matters because submittal generation, below, only looks at lines that name an item. A budget of pure work items — excavation, blockwork — generates nothing. A budget whose lines name the materials those items consume generates one approval per material.
 
+## Actions on this screen
+
+Every button on the budget sits on the **Terms** page.
+
+- **Collect Estimated Budget Terms** — replaces the terms grid with a copy of every term line of the paired estimated budget (see the warning above).
+- **Convert Contract** — opens a new, unsaved project contract built from this document's terms and conditions, for you to review and save. The document must be saved first.
+- **Convert Contract With Selected Lines Only** — the same, carrying only the term lines you ticked.
+- **Convert Contractor Contract** and **Convert Contractor Contract With Selected Lines Only** — the same pair, producing a subcontract instead.
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+
+Above the cost grids:
+
+- **Collect Contract Items From Standard Terms** — explodes every term line into its cost ingredients: it reads each line's standard term, scales the term's cost recipe to the line's quantity (allowing for waste and productivity) and routes each row into the Material, Workers, Contractors or Other Expenses grid. It also fills any empty term codes first.
+- **Collect Sub Items Cost** — the reverse: sums those four cost grids by term code and writes the result back onto each term line as its total cost and unit cost.
+- **Create Sales Offer for Selected Items**, **Create Contracting Purchase Order for Selected Items** and **Create Material Issue Order for Selected Items** — each opens a new, unsaved contracting offer, miscellaneous contracting order or project material issue in a pop-up, carrying the rows you ticked in the cost grids. With nothing ticked you are asked to select rows.
+
 ## The tower's executive budget
 
 `CEB-EXE-001`, paired with `CEB-EST-001`, linked to contract `PC-2026-001`. The user pressed **Collect Estimated Budget Terms**, then re-coded the four cloned lines and revised the numbers upward:

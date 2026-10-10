@@ -35,3 +35,12 @@ The reverse of receipt: to dispatch outbound receptacles on transport routes (th
 ## How receptacles connect to items
 
 The relationship is simple and gradual: **Receptacles Receipt** brings the sealed receptacles into the network → when opened, the [Mail Item Manifest](./ips-mail-items.md) records the individual items inside → and from there the [mail item's](./ips-mail-items.md) journey begins toward transfer, sorting, and [delivery](./ips-delivery.md). This is how the work moves from the transport unit (the receptacle) to the delivery unit (the item).
+
+## Reading from and reporting to IPS
+
+On the **Receptacles Receipt**, typing a **Receptacles Id** fills the line's IPS weight, seal number,
+item count and mail subclass from the external IPS server. When the Receptacles Receipt or the
+Transfer Receptacles is first saved, it reports the event set on its term for every receptacle on
+it; the **More** menu has **Resend IPS Events** and **Resend Failed IPS Tasks Only** for when that
+failed. The Manifest for Custody reports for every mail item instead. See
+[IPS Integration](./ips-integration.md) and [Freight Document Terms](./freight-document-terms.md#The-postal-movement-terms).

@@ -144,11 +144,17 @@ menu → Reprocess / Recommit**.
 
 ### Paying the contractor
 
-Two buttons on the document's action block turn the expense into money out: **Create Payment
-Voucher** and **Create Payment Voucher Request**. Both build the voucher from the document's amount
-and currency, with the **buyer** as the subsidiary, and open it as a new record for you to complete
-and commit. The generated vouchers are listed back on the document's Details tab, so you can always
-see what has been paid against this expense.
+Two buttons on the document's action block turn the expense into money out — the same two on the
+request and on the expense:
+
+- **Create Payment Voucher** — opens a new payment voucher for the document's amount and currency,
+  with the **buyer** as the subsidiary, for you to complete and commit.
+- **Create payment voucher Request** — opens a payment request for the same amount and currency in
+  a pop-up, for organisations that route outgoing money through a request first. It carries the
+  amount and the link back to this document, not the party.
+
+The generated vouchers are listed back on the document's Details tab, so you can always see what has
+been paid against this expense. Neither document has any other button.
 
 ## Distributing the cost over the units
 

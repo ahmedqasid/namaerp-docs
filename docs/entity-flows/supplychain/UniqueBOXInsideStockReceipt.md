@@ -1,14 +1,13 @@
 ---
 title: UniqueBOXInsideStockReceipt
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # UniqueBOXInsideStockReceipt
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

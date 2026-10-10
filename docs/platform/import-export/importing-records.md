@@ -98,6 +98,15 @@ It has one option, **Add To Current Lines**, which decides whether pasted detail
 
 This is the tool for a single record handed to you as a snippet — a configuration someone sent you, a sample document from support. For anything with more than one record, use **Import Records**.
 
+The command is hidden until you ask for it: press **Ctrl + Alt + X** on the open record first (see [Keyboard Shortcuts](/platform/everyday-tools/shortcuts.md)), and it appears in **More** — provided your security profile lets you import that type. Many pages on this site end a worked example with a *JSON for direct import* block; this is how you load it:
+
+1. Open a new record of the type the example is for (an Approval Definition, a Payment Schedule Template, …).
+2. Press **Ctrl + Alt + X**, then choose **More → Import Into Current Record**.
+3. Paste the JSON. Tick **Add To Current Lines** if the lines should join the ones already on the record rather than replace them.
+4. Check what appeared on screen, then save.
+
+The same menu carries the opposite command, **Simple Export For Docs**. It turns the open record into that same compact JSON — only the fields shown on screen, no internal ids, no attachments — and hands it to you to copy, so you can send a working configuration to a colleague or to support. It asks first whether to include the record's code and names and its dimensions; leave both off when the JSON is meant to be pasted into another record.
+
 ## When the Sheet Is Not Yours to Reshape
 
 Everything above assumes the file uses Nama's own layout. Often it does not: a supplier sends a price list in their format, or a legacy system produces an export whose columns are in the wrong order with the wrong headings and three rows of company letterhead on top.

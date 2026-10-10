@@ -222,31 +222,34 @@ warning. If recalls matter to you, check the campaign lists directly rather than
 order to stop you.
 :::
 
-## Buttons on the job order
+## Actions on this screen
 
-**Collect Resources And Materials** (تجميع الموارد والمواد الخام) walks the tasks already in the
-operations grid and appends each task's standard machines and standard spare parts, pricing every
-part through the sales price engine. It adds to the grids; it does not replace them. This is the
-button you use.
+The main page carries two action blocks, and the More menu adds one action.
 
-**Create Reservation Document** (More menu) builds a supply-chain reservation from the spare-parts
-grid, so scarce parts are held for this job. It refuses politely if the grid is empty.
+**Invoices and Tasks** (الفواتير والمهام):
 
-**Create Customer / Insurance / Warranty Invoice** are covered on
-[Invoicing a Job Order](/modules/servicecenter/job-cycle/servicecenter-job-order-invoicing.md). They
-refuse to run until the order is Closed.
+- **Create Customer Invoice** (*إنشاء فاتورة العميل*), **Create Insurance Invoice**
+  (*إنشاء فاتورة التأمين*) and **Create Warranty Invoice** (*إنشاء فاتورة الضمان*) — each builds the
+  sales invoice for one payer's share and opens it. Save the job order first; each refuses with
+  *Status Must Be Closed* until the order is Closed. What they build is covered on
+  [Invoicing a Job Order](/modules/servicecenter/job-cycle/servicecenter-job-order-invoicing.md).
 
-::: danger Do not use Collect Tasks to find the services that are due
-The **Collect Tasks** (تجميع المهام) button proposes the wrong set of services. Its filter is
-inverted: it returns the maintenance tasks that are **not** yet due at the vehicle's current
-mileage and omits the ones that are, then pulls in the spare parts for that wrong list — after
-clearing the operations grid.
+**Resources and Spare Parts** (الموارد وقطع الغيار):
 
-Do not rely on it, and do not teach it as "collects the services due at this mileage". Enter the due
-work by hand, using the vehicle's last-service history and the due-task columns on a
-[Kilo Metrage document](/modules/servicecenter/job-cycle/servicecenter-odometer-and-service-intervals.md),
-which use the correct test.
-:::
+- **Collect Resources And Materials** (*تجميع الموارد والمواد الخام*) — rebuilds the **Resources**
+  and **Spare Parts** grids from the tasks already in the operations grid: each task's standard
+  resources, and each task's standard spare parts that fit the vehicle's brand and model, priced
+  through the sales price engine for this customer. The two grids are **replaced**, not added to, so
+  a part typed in by hand before pressing it is gone afterwards. Spare parts come only when the
+  **Product** field is filled.
+
+**More menu:**
+
+- **Create Reservation Doc** (*إنشاء سند حجز*) — opens a new, unsaved supply-chain reservation
+  document whose *From Document* is this job order, with one line per row of the Spare Parts grid
+  (item, quantity, remarks), so scarce parts are held for this job. Save the job order first. With
+  an empty Spare Parts grid it refuses with:
+  *No Materials to be reserved* — «لا يوجد قطع غيار ليتم حجزها»
 
 ## Adding work in the middle of a job
 

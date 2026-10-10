@@ -14,6 +14,10 @@ You'll find routings under **Manufacturing → Master Files → Routing** (ال�
 
 ![The routing screen, with its operation sequence and resource grids](../../ar/modules/manufacturing/images/routing/routing-header-en.png)
 
+::: info Required license
+Routings are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## The Header
 
 **Code**, **Name1 / Name2** and **Item** work exactly as they do on a BOM — and pairing the codes (`BOM-CMP0001` with `RT-CMP0001`) is a small discipline that makes both files far easier to live with.
@@ -59,6 +63,10 @@ Operations take time on machines and from people, and neither is free. The **Res
 **Resource Rate** (**Value** + **Unit**) is the cost basis — a rate quoted per hour, per unit, or per whatever unit suits. **Cost Basis** and **Qty or Lot Count** decide how that rate is applied: per item produced, or per lot regardless of size. That distinction is exactly the difference between a cost that scales with volume and a setup cost that does not, and it is where a lot of costing accuracy is won or lost.
 
 **Max Lot Quantity** caps how much one resource line covers before another is needed. **Activity** classifies the work for reporting. **Auto Charge** behaves as it does above.
+
+### Refreshing resources from the standard operations
+
+Resource lines are copied from the standard operation when an operation is first picked, so a routing does not follow later changes to that standard operation's rates. To bring routings back in line, select them in the routing list and use **More → Insert Resources From Standard Operations To Routing** (إضافة الموارد من العمليات القياسية إلى عمليات التشغيل). For every operation line that names a standard operation, the routing's resource lines for that operation sequence are replaced by the standard operation's current resources — resource, rate, count, cost basis, lot settings, activity and remarks — and the routing is saved. Resource lines typed by hand for those sequences are overwritten, so check before running it on a routing you have tuned.
 
 ## The Conversions Tab
 

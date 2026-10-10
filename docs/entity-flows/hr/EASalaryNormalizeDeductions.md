@@ -1,14 +1,13 @@
 ---
 title: EASalaryNormalizeDeductions
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASalaryNormalizeDeductions
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -31,7 +31,7 @@ During the active period, the system treats the receiving user as if they hold t
 - The practical result is a **union of permissions**: delegation adds and never subtracts. It cannot be used to restrict a user — to restrict someone, edit their security profile or user rows directly.
 - If a delegator holds full access, the stand-in effectively gains full access for the entire period — be careful about whom you delegate from.
 
-::: info Merge option in global settings
+::: info Merge option in Global Configuration
 The system offers a global setting called **Merge Alternate Security Profiles Into Main User** that changes the calculation mechanism: instead of querying delegators one by one, their rows (basic permissions, page security, field settings, actions) are merged into a unified copy of the user from which all answers are computed. The end result is equivalent in principle (union of permissions) but faster in delegation-heavy environments.
 :::
 
@@ -48,3 +48,5 @@ Inside the user screen itself, the **Additional Security Profile** page lists th
 ::: warning Delegation is not identity switching
 The stand-in works under their own account: their name is recorded as the creator on documents and in audit logs. Delegation grants permissions only — which is intentional, keeping accountability clear.
 :::
+
+To hand a colleague's pending approvals and notifications to a stand-in — rather than their permissions — use the Delegation document described in [Responsibilities, Special Responsibles and Delegation](/platform/approvals/responsibilities-and-delegation).

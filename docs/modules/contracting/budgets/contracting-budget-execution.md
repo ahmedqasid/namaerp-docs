@@ -50,6 +50,12 @@ There is no document term (توجيه) on this document and nothing to configure
 
 A **Dimensions** (المحددات) block closes the page.
 
+## Actions on this screen
+
+The budget survey has one button of its own:
+
+- **Collect Terms** — fills the Executions grid from the term lines of the budget named on the header, so you only type the measurements. Run it before you type quantities, not after.
+
 ## What the survey writes back
 
 When the document is processed — not while it is still a draft or awaiting approval — the surveyed quantity is written onto the **matching term line of the budget**, into the column **Quantity | From Execution** (الكمية | من حصر الكميات). If the line names a phase, the quantity goes into that phase's executed-quantity slot instead. Parent term lines are then re-totalled from their children.

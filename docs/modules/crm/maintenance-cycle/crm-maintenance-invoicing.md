@@ -25,14 +25,15 @@ charged.
 
 ## Raising the invoice
 
-On 5 April 2026 the back office presses **Create Maintenance Invoice** on order `MO-0513`. An
+On 5 April 2026 the back office presses **Create Sales Invoice** (*إنشاء فاتورة صيانة*) on order
+`MO-0513` — the English label says "sales", but it is the maintenance invoice that opens. An
 unsaved draft opens in a pop-up with the header and every grid already copied; the clerk checks it
-and saves it as `MINV-0298`. The same button exists on the execution, and produces the same kind of
+and saves it as `MINV-0298`. The execution has its own **Create Maintenance Invoice**, which produces the same kind of
 draft from the execution's lines.
 
 Three other routes fill an invoice:
 
-- type it, list the relevant orders in the *Orders* grid and press **Copy all lines from orders** —
+- type it, list the relevant orders in the *Orders* grid and press **Copy All From MnOrders** —
   every detail line of every listed order is appended;
 - type it and pick a predecessor in *From document*, letting the standard copier bring the header
   and grids across;
@@ -154,11 +155,64 @@ invoice's account sides.
 
 ## Payments on the invoice
 
-The invoice carries the full payments block: a payment-schedule template, a **Generate payments**
+The invoice carries the full payments block: a payment-schedule template, a **GeneratePayments**
 button that expands it into schedule lines, and buttons to generate a receipt voucher for the
 selected payments, generate one receipt voucher, or collect existing receipt vouchers. The totals
 group shows the total, discount, cash amount, technicians' reward, net value, vouchers' payments,
 total paid and remaining. None of this changes what was billed — it is collection, not pricing.
+
+## Actions on these screens
+
+**Maintenance Invoice — main page:**
+
+- **Copy All From MnOrders** (*نسخ كل السطور من أوامر الشغل*) — appends every detail line (machines,
+  spare parts, returned parts, services, dysfunctions, technicians, tools, maintenance groups) of every
+  order listed in the *Orders* grid. If the document term ticks *Consider Lines Of FromDoc*, the
+  *From document*'s lines are appended too. Pressing it twice appends the lines twice.
+- **GeneratePayments** (*إنشاء الدفعات*) — splits the value into an instalment schedule. It asks for
+  the number of payments, the period between them and its unit, the start date, a grace period,
+  down / first / second / last payment values and a rounding mode. The English label ships as the
+  raw name shown here.
+- **Generate Receipt Voucher For Selected Payments** (*إنشاء سند قبض للدفعات المختارة*) — opens an
+  unsaved receipt voucher for the instalment lines you ticked. It is refused when no line is
+  selected, or when none of the selected lines has a remaining value.
+- **Generate Receipt Voucher** (*إنشاء سند قبض*) — opens an unsaved receipt voucher for the invoice's
+  whole remaining value against the customer.
+- **Collect Receipt Vouchers** (*تجميع سندات القبض*) — asks for a date range and brings the
+  customer's existing receipt vouchers onto the invoice.
+
+**Maintenance Invoice — tools and visits page:**
+
+- **Tools Issue Request** (*طلب صرف عِدد*) — opens an unsaved stock document in a pop-up, pre-filled
+  with the tools grid and the customer.
+
+**Maintenance Invoice — spare parts and services page:**
+
+- **Spare Parts Issue Request** (*طلب صرف قطع غيار*) — opens an unsaved stock issue request in a
+  pop-up, pre-filled with the spare-part lines, the customer and the issue warehouse.
+- **Returned Spare Parts Receipt Request** (*طلب توريد قطع غيار المرتجعة*) — opens an unsaved stock
+  receipt request in a pop-up, pre-filled with the returned spare-part lines, the customer and the
+  receipt warehouse.
+
+These are an alternative to the stock issue the invoice term generates, never a supplement — see
+[The rules that keep it honest](#The-rules-that-keep-it-honest).
+
+**Maintenance Invoice — billing page:**
+
+- **Request Redeem Customer Amount** — spends the customer's loyalty balance against this document.
+  It shows the net value, the points owner and the reward balance still available, and asks how
+  much to redeem and against which reward code. The page carries it twice under the same label: the
+  one above the payment documents grid records the redemption there, the one above the payment
+  methods grid records it as a payment line. This label has no Arabic translation, so it shows in
+  English on Arabic screens too.
+- **Pay Invoice** (*ادفع الفاتورة*), **Pay Part Of Invoice** (*دفع جزء من الفاتورة*) and **Fetch Last
+  Terminal Payment Transaction** (*ايجاد اخر عمليه دفع تمت ولم تصل معلوماتها*) — the card-terminal
+  buttons, which need the payment-gateway sub-module. **Pay Part Of Invoice** asks for an amount and
+  is refused when nothing remains to be paid. **Fetch Last Terminal Payment Transaction** recovers a
+  payment that went through on the terminal but whose confirmation never reached the document.
+
+**Maintenance Invoice Return — main page:** only **Copy All From MnOrders** (*نسخ كل السطور من أوامر
+الشغل*), working exactly as on the invoice.
 
 ## The invoice return
 

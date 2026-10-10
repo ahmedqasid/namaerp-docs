@@ -94,5 +94,5 @@ Government penalties are on
   shared mechanics and the money documents.
 - **[Loan Documents](/modules/hr/loans/hr-loan-documents)** · **[Loan Types](/modules/hr/loans/hr-loan-types)**
 - **[Rewards and Penalties](/modules/hr/discipline/rewards-and-penalties)**
-- **[Account Side Configuration](/platform/accounting-side-config)** — how a debit or credit side
+- **[Account Side Configuration](/platform/shared-master-files/accounting-side-config)** — how a debit or credit side
   finds its account.

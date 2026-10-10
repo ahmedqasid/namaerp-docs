@@ -8,7 +8,7 @@ menu: إدارة النظام ← تخصيص شكل النظام ← مسار ا
 # أمثلة لمسارات كيان
 
 ### إنشاء مسار كيان ليقوم بتغيير معدل الموارد في سندات الموارد في النظام (يقوم بمحاكاة أن المستخدم ضغط علي الاوبشن "اعادة حساب المعدل مع الحفظ" في سند الموارد
-قم بإنشاء مسار كيان مع الاجراء "يدوي" و نوعه `EAFieldsValuesCalculator` و قم بوضعه بتعديل شاشة. قم بإدخال التالي في المدخل 1:
+قم بإنشاء مسار كيان مع الاجراء "يدوي" و نوعه [`EAFieldsValuesCalculator`](/entity-flows/core/EAFieldsValuesCalculator) و قم بوضعه بتعديل شاشة. قم بإدخال التالي في المدخل 1:
 
 ```ini
 runCommand="edit"
@@ -42,7 +42,7 @@ $line.amount.value.amount=n1
 
 [Gen production order req from transfer req.xlsx](https://drive.google.com/file/d/1EL8HmxkM5via_44KfWgNa4IaeRLFyKvQ/view?usp=sharing)
 
-اسم العنصر: `EAGenerateEntityFromEntityAction`
+اسم العنصر: [`EAGenerateEntityFromEntityAction`](/entity-flows/core/EAGenerateEntityFromEntityAction)
 ::: details JSON code for Import Into Current Record
 ```json
 {

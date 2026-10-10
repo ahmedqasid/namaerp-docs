@@ -1,14 +1,13 @@
 ---
 title: EAUnicreteGenItemsAllAllowMustApply
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUnicreteGenItemsAllAllowMustApply
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

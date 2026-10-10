@@ -1,14 +1,13 @@
 ---
 title: EAClearGoogleDriveTrash
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAClearGoogleDriveTrash
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -1,14 +1,13 @@
 ---
 title: EAPreventFromDocOfUsageAgain
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAPreventFromDocOfUsageAgain
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -1,14 +1,13 @@
 ---
 title: EADarTibaServiceInvoiceTermSetter
 module: namapos
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EADarTibaServiceInvoiceTermSetter
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

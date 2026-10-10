@@ -1,14 +1,13 @@
 ---
 title: EACRMDevReqPadLeftRelativeWeight
 module: crm
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACRMDevReqPadLeftRelativeWeight
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

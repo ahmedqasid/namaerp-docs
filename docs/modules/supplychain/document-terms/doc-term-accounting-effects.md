@@ -14,7 +14,7 @@ Open the document's **Document Term** (توجيه), then the **Effect** / **Invo
 
 Every debit, credit, tax, discount, cash, fees, warehouse, coverage and service-fee "side" on the effect pages is the **same building block** — one account-side object. The field ids below use the main debit side (`termConfig.config.debit`) as the example prefix; every other side exposes the same sub-fields under its own prefix (e.g. `termConfig.config.credit.subsidiaryAccountType`, `termConfig.cash.accountSource.type`).
 
-**Side Configuration** `termConfig.config.debit.sideConfig` — Points the side at an [Accounting Side Config](/platform/accounting-side-config) record: the same block of settings saved once as a master file and shared by as many terms as need it.
+**Side Configuration** `termConfig.config.debit.sideConfig` — Points the side at an [Accounting Side Config](/platform/shared-master-files/accounting-side-config) record: the same block of settings saved once as a master file and shared by as many terms as need it.
 
 ::: warning A Side Configuration replaces the block, it does not merge with it
 Once this field is filled in, every other field in the same block is ignored — the account, the subsidiary type, the narrations, the dimension sources, all of it. The fields stay on screen showing whatever was typed there before, so a side can read as though it posts to one account while actually posting somewhere else entirely. Clear the Side Configuration to go back to the values typed in the block.
@@ -113,7 +113,7 @@ Taxes are configured two ways depending on the document. Invoices use account-si
 
 ### The tax "other side"
 
-**Tax 1..4 other side** `termConfig.taxesOtherSide.tax1OtherSide` … `termConfig.taxesOtherSide.tax4OtherSide` — Each of these fields holds an [Accounting Side Config](/platform/accounting-side-config) record. It is a reference to a saved account side, not a tick box and not a block you fill in here, so redirecting a tax counter-entry always starts by creating that master record.
+**Tax 1..4 other side** `termConfig.taxesOtherSide.tax1OtherSide` … `termConfig.taxesOtherSide.tax4OtherSide` — Each of these fields holds an [Accounting Side Config](/platform/shared-master-files/accounting-side-config) record. It is a reference to a saved account side, not a tick box and not a block you fill in here, so redirecting a tax counter-entry always starts by creating that master record.
 
 The field answers one question — when the tax leg posts, what does it post against? — and two rules decide the answer.
 
@@ -158,7 +158,7 @@ Invoices expose eight discount **account sides** plus a header-discount side on 
 
 **Discount 1 debit / credit (expense & cost documents)** `termConfig.discount1Debit` / `termConfig.discount1Credit` — The flat discount account for the single discount group on JOrderExpense, ReceiptAdditionalCost and LcExpense.
 
-**Discount other sides** `termConfig.taxesOtherSide.discount1OtherSide` … `termConfig.taxesOtherSide.discount8OtherSide`, and `termConfig.taxesOtherSide.headerDiscountOtherSide` — Like the tax other sides, each of these holds an [Accounting Side Config](/platform/accounting-side-config) record. What it does with it is different: it does not redirect a line, it adds two.
+**Discount other sides** `termConfig.taxesOtherSide.discount1OtherSide` … `termConfig.taxesOtherSide.discount8OtherSide`, and `termConfig.taxesOtherSide.headerDiscountOtherSide` — Like the tax other sides, each of these holds an [Accounting Side Config](/platform/shared-master-files/accounting-side-config) record. What it does with it is different: it does not redirect a line, it adds two.
 
 A discount normally posts on one side only. On a sales invoice with a line of 1,000 and a discount of 50, revenue is credited 1,000, the discount account is debited 50, and the customer — whose line is already net of the discount — is debited 950. (If no account side is configured for the discount itself, that 50 debit falls back to the document's main credit side, which is to say the discount is netted straight off revenue.)
 
@@ -167,6 +167,8 @@ Fill in the discount's other side and two more lines join the entry: the named r
 ## Approximation Discount
 
 Cash counters rarely settle to the last piastre. An invoice of 199.97 gets 200.00 handed over, and the three piastres have to land somewhere — that somewhere is the **approximation discount** side. Whether rounding happens at all, and how large a leftover still counts as "close enough", is decided globally in [Taxes and e-Invoicing](/platform/global-config/global-config-taxes#Approximation-discount); the document term only supplies the account and one behaviour switch.
+
+Support tickets often call this the **rounding discount**. On the term screen it is the **Approximation Discount** group on the **Invoice effect** tab.
 
 **Approximation Discount** `termConfig.approximationDiscount` — The account side that absorbs the leftover. When the outstanding amount on a document falls within the globally configured approximation value, that leftover is posted here instead of staying on the customer's (or supplier's) account, and the invoice closes clean. Leave it empty and no rounding happens on documents using this term, however the global settings are set.
 

@@ -22,6 +22,10 @@ The list view is the planning register — every run, with the status and the so
 
 ![The carton material planning list view](../../ar/modules/manufacturing/images/carton/material-planning-list-en.png)
 
+::: info Required license
+Carton material planning is part of the `manufacturing-crtn-pln` license, the carton-planning sub-license of the Manufacturing module. Without it the **Cartoon** menu does not appear, even when the core `manufacturing` license is on.
+:::
+
 ## How the Screen Is Laid Out
 
 The document has two tabs, and the **Main** tab is a stack of four grids rather than one long form. What makes it readable is that **each grid has its own action button sitting directly above it**, and that button is what fills the grid below:

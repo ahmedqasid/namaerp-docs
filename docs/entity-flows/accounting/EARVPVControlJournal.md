@@ -1,13 +1,12 @@
 ---
 title: EARVPVControlJournal
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EARVPVControlJournal
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

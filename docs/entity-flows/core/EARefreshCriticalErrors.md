@@ -1,14 +1,13 @@
 ---
 title: EARefreshCriticalErrors
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARefreshCriticalErrors
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

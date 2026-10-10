@@ -60,7 +60,7 @@ to expect and none of them is there:
 
 - **No expiry reminders.** A document carries a Renewal Date and an Expiration Date, and nothing
   reads them. No alert, no notification, no scheduled scan. If you need to be warned that a
-  licence lapses next month, build it yourself with a [scheduled task](/platform/scheduled-tasks.md)
+  licence lapses next month, build it yourself with a [scheduled task](/platform/automation-and-rules/scheduled-tasks.md)
   over a filtered list.
 - **No searching inside files.** You can find documents by folder, topic, owner, archive or code.
   You cannot search the *contents* of the attached scans.
@@ -77,7 +77,7 @@ records the movement in the document's history — but it does **not** update th
 Location, Sub Location or Detailed Location. Move a contract from shelf A-01 to B-01 and the
 document still reads A-01 afterwards.
 
-Until this is fixed, treat Transfer as a log of what somebody did physically, and **edit the
+So treat Transfer as a log of what somebody did physically, and **edit the
 document's location fields yourself** to keep the register truthful. The same caution applies to
 the History tab, which records where a document came *from*, never where it went *to*.
 :::

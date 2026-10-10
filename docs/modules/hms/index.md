@@ -42,21 +42,39 @@ The module is large, so we've split it into pages that follow the way hospital d
 
 ### Setup & master files
 
-- **[Hospital Structure & Rooms](./hms-facility.md)** — buildings, floors, sections, rooms, beds and clinics, and the room classifications that drive accommodation pricing.
-- **[Medical Master Files](./hms-medical-master-files.md)** — doctors, specialties, diseases, medical services, analyzers, feeding types, patient classes and document categories.
-- **[Medical Service Catalog](./hms-service-catalog.md)** — lab, radiology, physiotherapy and surgery types and their categories, plus surgery packages.
+<LandingGrid>
+  <LandingCard icon="⚙️" title="Hospital Management System Settings" link="/modules/hms/hms-configuration.md" details="How a stay is counted into billable days (check-in and check-out hours), and which discount, tax and price-classifier fields the screens show." />
+  <LandingCard icon="🏥" title="Hospital Structure & Rooms" link="/modules/hms/hms-facility.md" details="Buildings, floors, sections, rooms, beds and clinics, and the room classifications that drive accommodation pricing." />
+  <LandingCard icon="🩺" title="Medical Master Files" link="/modules/hms/hms-medical-master-files.md" details="Doctors, specialties, diseases, medical services, analyzers, feeding types, patient classes and document categories." />
+  <LandingCard icon="🧪" title="Medical Service Catalog" link="/modules/hms/hms-service-catalog.md" details="Lab, radiology, physiotherapy and surgery types and their categories, plus surgery packages." />
+</LandingGrid>
 
 ### Insurance & pricing
 
-- **[Medical Insurance & Approvals](./hms-insurance.md)** — insurance companies and their classes, and the insurance approval that is the source of prices and the patient/insurer split.
-- **[Pricing, Costing & Discounts](./hms-pricing.md)** — sales price lists, cost lists and discounts, indirect (overhead) costing, and changing a patient's price plan.
+<LandingGrid>
+  <LandingCard icon="🛡️" title="Medical Insurance & Approvals" link="/modules/hms/hms-insurance.md" details="Insurance companies and their classes, and the insurance approval that is the source of prices and the patient/insurer split." />
+  <LandingCard icon="🏷️" title="Pricing, Costing & Discounts" link="/modules/hms/hms-pricing.md" details="Sales price lists, cost lists and discounts, indirect (overhead) costing, and changing a patient's price plan." />
+</LandingGrid>
 
 ### The patient journey
 
-- **[Patients & Admission](./hms-patients.md)** — the patient file, the admission form, outpatient clinics, diagnosis and health status.
-- **[Accommodation & Feeding](./hms-accommodation.md)** — bed accommodation, transfers, exit, and meal issuing.
-- **[Clinical Orders & Results](./hms-clinical-orders.md)** — lab and radiology requests and results, surgery requests, reservations and approvals, and the blood bank.
+<LandingGrid>
+  <LandingCard icon="🧑‍⚕️" title="Patients & Admission" link="/modules/hms/hms-patients.md" details="The patient file, the admission form, outpatient clinics, diagnosis and health status." />
+  <LandingCard icon="🛏️" title="Accommodation & Feeding" link="/modules/hms/hms-accommodation.md" details="Bed accommodation, transfers, exit, and meal issuing." />
+  <LandingCard icon="🔬" title="Clinical Orders & Results" link="/modules/hms/hms-clinical-orders.md" details="Lab and radiology requests and results, surgery requests, reservations and approvals, and the blood bank." />
+  <LandingCard icon="🩻" title="The Surgery Lifecycle" link="/modules/hms/hms-surgery-lifecycle.md" details="From the surgeon's request through the theatre booking, the consent and the surgery invoice, to settling a surgery package against its agreed price." />
+</LandingGrid>
 
 ### Billing
 
-- **[Invoicing & Billing](./hms-invoicing.md)** — all service invoices (lab, radiology, pharmacy, surgery…), and the closing invoice that consolidates them at discharge.
+<LandingGrid>
+  <LandingCard icon="🧾" title="Invoicing & Billing" link="/modules/hms/hms-invoicing.md" details="All service invoices (lab, radiology, pharmacy, surgery…), freezing a price, and the closing invoice that consolidates them at discharge." />
+  <LandingCard icon="💊" title="Pharmacy, Supplies & Blood Bank" link="/modules/hms/hms-pharmacy-and-supplies.md" details="The Pharmacy and Blood Bank files; pharmacy, supplies, service-and-supply and blood bank invoices and their returns; and how they move stock." />
+</LandingGrid>
+
+### Document terms
+
+<LandingGrid>
+  <LandingCard icon="📑" title="Invoice Document Terms" link="/modules/hms/document-terms/hms-terms-invoices.md" details="The accounting sides every hospital invoice posts with, the price and tax options, and what each invoice family adds." />
+  <LandingCard icon="📋" title="Stay and Operations Document Terms" link="/modules/hms/document-terms/hms-terms-stay-and-operations.md" details="The terms that make an admission create its accommodation, a stay create its invoices, and a feeding issue create its stock documents; plus the closing and surgery package invoices." />
+</LandingGrid>

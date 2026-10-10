@@ -1,13 +1,12 @@
 ---
 title: EAAutomaticGenerateEntityFromEntityActionWithApproval
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAAutomaticGenerateEntityFromEntityActionWithApproval
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

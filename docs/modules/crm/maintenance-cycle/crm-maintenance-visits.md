@@ -54,7 +54,7 @@ linked notice and the linked order; and a **machine recall request** block — a
 flag, a recall type and free-text remarks.
 
 Below that: an *Additional spare parts* grid (item and quantity), a *Maintenance groups* grid, a
-*Discussion lines* checklist, and an *Orders* grid with a **Copy all lines from orders** button that
+*Discussion lines* checklist, and an *Orders* grid with a **Copy All From MnOrders** button that
 appends the listed orders' detail lines.
 
 ::: warning Three fields on this screen do less than they look
@@ -73,6 +73,15 @@ The visit is refused when the current odometer date is the same as the last odom
 the current odometer reading is **lower** than the reading already on the machine for a visit dated
 on or after the machine's own odometer date. Both exist to keep the odometer history monotonic. They
 are the only checks on this document.
+
+## Actions on this screen
+
+The visit carries a single button of its own:
+
+- **Copy All From MnOrders** (*نسخ كل السطور من أوامر الشغل*) — appends every detail line (machines,
+  spare parts, returned parts, services, dysfunctions, technicians, tools, maintenance groups) of every
+  order listed in the *Orders* grid. If the document term ticks *Consider Lines Of FromDoc*, the
+  *From document*'s lines are appended too. Pressing it twice appends the lines twice.
 
 ## Not the same thing as a CRM Visit
 

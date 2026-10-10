@@ -21,6 +21,8 @@ For how notifications are defined and triggered, see the [Notifications system](
 
 **Do Not Send Notifications To Delegated Employee** `value.info.doNotSendNotificationsToDelegates` — Normally, when an employee has an active delegation, notifications aimed at them are raised for their stand-in as well, marked with **Delegated From**. Tick this to switch that off everywhere. Prefer the **Do Not Apply Delegation** field on the individual notification definition when only a few sensitive notifications should stay with their original recipient — see [Notifications system](../notifications/notifications-system.md).
 
+**Ignore Employee State When Sending Notifications** `value.info.ignoreEmployeeStateWhenSendingNotifications` — Normally the system silently drops a recipient whose employee is Resigned, Dismissed, Pension or Suspended, and any user linked to such an employee. Tick this to stop that check for the whole installation, so former employees keep receiving notifications. Users with **Prevent Login** ticked are still dropped either way — see [Why a notification was not delivered](../notifications/notifications-system.md#Why-a-notification-was-not-delivered).
+
 **Notifications Sound** / **Approvals Sound** / **Messages Sound** / **Task Ended Sound** `value.info.notificationsSound`, `value.info.approvalsSound`, `value.info.messagesSound`, `value.info.taskEndedSound` — Each can be **None** or one of five sounds. Giving approvals a distinct sound from general notifications is genuinely useful for people who approve all day; giving all four the same sound is just noise.
 
 ## Sending settings

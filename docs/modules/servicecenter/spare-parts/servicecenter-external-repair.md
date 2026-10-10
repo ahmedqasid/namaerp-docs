@@ -45,8 +45,7 @@ The **details** grid is where the work is listed, and it has no item and no ware
 
 Below the grid sits the money block — totals, discounts, taxes, net value, paid, remaining — and a
 **Payment Documents** page carrying external payment lines, payment method lines, a payment template
-and an instalment schedule, plus the standard **إنشاء الدفعات / Generate Payments** action. In other
-words, the whole of the supplier-invoice payment apparatus is available here.
+and an instalment schedule.
 
 Its only connection to the workshop is **From Document**. There is no job order field. Point *From
 Document* at [job order](/modules/servicecenter/job-cycle/servicecenter-job-order.md)
@@ -144,5 +143,11 @@ be confused.
 |---|---|
 | Inventory effect | **None.** No item, no warehouse, nothing moves. |
 | Accounting effect | A **payable** to the supplier (or a receivable, with *Is Sales Not Purchase*), against the expense account named on each line. |
-| Documents generated | Payment documents, through the standard *Generate Payments* action. |
+| Documents generated | **None.** |
 | Effect on the job order | The named tasks are set to **Finished**. Nothing else — no cost, no material, no price. |
+
+## Actions on this screen
+
+- **Installment Payments** (*سندات سداد الدفعات*, More menu) — opens a pop-up list of the payments
+  recorded against this document's instalments: the instalment code, the paying document, its date,
+  the paid value and the effect type. Use it to see which vouchers have settled which instalment.

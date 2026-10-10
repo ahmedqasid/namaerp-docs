@@ -1,14 +1,13 @@
 ---
 title: EACopyTaxesFromFromDoc
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACopyTaxesFromFromDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

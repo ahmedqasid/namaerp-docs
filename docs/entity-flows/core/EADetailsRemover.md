@@ -1,14 +1,13 @@
 ---
 title: EADetailsRemover
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EADetailsRemover
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

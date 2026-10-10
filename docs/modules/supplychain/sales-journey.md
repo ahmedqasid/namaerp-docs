@@ -20,13 +20,13 @@ Not every sale passes through all these steps (cash sales skip most of them!), b
 Every document below points at a customer, and inherits that customer's price list, tax plan,
 accounts, salesman and payment terms — so the file is worth getting right before the first quotation.
 It is documented under
-[Customers, Suppliers and Other Parties](/platform/customers-suppliers-and-parties).
+[Customers, Suppliers and Other Parties](/platform/shared-master-files/customers-suppliers-and-parties).
 
 **Credit control deserves a word of warning.** The customer file carries a credit limit, a payment
 period and *Forbid Billing* / *Forbid Ordering* ticks, and it is natural to read those as a brake on
 the journey. They are not: nothing in the shipped product stops an order or an invoice because a
 customer is over their limit. If your implementation needs that brake, it is built with
-[Criteria Based Validation](/platform/criteria-based-validation#Block-a-sale-that-exceeds-the-customers-credit-limit),
+[Criteria Based Validation](/platform/governance/criteria-based-validation#Block-a-sale-that-exceeds-the-customers-credit-limit),
 where the query is written out in full.
 
 ## Step One: The Customer Inquiry (SalesQuotationRequest)

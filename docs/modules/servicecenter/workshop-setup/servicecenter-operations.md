@@ -60,7 +60,7 @@ It is worth being blunt about the relationship, because the two words sound like
 
 ### The Model Price Table
 
-Below the tasks grid sits a button, **collectModels**, and a grid headed **price for all models** (أسعار الخدمة لكل الموديلات).
+Below the tasks grid sits a button, **Collect Models** (تجميع الموديلات), and a grid headed **price for all models** (أسعار الخدمة لكل الموديلات).
 
 | Column | Arabic label | What it holds |
 |---|---|---|
@@ -70,7 +70,7 @@ Below the tasks grid sits a button, **collectModels**, and a grid headed **price
 | Manufacturer Suggested Retail Total Price | إجمالي سعر المورد | The manufacturer's package price for that model. |
 | Recur Every KM | تكرر كل / كم | How often this service comes round on that model. |
 
-Pressing **collectModels** saves typing: it reads the marque in the header and drops one row into the grid for every model that marque owns. At Al-Sahra, with `BRD-NAWA` in the header, one press produces rows for the Saif 1.6, the Rimal 2.4 and the Nakhla — and you then type a price against each.
+Pressing **Collect Models** saves typing: it reads the marque in the header and fills the grid with one row for every model that marque owns. At Al-Sahra, with `BRD-NAWA` in the header, one press produces rows for the Saif 1.6, the Rimal 2.4 and the Nakhla — and you then type a price against each.
 
 Two rules govern the grid at save time. A row whose brand is **not** the header's brand is refused when you commit. And after a successful commit, each row's brand is filled in from its model, so rows produced by the button keep themselves tidy.
 
@@ -79,6 +79,14 @@ When the system looks for the price of this service on a particular car, it matc
 
 Consequence: two rows for the same model with different brands are indistinguishable to the matcher, and the **first** one always wins. Keep one row per model.
 :::
+
+![An operation with its model price grid and the Collect Models button](../../../ar/modules/servicecenter/images/execution/sc-operation-collect-models-en.png)
+
+## Actions on this screen
+
+- **Collect Models** (*تجميع الموديلات*) — save the service first. The button replaces the model price
+  table with one row per model of the header's Item Brand, each with the brand filled and no price;
+  rows you had already typed are discarded, so press it before you enter prices, not after.
 
 ## Per Line or Total — the Fork That Matters
 
@@ -125,5 +133,5 @@ The pricing fork follows the rows onto the document. A service's header row has 
 2. Create the service, name it the way a customer would ask for it, and set the marque in the header.
 3. Choose the **Pricing strategy** now, before anyone uses the record.
 4. Add the member tasks. Under Per Line, give each its hours and rate; under Total, put the package price in the header and leave the rows alone.
-5. If you price the package differently by model, press **collectModels** and fill in the Total column row by row — one row per model, no duplicates.
+5. If you price the package differently by model, press **Collect Models** and fill in the Total column row by row — one row per model, no duplicates.
 6. Add a **Recur Every KM** on the model rows if the package is a scheduled service that comes round with mileage.

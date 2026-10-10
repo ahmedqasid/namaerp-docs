@@ -1,14 +1,13 @@
 ---
 title: EASetFieldByTemplate
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASetFieldByTemplate
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

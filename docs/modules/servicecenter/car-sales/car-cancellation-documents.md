@@ -132,3 +132,13 @@ is marked cancelled, re-saving it no longer refreshes the references it had stam
 [the car's Statistics tab](/modules/servicecenter/cars-setup/car-master-file.md), nor the branch,
 sector, department or tax values it had been copying across. The
 stamps already written stay written; they simply stop being updated.
+
+## Actions on these screens
+
+The Car Sales Order Cancel, Car Allocation Cancel, Car Final Delivery Cancel, Car Receipt Cancel and Car Traffic Letter Cancel each carry one action, in the More menu:
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*) — for every line whose item
+  has sub items, creates the car record (or refreshes the one already on the line) from the line's
+  data and writes it back onto the line. The car record is saved straight away, even before you save
+  the document. It does nothing, and shows no message, unless the term's *Create Sub Item From Line
+  Info* option is on.

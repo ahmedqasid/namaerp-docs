@@ -1,14 +1,13 @@
 ---
 title: EARecalculateSrvcOperationsAndMaterialsPricesFromQuery
 module: srvcenter
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARecalculateSrvcOperationsAndMaterialsPricesFromQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

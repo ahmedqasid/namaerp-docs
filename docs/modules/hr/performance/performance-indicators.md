@@ -212,6 +212,18 @@ When an indicator's **Require Indicator Approval** flag is on, a System-type val
 
 Rather than a separate screenshot, picture the same style of form as the Performance Indicator screen above: a header carrying the indicator, the per-day ceiling, and the date range, over a details grid that lists one clamped total per employee.
 
+## Actions on this screen
+
+**On the Manual Measure:**
+
+- **Collect Employees** — pick the **HR Period** first. It replaces the **Details** grid with one row per employee in the **Working** state who matches the **Collect Employees** range during that period, sorted by code, ready for you to type the values.
+
+**On the Performance Measure:**
+
+- **Collect Employees** — also needs the **HR Period**. It opens a small dialog asking which grids to fill: **Collect In Manual** (ticked by default), **Collect In Calculated** and **Collect In System**. Each ticked grid is replaced with the values collected for the matching employees in that period; unticked grids are left alone.
+
+The **Performance Indicator** and the **System Indicator Approval** have no buttons of their own.
+
 ## How an indicator becomes part of the salary
 
 None of the four screens above touch pay by themselves — an indicator only affects a paycheck once a [Salary Calculation Formula](../payroll/salary-calculation-formulas.md) is set up to read it. A formula whose **Formula Type** is **Related To Performance Indicator** points at one indicator, and its **Applicability Method** decides how the reading is used:

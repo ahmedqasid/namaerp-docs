@@ -147,7 +147,14 @@ And if the line has a **URL Prefix** — say `invoices` — that word goes in fr
 https://<your server>/erp/r/invoices/{retrieverFileId}
 ```
 
-That prefix is what lets one system publish more than one kind of document: a line with prefix `invoices` running the invoice form, another with prefix `receipts` running the receipt form, each reached by its own address. [Sending Invoices and Documents to Customers](/integration/invoice-retriever) walks through the notification side of this in more detail, and [Nama ERP Notification System](/platform/notifications/notifications-system) covers how the SMS or e-mail carrying the link is set up.
+That prefix is what lets one system publish more than one kind of document: a line with prefix `invoices` running the invoice form, another with prefix `receipts` running the receipt form, each reached by its own address. The link reaches the customer in an ordinary notification — an SMS or an e-mail whose text carries the `{retrieverFileId}` variable, for example:
+
+```
+Thanks for visiting us, view your invoice by clicking on this link:
+https://<your server>/erp/r/{retrieverFileId}
+```
+
+[Nama ERP Notification System](/platform/notifications/notifications-system) covers how that notification is set up.
 
 ::: warning Line order matters, and an empty prefix swallows everything
 Lines are matched **in the order they appear in the grid**, and the first line whose prefix matches the incoming address wins. A line with an **empty URL Prefix** matches every address there is.
@@ -200,7 +207,6 @@ All three grids are applied by the server, so changes take effect as soon as the
 - [Exporting Records](/platform/import-export/exporting-records) — the other direction, and the file shapes an integrator will be sent.
 - [Introduction to Entity Flows](/platform/entity-flows/introduction-to-entity-flows) — for endpoints that run a flow instead of filling fields.
 - [Importing Data from Excel or Queries](/platform/entity-flows/excel-and-sql-import-by-entity-flow) — scheduled, server-side alternative when nothing external needs to call in.
-- [Sending Invoices and Documents to Customers](/integration/invoice-retriever) — worked examples of the public invoice link.
 - [Nama ERP Notification System](/platform/notifications/notifications-system) — how the message carrying that link is sent.
 - [Jasper Reports Complete Guide](/platform/reports/reports-guide) — designing the form an invoice retriever line runs.
 - [Security System Overview](/platform/security/security-overview) — what an integration account should and should not be allowed to do.

@@ -13,8 +13,9 @@ title: مسارات الكيان
 <LandingGrid>
   <LandingCard icon="🔄" title="مقدمة عن مسارات الكيان" link="/ar/platform/entity-flows/introduction-to-entity-flows.md" details="ما هي مسارات الكيان، ومتى تُنفَّذ، وكيف تنشئ مسارًا — دون الحاجة إلى أي برمجة." />
   <LandingCard icon="📥" title="استيراد البيانات من Excel أو الاستعلامات" link="/ar/platform/entity-flows/excel-and-sql-import-by-entity-flow.md" details="اسحب البيانات إلى النظام مباشرة من ملف Excel أو من استعلام SQL باستخدام مسار كيان." />
-  <LandingCard icon="🧬" title="توليد كيان من كيان" link="/ar/platform/entity-flows/ea-gen-entity-from-entity.md" details="استخدم EAGenerateEntityFromEntityAction لإنشاء سجل تلقائيًا انطلاقًا من سجل آخر." />
+  <LandingCard icon="🧬" title="توليد كيان من كيان" link="/entity-flows/core/EAGenerateEntityFromEntityAction.md" details="أنشئ سجلًا تلقائيًا أثناء حفظ سجل آخر؛ ويحذفه مسار DeleteRelatedEntityAction من جديد (الصفحة بالإنجليزية)." />
   <LandingCard icon="💡" title="أمثلة لمسارات كيان" link="/ar/platform/entity-flows/entity-flow-examples.md" details="أمثلة عملية تُظهر مسارات الكيان وهي تعالج سيناريوهات واقعية." />
+  <LandingCard icon="🔍" title="لماذا لم يعمل مسار الكيان" link="/ar/platform/entity-flows/entity-flow-troubleshooting.md" details="إعدادات الرأس وفخاخ التوقيت التي توقف المسار بصمت، مفحوصة بالترتيب الذي يفحصها به النظام." />
   <LandingCard icon="❓" title="أسئلة شائعة عن مسارات الكيان" link="/ar/platform/entity-flows/entity-flow-faq.md" details="الأسئلة المتكررة حول بناء مسارات الكيان وتشغيلها." />
 </LandingGrid>
 

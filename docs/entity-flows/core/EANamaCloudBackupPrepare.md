@@ -1,14 +1,13 @@
 ---
 title: EANamaCloudBackupPrepare
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EANamaCloudBackupPrepare
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

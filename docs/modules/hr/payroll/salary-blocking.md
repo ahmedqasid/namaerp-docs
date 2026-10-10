@@ -76,6 +76,10 @@ The real cash-out is a **Payment Voucher** (a standard accounting payment docume
 3. **Pay partially if needed** — set up a **Partial Salary Payment** template listing the components to release, then issue a **Payment Voucher** referencing it to actually pay (and post) that portion.
 4. **Release the hold** — when the situation resolves, raise a **Salary UnBlock** from the block, restoring normal payment.
 
+## Actions on this screen
+
+None of the four screens — Salary Block Rule, Salary Block, Salary UnBlock and Partial Salary Payment — has buttons of its own; each is filled in and saved.
+
 ## Related pages
 
 - **[Salary Documents](salary-documents.md)** — the payslips a block holds and an unblock releases.

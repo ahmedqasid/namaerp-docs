@@ -28,6 +28,7 @@ Terms, conditions and prices — the master files every document references. Sta
 
 <LandingGrid>
   <LandingCard icon="📐" title="Master Files and Setup" link="/modules/contracting/setup/contracting-standard-terms.md" details="Projects, standard terms, term sheets, analysis cards, contract conditions, price lists, phases, work areas, templates, contractors and consultants." />
+  <LandingCard icon="✏️" title="Modify Contractor Info Request" link="/modules/contracting/setup/contracting-modify-contractor-info-request.md" details="How a requested change to a subcontractor's file is written down, then applied or turned into a new contractor with one button." />
   <LandingCard icon="🧾" title="Document Terms" link="/modules/contracting/document-terms/contracting-terms-basics.md" details="The توجيه behind each document: which accounts it posts to, and the options that change how an extract is priced." />
 </LandingGrid>
 

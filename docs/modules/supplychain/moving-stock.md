@@ -7,7 +7,7 @@ menu: Inventory → Stock transfer Docs → Stock Transfer
 Sometimes items don't come in or go out - they just move from one place to another. This guide focuses on **stock transfers**: moving inventory between warehouses and locations while its ownership stays within the organization.
 
 ::: info Other movements have their own guides
-Transforming stock by **assembling** it is covered in [Assembly & Packaging](./assembly-and-packaging.md); **reserving** items without moving them in the [Reservation System Guide](./reservation-system-guide.md); **loading and delivering** them to customers in [Delivery & Loading](./delivery-and-loading.md); and reconciling differences through **counting** in [Stock Taking](./stock-taking.md). This guide stays focused on inter-warehouse transfers.
+Transforming stock by **assembling** it is covered in [Assembly & Packaging](./assembly-and-packaging/); **reserving** items without moving them in the [Reservation System Guide](./reservation-system-guide.md); **loading and delivering** them to customers in [Delivery & Loading](./delivery-and-loading.md); and reconciling differences through **counting** in [Stock Taking](./stock-taking.md). This guide stays focused on inter-warehouse transfers.
 :::
 
 ## Stock Transfers: The Basics

@@ -16,7 +16,7 @@ A Leave Permission records a specific, time-boxed absence for one employee, with
 | Early Leave | اذن مبكر | Leaving before the shift ends. |
 | Late Arrival | اذن تاخير | Arriving after the shift starts. |
 | Leave During Work | انصراف خلال العمل | Stepping out mid-shift and returning. |
-| Forgot Check In | نسيان بصمة دخول | Covers a missing check-in — often created via **Convert To Leave Permission** from an [Electronic Attendance](time-attendance.md#Electronic-Attendance-mobile-self-service-punches) record flagged that way. |
+| Forgot Check In | نسيان بصمة دخول | Covers a missing check-in — typically one an [Electronic Attendance](time-attendance.md#Electronic-Attendance-mobile-self-service-punches) record flagged that way. |
 | Forgot Check Out | نسيان بصمة خروج | Covers a missing check-out, the same way. |
 | Other 1 / 2 / 3 | أخرى 1 / 2 / 3 | Site-specific catch-all categories. |
 
@@ -24,7 +24,7 @@ Its header carries the usual document identity plus two fields worth calling out
 
 | Field (English → Arabic) | Purpose |
 |---|---|
-| From Document (بناءا على) | An optional link to whatever record this permission originates from — most often the Electronic Attendance punch it was converted from, following the same "document tells you where it came from" idea covered in [HR Requests & Documents](../concepts/hr-requests-and-documents.md). |
+| From Document (بناءا على) | An optional link to whatever record this permission originates from — most often the **Leave Permission Request** it answers (choosing a request there copies its type, employee, period, dates, hours and reason), following the same "document tells you where it came from" idea covered in [HR Requests & Documents](../concepts/hr-requests-and-documents.md). |
 | Extended Multi Day Permission (إذن ممتد لأكثر من يوم) | Lets a single permission span more than one calendar day, instead of being confined to one. |
 | HR Period (فترة الرواتب) | The payroll period this permission counts against. |
 
@@ -190,9 +190,15 @@ The all-overtime rule is not peculiar to the weekly rest day — an official hol
 <HRConfigOption option-code="value.calculateNormalWorkHoursForVacations" link-title="Calculate Normal Work Hours For Vacations (Overtime will not be all day)" />
 :::
 
+## Actions on this screen
+
+The **Leave Permission**, **Mission Document**, **Leave Permission Configuration** and **Leave Reason** screens have no buttons of their own. The one button in this area sits on the **Leave Permission Request** (*Payroll > Time Attendance > Leave Permission Request*), the request an employee raises — often from the mobile app — before HR records the permission:
+
+- **Convert To Leave Permission** — opens a new Leave Permission in a popup, already carrying the request's employee, permission type, HR period, dates, hours, reason and multi-day setting, for you to review and save. The request must be saved first.
+
 ## Workflow
 
-1. **Short authorized absence**: raise a **Leave Permission** with the right Permission Type, date/hour range, and a **Leave Reason** scoped to Leave — or let a forgotten Electronic Attendance punch convert into one automatically.
+1. **Short authorized absence**: raise a **Leave Permission** with the right Permission Type, date/hour range, and a **Leave Reason** scoped to Leave — or, when the employee asked through a **Leave Permission Request**, press **Convert To Leave Permission** on the request.
 2. **Cap the allowance**: define (or rely on) **Leave Permission Configuration** rules and the reason's own per-reason limits so short absences don't quietly add up unchecked.
 3. **Business trip out of the office**: raise a **Mission Document** with its own date/hour range, an allowance if applicable, and a **Leave Reason** scoped to Mission.
 4. **Let attendance and salary read the result**: both documents feed the day's attendance picture, which performance indicators then turn into the relevant salary additions or deductions.

@@ -170,7 +170,7 @@
 
 - Reviewed the system reports in which some parameters did not affect the results: SYSF-ACC013, SYSF-ACC017, SYSR-ACC004, SYSR-ACC024, SYSR-ACC033, SYSR-ACC045, SYSR-AUD016, SYSR-BNK001, SYSR-BNK002, SYSR-BNK004, SYSR-CTR001, SYSR-FNS008, SYSR-HRS001, SYSR-HRS002, SYSR-HRS006, SYSR-INV006, SYSR-INV014, SYSR-INV020, SYSR-INV031, SYSR-IVS001, SYSR-PIV002, SYSR-PIV004, SYSR-PMG002, SYSR-SLS012, SYSR-SLS016, SYSR-TAX001.
 - Fixed an issue where the general assets report (SYSR-AST003) did not work in the new GUI.
-- In the virtual entity, the (Edit Mappings) button now shows a message explaining that the editor is available in the new GUI only, the (Column Mapping) field now refuses to save invalid JSON, and fixed an issue where virtual entities appeared only after restarting the server. For details: [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](/platform/virtual-entity-guide)
+- In the virtual entity, the (Edit Mappings) button now shows a message explaining that the editor is available in the new GUI only, the (Column Mapping) field now refuses to save invalid JSON, and fixed an issue where virtual entities appeared only after restarting the server. For details: [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](/platform/automation-and-rules/virtual-entity-guide)
 
 ### Business Intelligence
 

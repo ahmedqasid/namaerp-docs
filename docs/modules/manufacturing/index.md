@@ -56,6 +56,19 @@ A specialised toolkit for carton makers, from product specs to an optimizing mat
   <LandingCard icon="🚚" title="Carton Material Issues" link="/modules/manufacturing/carton-material-issue.md" details="Move the planned materials from the warehouse out to the shop floor." />
 </LandingGrid>
 
+## Settings and Document Terms
+
+The module-wide switches, and the per-document terms that decide how each manufacturing document behaves.
+
+<LandingGrid>
+  <LandingCard icon="🛠️" title="Manufacturing Configuration" link="/modules/manufacturing/manufacturing-configuration.md" details="The module settings: issuing, execution, MRP matching and BOM rules." />
+  <LandingCard icon="📋" title="Production Order and Planning Terms" link="/modules/manufacturing/document-terms/mfg-terms-production-orders.md" details="Production orders, requests, aggregated documents and the MRP planning document." />
+  <LandingCard icon="🔁" title="Execution and Delivery Terms" link="/modules/manufacturing/document-terms/mfg-terms-execution-and-delivery.md" details="What an execution generates, automatic delivery and the quality gates." />
+  <LandingCard icon="🧪" title="Raw Material Terms" link="/modules/manufacturing/document-terms/mfg-terms-materials.md" details="Issues, returns, their requests and the manufacturing stock taking." />
+  <LandingCard icon="🧮" title="Costing, Resource and Mold Terms" link="/modules/manufacturing/document-terms/mfg-terms-costing.md" details="Where order close, resource vouchers and molds take their accounts from." />
+  <LandingCard icon="📦" title="Carton Terms" link="/modules/manufacturing/document-terms/mfg-terms-carton.md" details="The books and terms that hand each carton document on to the next." />
+</LandingGrid>
+
 ## Help
 
 The questions that come up most around manufacturing.

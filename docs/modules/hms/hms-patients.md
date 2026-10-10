@@ -1,9 +1,21 @@
 ---
 entities: [HMSPatient, HMSPatientAdmission, HMSOutpatientReservation, HMSOutpatientSchedule, HMSPatientDiagnosis, HMSPatientHealthStatus, HMSQuestionnaireTemplate, HMSQuestion]
+menu: Hospital Management System → Master Files → Patient
 ---
 # Patients & Admission
 
 This is where the patient's journey really begins. On this page we cover the patient file itself, how an outpatient is booked, how an inpatient is admitted via the admission form, plus recording diagnosis and health status.
+
+| Screen | Menu | Its own buttons |
+|---|---|---|
+| **Patient** | Hospital Management System → Master Files → Patient | **Create Patient Admission** |
+| **Patient Admission** | Hospital Management System → Documents → Patient Admission | **Update Prices Data On All Invoices** |
+| **Outpatient Schedule** | Hospital Management System → Master Files → Outpatient Schedule | None |
+| **Outpatient Reservation** | Hospital Management System → Documents → Outpatient Reservation | None |
+| **Patient Diagnosis** | Hospital Management System → Documents → Patient Diagnosis | None |
+| **Patient Health Status** | Hospital Management System → Documents → Patient Health Status | None |
+| **Health Status Question** | Hospital Management System → Master Files → Health Status Question | None |
+| **Health Status Questionnaire Template** | Hospital Management System → Master Files → Health Status Questionnaire Template | None |
 
 ## The patient file
 
@@ -23,7 +35,7 @@ The patient file carries a **Create Patient Admission** button that opens a new 
 
 Its header carries: patient, doctor and admission date/time; insurance company and document category; endurance percentages; the **insurance maximum value across all invoices** with a live **remaining** counter; price classifiers; an initial diagnosis; and a **diagnosis diseases** group (used later to choose feeding). The admission also links the exit document, the closing invoice and a surgery package if any.
 
-A key feature is the **Generate Accommodation Doc** flag: when ticked and the admission is saved, an **[Accommodation](./hms-accommodation.md)** document is generated automatically (booking the bed and starting accommodation charges). There's also an **Update Price Data on All Invoices** button to recompute endurance percentages across all the admission's invoices when the insurance plan changes. The admission carries grids for next-of-kin, services rendered during the stay, surgery-package items, and lab tests requested at admission.
+A key feature is the **Generate Accommodation Doc** flag: when ticked and the admission is saved, an **[Accommodation](./hms-accommodation.md)** document is generated automatically (booking the bed and starting accommodation charges). When the insurer, the endurance percentages or the doctor change after invoices have been issued, correct them on the admission, save it, and press **Update Prices Data On All Invoices**: it copies the admission's insurance company, patient and company endurance percents and doctor onto every invoice of the admission and saves each one again, so their splits are recalculated. It is refused once the admission has an exit (*You can not use this action with the admission {0} because it has an exit document {1}* — «لا يمكنك إستخدام هذه الأداة مع الإستمارة {0} لان لها سند خروج {1}»); after discharge, use [Change Patient Price Plan](./hms-pricing.md) instead. The admission carries grids for next-of-kin, services rendered during the stay, surgery-package items, and lab tests requested at admission.
 
 ![Patient admission](../../ar/modules/hms/images/patient/patient-admission-en.png)
 

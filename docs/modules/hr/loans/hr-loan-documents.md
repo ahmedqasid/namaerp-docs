@@ -54,6 +54,23 @@ The **Loan Payment Document** (سند سداد سلفة) records money collected
 
 ![Loan Payment Document](../../../ar/modules/hr/images/loans/loan-payment-document-en.png)
 
+## Actions on this screen
+
+The schedule is generated, not typed, and repayment can start from the loan itself.
+
+**On the Loan Request:**
+
+- **Accept** / **Reject** — set the request's status to Accepted or Rejected (step 2 above). The request must be saved first, and a request that is already Processed can no longer be accepted or rejected.
+- **Generate Installments** — builds a provisional installment schedule on the request from the same figures the Loan Document uses, so the employee and the reviewer can see what the deductions will look like.
+
+**On the Loan Document:**
+
+- **Generate Installments** — builds the installment schedule (step 4 above). Press it again after changing the amount, count, start date or rounding; it rebuilds the grid.
+- **Select All Installment Lines** / **Unselect All Installment Lines** — tick or clear every installment line. Select All only ticks installments that still have something left to pay; paid and exempted ones stay clear.
+- **Create Loan Payment From Selected Lines** — opens a new **Loan Payment Document** in a popup, pointed at this loan, with one line per ticked installment and its remaining value as the paid amount. Check it and save. The loan must be saved first, at least one line must be ticked, and every ticked line must still have a remaining balance.
+
+The **Loan Payment Document** has no buttons of its own.
+
 ## How it's processed / what it posts
 
 Both documents generate their ledger effect as a background **business request** with a **processing status**, retryable from the **Business Requests** view if it fails.

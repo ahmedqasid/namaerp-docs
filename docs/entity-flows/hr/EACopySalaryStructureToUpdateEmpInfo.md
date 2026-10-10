@@ -1,14 +1,13 @@
 ---
 title: EACopySalaryStructureToUpdateEmpInfo
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACopySalaryStructureToUpdateEmpInfo
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

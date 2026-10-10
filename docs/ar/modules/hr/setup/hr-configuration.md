@@ -193,7 +193,7 @@ menu: الرواتب ← الإعدادات ← أعدادات الموارد ا
   مستند لاحق ما زال مسودة دورةَ الرواتب.
 
 ويستطيع كل سطر أن يحمل **معيارًا** فتنطبق القاعدة على بعض الموظفين أو المستندات دون بعض؛ والمعايير
-مشروحة في [تعريفات المعايير](/ar/platform/criteria-definitions).
+مشروحة في [تعريفات المعايير](/ar/platform/automation-and-rules/criteria-definitions).
 
 أما القالبان، **قالب تنبيهات إعادة إصدار سندات الرواتب** `value.regenSalaryDocsNotificationTemplate`
 و**قالب تنبيهات فشل إعادة إصدار سندات الرواتب** `value.regenSalaryFailureNotificationTemplate`، فهما
@@ -454,9 +454,10 @@ menu: الرواتب ← الإعدادات ← أعدادات الموارد ا
 متداخلة على قارئاتهما.
 
 **معادلة ماكينة الحضور** `value.attendanceMachineFormula` — معادلة التحليل التي تحوّل ملف سجل
-الماكينة الخام إلى سطور حضور، وإلى جوارها على الشاشة نحو أربعين زر رمز (`hrfEmployeeID` و
-`hrfInDateTime` و `hrfAlternatingPunch` و `hrfSeparator` وغيرها). ولهذه اللغة صفحتها:
-[معادلة ماكينة الحضور](/ar/modules/hr/attendance-machine-formula). وتركيب الماكينات في
+الماكينة الخام إلى سطور حضور. والأزرار الأربعون تقريبًا أسفلها (**Employee ID** و**In Date Time**
+و**Alternating Punch** و**Separator** وغيرها) هي الأزرار الوحيدة في شاشة إعدادات الموارد البشرية؛
+يضيف كل منها رمزه إلى آخر المعادلة، وتظهر أسماؤها بالإنجليزية في الواجهة العربية أيضًا. ولهذه اللغة،
+ولما يُدرجه كل زر، صفحتها: [معادلة ماكينة الحضور](/ar/modules/hr/attendance-machine-formula). وتركيب الماكينات في
 [ماكينات الحضور](/ar/modules/hr/attendance/attendance-machines).
 
 ## التسجيل والإنتاجية
@@ -540,4 +541,4 @@ menu: الرواتب ← الإعدادات ← أعدادات الموارد ا
 :::
 
 والرسائل التي تثيرها الطبقة العامة في كل شاشة — رفوض المسودة والمراجَع والصلاحية والترخيص وتكرار
-الكود — في [الرسائل والرفوض](/ar/platform/messages-and-refusals).
+الكود — في [الرسائل والرفوض](/ar/platform/documents-and-records/messages-and-refusals).

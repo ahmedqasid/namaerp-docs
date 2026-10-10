@@ -1,6 +1,7 @@
 {
   "sortedPaths": [
     "/modules/hms",
+    "/modules/hms/hms-configuration.md",
     "/modules/hms/hms-facility.md",
     "/modules/hms/hms-medical-master-files.md",
     "/modules/hms/hms-service-catalog.md",
@@ -9,12 +10,21 @@
     "/modules/hms/hms-patients.md",
     "/modules/hms/hms-accommodation.md",
     "/modules/hms/hms-clinical-orders.md",
-    "/modules/hms/hms-invoicing.md"
+    "/modules/hms/hms-surgery-lifecycle.md",
+    "/modules/hms/hms-pharmacy-and-supplies.md",
+    "/modules/hms/hms-invoicing.md",
+    "/modules/hms/document-terms",
+    "/modules/hms/document-terms/hms-terms-invoices.md",
+    "/modules/hms/document-terms/hms-terms-stay-and-operations.md"
   ],
   "folderTitles": {
     "/modules/hms": {
       "ar": "نظام إدارة المستشفيات",
       "en": "Hospital Management System"
+    },
+    "/modules/hms/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
     }
   }
 }

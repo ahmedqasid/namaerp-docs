@@ -80,7 +80,7 @@ The screen is one page of range pairs — from/to date, from/to owner, from/to b
 ### The monthly run
 
 1. **Set the ranges.** Our property manager sets the date range to 1–31 March and leaves the owner and site ranges open, because she wants every shop.
-2. **Press *Collect*.** The document must be saved first. The system reads every rent contract and opening rent contract that is not cancelled and matches the ranges, walks their installments, and adds one grid row per unpaid installment — carrying the contract, the installment code, its net value, its type, its due date, its cheque and its expense type, with the **Paid Value** column pre-filled with whatever is still outstanding on that installment.
+2. **Press *Collect Rent Contracts*.** The system reads every rent contract and opening rent contract that is not cancelled and matches the ranges, walks their installments, and adds one grid row per unpaid installment — carrying the contract, the installment code, its net value, its type, its due date, its cheque and its expense type, with the **Paid Value** column pre-filled with whatever is still outstanding on that installment.
 3. **Review and adjust.** The button only fills the grid; it saves nothing. Delete the rows you do not want, reduce a paid value where a tenant is paying part, or add a row by hand — the installment code column offers the same suggestion list as the collect document.
 4. **Commit.**
 
@@ -108,3 +108,16 @@ Re-committing an aggregated document after an edit re-runs the whole generation:
 Two limits round out the picture. The sweep reads **rent contracts only** — sales installments are not aggregated, and a sales collection is typed as an ordinary collect document. And **every line must name a contract**: a row whose contract cell is empty cannot generate anything and will fail the commit, so delete stray rows rather than leaving them blank.
 
 The aggregated document performs no validation of its own; everything is checked inside the collect documents it generates. If one of them is invalid — an installment code that no longer exists, an over-payment, a contract that has been cancelled — that is where the error comes from, and the [rent contract page](/modules/realestate/rent/realestate-rent-contract.md) is the place to check what changed underneath.
+
+## Actions on these screens
+
+**On the collect document and the collect request** — the same two buttons on both:
+
+- **Create Receipt Voucher** — opens a new, unsaved receipt voucher for the document's total, addressed to the buyer, with one installment line per collect line and a commercial-paper line for every line that named a cheque.
+- **Create receipt voucher req** — opens a receipt request for the document's amount in a pop-up; it copies the amount and the party only.
+
+**On the aggregated collect document:**
+
+- **Collect Rent Contracts** — fills the grid with the unpaid installments of every rent contract and opening rent contract matching the owner, buyer, site and date ranges, as described in *The monthly run* above. It only fills the grid; nothing is saved until you save.
+
+The collect document can also be opened ready-made from a contract: the **Create collect doc from selected line** button on each installment row of the rent contract, the sales contract and the other installment-bearing documents (see *A shortcut worth knowing* above).

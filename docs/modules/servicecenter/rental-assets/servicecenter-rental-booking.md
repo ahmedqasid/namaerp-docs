@@ -94,6 +94,16 @@ The pair *request → invoice* is not registered as a standard next-document ste
 
 Both the request and the invoice post through the standard sales-invoice financial effects, and both share a single [توجيه](/modules/servicecenter/document-terms/servicecenter-terms-cars-and-other.md) configuration. They post **only when that توجيه has a debit or a credit side filled**; with both blank, committing produces no journal entry at all. Neither document moves stock — the generated line is a service item.
 
+## Actions on these screens
+
+**Rental Asset Request and Rental Asset Invoice — Payments page:**
+
+- **GeneratePayments** (*إنشاء الدفعات*) — builds the instalment schedule from the document's
+  remaining value. It asks for the number of payments, the period between them and its unit, the
+  start date, a grace period, the payment weekday, down / first / second / last payment values and a
+  rounding mode; a down payment is written into the cash paid on the header. It refuses a document
+  whose net value is zero. The English label ships as the raw name shown here.
+
 ## Cancelling — freeing the slot
 
 `RARC-2026-0009` is the **Rental Asset Reservation Cancel**. It is a plain document, not a sales document, on a single page: book and code, توجيه, issue and value dates, fiscal period, **بناءا على / From Document**, the rental asset, remarks, the from and to date/time pairs, the customer, **قيمة الخصم مقابل الإلغاء / Cancellation Charge**, the cancellation reason, the الذمة (subsidiary) and the currency and rate, plus a dimensions block.

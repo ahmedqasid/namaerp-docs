@@ -10,7 +10,7 @@ correct…». لم يفعل هو شيئاً يسبّبها، ولا يستطيع
 
 ::: info هذه ليست حالات رفض
 الخطأ الحرج لا يمنع حفظاً أبداً. هو كلام عن الخادم لا عن السجل الذي أمامك. أما الحفظ المرفوض فأسرة
-أخرى تماماً — [الرسائل وحالات الرفض](/ar/platform/messages-and-refusals).
+أخرى تماماً — [الرسائل وحالات الرفض](/ar/platform/documents-and-records/messages-and-refusals).
 :::
 
 ## كيف تسلك القائمة
@@ -175,7 +175,7 @@ correct…». لم يفعل هو شيئاً يسبّبها، ولا يستطيع
 
 ## اقرأ أيضًا
 
-- [الرسائل وحالات الرفض](/ar/platform/messages-and-refusals) — الرسائل التي ترفض حفظاً، وهذه ليست منها
+- [الرسائل وحالات الرفض](/ar/platform/documents-and-records/messages-and-refusals) — الرسائل التي ترفض حفظاً، وهذه ليست منها
 - [طلبات الأعمال](/ar/platform/background-processing/business-requests) — عدّاد الطلبات الفاشلة وكيف يُفرَّغ
 - [الأسئلة العامة](/ar/admin/troubleshooting/general-faq) — أسئلة أخرى من الزاوية ذاتها
 - [nama.properties](/ar/getting-started/nama-properties) — مفاتيح الخادم المذكورة هنا

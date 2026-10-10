@@ -55,7 +55,7 @@ User-level page rows are checked before profile rows, and a full-access profile 
 
 ## List View Security
 
-A single type may have several list views — and you can add custom ones. Sometimes a list view exposes columns a role should not browse (cost columns, profit margins...). This page allows or blocks specific list views.
+A single type may have several list views — and you can add more: a Screen Modifier can copy a list under a new layout ID, and a [Custom List View](/platform/list-views/custom-list-views) adds a list as a block inside another screen (its section *Security* explains which List View ID to use). Sometimes a list view exposes columns a role should not browse (cost columns, profit margins...). This page allows or blocks specific list views.
 
 ![List View Security page](../../ar/platform/security/images/security-profile-listview-security-en.png)
 
@@ -74,7 +74,7 @@ A full-access security profile cannot contain list view security rows at all —
 ## Related Settings Worth Knowing
 
 - **Minimum characters to start search** (on basic permission rows) prevents reference lookups from listing large master files — see [Security Profiles](/platform/security/security-profiles.md).
-- **Maximum records per list page** exists in the security profile header, user settings, and global settings; the most specific value wins.
+- **Maximum records per list page** exists in the security profile header, user settings, and Global Configuration; the most specific value wins.
 - A field can also be greyed out from the **Disabled Fields** grid in [Fields and Entities Settings](/platform/fields-and-entities-settings/fields-settings-input-validation). That is a data-entry convenience, not a security control — it applies to everyone rather than to a role, and it only stops typing in the browser. When a field genuinely must be protected, use the *Field Settings* page above. The same screen is also where per-field input rules — formats, allowed values, row limits, maximum lengths — are set.
 - To restrict the *rows* visible within an allowed list view, you want Extra Filters — see [Record-Level Security](/platform/security/record-level-security.md).
 - To limit a user to a specific fiscal year or period in documents and reports, see [Limit User to a Fiscal Year](/platform/list-views/limit-user-to-year.md).

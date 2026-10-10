@@ -1,14 +1,13 @@
 ---
 title: EAErrorIfQueryNotMatched
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAErrorIfQueryNotMatched
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

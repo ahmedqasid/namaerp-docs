@@ -105,6 +105,16 @@ The Collect actions and the From Document route are alternatives. Press Collect 
 A parent term in the term tree is a roll-up heading. The revenue side of the entry deliberately skips parent lines, so a parent line carrying a quantity and a price will show on the certificate but will not produce the revenue you expect. Bill on leaf terms and let the parents total them up.
 :::
 
+## Actions on this screen
+
+Above the details grid: **Collect Terms**, **Collect Terms Without Quantities**, **Collect All Terms**, **Collect All Terms Without Quantities** (the four described in the table above) and **Restore Taxes**, which re-reads each line's tax percentages and recalculates the money block.
+
+Above the conditions grid: **Collect Conditions**, which assembles the retention, advance-recovery and fine lines described below.
+
+When the module option **Show Term Phase Lines** is on, the **Term Phase Lines** page carries its own copy of the four *Collect* buttons.
+
+In the **More** menu: **Installment Payments** opens, in a pop-up list, the payment documents that have settled this extract's instalments.
+
 ## The seven grids, and who fills each
 
 | Grid | What it is | Filled by |

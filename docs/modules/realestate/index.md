@@ -57,9 +57,8 @@ What happens after the contract is signed — the buildings still have to be loo
 
 ## Going Live and Help
 
-Loading history on day one, and the question that comes up most.
+Loading history on day one.
 
 <LandingGrid>
   <LandingCard icon="📦" title="Opening Balances" link="/modules/realestate/opening/" details="Opening sales contracts, opening rent contracts and historical cost — bringing an existing portfolio into Nama." />
-  <LandingCard icon="❓" title="Real Estate Investment FAQ" link="/modules/realestate/real-estate-fq.md" details="How a cost distribution is turned into a per-estate journal entry with an entity flow." />
 </LandingGrid>

@@ -1,14 +1,13 @@
 ---
 title: EAReApplyQtyTrackingEffects
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAReApplyQtyTrackingEffects
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

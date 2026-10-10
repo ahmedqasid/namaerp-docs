@@ -135,6 +135,18 @@ whatever the job order already said. Full mechanics on
    part that appears on two different tasks is counted once — issuing enough for one task can satisfy
    it for both.
 
+## Actions on this screen
+
+The main page carries the job order's three invoice buttons, so you can invoice straight from the
+closing once it is saved:
+
+- **Create Customer Invoice** (*إنشاء فاتورة العميل*), **Create Insurance Invoice**
+  (*إنشاء فاتورة التأمين*) and **Create Warranty Invoice** (*إنشاء فاتورة الضمان*) — each builds the
+  invoice for one payer's share **of the job order named on this closing** and opens it, exactly as
+  the same button on the job order does. Each refuses with *Status Must Be Closed* until that job
+  order is Closed, which happens when this closing is committed. See
+  [Invoicing a Job Order](/modules/servicecenter/job-cycle/servicecenter-job-order-invoicing.md).
+
 ## Messages you may see
 
 | Message | Why | What to do |

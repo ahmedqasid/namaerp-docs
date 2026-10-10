@@ -1,14 +1,13 @@
 ---
 title: EACreateAccommodationInvoice
 module: hms
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACreateAccommodationInvoice
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

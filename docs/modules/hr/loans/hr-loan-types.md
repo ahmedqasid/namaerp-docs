@@ -38,6 +38,10 @@ A Loan Type can carry a grid of **Conditions Should Matched In Loan Document** (
 These conditions are a validation gate on the Loan Document, not an approval workflow — a document that fails one of them simply cannot be committed. Use the standard approval case configuration on the document term if you also need a human sign-off before disbursement.
 :::
 
+## Actions on this screen
+
+The Loan Type screen has no buttons of its own; it is filled in and saved.
+
 ## Messages you may see
 
 | Message | Why | What to do |

@@ -94,7 +94,7 @@ Al-Sahra's single row: `EMP-214` Majed Al-Qahtani, queue `A`, *Can Modify* and *
 Two rules the screen enforces when you save: a provider row whose *Queue Code* is not one of the letters in the Queues grid is refused, and the same user cannot appear twice for the same queue. To let one advisor serve two queues, give them **two rows**, one per letter — that is the intended way, and it is different from leaving the code blank, which grants everything including queues you add later.
 
 ::: tip These permissions guard the branch screen, not just the app
-Every action on the branch record's ticket lists is checked against this grid, and a user without the right column gets *User {0} do not have the capability {1} on Ticket Branch {2}*. So the grid is what you edit when a supervisor complains they cannot delete a stale ticket.
+Modifying, assigning and deleting tickets from the branch record's ticket list are checked against this grid, and for a user without the right column the action leaves the ticket unchanged. So the grid is what you edit when a supervisor complains they cannot delete a stale ticket.
 :::
 
 ## Banners — what the waiting room sees
@@ -169,7 +169,6 @@ When you leave *Next Step (Else)* empty, the message points at *Next Step (Then)
 | *Queue Code {0} is repeated in line {1}* — «كود الطابور {0} مكرر في السطر {1}» | Two rows in the **Queues** grid carry the same queue letter. The letter is the ticket prefix and has to be unique on the configuration. | Give the second queue a different letter, or delete the duplicate row. |
 | *Queue code {0} is not in queues grid* — «كود الطابور {0} ليس موجود في سطور الطوابير» | A row in the **Queue Providers** grid names a queue code that is not one of the letters defined in the Queues grid above it. | Correct the code on the provider row, or add that letter to the Queues grid first. |
 | *Service Provider {0} with queue code {1} is repeated in line {2}* — «مقدم الخدمة {0} للطابور {1} مكرر في السطر {2}» | The same user appears twice for the same queue code in the Queue Providers grid. One row per user per queue. | Delete the duplicate row. To let one advisor serve two queues, give them two rows with **different** letters. |
-| *User {0} do not have the capability {1} on Ticket Branch {2}* — «المستخدم {0} ليس لديه صلاحية {1} للفرع {2}» | Someone acted on a ticket from the branch screen without the matching column on their Queue Providers row — *Can Modify* to edit, *Can Manually Assign* to pull or assign, *Can Delete* to delete. | Tick the column this person needs on their provider row, or add a provider row for them on this branch's configuration. |
 
 ## Where to read next
 

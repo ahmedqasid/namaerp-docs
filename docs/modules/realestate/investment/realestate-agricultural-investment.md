@@ -206,6 +206,14 @@ it has been consumed against a debt.
 Every claim raised against a contract is listed back on the contract's **Related Records** tab, so
 the contract itself is the place to see how much of its schedule has been claimed.
 
+## Actions on these screens
+
+The agricultural investment screens carry a single button between them: **Create installments** on the
+agricultural investment contract, which builds the **Profits** grid from the recipe rows as described
+in *Generating the profit schedule* above, replacing whatever was there. The contract category and
+the profit claim have no buttons — the claim fills its grids from the fields you pick, not from a
+button.
+
 ## The example end to end
 
 1. A category "Land-backed, 5 year" is created with **Work With Estates** ticked.

@@ -12,15 +12,9 @@ Granting a user *list view* access to sales invoices answers the question "can t
 
 ## Dimensions
 
-Almost every record in Nama carries five organizational dimensions — the master files themselves, and the composite dimension that stands for several of them, are covered in [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions):
+Almost every record in Nama carries five organizational dimensions — the master files themselves, and the composite dimension that stands for several of them, are covered in [Dimensions and Composite Dimensions](/platform/shared-master-files/dimensions-and-composite-dimensions):
 
-| Dimension | English |
-|---|---|
-| الشركة | Legal Entity |
-| الفرع | Branch |
-| الإدارة | Department |
-| القطاع | Sector |
-| المجموعة التحليلية | Analysis Set |
+**Legal Entity**, **Branch**, **Department**, **Sector** and **Analysis Set**.
 
 Each dimension on a record either holds a specific value or is left as **PUBLIC**. A PUBLIC dimension means "no restriction on this axis."
 
@@ -96,7 +90,7 @@ Sometimes sensitivity lives in a *specific record*, not the whole type: one part
 3. Those users apply the Change Capability action on a record to link it to the capability.
 4. From that point on, only users who hold that capability (through their dedicated permission rows) can see or edit the tagged record; untagged records remain visible to everyone with normal permissions.
 
-Global settings provide switches to skip record capability checks in list views where the overhead is undesirable.
+Global Configuration provides switches to skip record capability checks in list views where the overhead is undesirable.
 
 ## Records Prevented from Use
 
@@ -106,5 +100,5 @@ Records** on the Standard Authorities grid, one value per entity type: *Display*
 Config*. That is what lets a purchasing manager still open a blocked supplier's history while the
 data-entry operator cannot put the same supplier on a new purchase order.
 
-[Prevent Usage](/platform/prevent-usage) is the page that covers the mark itself, everything it
+[Prevent Usage](/platform/everyday-tools/prevent-usage) is the page that covers the mark itself, everything it
 stops, and every place the setting is read.

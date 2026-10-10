@@ -15,6 +15,7 @@
   - [EAHealthInsuranceOfferReqAction](/entity-flows/hr/EAHealthInsuranceOfferReqAction.md)
   - [EALiptisSetComponentFromAnotherWithMax](/entity-flows/hr/EALiptisSetComponentFromAnotherWithMax.md)
   - [EAMakeSingleCheckInCheckOutIfNeeded](/entity-flows/hr/EAMakeSingleCheckInCheckOutIfNeeded.md)
+  - [EANotifyMissedAttendance](/entity-flows/hr/EANotifyMissedAttendance.md)
   - [EAOyoonWorkPlaceUpdateToUpdateInfo](/entity-flows/hr/EAOyoonWorkPlaceUpdateToUpdateInfo.md)
   - [EASalaryCostCalculator](/entity-flows/hr/EASalaryCostCalculator.md)
   - [EASalaryNormalizeAdditions](/entity-flows/hr/EASalaryNormalizeAdditions.md)

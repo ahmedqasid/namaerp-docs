@@ -67,7 +67,7 @@
 
 - Hidden the Dashboard's toolbox by default - shown to whoever wants it.
 - Added the ability to "merge" or "shrink" the charts within the Dashboard.
-- Added the ability to use complex queries in the report builder tool and the Dashboard, easily, the same way it works with system tables and records. Please refer to the following document: [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](/platform/virtual-entity-guide)
+- Added the ability to use complex queries in the report builder tool and the Dashboard, easily, the same way it works with system tables and records. Please refer to the following document: [Virtual Entities — Reusable SQL Building Blocks for Reports & Dashboards](/platform/automation-and-rules/virtual-entity-guide)
 - Added the **showAsRange** property to enable selecting ready-made date ranges (such as: Today, Current Month, Previous Week) or specifying a manual range (**Manual Range**). When enabled, **Date From / To** is used instead of a single date, with support for input validation and the ability to specify the allowed ranges. For details: [Jasper Reports Complete Guide for Nama ERP](/platform/reports/reports-guide)
 - Improved so that double-clicking the date field opens the date-picker window.
 - Improved so that the system remembers the user's choice of whether to use the timeline or not, as soon as the timeline button is clicked.

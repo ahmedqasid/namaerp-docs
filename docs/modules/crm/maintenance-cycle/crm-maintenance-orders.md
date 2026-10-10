@@ -69,7 +69,7 @@ invisible here (see [Maintenance Sales](/modules/crm/maintenance-cycle/crm-maint
 
 **Machines grid.** One line per machine being worked on, each with its own task template, odometer
 columns, a read-only *execution document* and *execution status*, and a *selected* tick-box that
-drives *Create execution for selected lines*. On `MO-0513` there are three lines: `MCH-00311` and
+drives *Create Mn Execution For Selected Lines*. On `MO-0513` there are three lines: `MCH-00311` and
 `MCH-00312` with the Chiller Monthly Checklist, `MCH-00318` with the AHU Monthly Checklist.
 
 The header machine is copied into this grid automatically when the document is saved, taking the
@@ -108,7 +108,7 @@ rewards. The document is refused if the grid does not sum to the header — on `
 the header against `EMP-2011` 200.00 plus `EMP-2014` 100.00. Choosing a maintenance group fills the
 grid from that group's members.
 
-**Tools and visits.** A tools grid, a *Tools issue* button, and an embedded read-only list of the
+**Tools and visits.** A tools grid, a *Tools Issue Request* button, and an embedded read-only list of the
 [maintenance visits](/modules/crm/maintenance-cycle/crm-maintenance-visits.md) that point at this
 order.
 
@@ -237,18 +237,59 @@ The invoice generates its own stock issue from the same lines. If a technician i
 here and the back office then saves an invoice whose term generates stock, **the parts leave the
 store twice** — there is no netting, no "already issued" flag and no link between the two documents.
 Decide once, per installation, which of the two routes you use.
-
-One more oddity on this screen: two buttons are both labelled **Tools Issue Request**, and one of
-them actually opens a stock **receipt** request. Read the document that opens before you save it.
 :::
+
+## Actions on this screen
+
+**Main page:**
+
+- **Create Mn Execution For All Lines** (*إنشاء سند تنفيذ لكل السطور*) — creates and commits one
+  execution per machine line, writes each execution back into its machine line and refreshes the
+  order. Pressing it again updates the same executions instead of adding new ones. The order must be
+  saved first, and its document term must name an execution book and term.
+- **Create Mn Execution For Selected Lines** (*إنشاء سند تنفيذ للسطور المختارة*) — the same, for the
+  machine lines whose *selected* box is ticked.
+- **Create Sales Invoice** (*إنشاء فاتورة صيانة*) — despite the English label, opens an unsaved
+  **maintenance invoice** in a pop-up with the header and every grid copied from the order. The order
+  must be saved first.
+
+**Tools and visits page:**
+
+- **Tools Issue Request** (*طلب صرف عِدد*) — opens an unsaved stock document in a pop-up, pre-filled
+  with the tools grid and the customer.
+
+**Spare parts and services page:**
+
+- **Spare Parts Issue Request** (*طلب صرف قطع غيار*) — opens an unsaved stock issue request in a
+  pop-up, pre-filled with the spare-part lines, the customer and the issue warehouse.
+- **Returned Spare Parts Receipt Request** (*طلب توريد قطع غيار المرتجعة*) — opens an unsaved stock
+  receipt request in a pop-up, pre-filled with the returned spare-part lines, the customer and the
+  receipt warehouse.
+
+All three stock buttons need the order saved first, and nothing is saved until you save the
+document that opens.
+
+**Billing page:**
+
+- **Request Redeem Customer Amount** — spends the customer's loyalty balance against this document.
+  It shows the net value, the points owner and the reward balance still available, and asks how
+  much to redeem and against which reward code. The page carries it twice under the same label: the
+  one above the payment documents grid records the redemption there, the one above the payment
+  methods grid records it as a payment line. This label has no Arabic translation, so it shows in
+  English on Arabic screens too.
+- **Pay Invoice** (*ادفع الفاتورة*), **Pay Part Of Invoice** (*دفع جزء من الفاتورة*) and **Fetch Last
+  Terminal Payment Transaction** (*ايجاد اخر عمليه دفع تمت ولم تصل معلوماتها*) — the card-terminal
+  buttons, which need the payment-gateway sub-module. **Pay Part Of Invoice** asks for an amount and
+  is refused when nothing remains to be paid. **Fetch Last Terminal Payment Transaction** recovers a
+  payment that went through on the terminal but whose confirmation never reached the document.
 
 ## Moving on
 
-From a committed order the normal path is *Create execution for all lines* (or tick the machines you
-want and use *Create execution for selected lines*), then billing. Both are covered on their own
+From a committed order the normal path is *Create Mn Execution For All Lines* (or tick the machines
+you want and use *Create Mn Execution For Selected Lines*), then billing. Both are covered on their own
 pages: [Order Executions](/modules/crm/maintenance-cycle/crm-maintenance-executions.md) and
 [Maintenance Invoicing](/modules/crm/maintenance-cycle/crm-maintenance-invoicing.md). The button
-*Create Maintenance Invoice* on this screen opens an unsaved invoice draft with the header and every
+*Create Sales Invoice* on this screen opens an unsaved invoice draft with the header and every
 grid copied across — review it and save it yourself.
 
 **Reporting: none.** This module ships no system reports, and this screen has no print form. Use the

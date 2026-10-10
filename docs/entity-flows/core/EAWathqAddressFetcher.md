@@ -1,13 +1,12 @@
 ---
 title: EAWathqAddressFetcher
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAWathqAddressFetcher
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

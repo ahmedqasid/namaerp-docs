@@ -1,14 +1,13 @@
 ---
 title: EAStartOrderIfNotStarted
 module: manufacturing
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAStartOrderIfNotStarted
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

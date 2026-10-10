@@ -89,9 +89,6 @@ Committing the estimation moves a source service request to **Under Processing**
 status entry if the term names one, and back-fills empty fields on the vehicle file. It has **no
 accounting effect, no inventory effect and generates no document.**
 
-The More menu offers **Create Reservation Document**, which builds a supply-chain reservation from
-the spare-parts grid — useful when the quote depends on a part you want held.
-
 ## The Estimation Update
 
 Fahad looks at the 3,215, accepts the mechanical work, and asks for the wash to be taken off. What do
@@ -118,6 +115,24 @@ by cancelling the original, or by a naming convention your staff follows.
 Its practical purpose is to be the *From Document* of the job order after the customer approves the
 revised quote. When that job order is committed, both the original estimation **and** the original
 service request are moved to *Under Processing*, so the whole trail lights up at once.
+
+## Actions on these screens
+
+The estimation and the estimation update carry the same two actions.
+
+- **Collect Resources And Materials** (*تجميع الموارد والمواد الخام*) — on the main page. It
+  rebuilds the **Resources** and **Spare Parts** grids from the tasks already in the operations grid:
+  each task's standard resources, and each task's standard spare parts that fit the vehicle's brand
+  and model, priced through the ordinary supply-chain sales price engine for this customer. The two
+  grids are **replaced**, not added to, so a line typed in by hand beforehand is gone afterwards.
+  Spare parts come only when the **Product** field is filled.
+- **Create Reservation Doc** (*إنشاء سند حجز*) — in the More menu. Opens a new, unsaved
+  supply-chain reservation document whose *From Document* is this estimation, with one line per row of
+  the Spare Parts grid (item, quantity, remarks). Save the estimation first. With an empty Spare Parts grid
+  it refuses with:
+  *No Materials to be reserved* — «لا يوجد قطع غيار ليتم حجزها»
+
+Use the reservation when the quote depends on a part you want held.
 
 ## What comes next
 

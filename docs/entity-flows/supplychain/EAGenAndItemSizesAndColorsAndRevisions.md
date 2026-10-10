@@ -1,14 +1,13 @@
 ---
 title: EAGenAndItemSizesAndColorsAndRevisions
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGenAndItemSizesAndColorsAndRevisions
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

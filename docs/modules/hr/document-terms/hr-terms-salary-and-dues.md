@@ -128,7 +128,7 @@ its term is a plain set of five debit/credit pairs:
 | **Other Deductions** | `termConfig.otherDeductionsDebit` / `…Credit` |
 
 Each side is an account-side configuration of the usual kind — see
-[Account Side Configuration](/platform/accounting-side-config) for how a side picks its account and
+[Account Side Configuration](/platform/shared-master-files/accounting-side-config) for how a side picks its account and
 its subsidiary.
 
 ## The Dues Liquidation term
@@ -223,6 +223,6 @@ See [HR Provisions](/modules/hr/end-of-service/hr-provisions) for what the provi
 - **[Loan, Reward and Penalty Document Terms](/modules/hr/document-terms/hr-terms-loans-rewards-and-penalties)**
 - **[Employment and Government Relations Document Terms](/modules/hr/document-terms/hr-terms-employment-and-government)**
 - **[Insurance Document Terms](/modules/hr/document-terms/hr-terms-insurance)**
-- **[Document Books](/platform/document-books)** — the book beside the term.
-- **[Account Side Configuration](/platform/accounting-side-config)** — how a debit or credit side
+- **[Document Books](/platform/documents-and-records/document-books)** — the book beside the term.
+- **[Account Side Configuration](/platform/shared-master-files/accounting-side-config)** — how a debit or credit side
   finds its account.

@@ -1,4 +1,7 @@
 # Replication Utilities
+
+SQL that clears sent messages, and messages for inactive sites, out of the replication message tables, and the steps for taking a backup of the head office and restoring it at a branch.
+
 ## Replication Clean Up
 ::: details
 ```sql

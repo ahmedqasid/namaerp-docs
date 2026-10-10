@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceUploadQuantityCSVFileToFTPServer
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceUploadQuantityCSVFileToFTPServer
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

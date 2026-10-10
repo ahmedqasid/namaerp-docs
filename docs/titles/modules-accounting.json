@@ -35,7 +35,15 @@
     "/modules/accounting/support/accounting-configuration.md",
     "/modules/accounting/support/accounting-document-terms.md",
     "/modules/accounting/support/accounting-dimensions-and-distribution.md",
-    "/modules/accounting/support/accounting-periods-and-currency.md"
+    "/modules/accounting/support/accounting-periods-and-currency.md",
+    "/modules/accounting/document-terms",
+    "/modules/accounting/document-terms/acc-terms-vouchers-and-requests.md",
+    "/modules/accounting/document-terms/acc-terms-journals-and-closing.md",
+    "/modules/accounting/document-terms/acc-terms-notes-and-misc-invoices.md",
+    "/modules/accounting/document-terms/acc-terms-commercial-papers.md",
+    "/modules/accounting/document-terms/acc-terms-guarantees-and-credits.md",
+    "/modules/accounting/document-terms/acc-terms-loans-deposits-facilities.md",
+    "/modules/accounting/document-terms/acc-terms-investments-and-prepaid.md"
   ],
   "folderTitles": {
     "/modules/accounting": {
@@ -45,6 +53,10 @@
     "/modules/accounting/support": {
       "ar": "مرجع الدعم الفني",
       "en": "Technical Reference"
+    },
+    "/modules/accounting/document-terms": {
+      "ar": "توجيهات مستندات الحسابات",
+      "en": "Accounting Document Terms"
     }
   }
 }

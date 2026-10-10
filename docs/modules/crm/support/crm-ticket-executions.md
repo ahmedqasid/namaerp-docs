@@ -36,7 +36,7 @@ One row per stretch of work: Trouble Ticket, Employee, External Responsible, **�
 
 Notice what is *not* there: a **To Date**. Every line ends on the day it started, so a night shift that runs past midnight has to be entered as two lines.
 
-The **بدء / Start** and **stop** buttons on the header drive the last line for you: Start fills its From Date and From Time (or appends a fresh line if the last one is already complete), and stop stamps the To Time and works out the Net Time. Start refuses to move on while an otherwise-complete line still has a blank To Time.
+The **بدء / Start** and **إيقاف / Stop** buttons on the header drive the last line for you: Start appends a fresh line starting now once the last line is complete, and Stop stamps the last line's To Time and works out the Net Time. Start refuses to move on while the last line still has a blank To Time.
 
 Following the example, `TEXE-0662` records Mahmoud's first day on `TKT-0451`:
 
@@ -100,6 +100,14 @@ The hours on Ticket Execution documents are **not** the same as the ticket's sto
 ::: warning Starting the ticket's stopwatch stops the same technician elsewhere
 This belongs to the ticket rather than to this document, but it catches people out on the same working day: starting a technician's clock on one ticket automatically closes their open clock on **any other** ticket, often recording zero minutes for it. The full story is on [Trouble Tickets](/modules/crm/support/crm-trouble-tickets.md). Have technicians press **End** before moving on.
 :::
+
+## Actions on this screen
+
+- **Start** (*بدء*) — when the last Details line is complete, adds a new line for the same employee and ticket with From Date and From Time set to now. While the last line still has no To Time it refuses with *"To Time Shuold not be Empty"* — «لايمكن ترك إلى وقت  فارغاً»; press Stop (or type the time) first.
+- **Stop** (*إيقاف*) — stamps the current time into the last line's To Time and calculates its Net Time.
+- **escaleted to** (*تصعيد الي*) — needs the execution **saved** first; asks for an employee, then saves and commits the stored execution with that name in its escalated-to box and refreshes the screen. Unsaved edits on screen are not included, and nobody is notified.
+
+![The Ticket Execution header with its Start, Stop and escalation buttons](../../../ar/modules/crm/images/support/crm-ticket-execution-actions-en.png)
 
 ## Where executions are visible
 

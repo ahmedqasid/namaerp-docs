@@ -25,6 +25,10 @@ To correct item data when discrepancies are found — a different weight, a wron
 
 For periodic stock taking of the stored mail items: it empties the store for the physical count then re-stores, so you reconcile what physically exists against what's recorded in the system and settle the differences.
 
+Its **Collect Mail Items From Location** button fills the grid with every mail item currently
+stored in any location, each with its location, so the count starts from what the system believes is
+on the shelves. How mail items occupy locations is on [Storage Locations](./freight-storage-locations.md).
+
 ## Mail Retention Document
 
 Some items are held and not delivered immediately — for customs, security, or unreachable-recipient reasons. The retention document records the held items and the **Retention Reason**, to follow them up until they're resolved (release, return, destruction).
@@ -44,3 +48,14 @@ Before delivery, items are sorted. The sort document is the richest in this grou
 ::: tip Item classification governs everything
 The accuracy of the **class, category, and subclass** and the HS code on each item is what makes sorting, clearance, and pricing correct. Set up the classification master files first (see the [postal overview](./ips-postal-intro.md)), then let the documents build on them.
 :::
+
+## What saving these documents does
+
+Each of these documents, when first saved, reports the event set on its term to the external IPS
+server for every mail item on it, and — depending on the term's **Component Effect Type** — puts
+the items into their lines' locations, takes them out, or leaves storage alone. Both are configured
+on the term: see [Freight Document Terms](./freight-document-terms.md#The-postal-movement-terms).
+
+Typing a **Mail Item Id** on a line fills the rest of the line from IPS. The **More** menu of each
+document, and of its list view, has **Resend IPS Events** and **Resend Failed IPS Tasks Only** for
+when the reporting failed — see [IPS Integration](./ips-integration.md).

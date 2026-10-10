@@ -388,12 +388,3 @@ We invite readers to apply the principles discussed, and to ask questions and en
 • Thanking attendees and followers.  
 • Encouraging questions for further clarification on the topics discussed.
 
----
-
-> **Note for the user:**
->
-> Every part of the content has been documented according to the text in the video, with accurate timestamps provided to easily refer back to specific parts of the original video.
->
-> All sections and themes have been written in English with strict adherence to best Markdown and VuePress 2 formatting practices.
-
-# End of Document

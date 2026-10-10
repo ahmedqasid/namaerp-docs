@@ -6,7 +6,7 @@ do with one another. **Pending System Action** is a queue of work the system sti
 other is a diary.
 
 ::: info Where to find them
-**Basic → Administration → Settings**, immediately after Pending Tasks — **Pending System Action**
+**Administration → Settings**, immediately after Pending Tasks — **Pending System Action**
 first, then **Auto System Action**.
 :::
 

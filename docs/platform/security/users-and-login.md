@@ -58,7 +58,7 @@ Two refusals are worth recognising:
 
 The parallel screens for changing an existing party's own data — *Modify Customer Info Request* and
 its supplier and contractor siblings — are described under
-[requests raised from the portal](/platform/customers-suppliers-and-parties#Requests-raised-from-the-portal).
+[requests raised from the portal](/platform/shared-master-files/customers-suppliers-and-parties#Requests-raised-from-the-portal).
 
 ## User-Level Permission Overrides
 
@@ -108,7 +108,7 @@ Two settings in Global Configuration drive that lock: **Max Failed Login Attempt
 
 ## LDAP / Active Directory
 
-When **Use LDAP for users login** is enabled in General Settings, the system authenticates users through the directory instead of a local password. Two exceptions exist for accounts that must remain local:
+When **Use LDAP for users login** is enabled in Global Configuration, the system authenticates users through the directory instead of a local password. Two exceptions exist for accounts that must remain local:
 
 - The **Do Not Use LDAP For Login** flag on the user,
 - The same flag on the Security Profile (useful for entire roles, such as service accounts).
@@ -117,7 +117,7 @@ The `admin` user never authenticates via LDAP.
 
 ## Two-Factor Authentication (2FA)
 
-The **Login 2FA Method** setting in General Settings accepts:
+The **Login 2FA Method** setting in Global Configuration accepts:
 
 - **Authenticator App** — TOTP codes from apps such as Google Authenticator,
 - **Message OTP** — A one-time code sent to the user,
@@ -143,7 +143,7 @@ The **Treat As Admin** flag in user settings does *not* grant data permissions �
 
 ### User Level
 
-Licenses can define named user levels with different counts. The **User Level** field places the user in one of the levels available in your license; the system verifies the level exists and enforces the licensed counts (integrated with **Users Counter** records that can also be linked at the Security Profile level). What the licence holds and how to read it is on [Licensing](/getting-started/licensing).
+Licenses can define named user levels with different counts. The **User Level** field places the user in one of the levels available in your license; the system verifies the level exists and enforces the licensed counts (integrated with [**Users Counter**](/admin/users-counter-and-security-capabilities) records that can also be linked at the Security Profile level). What the licence holds and how to read it is on [Licensing](/getting-started/licensing).
 
 ## Messages you may see
 

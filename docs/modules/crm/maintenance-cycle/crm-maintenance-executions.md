@@ -18,7 +18,7 @@ lot, serial, quantity. **It is not one.** Committing an execution creates no acc
 issues nothing from any store. The parts the technician records here stay in stock as far as the
 system is concerned until a
 [maintenance invoice](/modules/crm/maintenance-cycle/crm-maintenance-invoicing.md) is saved, or
-until somebody presses *Spare parts issue* and saves the supply-chain document that opens.
+until somebody presses *mnSparePartsIssue* and saves the supply-chain document that opens.
 
 Nothing checks that either happened. A branch that treats the execution as the stock-consuming
 document will have a warehouse that never reconciles, and the discrepancy grows with every job.
@@ -65,11 +65,11 @@ place.
 **Main page.** The order in *From document*, the machine, the task template, customer, technician,
 maintenance group, building, floor, room, the five machine classifications, warranty period type,
 current status, a *from date and time* pair, a *to date and time* pair, the calculated **net time**,
-a **status** (*In Progress* / *Finished* / *Re-Open*), currency and rate, six attachment slots, the
+a **status** (*In Progress* / *Finished* / *ReOpen*), currency and rate, six attachment slots, the
 maintenance contract, trouble level, trouble description, response time and two remark boxes.
 
 **Tasks grid.** The checklist itself: a *done* tick, the task, a second task column, remarks and two
-attachments per line. **Mark all lines done** ticks the lot in one press.
+attachments per line. **Make All Lines Done** ticks the lot in one press.
 
 **Dysfunctions grid.** Faults found while working, with the same old-warranty / new-warranty blocks
 as the order.
@@ -82,14 +82,39 @@ On the three executions of `MO-0513` the technician records `SP-FLT-14` × 4 and
 `OEX-0771`, `SP-FLT-14` × 2 on `OEX-0772`, and nothing on `OEX-0773` — six filters and one oil in
 total, matching the order's grid exactly.
 
-## The three timing buttons
+## Actions on this screen
 
-**Start** sets the status to *In Progress* and stamps today's date and the current time into the
-*from* pair if they are empty. **End** sets the status to *Finished*, stamps the *to* pair and
-computes the net time as the difference. **Re-Open** sets the status back to *Re-Open*.
+**Main page**, above the tasks grid:
 
-All three only write values into the screen in front of you — **the document is not saved by
+- **Make All Lines Done** (*تفعيل اختيار في جميع السطور*) — ticks *done* on every line of the tasks grid.
+- **Start** (*بدء*) — stamps today's date and the current time into the *from* pair if they are
+  empty, and sets the status to *In Progress* if the status is empty.
+- **End** (*انهاء*) — sets the status to *Finished*, stamps the *to* pair with now, and computes the
+  net time as the difference. On an execution that is already *Finished* it does nothing.
+- **Change Status To In Progress** (*تغيير الحالة إلى قيد التنفيذ*) — despite its label, sets the
+  status to **ReOpen** (*معاد فتحه*), not *In Progress*. It is the button you use to reopen a
+  finished execution.
+
+All four only write values into the screen in front of you — **the document is not saved by
 pressing them.** If the technician presses End and closes the browser, nothing was recorded.
+
+**Main page**, below the totals:
+
+- **Create Maintenance Invoice** (*إنشاء فاتورة صيانة*) — opens an unsaved invoice draft in a pop-up;
+  see [Straight to the invoice](#Straight-to-the-invoice). The execution must be saved first.
+
+**Spare parts and services page:**
+
+- **mnSparePartsIssueRequest** (*طلب صرف قطع غيار*) — opens an unsaved stock issue request for the
+  spare-part lines. The English label ships as the raw name shown here.
+- **mnSparePartsIssue** (*صرف قطع غيار*) — opens an unsaved stock issue for the spare-part lines. The
+  English label ships as the raw name shown here.
+- **Create Sales Quotation For Priceless Lines** (*إنشاء عرض أسعار للأصناف التى بدون سعر*) — opens a
+  sales quotation for the lines that have no price.
+
+The last three are explained in [Getting the parts out of the store](#Getting-the-parts-out-of-the-store).
+
+![The action block on the main page of a Maintenance Order Execution](../../../ar/modules/crm/images/maintenance-cycle/crm-mn-execution-actions-en.png)
 
 ## What committing an execution does
 
@@ -110,10 +135,11 @@ lines:
 
 | Button | Opens |
 |---|---|
-| Spare parts issue request | A stock issue **request**, which somebody then approves and issues |
-| Spare parts issue | A stock **issue** — the real inventory document |
+| mnSparePartsIssueRequest (*طلب صرف قطع غيار*) | A stock issue **request**, which somebody then approves and issues |
+| mnSparePartsIssue (*صرف قطع غيار*) | A stock **issue** — the real inventory document |
 
-Both open in a pop-up as an unsaved draft. Nothing moves until you save it.
+Both open in a pop-up as an unsaved draft, and both need the execution saved first. Neither fills
+in the warehouse — choose it on the document that opens. Nothing moves until you save it.
 
 ::: warning One route, not two
 The maintenance invoice can generate its own stock issue from the same lines when its term says so.
@@ -122,13 +148,13 @@ out of stock twice, with no netting and no link between the documents. Decide on
 installation, which route you use, and train the branch on it.
 :::
 
-A third button, **Create sales quotation for priceless lines**, collects every spare-part and
+A third button, **Create Sales Quotation For Priceless Lines**, collects every spare-part and
 service line whose unit price is empty or zero and opens a supply-chain sales quotation containing
 just those items. It is the "we need a price for this before we can bill it" helper.
 
 ## Straight to the invoice
 
-**Create maintenance invoice** on the execution opens an unsaved invoice draft: the header is
+**Create Maintenance Invoice** on the execution opens an unsaved invoice draft: the header is
 copied, the execution's machine is promoted into an invoice machine line, and the spare-part and
 service grids come across. Review it and save it — see
 [Maintenance Invoicing](/modules/crm/maintenance-cycle/crm-maintenance-invoicing.md).

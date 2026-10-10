@@ -1,8 +1,12 @@
+---
+title: EADeleteOldPOSOnlineOrderEntries
+module: namapos
+entities: [EntityFlow]
+---
+
 <div class='entity-flows'>
 
 # EADeleteOldPOSOnlineOrderEntries
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

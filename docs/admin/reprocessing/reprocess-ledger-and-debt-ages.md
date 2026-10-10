@@ -1,4 +1,7 @@
 # Accounting Utilities - Ledger and Debt Ages Reprocessing
+
+SQL that rebuilds ledger transactions and debt ages from the committed documents, plus queries that find and fix zombie or unbalanced ledger transactions, missing dimension balances, financial paper entries and account deletion problems.
+
 ## Reprocess All Ledger Transactions
 ::: details
 ```sql
@@ -82,8 +85,7 @@ delete b from DimensionsBalance b left join Account acc on acc.id = b.account_id
 ```
 :::
 ::: tip
-You can use `Alt Ctrl X` shortcut, then open More Menu of Account Screen, and click on Change Balances Currency 
-Then recommit all transactions of the account
+Then open the account, change its **Currency**, run **Update Balances Currency** from the More menu, and recommit the account's documents. The single-account procedure is on [Accounts](/modules/accounting/accounts#Actions-on-this-screen).
 :::
 
 ## Find and Remove zombie ledger transactions

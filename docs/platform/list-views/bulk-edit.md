@@ -212,4 +212,4 @@ system.
   selection actions that need no setup
 - [Importing and Exporting Records](/platform/import-export/) — the other way to change many
   records
-- [Buttons on Every Screen](/platform/screen-buttons) — the menus these buttons are added to
+- [Buttons on Every Screen](/platform/everyday-tools/screen-buttons) — the menus these buttons are added to

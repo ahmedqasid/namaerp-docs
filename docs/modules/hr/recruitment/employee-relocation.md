@@ -68,11 +68,11 @@ An **Element Lines** grid (مفردات رواتب) lists the employee's salary 
 Update Employee Info is exactly the mechanism behind the [salary engine](../concepts/hr-salary-engine.md)'s warning that "a mid-period information change splits the calculation into segments." Because its Value Date can fall on any day inside an HR period — not only the first day — a raise, a transfer, or any other change recorded here takes effect from that exact date. When the period's salary sheet runs afterwards, it finds the employee's component lines dated in two segments (the old values up to the day before, the new values from Value Date onward) and calculates each segment separately. If a component's total looks off for that month, this document — and its Value Date — is the first place to check.
 :::
 
-A **Generate Employee Provision Recalculation Document** button appears when a changed component is flagged to auto-adjust on change; it creates the matching [provisions recalculation](../end-of-service/hr-provisions.md) document so end-of-service accruals stay in step with the new component values.
+The **Generate Employee Provision Recalculation Document** button on the main page creates the matching [provisions recalculation](../end-of-service/hr-provisions.md) document so end-of-service accruals stay in step with the new component values.
 
 ### Aggregated Update Employee Info
 
-Found at **Payroll > Main > Aggregated Update Employee Info**, this is the batch version for applying the *same* info change to many employees at once — a cost-of-living adjustment across a whole department, for example. Define the employee range or criteria and click **Collect Data** (تجميع البيانات) to pull in every matching employee, one line per employee in the **Employee Info** grid. Shared **Element Lines** and **Vacation Lines** grids carry the component and entitlement changes applied to every collected employee, with an **Element Update Type** / **Vacation Update Type** choice of **Add And Update** (add new lines and update matching ones) or **Replace** (replace the employee's existing lines outright). Each collected employee line spawns its own ordinary Update Employee Info document underneath — as with any [aggregated document](../concepts/hr-requests-and-documents.md), work in the batch, not in the singles it produces.
+Found at **Payroll > Main > Aggregated Update Employee Info**, this is the batch version for applying the *same* info change to many employees at once — a cost-of-living adjustment across a whole department, for example. List the employees in the **Employee Info** grid and click **Collect Data** (تجميع البيانات) to load each one's current information into the grid, and their current salary components and vacation entitlements into the **Element Lines** and **Vacation Lines** grids, one row per employee per line. Edit those rows to the new values, with an **Element Update Type** / **Vacation Update Type** choice of **Add And Update** (add new lines and update matching ones) or **Replace** (replace the employee's existing lines outright). Each collected employee line spawns its own ordinary Update Employee Info document underneath — as with any [aggregated document](../concepts/hr-requests-and-documents.md), work in the batch, not in the singles it produces.
 
 ## Work Place Update
 
@@ -88,6 +88,18 @@ Found at **Human Resources > Main > Work Place Update**, this is a lighter, narr
 ::: tip A date-gated effect
 The new work place only takes hold on lines whose From/To window includes the current date at the moment the document is committed. If a line's window starts in the future, resave the document once that date arrives (or use a from-document/scheduling process) to make the reassignment actually stick on the employee's record.
 :::
+
+## Actions on this screen
+
+**On Update Employee Info:**
+
+- **Generate Employee Provision Recalculation Document** — opens a new, unsaved **Employee Provisions Recalculation Document** for the same employee and HR period, with the provisions already calculated, for you to review and save. The update must be saved first.
+
+**On Aggregated Update Employee Info** (the same button sits on every tab):
+
+- **Collect Data** — for each employee already listed in the **Employee Info** grid, loads their current information and rebuilds the **Element Lines** and **Vacation Lines** grids from their current salary components and vacation entitlements. It does not find employees for you; list them first.
+
+**Employee Relocate**, **Employee Relocate Request** and **Work Place Update** have no buttons of their own.
 
 ## Messages you may see
 

@@ -1,14 +1,13 @@
 ---
 title: EAChangeEmployeeStateHandler
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAChangeEmployeeStateHandler
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

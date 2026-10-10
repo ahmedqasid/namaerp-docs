@@ -215,7 +215,7 @@ Credit and debit notes need two things invoices do not:
 - **The original invoice.** ZATCA wants to know which invoice is being corrected. Nama sends the code of the document in **From Document**, so create returns from the invoice they reverse.
 - **A reason.** The document's **Description** field (**Remarks** on some screens) is sent as the reason for the note, and validation refuses a note without one.
 
-Every document also needs a **payment means**. Nama takes the term's **Payment Method Code** first, then the **Tax Authority Code** of the payment method on the first payment line, then `10` (cash) if the document was paid in cash, and otherwise `1` (not specified).
+Every document also needs a **payment means**. Nama takes the term's **Payment Method Code** first, then the **Tax Authority Code** of the [payment method](/platform/payments/payment-methods-and-terminals) on the first payment line, then `10` (cash) if the document was paid in cash, and otherwise `1` (not specified).
 
 ## What each line carries
 

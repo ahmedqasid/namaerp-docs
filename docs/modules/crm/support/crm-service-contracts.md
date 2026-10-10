@@ -162,11 +162,19 @@ Two whole tabs and one group on this document accept data, store it, and are rea
 **Mediator share, agent share and main-centre share** in the *Service Contr Details* group, and the matching percentages on the Fixing Contract tab — free-form numeric record-keeping. No commission is calculated, no total is validated, nothing is posted. Do not present commission splitting or revenue sharing as a feature of this document.
 :::
 
-The action block on the Main tab carries **CreateCalling** and **CreateVisit**, which open a blank CRM Call or CRM Visit in a pop-up with a reference back to the contract. They are shortcuts for logging a conversation, not a schedule: no date, no recurrence, and the created activity is not tracked against the contract in any way.
-
 ::: info No visit schedule here
 Unlike the maintenance suite's contract, this one schedules no visits and generates none. There is no visit-schedule grid, nothing expands a series of planned visits, and nothing warns about a visit that did not happen.
 :::
+
+## Actions on this screen
+
+The action block on the Main tab carries three buttons. All three need the contract **saved** first, and each opens a new, unsaved record in a pop-up with a reference back to the contract — nothing is saved for you.
+
+- **Create Calling** (*إنشاء  اتصال*) — a blank CRM Call.
+- **Create Visit** (*إنشاء زيارة*) — a blank CRM Visit.
+- **convert to Project** (*تحويله الي مشروع*) — a new CRM Project. Do not use it; see the warning on [Projects, Analysis and Development Requests](/modules/crm/sales-pipeline/crm-projects-and-analysis).
+
+The Call and Visit buttons are shortcuts for logging a conversation, not a schedule: no date, no recurrence, and the created activity is not tracked against the contract in any way.
 
 ## Configuring the document term
 

@@ -45,6 +45,10 @@
       "ar": "وحدة الموارد البشرية",
       "en": "HR Module"
     },
+    "/entity-flows/integrations": {
+      "ar": "وحدة التكاملات",
+      "en": "Integrations Module"
+    },
     "/entity-flows/magento": {
       "ar": "وحدة تكامل التجارة الإلكترونية",
       "en": "e-commerce Integration Module"

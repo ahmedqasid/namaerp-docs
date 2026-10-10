@@ -1,14 +1,13 @@
 ---
 title: EAUpdateDeliveryStatusFromSalesDocToFromDoc
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUpdateDeliveryStatusFromSalesDocToFromDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

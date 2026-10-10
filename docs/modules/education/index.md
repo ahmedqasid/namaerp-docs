@@ -82,32 +82,29 @@ and **School Trips** — and this guide follows the shape of the work rather tha
 
 ### Setting up
 
-- **[Students, Guardians and the Academic Structure](./education-master-files)** — the foundation:
-  stage types and educational stages, class rooms and ranks, the student and guardian cards and why
-  both are accounting parties, lecturers and contractors, and the document that updates a student's
-  details.
-- **[Course Definitions and Courses](./education-courses)** — the catalogue card and the intake you
-  actually run, and where the sales price that reaches a contract comes from.
+<LandingGrid>
+  <LandingCard icon="🎒" title="Students, Guardians and the Academic Structure" link="/modules/education/education-master-files.md" details="The foundation: stage types and educational stages, class rooms and ranks, the student and guardian cards and why both are accounting parties, lecturers and contractors, and the document that updates a student's details." />
+  <LandingCard icon="📚" title="Course Definitions and Courses" link="/modules/education/education-courses.md" details="The catalogue card and the intake you actually run, and where the sales price that reaches a contract comes from." />
+</LandingGrid>
 
 ### The money
 
-- **[Course Contracts](./education-course-contracts)** — the one document in Education that reaches
-  the ledger: who is enrolled, what they owe, and what processing it books.
-- **[Payment Schedules and Collection](./education-payment-schedules)** — building an instalment plan
-  by hand, from a payment template or with the generate button, and recording what is collected.
-- **[Cancelling a Course Contract](./education-contract-cancellation)** — unwinding all or part of a
-  contract, and what happens to the instalments already agreed.
-- **[Document Terms](./education-document-terms)** — where the accounting behaviour of both documents
-  is actually configured.
+<LandingGrid>
+  <LandingCard icon="📝" title="Course Contracts" link="/modules/education/education-course-contracts.md" details="The one document in Education that reaches the ledger: who is enrolled, what they owe, and what processing it books." />
+  <LandingCard icon="💳" title="Payment Schedules and Collection" link="/modules/education/education-payment-schedules.md" details="Building an instalment plan by hand, from a payment template or with the generate button, and recording what is collected." />
+  <LandingCard icon="↩️" title="Cancelling a Course Contract" link="/modules/education/education-contract-cancellation.md" details="Unwinding all or part of a contract, and what happens to the instalments already agreed." />
+  <LandingCard icon="⚙️" title="Document Terms" link="/modules/education/education-document-terms.md" details="Where the accounting behaviour of both documents is actually configured." />
+</LandingGrid>
 
 ### Day to day
 
-- **[Attendance, Daily Monitoring and Leave](./education-attendance)** — the daily register, the
-  behaviour and follow-up diary, and early-leave permissions.
-- **[Recording Marks](./education-marks)** — the marks sheet for a student on a course, with the
-  subjects and their maximum and pass marks carried across.
+<LandingGrid>
+  <LandingCard icon="🕘" title="Attendance, Daily Monitoring and Leave" link="/modules/education/education-attendance.md" details="The daily register, the behaviour and follow-up diary, and early-leave permissions." />
+  <LandingCard icon="💯" title="Recording Marks" link="/modules/education/education-marks.md" details="The marks sheet for a student on a course, with the subjects and their maximum and pass marks carried across." />
+</LandingGrid>
 
 ### Around the school
 
-- **[Buses, Meals and School Trips](./education-transport-and-meals)** — the vehicle register and its
-  incident log, the meal catalogue and delivery record, and the school trip file.
+<LandingGrid>
+  <LandingCard icon="🚌" title="Buses, Meals and School Trips" link="/modules/education/education-transport-and-meals.md" details="The vehicle register and its incident log, the meal catalogue and delivery record, and the school trip file." />
+</LandingGrid>

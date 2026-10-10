@@ -1,14 +1,13 @@
 ---
 title: EAGenerateEntityFromEntityActionNoFlushWithApproval
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGenerateEntityFromEntityActionNoFlushWithApproval
-
-**This document was generated using Claude.ai**
 
 Please review the page at [Field Values Calculator](../../entity-flows/core/ai-generated-field-maps-documentation.md)
 

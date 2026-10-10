@@ -1,14 +1,13 @@
 ---
 title: EASendInvItemToDatanuum
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASendInvItemToDatanuum
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -1,9 +1,23 @@
 ---
 entities: [HMSRoom, HMSRoomClassification, HMSBed, HMSSection, HMSBuilding, HMSFloor, HMSClinic, HMSRoomDegree]
+menu: Hospital Management System → Hospital Structure → HMS Room
 ---
 # Hospital Structure & Rooms
 
 Before you admit your first patient, you need to map your building inside the system: which buildings you have, their floors and sections, which rooms and beds they hold, and which clinics operate. You'll find all of this under **Hospital Management System → Hospital Structure**, built once and then reused across every admission and accommodation document.
+
+None of these screens has buttons of its own; they are plain files.
+
+| Screen | Menu | Its own buttons |
+|---|---|---|
+| **HMS Building** | Hospital Management System → Hospital Structure → HMS Building | None |
+| **Hospital Section** | Hospital Management System → Hospital Structure → Hospital Section | None |
+| **HMS Floor** | Hospital Management System → Hospital Structure → HMS Floor | None |
+| **Room Classification** | Hospital Management System → Hospital Structure → Room Classification | None |
+| **Room Degree** | Hospital Management System → Hospital Structure → Room Degree | None |
+| **HMS Room** | Hospital Management System → Hospital Structure → HMS Room | None |
+| **Bed** | Hospital Management System → Hospital Structure → Bed | None |
+| **Clinic** | Hospital Management System → Hospital Structure → Clinic | None |
 
 ## The hierarchy: building → floor → section → room → bed
 

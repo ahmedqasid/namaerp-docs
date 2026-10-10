@@ -16,6 +16,10 @@ You'll find it under **Manufacturing > Documents > Production Execution** (ال�
 
 Think of production execution as the shop floor's voice in the system. It says "here's what we actually accomplished today" - not what the plan said should happen, but what really did happen.
 
+::: info Required license
+Production execution is part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## Understanding Operation Steps: The Four States
 
 Before we dive into execution, you need to understand how Nama ERP tracks quantities during manufacturing. This is probably the most important concept to grasp.
@@ -434,7 +438,7 @@ There are two ways to record the extra output:
 The flag covers every state of the step (to move, rejected, scrap and sample), and it only works with **Use Production Movement System Entry** switched on. Saving an order with either flag ticked while that setting is off is refused (see [Production Orders](/modules/manufacturing/production-orders#Messages-you-may-see)).
 
 ::: tip Switching the setting on for orders already in progress
-**Use Production Movement System Entry** records one movement per document and rebuilds each step's balance from them. Orders that were already running before the switch have no movements yet. Select their executions in the Production Execution list and use **More → Recreate Quantity Movements**, which rebuilds the movements of every order those executions touch.
+**Use Production Movement System Entry** records one movement per document and rebuilds each step's balance from them. Orders that were already running before the switch have no movements yet. Select their executions in the Production Execution list and use **More → Recreate Quantity Movements**, which rebuilds the movements of every order those executions touch. The same **Recreate Quantity Movements** (إعادة إنشاء حركات الكميات) sits in the **More** menu of the Production Order, Product Delivery, Product Return, Scrap Receipt and Production Sample Document screens and lists, and works the same way from any of them: it takes the selected documents (or the open one), skips any that were never saved and committed, and rebuilds the movements of every production order they belong to.
 :::
 
 The flags are copied down like the tolerance fields: set **Allow Negative Quantity** on a standard operation or a routing line, and **Allow Negative Quantity For Operation 1** on a routing, and orders built from them start with the flags already ticked.

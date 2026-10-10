@@ -117,6 +117,14 @@ commit the batch spawns one ordinary firing document per employee, each carrying
 dates and eventual settlement. You manage the batch, not the generated singles; the aggregated
 pattern is explained in [HR Requests, Documents & Aggregated Documents](../concepts/hr-requests-and-documents).
 
+## Actions on this screen
+
+**On the Firing Request and the Firing Document:**
+
+- **Generate Dues Liquidation Document (Termination)** — opens a new Dues Liquidation Document for the employee, linked back to this record, with the last work day and the liquidate-to date set to the work end date, the last liquidation date and the commencement date filled in, and the termination settlement switched on (see [Generating the settlement](#Generating-the-settlement)). The record must be saved first; the new document opens unsaved for you to complete.
+
+The Aggregated Firing Document, the Aggregated Firing Request and the Termination Reason have no buttons of their own.
+
 ## Messages you may see
 
 | Message | Why | What to do |

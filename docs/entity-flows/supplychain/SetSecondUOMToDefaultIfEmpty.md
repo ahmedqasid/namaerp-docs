@@ -1,14 +1,13 @@
 ---
 title: SetSecondUOMToDefaultIfEmpty
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # SetSecondUOMToDefaultIfEmpty
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

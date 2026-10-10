@@ -1,7 +1,3 @@
----
-lang: ar
----
-
 # Integration Scenarios Between Nama and Other Systems
 
 ## Introduction
@@ -127,6 +123,47 @@ In most cases we end up doing **read-only** access from the other system's datab
 #### Practical Example
 
 One of the common scenarios when integrating with older Oracle EBS versions: Nama reads **invoice transactions and supplier balances** directly from EBS tables, then uses this data to enrich reports and screens inside Nama, without writing anything back.
+
+#### Setting it up: the connection and the importer
+
+The reading itself is done by the entity flow [SQLImporterFromDifferentDataSource](/entity-flows/core/SQLImporterFromDifferentDataSource.md). It works exactly like the ordinary SQL importer, except that its second parameter, **Data Source Name (Must be defined in context.xml)**, names a database connection other than Nama's own. That connection is declared once, as a resource in the application server's `context.xml`. This is a real one, pointing at an Oracle laboratory system:
+
+```xml
+<Resource name="jdbc/ldm" auth="Container" type="javax.sql.DataSource"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" maxActive="10000"
+		maxIdle="20" maxWait="10000" username="username" password="password"
+		driverClassName="net.sf.log4jdbc.DriverSpy" validationQuery="SELECT 1 FROM DUAL"
+		testWhileIdle="true"
+		url="jdbc:log4jdbc:oracle:thin:@192.168.80.80:1521:ldm"
+		timeBetweenEvictionRunsMillis="24000000" testOnBorrow="true"/>
+```
+
+The flow's parameter would then be `jdbc/ldm`.
+
+::: warning Oracle and long column names
+Older Oracle versions refuse any column alias longer than 30 characters, and the importer's column names are field paths such as `details.quantity.quantity.primeQty.value` — well over the limit. This detail query, for example, is rejected by Oracle:
+
+```sql
+select '' ":-detail:details", r.REQUEST_ID "#description1",'1000001' "details.item.itemCode",'1000001' "details.item.item",rl.SERVICE_CODE "details.n1",rl.SERVICE_NAME "details.text1",'1' "details.quantity.quantity.primeQty.value",'101' "details.quantity.quantity.primeQty.uom",
+rl.CASH_FEES "details.price.unitPrice",rl.DISCOUNT "details.price.discount1.value"
+from Request_Services rl
+left join Requests r on rl.REQUEST_ID = r.REQUEST_ID
+where r.REQUEST_ID = '468273'
+```
+
+The way round it is a pair of columns for each long name: give the value a short alias (`c1`), and follow it immediately with a second column whose alias starts with `$alias$` and whose **value** is the real field path. Nama renames the first column to that path and drops the second:
+
+```sql
+select '' ":-detail:details", r.REQUEST_ID "#description1",'1000001' "details.item.itemCode",'1000001' "details.item.item",rl.SERVICE_CODE "details.n1",rl.SERVICE_NAME "details.text1",'1' "c1", 'details.quantity.quantity.primeQty.value' "$alias$1",
+'101' "c2", 'details.quantity.quantity.primeQty.uom' "$alias$2",
+rl.CASH_FEES "details.price.unitPrice",rl.DISCOUNT "details.price.discount1.value"
+from Request_Services rl
+left join Requests r on rl.REQUEST_ID = r.REQUEST_ID
+where r.REQUEST_ID = '468273'
+```
+
+So `'1' "c1", 'details.quantity.quantity.primeQty.value' "$alias$1"` is read exactly as if you had written `'1' "details.quantity.quantity.primeQty.value"`. The `$alias$` column must always come straight after the column it names, and can never be the first column of the query.
+:::
 
 ### Questions to Ask the Customer in the Database Integration Case
 

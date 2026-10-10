@@ -72,7 +72,9 @@ Two read-only lists — **تكاليف إستلام إضافية (receipt additi
 
 The **السندات المخزنية (stock documents)** grid — every stock receipt attached to this invoice,
 generated or collected — plus three buttons: **تجميع (Collect)** to pull existing receipts in,
-**تطبيق (Apply)** to match them against the lines, and **إنشاء سند مخزني (Generate Stock Document)**.
+**تطبيق (Apply Receipts)** to match them against the lines, and **إنشاء سند مخزني (Create Inventory Doc.)**.
+
+![The Related Documents tab of a car purchase invoice](../../../ar/modules/servicecenter/images/car-purchasing/sc-car-purchase-invoice-related-docs-en.png)
 
 ## What it does on commit
 
@@ -175,6 +177,53 @@ so a collected receipt suppresses a second generation.
 Note that unticking *Generate Document* on the **Car Receipt** term does **not** stop it — that
 switch is ignored there, and only blanking the book and the term works.
 :::
+
+## Actions on this screen
+
+**More menu:**
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*) — runs the car-creation
+  routine against the grid on demand: for every line whose item has sub items it creates the car
+  record (or refreshes the one already on the line) and writes it back onto the line. The car record
+  is saved straight away. It does nothing, and shows no message, unless the term's *Create Sub Item
+  From Line Info* option is on.
+- **Reverse Document** (*عكس المستند*) — the invoice must be saved; opens a new, unsaved
+  [Car Purchase Return](/modules/servicecenter/car-purchasing/car-purchase-return.md) with this
+  invoice's lines copied in.
+- **Generate Doc** (*إنشاء مستند بناءا على*) — asks which kind of document to create (stock issue,
+  stock receipt, stock transfer, purchase invoice, purchase return, car purchase return, sales invoice
+  or car sales invoice) and opens a new, unsaved one built from this invoice.
+- **Remove Taxes** (*حذف الضرائب*) and **Restore Taxes** (*احتساب الضرائب*) — the first asks which
+  taxes to clear and empties them on every line; the second recalculates them. Both are refused when
+  the invoice is not taxable.
+- **Reset discounts** (*حذف الخصومات*) — clears all eight discounts on every line.
+- **Installment Payments** (*سندات سداد الدفعات*) — opens a list of the vouchers that paid this
+  invoice's instalments.
+
+**Shipping and billing page:**
+
+- **GeneratePayments** (*إنشاء الدفعات*) — splits the remaining value into an instalment schedule,
+  asking for the number of payments, the period between them and its unit, the start date, a grace
+  period, down / first / second / last payment values and a rounding mode. The English label ships as
+  the raw name shown here.
+- **Generate payment voucher** (*إنشاء سند صرف*) — the invoice must be saved; creates a payment
+  voucher for the whole remaining value against the supplier and opens it.
+- **Generate Payment Voucher For Selected Payments** (*إنشاء سند صرف للسطور المختارة*) — the same, for
+  only the instalment lines you ticked that still have something remaining.
+- **Collect Payment Vouchers** (*تجميع سندات الصرف*) — brings existing payment vouchers onto the
+  invoice.
+
+**Related Documents page:**
+
+- **Collect** (*تجميع*) — asks for a from date and a to date and fills the stock documents grid with
+  the stock receipts already taken from this supplier into the same warehouse that have not been
+  invoiced yet.
+- **Apply Receipts** (*تطبيق*) — turns the receipts in that grid into priced invoice lines.
+- **Create Inventory Doc.** (*إنشاء سند مخزني*) — for an invoice typed by hand, generates the stock
+  receipt and opens it.
+
+On the list screen, **Reset documents discounts with saving** (*حذف الخصومات من السجلات المختارة مع
+الحفظ*, More menu) clears the line discounts of every selected invoice and saves it.
 
 ## After the invoice
 

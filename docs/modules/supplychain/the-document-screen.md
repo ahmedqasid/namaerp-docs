@@ -23,7 +23,7 @@ The header is the top block of the **Main** tab. It is small, and almost every f
 
 ### The Book and the Code
 
-The first field is a pair: **Book** and **Code**. The book is not decoration — no document can be saved without one, and it is tied to one document type, so a book made for sales invoices cannot be used on a stock issue. Its main job is to be the **numbering series** the code is drawn from: two invoices raised on the same day into different books get numbers from two independent sequences, which is exactly what a company with several branches wants. The book has also picked up a few per-stream behaviours over the years, and it can carry dimensions of its own that the document picks up when its own are empty. The full story is on [Document Books](/platform/document-books).
+The first field is a pair: **Book** and **Code**. The book is not decoration — no document can be saved without one, and it is tied to one document type, so a book made for sales invoices cannot be used on a stock issue. Its main job is to be the **numbering series** the code is drawn from: two invoices raised on the same day into different books get numbers from two independent sequences, which is exactly what a company with several branches wants. The book has also picked up a few per-stream behaviours over the years, and it can carry dimensions of its own that the document picks up when its own are empty. The full story is on [Document Books](/platform/documents-and-records/document-books).
 
 The **Code** itself is normally filled in for you when the document is saved.
 
@@ -50,7 +50,7 @@ Nama separates two dates that most people think of as one.
 - **Issue Date** (تاريخ التحرير) is the day the paperwork was written.
 - **Value Date** (التاريخ الفعلي) is the day the transaction actually counts — the day stock moves and the day the ledger entry is dated.
 
-The **Fiscal Period** follows from the value date, not from the issue date. If you leave the period blank, the system works it out from the **Value Date** together with the **Legal Entity** and fills it in for you. This is why back-dating a document by changing only the issue date does nothing to the accounting, and why changing the value date to a closed period is what actually gets refused. Period control itself — who may write into a period that is closing, and who may not — is on [Fiscal Period Control](/platform/fiscal-period-control-guide).
+The **Fiscal Period** follows from the value date, not from the issue date. If you leave the period blank, the system works it out from the **Value Date** together with the **Legal Entity** and fills it in for you. This is why back-dating a document by changing only the issue date does nothing to the accounting, and why changing the value date to a closed period is what actually gets refused. Period control itself — who may write into a period that is closing, and who may not — is on [Fiscal Period Control](/platform/governance/fiscal-period-control-guide).
 
 ::: info The Sales Invoice shows only one of the two dates
 On the shipped Sales Invoice layout the header carries the **Value Date** and no **Issue Date** and no **Fiscal Period** field — the period is always derived. The Purchase Invoice shows both dates side by side on Main, and puts the **Fiscal Period** on its **Shipping and billing** tab. Either arrangement can be changed for a client with the [screen modifier](/platform/screen-modifier/screen-modifier-overview); nothing about the underlying dates differs between the two documents.
@@ -72,7 +72,7 @@ The Sales Invoice adds a **Salesman**; the Purchase Invoice adds a **Purchases m
 
 ### Currency and Rate
 
-**Currency** and **Currency Rate** travel together as one composite field. Pick a currency and the rate is fetched for you — the system looks up the exchange rate that applies to this **legal entity**, this **fiscal year** and **period**, on this **value date**. If a rate comes back that a user disputes, the answer is almost always that the exchange rate record for that date is wrong or missing, not that the invoice did something odd.
+**Currency** and **Currency Rate** travel together as one composite field. Pick a currency and the rate is fetched for you — the system looks up the exchange rate that applies to this **legal entity**, this **fiscal year** and **period**, on this **value date**. If a rate comes back that a user disputes, the answer is almost always that the exchange rate record for that date is wrong or missing, not that the invoice did something odd. The lookup order is on [Currencies and exchange rates](../../platform/shared-master-files/currencies-and-exchange-rates.md#How-a-document-picks-its-rate).
 
 On the Sales Invoice the currency composite sits in the **Totals** group at the bottom of Main and again on the **Billing** tab. On the Purchase Invoice it sits in the **Basic Information** block of **Shipping and billing** and repeats in the totals groups.
 
@@ -112,6 +112,16 @@ The Sales Invoice adds a **Calculation Formula** column next to the measures. It
 ::: info Why your quantity columns are in a different order
 Supply chain configuration carries a **Quantity before Value** switch that swaps the order of the quantity's value and unit columns in every lines grid in the module. If two installations show these two columns the other way round, that setting is the reason — the fields are the same.
 :::
+
+### When an Item Does Not Show Up
+
+"The item exists but the invoice won't find it" is almost never a missing item. The item lookup on a line is filtered, and one of these filters has removed it. Check them in this order:
+
+1. **Prevent Usage** is ticked on the item card. Such an item is hidden from new lines. See [Preventing a Record From Being Used](/platform/everyday-tools/prevent-usage).
+2. **The flag for this kind of document is off on the item card.** Sales documents show only **Sellable** items, purchase documents only **Purchasable** ones, the Sales Return only **Returnable** ones, and product delivery, BOMs and routings only **Manufacturable** ones.
+3. **The item is limited to another party.** When *Link Items To Customers In Sales And Stock Issue Documents* or *Link Items To Suppliers In Purchase Documents* is on in supply chain configuration, an item whose **Limit To Customer** or **Limit To Supplier** names someone else is hidden. The party's own group and classes also count as a match. See [Item Links to Customers & Suppliers](./configuration/items-and-master-data-configuration.md#Item-Links-to-Customers--Suppliers).
+4. **The term shows only the source document's items.** With *Show Only Items In OriginDoc Or FromDoc* on, the lookup offers only the items of the document the line is based on ([From-Document Configuration](./document-terms/doc-term-from-document.md)).
+5. **A field filter or a dimension narrows the lookup.** A [Field Filter with Criteria](/platform/field-filtering/field-filter-with-criteria) on the item field applies here as on any screen. An item that belongs to another legal entity or branch is not offered either ([Field Filtering by Dimension](/platform/field-filtering/field-filtering-by-dimension)).
 
 ### The Tracking Dimension Columns
 
@@ -327,7 +337,7 @@ Everything above holds for the Purchase Invoice. What follows is the short list 
 
 **No reservation, no delivery, no payment lines.** The Sales Invoice's lines grid carries **Reservation Status**, **Reserved Quantity**, **Canceled Reserved Quantity**, **Un Reserved Quantity**, **Reservation Date**, **Reservation WareHouse** and **Reservation Locator**, and its Shipping tab tracks delivery quantities and status. None of that exists on the Purchase Invoice — you do not reserve stock you are buying. Reservation is covered in the [Reservation System Guide](./reservation-system-guide.md) and delivery in [Delivery & Loading](./delivery-and-loading.md).
 
-The Sales Invoice also carries the **Payment Lines** grid on Main and Billing — cash, card, coupon and terminal tenders taken at the counter — plus a **Payment Terminal**, a **Discount Coupon** and a **Record Category** on the header. The Purchase Invoice records payment through the instalment and payment-document grids only.
+The Sales Invoice also carries the **Payment Lines** grid on Main and Billing — cash, card, coupon and terminal tenders taken at the counter — plus a **Payment Terminal** (see [Payment Methods and Payment Terminals](/platform/payments/payment-methods-and-terminals)), a **Discount Coupon** and a **Record Category** on the header. The Purchase Invoice records payment through the instalment and payment-document grids only.
 
 **The Related Documents tab.** Both carry the **Stock Documents** grid with **Collect**, **Apply Receipts** and **Create Inventory Doc.**. The Sales Invoice adds two more grids there: **Generated Docs**, listing what this invoice has spawned, and **Pick Lines**, the warehouse's picking detail. The Purchase Invoice adds a **Do Not Show In Stock Docs** switch, which keeps this invoice out of the source-document picker on stock documents.
 

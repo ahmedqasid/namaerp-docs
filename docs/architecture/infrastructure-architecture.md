@@ -115,6 +115,6 @@ Where branches are connected on reliable links — which today includes most of 
 
 ## Day-to-day operations
 
-Routine administration happens from inside the application rather than on the server console. The utilities page carries the upgrade, diagnostic and maintenance tools; background work is visible and retryable through the business requests and scheduled task views; and the reprocessing tools exist for the recovery cases. The relevant reading is [Utilities](../platform/utils.md), [Scheduled Tasks](../platform/scheduled-tasks.md), and the [Reprocessing](../admin/reprocessing/index.md) and [Troubleshooting](../admin/troubleshooting/index.md) sections.
+Routine administration happens from inside the application rather than on the server console. The utilities page carries the upgrade, diagnostic and maintenance tools; background work is visible and retryable through the business requests and scheduled task views; and the reprocessing tools exist for the recovery cases. The relevant reading is [Batch Utilities That Work From a List File](../admin/reprocessing/batch-utilities-from-file.md), [Scheduled Tasks](../platform/automation-and-rules/scheduled-tasks.md), and the [Reprocessing](../admin/reprocessing/index.md) and [Troubleshooting](../admin/troubleshooting/index.md) sections.
 
 On the server itself, the recurring jobs are the ones any Windows server needs: confirm the backups ran, watch free space on the database and backup volumes, keep the operating system patched, and renew nothing by hand — the certificate renews itself.

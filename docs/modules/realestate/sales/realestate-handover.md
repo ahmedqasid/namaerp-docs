@@ -110,6 +110,14 @@ That last one is the one people meet: you cannot slip a forgotten May document i
 Cost incurred *before* delivery is capitalised into the property and reaches the sales contract through the pre-handover pair on its term. How project cost gets attributed to individual units in the first place is covered in [distributing project costs over properties](/modules/realestate/costs/realestate-cost-distribution.md).
 :::
 
+## Actions on these screens
+
+Only the post-handover cost document has a button: **Collect Units**, which fills its grid with the
+handed-over properties of the chosen type inside the project, square, block, land, building and floor
+ranges, as described under *Collecting the units* above. It fills the grid only; save to keep it. The
+handover document and the inspection report have no buttons — they are filled in, saved and
+committed.
+
 ## Messages you may see
 
 | Message | Why | What to do |

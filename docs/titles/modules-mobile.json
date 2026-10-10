@@ -5,8 +5,11 @@
     "/modules/mobile/mobile-hr-self-service.md",
     "/modules/mobile/mobile-sales-inventory.md",
     "/modules/mobile/mobile-crm-delivery.md",
-    "/modules/mobile/mobile-qr-integrator.md",
-    "/modules/mobile/mobile-apps-faq.md"
+    "/modules/mobile/mobile-shipment-delivery.md",
+    "/modules/mobile/mobile-administration.md",
+    "/modules/mobile/mobile-screen-customisation.md",
+    "/modules/mobile/mobile-device-binding.md",
+    "/modules/mobile/mobile-qr-integrator.md"
   ],
   "folderTitles": {
     "/modules/mobile": {

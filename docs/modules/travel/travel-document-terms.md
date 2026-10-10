@@ -156,7 +156,7 @@ them a term pointing at commitment accounts rather than the ones the invoice use
 Compared with terms in other modules, this one is short — and the gaps are worth knowing:
 
 - **No document book and no numbering rule.** Numbering comes from the document's book, exactly as
-  for any other Nama document; see [Document Books](/platform/document-books).
+  for any other Nama document; see [Document Books](/platform/documents-and-records/document-books).
 - **No defaults.** The term sets no default customer, salesman, currency, tour service or price
   list. Whatever should be pre-filled has to come from the document book, the user's context, or
   from typing.
@@ -199,8 +199,7 @@ dropped for having no service. Pick something meaningful and generic, such as a 
 
 ::: tip Fill the tour term before the first tour
 Three things have to be in place before the button will produce anything. The tour needs a term at
-all — without one the button refuses to run with
-*"TRTour {0} must have term"* — «مستند الرحلة السياحية {0} يجب ان يحتوي على توجيه». The pairs for the kinds of order you want
+all — without one the button produces nothing. The pairs for the kinds of order you want
 must be filled. And Hotel Service and Flight Service must be set if you want accommodation and
 flight orders. Since the generated orders are created and committed straight away, the purchase
 order terms you name here also need their own accounts configured, or the orders will process

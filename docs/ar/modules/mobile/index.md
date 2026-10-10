@@ -14,9 +14,6 @@ hero:
     - theme: brand
       text: ابدأ من هنا
       link: /ar/modules/mobile/mobile-application-guide
-    - theme: alt
-      text: الأسئلة الشائعة
-      link: /ar/modules/mobile/mobile-apps-faq
 features:
   - icon: 🧭
     title: نظرة عامة والتنقل والإعدادات
@@ -34,14 +31,18 @@ features:
     title: خدمة العملاء والتوصيل والقبض
     details: زيارات العملاء والصيانة والاستبيانات، سندات التوصيل وأدوات السائق، والقبض الإلكتروني الميداني
     link: /ar/modules/mobile/mobile-crm-delivery
+  - icon: 📦
+    title: توصيل الشحنات (جانب النظام)
+    details: الشاشات السبع خلف تطبيق السائق — إعدادات التوصيل، المناطق، السيارات، تسكين السائقين، الخطة، سند التوصيل والمرتجع
+    link: /ar/modules/mobile/mobile-shipment-delivery
+  - icon: 🛠️
+    title: إدارة التطبيق
+    details: قائمة الأساسيات ← إعدادات التطبيقات للمسؤول — تصميم الشاشات وعناوين البطاقات والتسميات وفلاتر البحث ولوحة التطبيق وربط المستخدمين بهواتفهم
+    link: /ar/modules/mobile/mobile-administration
   - icon: 🔳
     title: Mobile QR Integrator
     details: استجابة النظام لرموز QR الممسوحة لإنشاء الكيانات وتحديثها وتنفيذ إجراءات مخصصة ديناميكياً
     link: /ar/modules/mobile/mobile-qr-integrator
-  - icon: ❓
-    title: أسئلة شائعة
-    details: إجابات سريعة حول تطبيقات الجوال في نظام نما — مثل دعم الطباعة على أجهزة Sunmi
-    link: /ar/modules/mobile/mobile-apps-faq
 ---
 
 <rtl>

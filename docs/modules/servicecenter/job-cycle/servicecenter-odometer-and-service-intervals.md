@@ -164,6 +164,5 @@ Two things worth stating so nobody goes looking for them:
   job for whoever runs your customer-contact process, working from the expected next visit date on
   closed job orders.
 
-Finally, do not build a "what is due" workflow on the job order's *Collect Tasks* button; its filter
-is inverted and it proposes the services that are **not** due. The job order page carries the full
-warning. The due-task columns on the Kilo Metrage document use the correct test — use those.
+Finally, to see which services are due at a reading, use the due-task columns on the Kilo Metrage
+document.

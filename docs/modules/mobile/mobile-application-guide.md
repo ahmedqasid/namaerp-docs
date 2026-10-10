@@ -21,7 +21,6 @@ We split the app documentation into pages by the kind of work involved:
 - [Sales, Inventory & Item Inquiry](./mobile-sales-inventory.md) — sales documents, stock transfers, electronic stock taking and item inquiry.
 - [Customer Service, Delivery & Receipts](./mobile-crm-delivery.md) — customer visits, maintenance, questionnaires, delivery vouchers and electronic receipts.
 - [Mobile QR Integrator Guide](./mobile-qr-integrator.md) — responding to scanned QR codes to create/update entities.
-- [Frequently Asked Questions](./mobile-apps-faq.md).
 
 ## Logging in and connecting to the server
 
@@ -110,6 +109,8 @@ Settings are divided into several tabs:
 - Paper size (80/72/58 mm) and the print command (ESC/TSC/CPCL) depending on the printer type.
 - The wait time before printing.
 
+On a Sunmi handheld (such as the [V2s](https://www.sunmi.com/en-US/v2s/)) the device's built-in printer prints invoices, receipt vouchers and electronic payment vouchers straight from the app.
+
 **Other settings**
 - **Save server logs**: to enable logging server calls and review them later when diagnosing an issue.
 - **Fetch logo**: to download the company logo used in printing documents.
@@ -158,10 +159,7 @@ The record has two grids:
 |---|---|
 | **Group Code** | The group the screen belongs to. Leave it empty to put the item in the **More** tab instead of the **Menu** tab |
 | **Link Target** | The app screen to open (vacation request, sales order, customer visit, settings, log out…) |
-| **Mobile Dashboard** | Required when the target is the dashboard: the dashboard to show |
-| **Report Definition** | Required when the target is **Reports**: the report to run |
 | **App Shortcut** | Required when the target is **Home Shortcut**: the shortcut set to open |
-| **Arabic Title** / **English Title** | Optional titles for the line |
 | **App Home Replacement** | Makes this screen the user's home page — see below |
 
 Screens from modules the organization is not licensed for stay hidden, even when they are listed here.
@@ -205,3 +203,5 @@ Most of the app's behavior is configured centrally from the **Mobile App configu
 - Restricting the creation of some documents (attendance, vacations, stock taking, receipts) to the app only, or allowing their editing for authorized users only.
 
 Your organization's **license** also determines which modules appear in the app at all (Human Resources, Sales, Maintenance, Warehouse Management/WMS, Stock Taking, Delivery…); if a module is not licensed, its screens will not appear in the menu.
+
+The other administrator screens under **Basic → Mobile Apps** — screen layouts, card titles, label wording, lookup filters, the mobile dashboard and binding users to their phones — are mapped in [Administering Nama Mobile from the ERP](./mobile-administration.md).

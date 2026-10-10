@@ -122,11 +122,13 @@ processed in the background. If one fails, retry it from the Business Requests l
 ## Collection happens on the contract
 
 This is the single most common misconception in the leasing area, so it is worth stating flatly:
-**money is never collected against an accrual ledger**. Collect documents, receipt vouchers and
-everything else in the
+**the money always settles the rent contract, never the accrual ledger**. Collect documents, receipt
+vouchers and everything else in the
 [collection chain](/modules/realestate/collections/realestate-collection-basics.md) settle the
-installment lines of the **rent contract**. The contract is the debtor's record; the accrual document
-is the revenue record.
+installment lines of the **rent contract**. You can *start* a receipt voucher from the ledger screen
+(see the actions below), but every line of that voucher points at the rent contract, so the payment
+still lands on the contract. The contract is the debtor's record; the accrual document is the revenue
+record.
 
 That has one visible consequence. The accrual document's own paid, system-paid and remaining columns
 are **snapshots** — copies of the contract's line state taken at the moment the contract was last
@@ -138,6 +140,47 @@ them, read them as history rather than as a balance.
 So when someone asks "how much of this lease is still outstanding?", the answer is on the contract's
 Rents grid. When someone asks "how much rent did this shop earn us in the second quarter of 2027?",
 the answer is on the accrual document for that quarter.
+
+## Actions on this screen
+
+Most of the ledger's buttons work on the rows you tick in its **Rents** grid. Keep in mind that the
+ledger's paid and remaining columns are snapshots (see above), so a value taken from them can be
+older than the contract's own figures.
+
+- **Select all installment lines** — ticks every row.
+- **Create Receipt Voucher From Selected Line** — opens a receipt voucher from the tenant for the
+  remaining value of the ticked rows. Each voucher line points at the **rent contract**, so the
+  payment settles the contract's installments, as described above. As on the contract, it refuses
+  with *You can not create receipt voucher from lines because it is a rental contract* when the
+  ledger's term is marked *Rental Contract*.
+- **Merge installments** — folds the ticked rows into the remaining ones within a code or due-date
+  range, with an optional discount percentage (described on
+  [The Rent Contract](/modules/realestate/rent/realestate-rent-contract#Actions-on-this-screen)). It
+  reshapes the ledger's own rows only; the contract's schedule is not touched.
+- **Create Fine Document** — opens a new fine document in a pop-up, linked to this ledger in its
+  **Related To** field, with the tenant, the estate and the ledger's rows copied in (unless the fine's
+  term has *Do Not Copy Installments With Related To* on).
+- **Create RE Return Payment Doc From Selected Line** — opens a return payment document based on this
+  ledger, with one return line per ticked row that still has a remaining value.
+- **Installment Payments** (in the **More** menu) — lists, in a pop-up, the payment documents
+  recorded against the ledger's installments.
+
+**GoPay.** Because the ledger is also the period's invoice, it can be sent to the GoPay payment
+platform (Saudi Arabia) where that integration is licensed. Each ledger row becomes one bill item at
+its remaining value with its VAT.
+
+- **Upload Invoice To GoPay** — on a saved ledger; asks for the **GoPay Configuration** and an
+  **Expiry Date**. The expiry date must be after today unless the configuration uses recurring
+  invoicing.
+- **Cancel Invoice From GoPay** — withdraws the invoice; asks for the **GoPay Configuration**.
+- **Upload Bulk Invoices To GoPay** — in the ledger *list view*'s **More** menu; sends every selected
+  ledger at once, with the same two questions.
+
+Their refusals:
+
+- *You must enter configuration file* — «يجب تحديد ملف الإعدادات»
+- *You must enter expiry date* — «يجب إدخال تاريخ انتهاء الصلاحية»
+- *Expiry date must be after the current date* — «يجب ان يكون تاريخ انتهاء الصلاحية بعد تاريخ اليوم»
 
 ## What Nama checks
 

@@ -1,14 +1,13 @@
 ---
 title: EACRMContractBodyShapersCheckIn
 module: crm
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACRMContractBodyShapersCheckIn
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

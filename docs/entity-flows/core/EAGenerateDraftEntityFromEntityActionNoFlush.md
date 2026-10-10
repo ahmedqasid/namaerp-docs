@@ -1,6 +1,7 @@
 ---
 title: EAGenerateDraftEntityFromEntityActionNoFlush
 module: core
+entities: [EntityFlow]
 ---
 
 
@@ -8,7 +9,6 @@ module: core
 
 # EAGenerateDraftEntityFromEntityActionNoFlush
 
-**This document was generated using Claude.ai**
 Visit [Field Values Calculator](../../entity-flows/core/ai-generated-field-maps-documentation.md) to know more about fields map and the available features
 
 ## Overview

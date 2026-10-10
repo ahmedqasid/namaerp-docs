@@ -1,14 +1,13 @@
 ---
 title: EASalesRecalculateFreeAndRelatedItems
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASalesRecalculateFreeAndRelatedItems
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

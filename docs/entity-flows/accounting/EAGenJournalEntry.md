@@ -1,13 +1,12 @@
 ---
 title: EAGenJournalEntry
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAGenJournalEntry
-
-**This document was enhanced using Claude.ai**
 
 ## Overview
 

@@ -113,6 +113,14 @@ Two columns on the توجيه decide what counts as packaging:
 
 So a crate classified into slot 3 as *Returnable Crate*, mapped to package type 1, means every crate line on the document adds to *Package 1* on the header and joins the generated packaging transfer. Get this mapping wrong and the mismatch button will reject the crate line as unclassified.
 
+## Actions on this screen
+
+- **Generate Mismatched Quantities Lines** (*تحديث جدول الكميات الغير متطابقة*) — merges duplicate
+  rows, recomputes the differences, totals the packaging items into the header package counters and
+  rebuilds the mismatched grid, as described under
+  [Generating the mismatched lines](#Generating-the-mismatched-lines). Press it again whenever the
+  details change.
+
 ## Messages you may see
 
 | Message | Why | What to do |

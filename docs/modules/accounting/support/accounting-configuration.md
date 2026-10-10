@@ -8,7 +8,7 @@ Many of the accounting module's behaviors aren't coded — they're **configured*
 
 ## Dimensions in details
 
-The five dimensions themselves — and the composite dimension — are covered in [Dimensions and Composite Dimensions](/platform/dimensions-and-composite-dimensions).
+The five dimensions themselves — and the composite dimension — are covered in [Dimensions and Composite Dimensions](/platform/shared-master-files/dimensions-and-composite-dimensions).
 
 | Option | Effect |
 |---|---|
@@ -41,7 +41,7 @@ Each of these switches the check off for a whole document type — every user, e
 | Prevent balance-nature-change margin | A tolerance value at which the prevention is bypassed. |
 | Consider department/sector/analysis set/entity dimension/branch in the prevention | Choose which dimensions are accounted for when applying the prevention. |
 
-(This corresponds to the **Prevent Changing Account Balance Nature** flag on the [account](../accounts.md) itself.)
+(This corresponds to the **Prevent Change Account Balance Nature** flag on the [account](../accounts.md) itself.)
 
 ## Subsidiaries
 

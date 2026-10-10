@@ -205,7 +205,8 @@ create the contract.
 A mall handing over forty shops on the same day does not need forty trips through the contract
 screen. The **Multi rent contract doc** (سند عقود مجمعة) is a batch front-end to the same generator:
 you fill the commercial terms once in the header, list the units in the grid, and press
-**إنشاء عقود الايجار** to have Nama create one real rent contract per line.
+**createContracts** (إنشاء عقود الايجار on the Arabic screen) to have Nama create one real rent
+contract per line.
 
 ![The multi rent contract document, listing the units that will each get their own lease](../../../ar/modules/realestate/images/rent/re-multi-rent-contract-en.png)
 
@@ -221,7 +222,7 @@ rebuilds the line's contract schedule through exactly the generator described ab
 contract, writing the new contract's reference back onto the line.
 
 ::: tip The button is re-runnable, not duplicating
-Pressing **إنشاء عقود الايجار** again re-opens the contracts it created last time and updates them
+Pressing **createContracts** again re-opens the contracts it created last time and updates them
 rather than creating a second set. Taking a duplicate of the multi document, on the other hand,
 clears those links, so the copy generates fresh contracts.
 :::
@@ -244,3 +245,17 @@ usual buttons. The accounts every generated line eventually reaches are decided 
 [rent document term](/modules/realestate/document-terms/realestate-terms-rent.md), and the wider
 sequence this schedule sits inside is walked in
 [The Leasing Cycle](/modules/realestate/rent/realestate-rent-cycle.md).
+
+## Actions on these screens
+
+The two screens on this page each have one button, and both are generators:
+
+- **Create Rents** (on the rent contract and its relatives) — builds the **Rents** grid from the
+  contract values, exactly as walked through above. It asks nothing and replaces the grid. The
+  contract's other buttons are listed on
+  [The Rent Contract](/modules/realestate/rent/realestate-rent-contract#Actions-on-this-screen).
+- **createContracts** (on the multi rent contract doc; the English screen shows the button under this
+  name, the Arabic screen as **إنشاء عقود الايجار**) — creates, or on a second press updates, one
+  committed rent contract per grid line, as described in the previous section. The document must be
+  saved first. If a contract cannot be committed, the button reports that contract's own validation
+  message.

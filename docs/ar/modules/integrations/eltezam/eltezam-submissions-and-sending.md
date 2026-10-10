@@ -78,7 +78,7 @@ menu: integrations ← المستندات ← إرسال بيانات التزا
 ### الإرسال بجدول زمني: `EASubmitEltezamData`
 
 للإرسال ليلاً أو إعادة الإرسال عند الطلب، استخدم مهمة مجدولة من نوع **Action** مع
-`EASubmitEltezamData` (انظر [المهام المجدولة](/ar/platform/scheduled-tasks)).
+`EASubmitEltezamData` (انظر [المهام المجدولة](/ar/platform/automation-and-rules/scheduled-tasks)).
 
 | المُدخل | معناه |
 |---|---|

@@ -171,13 +171,20 @@ plus the full invoice-money composite. Its lines carry:
   line can send its credit somewhere other than the supplier.
 
 Its second page is the payment machinery: external payment documents that settled it from outside, a
-payment template with a **Generate Payments** action, the resulting instalment grid with paid and
+payment template, the resulting instalment grid with paid and
 remaining figures, and a grid of purchase clauses with planned and extended end dates and accumulated
 extension fines.
 
 The accounting effect is the ordinary invoice one, taken from the document term: an expense or
 work-in-progress debit, the tax sides, and the supplier credited. One option on the term flips the whole
 document into a **sales** invoice, for the case where you are the one hiring plant out.
+
+## Actions on these screens
+
+- **Collect Documents** (on the employee and equipment cost distribution) — fills the read-only Details grid with the salary, depreciation and insurance slices for the period, as described in [Step 2](#Step-2----costing-the-allocation).
+The employee and equipment invoice has no working button of its own.
+
+The allocation and the equipment statement have no buttons of their own.
 
 ## The Equipment Statement is an accounting document
 

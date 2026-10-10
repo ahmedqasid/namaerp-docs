@@ -1,14 +1,13 @@
 ---
 title: EAGuessSourceLineByItemIdAndFreeItem
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGuessSourceLineByItemIdAndFreeItem
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

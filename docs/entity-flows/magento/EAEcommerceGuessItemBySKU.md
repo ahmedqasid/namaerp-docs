@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceGuessItemBySKU
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceGuessItemBySKU
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -7,12 +7,9 @@ The freight module's invoices plug into Nama ERP's e-invoicing framework exactly
 
 ## Which freight documents are sent to the authority?
 
-The following documents carry tax-authority fields and are sent electronically:
+The freight **Sales Invoice** and its **Sales Return** carry tax-authority fields and are sent electronically.
 
-- **Sales Invoice** and its return.
-- **Delivery Request** and **Delivery Invoice** in the [postal (IPS)](./ips-delivery.md) system.
-
-Sales orders and purchase invoices, on the other hand, are not sent to the authority (a purchase isn't an invoice issued by you).
+Purchase invoices are not sent to the authority (a purchase isn't an invoice issued by you). Neither are the postal [Delivery Request and Delivery Invoice](./ips-delivery.md): they carry no tax-authority fields.
 
 ## E-Invoice Details
 

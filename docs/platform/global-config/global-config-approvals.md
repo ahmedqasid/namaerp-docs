@@ -49,7 +49,7 @@ Revise is lighter than approval: no routing, no decisions, just a required numbe
 
 ## Record versions
 
-**Track Records Versions** `value.trackVersionsEnabled` *(default on)* — Keeps a full version history of records, so you can see what a document looked like before an edit and who changed it. Individual entities can override this through their own entity configuration.
+**Track Records Versions** `value.trackVersionsEnabled` *(default on)* — Keeps a full version history of records, so you can see what a document looked like before an edit and who changed it.
 
 ::: tip History costs storage, not speed
 Version tracking writes a copy of the record on change. On high-volume documents that adds up over years, which is why the per-entity override exists — keep full history on the records an auditor will ask about, and turn it off on high-churn operational records where nobody ever looks back.

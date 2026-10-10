@@ -61,7 +61,7 @@ The system enforces the following validation rules when configuring 2FA:
    - **Custom Password Validator**: Must be enabled in `nama.properties`
    - Error if not enabled: *"You can not enable estidamah login method without enabling custom password validator in nama.properties first, use-custom-password-validator=true"*
 
-### Available Configuration Fields in Global Config
+### Available Configuration Fields in Global Configuration
 
 | Field | Description | Default | Options | Validation Rules |
 |-------|-------------|---------|---------|-----------------|

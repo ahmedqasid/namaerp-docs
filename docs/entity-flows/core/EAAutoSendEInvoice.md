@@ -1,13 +1,12 @@
 ---
 title: EAAutoSendEInvoice
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAAutoSendEInvoice
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

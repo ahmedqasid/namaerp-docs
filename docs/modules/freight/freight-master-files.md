@@ -36,8 +36,8 @@ The container is later selected on the operation order, bill of lading, and serv
 ## Vessels, Ports, and Sailing Schedules
 
 - **Ocean Vessel** — a simple file with a code and name for each ship you deal with.
-- **Shipping Port** — loading, discharge, and final-destination ports, used on the operation order, bill of lading, and service lines.
-- **Sailing Schedule** — a reference table whose lines gather the available sailings: country, loading and discharge ports, shipping line, vessel and voyage, estimated sailing and arrival dates, and transit time in weeks. It helps the sales team pick the fastest, most suitable sailing for the customer.
+- **Shipping Port** — loading, discharge, and final-destination ports, used on the operation order, bill of lading, and service lines. It is a shared file of the Basic module, so it is also reachable from **Basic → Master Files → Shipping Port**; both menu items open the same list.
+- **Sailing Schedule** — a reference table whose lines gather the available sailings: country, loading and discharge ports, shipping line, vessel and voyage, estimated sailing and arrival dates, and transit time in weeks. It helps the sales team pick the fastest, most suitable sailing for the customer. Tick **Selected** on exactly one sailing line and press **Create Operation Order**: a new operation order opens in a pop-up with that line's ports, shipping line, vessel, voyage and remark already filled. The line must name a shipping line.
 
 ![Sailing schedule](../../ar/modules/freight/images/master-files/sailing-schedule-en.png)
 
@@ -45,7 +45,7 @@ The container is later selected on the operation order, bill of lading, and serv
 
 - **Commodity** — a description of the shipped goods (electronics, chilled foods, dangerous goods…); used on the operation order, bill of lading, and as one of the pricing keys.
 - **Country** — origin and destination countries, appearing on sailing schedules and mail items.
-- **Locations** (with sections, classes, and types) — spatial organization used mainly in the postal system to record where items are stored.
+- **Locations** (with sections, classes, and types) — places with a capacity where operation-order cargo and postal mail items are stored. See [Storage Locations](./freight-storage-locations.md).
 
 ## Bill of Lading Types and Units of Measure
 
@@ -63,3 +63,5 @@ You don't need to define everything up front. Start with the service items you a
 | *You Must Select at least One Of Service Item Types* — «يجب اختيار خدمة واحدة على الاقل من الخدمات الأربعة التالية(شحن بحري ـ نقل ـ تخليص ـ مولدات)» | A service item has none of its service flags ticked — ocean freight, custom clearance, trucking, genset or other — **and** no Tax Authority Code either, so nothing places it in a section. | Tick the flag for the service the item really is. An item that exists only for e-invoicing passes the check once it carries a Tax Authority Code. |
 | *Commission item {0} should not be the same e invoice item {1}* — «بند خدمة (عمولة) {0} لا يجب ان يكون هو نفسه بند الفاتورة الالكترونية {1}» | The Commission Item and the E-Invoice Item on the service item point at the same record, which would make commission and cost indistinguishable on the submitted invoice. | Point them at two different service items, or clear the one you do not need. |
 | *Capacity {0} must be more than zero* — «يجب ان تكون السعة أكبر من الصفر» | A Location is being saved with an empty, zero or negative Capacity. | Enter the location's capacity; storage consumption is measured against it. |
+| *You Must Select One Record* — «يجب إختيار سطر واحد» | **Create Operation Order** on the sailing schedule was pressed with no line, or more than one line, ticked **Selected**. | Tick exactly one sailing line. |
+| *You Must Select Shipping Line* — «لا يمكن ترك الخط الملاحى فارغاً» | The ticked sailing line has no shipping line. | Fill the line's shipping line, then press the button again. |

@@ -130,6 +130,47 @@ lang: ar
 
 أحدُ السيناريوهات الشائعة عند الربط مع إصدارات Oracle EBS القديمة: أن يَقرأ نما **حركاتِ الفواتير وأرصدةَ الموردين** من جداول EBS مباشرةً، ثمّ يَستخدمها لإغناء التقارير والشاشات داخل نما، دون أن يَكتب فيها شيئًا.
 
+#### الإعداد: الاتصال ومسار الاستيراد
+
+تتم القراءة نفسها عبر مسار الكيان [SQLImporterFromDifferentDataSource](/entity-flows/core/SQLImporterFromDifferentDataSource.md) (الصفحة بالإنجليزية). وهو يعمل تمامًا كمستورد SQL العادي، إلا أن مُدخله الثاني، **Data Source Name (Must be defined in context.xml)**، يسمّي اتصال قاعدة بيانات غير قاعدة نما نفسها. ويُعرَّف هذا الاتصال مرة واحدة كمورد في ملف `context.xml` الخاص بخادم التطبيق. وهذا مثال حقيقي يشير إلى نظام مختبرات يعمل على Oracle:
+
+```xml
+<Resource name="jdbc/ldm" auth="Container" type="javax.sql.DataSource"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" maxActive="10000"
+		maxIdle="20" maxWait="10000" username="username" password="password"
+		driverClassName="net.sf.log4jdbc.DriverSpy" validationQuery="SELECT 1 FROM DUAL"
+		testWhileIdle="true"
+		url="jdbc:log4jdbc:oracle:thin:@192.168.80.80:1521:ldm"
+		timeBetweenEvictionRunsMillis="24000000" testOnBorrow="true"/>
+```
+
+ويكون مُدخل المسار عندئذٍ `jdbc/ldm`.
+
+::: warning Oracle وأسماء الأعمدة الطويلة
+ترفض إصدارات Oracle القديمة أي اسم مستعار للعمود (alias) يزيد على 30 حرفًا، بينما أسماء أعمدة المستورد مسارات حقول مثل `details.quantity.quantity.primeQty.value` — وهي أطول من ذلك بكثير. فهذا الاستعلام للتفاصيل مثلًا يرفضه Oracle:
+
+```sql
+select '' ":-detail:details", r.REQUEST_ID "#description1",'1000001' "details.item.itemCode",'1000001' "details.item.item",rl.SERVICE_CODE "details.n1",rl.SERVICE_NAME "details.text1",'1' "details.quantity.quantity.primeQty.value",'101' "details.quantity.quantity.primeQty.uom",
+rl.CASH_FEES "details.price.unitPrice",rl.DISCOUNT "details.price.discount1.value"
+from Request_Services rl
+left join Requests r on rl.REQUEST_ID = r.REQUEST_ID
+where r.REQUEST_ID = '468273'
+```
+
+والحل عمودان لكل اسم طويل: أعطِ القيمة اسمًا قصيرًا (`c1`)، وأتبِعها مباشرة بعمود ثانٍ يبدأ اسمه بـ`$alias$` وتكون **قيمته** مسار الحقل الحقيقي. فيعيد نما تسمية العمود الأول بذلك المسار ويحذف الثاني:
+
+```sql
+select '' ":-detail:details", r.REQUEST_ID "#description1",'1000001' "details.item.itemCode",'1000001' "details.item.item",rl.SERVICE_CODE "details.n1",rl.SERVICE_NAME "details.text1",'1' "c1", 'details.quantity.quantity.primeQty.value' "$alias$1",
+'101' "c2", 'details.quantity.quantity.primeQty.uom' "$alias$2",
+rl.CASH_FEES "details.price.unitPrice",rl.DISCOUNT "details.price.discount1.value"
+from Request_Services rl
+left join Requests r on rl.REQUEST_ID = r.REQUEST_ID
+where r.REQUEST_ID = '468273'
+```
+
+فيُقرأ `'1' "c1", 'details.quantity.quantity.primeQty.value' "$alias$1"` تمامًا كما لو كتبت `'1' "details.quantity.quantity.primeQty.value"`. ويجب أن يأتي عمود `$alias$` دائمًا بعد العمود الذي يسمّيه مباشرة، ولا يمكن أن يكون أول عمود في الاستعلام.
+:::
+
 ### الأسئلة الواجب طرحها على العميل في حالة الربط عبر قاعدة البيانات
 
 1. ما نوعُ قاعدة البيانات وإصدارُها؟ (Oracle، SQL Server، MySQL، …)

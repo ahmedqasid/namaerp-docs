@@ -1,14 +1,13 @@
 ---
 title: EASetDefaultWarehouseForServiceItems
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASetDefaultWarehouseForServiceItems
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

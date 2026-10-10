@@ -189,6 +189,20 @@ them. An **Employee Health Insurance Delete Request** (طلب حذف تأمين 
 accept-then-generate approval step first, for organisations that require sign-off before someone is
 dropped from coverage.
 
+## Actions on this screen
+
+The insurance documents carry only two buttons between them, and both save typing rather than doing anything you could not do by hand.
+
+**On Employee Health Insurance, Health Insurance Upgrade, Employee Health Insurance Delete, Health Insurance Credence and the three matching requests:**
+
+- **Update Start Date For Lines** — copies the header **Start Date** onto every line of the **Details** grid. With the header date empty it stops with *Start Date Is Empty* — «تاريخ البداية فارغ».
+
+**On the Health Insurance Offer Request and Health Insurance Credence:**
+
+- **Collect Employees** — replaces the **Details** grid with one line per employee who is in the **Working** state and matches the **Collect Employees** range, each with their insured family members as separate lines. When an **Insurance Offer** is chosen, each line's category and cost are taken from it. Tick **Add Attendants Only** to collect the family members without the employees themselves.
+
+The **Health Insurance Offer**, the **Health Insurance Claim Document** and the claim request have no buttons of their own.
+
 ## How it's processed
 
 Every document on this page — enrolment, upgrade, credence and deletion — shares the same

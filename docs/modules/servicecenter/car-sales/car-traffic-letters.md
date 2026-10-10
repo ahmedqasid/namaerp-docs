@@ -111,24 +111,21 @@ alongside the hand-over:
 Neither posts anything. The plate, `ر ط ص 8318`, is typed onto the car record on 5 March when the
 plates come back — by a person, on the car's own screen.
 
-## Building the car record from a line
+## Actions on these screens
 
-Three of the four screens carry the **إنشاء صنف فرعي من معلومات السطر (Create Sub Item From Line
-Information)** action in the More menu: the request, the letter, and the traffic letter cancel. It
-builds car records from the line data, and it works only when the document term's *Create Sub Item
-From Line Info* option is switched on.
+The Car Traffic Letter Request, the Car Traffic Letter and the Car Traffic Letter Cancel each carry
+one action, in the More menu:
 
-::: warning Two cautions on that button
-- **With the term option off, the button is a silent no-op.** The grid refreshes, nothing is
-  created, and no message appears. Check the term first.
-- **On the Car Traffic Letter Request Cancel screen the button is wired to the wrong line type** and
-  rebuilds the grid from the wrong data. Do not use it there.
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*) — builds car records from the
+  line data: for every line whose item has sub items it creates the car record (or refreshes the one
+  already on the line) and writes it back onto the line. The car record is saved straight away. It
+  does nothing, and shows no message, unless the document term's *Create Sub Item From Line Info*
+  option is on.
 
-More generally, switch *Create Sub Item From Line Info* on for exactly **one** document type in a
-chain. Two documents with the option on will either silently rewrite an existing car record or, if
-the later document's lines were typed fresh rather than copied, create a **duplicate** car — nothing
-checks that a chassis number is unique.
-:::
+Switch *Create Sub Item From Line Info* on for exactly **one** document type in a chain. Two
+documents with the option on will either rewrite an existing car record or, if the later document's
+lines were typed fresh rather than copied, create a **duplicate** car — nothing checks that a chassis
+number is unique.
 
 ## Cancelling a letter
 

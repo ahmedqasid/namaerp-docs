@@ -1,14 +1,13 @@
 ---
 title: EASCDocFromDocCreator
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASCDocFromDocCreator
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

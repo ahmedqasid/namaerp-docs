@@ -110,21 +110,26 @@ The **Standard Terms** grid records the contractual undertakings you track rathe
 
 Read-only lists of everything this contract has produced: the collect documents raised against it, the **Rent Installment Ledgers** generated from it, and the fine documents. This is the fastest way to check whether the accruals you expected actually exist — see [Rent Installment Accrual Ledgers](/modules/realestate/rent/realestate-rent-accrual-ledger.md).
 
-## The buttons
+## Actions on this screen
 
-| Button | Arabic | What it does |
-|---|---|---|
-| Create Rents | إنشاء الايجارات | Regenerates the whole schedule from the values block. **It overwrites the grid** — see the schedule page. |
-| Select all installment lines | اختيار جميع الاقساط | Ticks every row, ready for the buttons that work on a selection. |
-| Create collect doc from selected line | إنشاء سند تحصيل للاقساط المختارة | Opens a collect document pre-filled with the ticked installments. |
-| Merge installments | سداد عاجل | Early settlement: you give a date range, a code range and a discount percentage, and the selected lines are replaced by one merged line at the discounted value. |
-| Extend Contract | تمديد عقد الايجار | Rolls the lease forward into a new contract. |
-| Cancel Rent Contract | انهاء العقد | Opens the termination and settlement document. |
-| Create Fine Document | إنشاء سند غرامة | Raises a [late-payment fine](/modules/realestate/collections/realestate-fines.md) against overdue installments. |
-| Create Receipt Voucher From Selected Line | إنشاء سند قبض للاقساط المختارة | Sums the remaining value of the ticked lines into a receipt voucher. Available when we are the landlord. |
-| Create Payment Voucher From Selected Line | إنشاء سند صرف للأقساط المختارة | The mirror image, available only when the term marks this as a contract where **we are the tenant**. |
+The rent contract carries more buttons than any other leasing screen. Most of them work on the rows you have ticked in the **Rents** grid, so the usual rhythm is: tick, then press.
 
-The last two are the visible face of the *Rental Contract* term flag described in [The Leasing Cycle](/modules/realestate/rent/realestate-rent-cycle.md) — exactly one of them is ever available on a given contract. Extension and termination are both covered in [Renewing and Ending a Lease](/modules/realestate/rent/realestate-rent-renewal-and-termination.md).
+- **Create Rents** — builds the whole **Rents** grid from the values block, as [Generating the Rent Schedule](/modules/realestate/rent/realestate-rent-schedule.md) explains. It asks no questions and **rewrites the grid**, so press it before money is collected, not after.
+- **Select all installment lines** — ticks every row in the **Rents** grid, ready for the buttons below that work on a selection.
+- **Merge installments** — the early-settlement tool. Tick the rents being paid early and press it; it asks for **From Date**, **To Date**, **From Installment Code**, **To Installment Code** and **Discount** (a percentage). The ticked rows disappear from the grid and their value is spread over the remaining rows that fall inside the code or due-date range you gave (all remaining rows if you leave the range empty); the discount percentage of the moved value is spread over the same rows as a discount. Give the next rent as both the from and to code and the ticked rents fold into that one line. With nothing ticked it refuses with *No line is selected*.
+- **Extend Contract** — rolls the lease into a new contract that starts the day after this one ends and runs for the same period. The record must be saved first; a contract that has already been ended is refused with *Cancelled Contracts Can Not Be Extended*. Covered in full in [Renewing and Ending a Lease](/modules/realestate/rent/realestate-rent-renewal-and-termination.md).
+- **Cancel Rent Contract** — opens a new **Cancel Contract** document in a pop-up, pre-filled from this contract with the remaining rent and every non-rent line (insurance, commission, service charges) copied into its expenses, ready for the settlement. The record must be saved first; a contract that was already ended is refused with *The Contract was cancelled before*.
+- **Create Fine Document** — opens a new [fine document](/modules/realestate/collections/realestate-fines.md) in a pop-up, linked back to this contract in its **Related To** field, with the tenant, the estate and its site copied across. The contract's rent lines come with it unless the fine's document term has *Do Not Copy Installments With Related To* switched on.
+- **Create Receipt Voucher From Selected Line** — opens a receipt voucher from the tenant for the total remaining value of the ticked rows, carrying one installment line per row so the voucher settles exactly those rents. Rows with nothing remaining are ignored.
+- **Create Payment Voucher From Selected Line** — the mirror image: a payment voucher for the remaining value of the ticked rows. It is the button for a lease where **we are the tenant**.
+
+The last two are tied to the *Rental Contract* flag on the document term described in [The Leasing Cycle](/modules/realestate/rent/realestate-rent-cycle.md). Both buttons are on the screen, but only one works on a given contract: on a term marked *Rental Contract* the receipt button refuses with *You can not create receipt voucher from lines because it is a rental contract*, and on any other term the payment button refuses with *You can not create payment voucher from lines because it is not a rental contract*.
+
+One more action sits in the **More** menu rather than on the screen: **Installment Payments** lists, in a pop-up, every payment document recorded against this contract's installments — the quickest answer to "what has this tenant actually paid, and with which documents?".
+
+Each row of the **Rents** grid also carries its own **Create collect doc from selected line** button. It opens a new [collect document](/modules/realestate/collections/realestate-collect-documents.md) in a pop-up for the ticked rows — or, if nothing is ticked, for the row you pressed it on — with the tenant, the estate and the amount filled in.
+
+![The rent contract's action block and the Rents grid](../../../ar/modules/realestate/images/rent/re-rent-contract-actions-en.png)
 
 ## What committing the contract actually does
 

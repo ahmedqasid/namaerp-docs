@@ -162,15 +162,17 @@ Tell technicians to press **إنهاء / End** before starting work on another t
 | **تنفيذ / Execute** | Opens an unsaved **Ticket Execution** in a pop-up, already pointing at this ticket, with one line for the responsible employee starting now |
 | **تغيير الحالة / Change Status** | The five-value dialog described above |
 | **تحويل إلي سؤال شائع / Convert To FAQ** | Creates a CRM FAQ entry: the question is the ticket's description, the answer is every Ticket Execution note recorded against this ticket, run together |
-| **تصعيد الي / Escalate To** | Stamps the chosen employee into *Escalated To* |
+| **تصعيد الي / escaleted to** | Stamps the chosen employee into *Escalated To* |
 | **إنشاء طلب تطوير / Development Request** | Opens an unsaved Development Request carrying this ticket, customer, product and description |
 | **عمل متابعة / Create CRM Follow Up** | Opens an unsaved **Ticket Follow Up** |
 
 ::: warning Two buttons that do not do what their label says
 **Create CRM Follow Up** opens a **Ticket Follow-Up**, not the CRM Follow-Up document from the Activities folder. Those are two different screens with different fields; the CRM Follow-Up is reachable only from its own menu item. See [Tasks and Follow-Ups](/modules/crm/activities/crm-tasks-and-follow-ups.md).
 
-**Escalate To** saves and commits the whole stored record the moment you press it — and it commits the version held on the server, so any edits you have made on screen but not yet saved are **not** included. It also does not change the status: there is no *Escalated* state for a ticket, no escalation queue and no notification. Save your work before pressing it.
+**escaleted to** saves and commits the whole stored record the moment you press it — and it commits the version held on the server, so any edits you have made on screen but not yet saved are **not** included. It also does not change the status: there is no *Escalated* state for a ticket, no escalation queue and no notification. Save your work before pressing it.
 :::
+
+The **Assigned To** tab carries two more buttons, **بدء / Start** and **إنهاء / End**. Start opens a stopwatch row for the current user's employee (or, failing that, the ticket's responsible employee), first closing that person's open row on any other ticket; End closes the current user's open rows on this ticket. Both are described under [The ticket's stopwatch](#The-tickets-stopwatch).
 
 ## The rest of the screen
 

@@ -1,14 +1,13 @@
 ---
 title: TimeAttendanceRemoveEmptyTimeLines
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # TimeAttendanceRemoveEmptyTimeLines
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

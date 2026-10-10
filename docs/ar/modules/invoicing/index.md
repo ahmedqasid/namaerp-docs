@@ -43,12 +43,20 @@ title: الفواتير والضرائب والخصومات
   <LandingCard icon="🇦🇪" title="الفاتورة الإلكترونية في الإمارات (Orchida osTax)" link="/ar/modules/invoicing/uae-orchida-einvoice-guide.md" details="الربط مع نظام الفاتورة الإلكترونية في الإمارات عبر خدمة Orchida osTax." />
 </LandingGrid>
 
+## القواعد التي وراء الفاتورة، وتقاريرها
+
+فاتورة المبيعات تتصرف كما يقول لها توجيه المستند الخاص بها — ماذا تنسخ من أمر البيع، وكيف تسعّر سطورها وتحسب ضرائبها، وماذا تسجل في دفتر الأستاذ — وهذا التوجيه موثق مع بقية توجيهات سلسلة التوريد. وهناك أيضًا التقارير التي تجمع فواتيرك وتقارنها وتحسب تكلفتها.
+
+<LandingGrid>
+  <LandingCard icon="⚙️" title="توجيهات المستندات" link="/ar/modules/supplychain/document-terms/" details="إعدادات التوجيه التي وراء فاتورة المبيعات وكل مستندات البيع والشراء الأخرى، صفحة لكل تبويب." />
+  <LandingCard icon="📊" title="تقارير سلسلة التوريد والمبيعات" link="/ar/modules/supplychain/supplychain-reports.md" details="فهرس التقارير الجاهزة للمخزون والمشتريات والمبيعات ونقاط البيع: تفاصيل المبيعات والربحية والمقارنات وكشوف الحساب." />
+</LandingGrid>
+
 ## أدوات المستندات والمساعدة
 
-أدوات تُسرّع إدخال بيانات الفواتير وتجيب عن الأسئلة الشائعة.
+أدوات تُسرّع إدخال بيانات الفواتير.
 
 <LandingGrid>
   <LandingCard icon="📜" title="الشروط والأحكام القياسية" link="/ar/modules/invoicing/standard-terms-feature-documentation.md" details="تعريف شروط قياسية وربطها بمستندات البيع وتتبّع ما إذا كان كل شرط قد استُوفي." />
   <LandingCard icon="📦" title="حقل الباركود للمسح المتتالي" link="/ar/modules/invoicing/barcode-field-feature.md" details="حقل باركود ذكي يحافظ على التركيز ليمكّنك من مسح أكواد أصناف متتالية دون إعادة النقر." />
-  <LandingCard icon="❓" title="أسئلة شائعة عن الفواتير والدفع" link="/ar/modules/invoicing/invoices-faq.md" details="إجابات عن أكثر الأسئلة تكرارًا حول الفواتير والمدفوعات." />
 </LandingGrid>

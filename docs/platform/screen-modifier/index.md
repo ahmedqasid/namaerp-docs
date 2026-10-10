@@ -35,8 +35,4 @@ features:
     title: Visual Layout Editor
     details: The drag-and-drop editor that lets you redesign a screen visually and save the result straight back into a Screen Modifier.
     link: /platform/screen-modifier/screen-modifier-visual-editor.md
-  - icon: ❓
-    title: Frequently Asked Questions
-    details: Quick answers to the questions that come up most often — discussion fields, making changes appear, and overriding the default layout.
-    link: /platform/screen-modifier/screen-modifier-faq.md
 ---

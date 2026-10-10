@@ -115,7 +115,7 @@ menu: الأساسيات ← الإعدادات ← توجيه المستند
 | **خصومات أخرى** | `termConfig.otherDeductionsDebit` / `…Credit` |
 
 وكل جانب إعداد جانب حسابي من النوع المعتاد — انظر
-[إعدادات الجانب المحاسبي](/ar/platform/accounting-side-config) لمعرفة كيف يختار الجانب حسابه وذمته.
+[إعدادات الجانب المحاسبي](/ar/platform/shared-master-files/accounting-side-config) لمعرفة كيف يختار الجانب حسابه وذمته.
 
 ## توجيه تصفية المستحقات
 
@@ -200,6 +200,6 @@ menu: الأساسيات ← الإعدادات ← توجيه المستند
 - **[توجيهات السلف والمكافآت والجزاءات](/ar/modules/hr/document-terms/hr-terms-loans-rewards-and-penalties)**
 - **[توجيهات التوظيف والعلاقات الحكومية](/ar/modules/hr/document-terms/hr-terms-employment-and-government)**
 - **[توجيهات التأمينات](/ar/modules/hr/document-terms/hr-terms-insurance)**
-- **[دفاتر المستندات](/ar/platform/document-books)** — الدفتر الذي بجوار التوجيه.
-- **[إعدادات الجانب المحاسبي](/ar/platform/accounting-side-config)** — كيف يجد جانب المدين أو الدائن
+- **[دفاتر المستندات](/ar/platform/documents-and-records/document-books)** — الدفتر الذي بجوار التوجيه.
+- **[إعدادات الجانب المحاسبي](/ar/platform/shared-master-files/accounting-side-config)** — كيف يجد جانب المدين أو الدائن
   حسابه.

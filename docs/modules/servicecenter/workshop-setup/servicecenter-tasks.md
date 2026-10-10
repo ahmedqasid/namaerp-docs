@@ -123,7 +123,7 @@ The grid headed **Raw Materials** (المواد الخام) is the task's bill o
 | Restrict In Issuing | المطابقة في السحب | Whether the store is held to the planned quantity when the part is issued. |
 | Description | ملاحظات | Free text. |
 
-On a job order there is a button, **Collect Resources and Materials** (تجميع الموارد والمواد الخام), which walks the task lines already on the order and appends each task's standard materials — filtered by the vehicle's model and brand — pricing each one through the ordinary sales-price engine. That is how the oil change's 5 litres and one filter reach the [spare-parts grid](/modules/servicecenter/spare-parts/servicecenter-spare-parts-overview.md) without anyone typing them.
+On a job order there is a button, **Collect Resources And Materials** (تجميع الموارد والمواد الخام), which walks the task lines already on the order and rebuilds the spare-parts grid from each task's standard materials — filtered by the vehicle's model and brand — pricing each one through the ordinary sales-price engine. That is how the oil change's 5 litres and one filter reach the [spare-parts grid](/modules/servicecenter/spare-parts/servicecenter-spare-parts-overview.md) without anyone typing them.
 
 ::: tip Restrict In Issuing is set by the document
 The Restrict In Issuing column also appears on the job order's spare-parts grid, and there it is forced from the job order's `توجيه` on every save. Setting it here describes your intent; the document decides.
@@ -145,12 +145,6 @@ The rest of the tab is about mileage-based maintenance.
 The first matching row wins; if none matches, the default interval applies.
 
 That interval is what makes the arithmetic on the [vehicle's file](/modules/servicecenter/workshop-setup/servicecenter-product-file.md) mean something. `VEH-2031` last had its oil done at **36,000 km**; the interval is **10,000 km**; so the next one falls due at **46,000 km**. The car reads **45,300** on 3 March and burns about **60.7 km a day**, which puts the next visit around **15 March 2026** — and that is the date the job order closing projects.
-
-::: danger Do not use "Collect Tasks" to find what is due
-The job order carries a button, **Collect Tasks** (تجميع المهام), which is meant to read the [vehicle's odometer and the last-service register](/modules/servicecenter/job-cycle/servicecenter-odometer-and-service-intervals.md) and propose the maintenance that has come due. **It proposes the opposite set** — the tasks that are *not* yet due — so a car that needs its oil change gets nothing and a freshly serviced car gets the full list.
-
-Enter the due tasks by hand. Al-Sahra's five tasks on job order `SCJO-2026-0417` were all typed in, and every worked example in this documentation does the same.
-:::
 
 ## Two Things the Task Does Not Do
 

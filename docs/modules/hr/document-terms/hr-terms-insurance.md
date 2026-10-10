@@ -127,5 +127,5 @@ nothing of their own; everything they have comes from the common shape.
   shared mechanics and the money documents.
 - **[Employment and Government Relations Document Terms](/modules/hr/document-terms/hr-terms-employment-and-government)**
 - **[Employee Health Insurance](/modules/hr/health-insurance/employee-health-insurance)**
-- **[Account Side Configuration](/platform/accounting-side-config)** — how a debit or credit side
+- **[Account Side Configuration](/platform/shared-master-files/accounting-side-config)** — how a debit or credit side
   finds its account.

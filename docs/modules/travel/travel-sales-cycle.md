@@ -174,7 +174,7 @@ order.
 
 **Payments** is the instalment plan: an instalment code and description, the percentage or value
 due, the due date, what has been paid against it and what remains. A payment template on the header
-plus the **Generate Payments** action will build the whole schedule for you from a down payment, a
+plus the **GeneratePayments** action will build the whole schedule for you from a down payment, a
 number of instalments and a period. The schedule has to reconcile with what is still outstanding on
 the invoice before the document will commit.
 
@@ -227,11 +227,20 @@ invoice. The invoice carries the tax-authority fields the integration needs, and
 master file carries its own tax-authority code, so the service can be identified on the submitted
 document.
 
-The standard actions are on the screen: one that checks the document against the tax authority's
-rules before you send it, and ones that open the submitted invoice on the authority's portal, as
-the issuing user or as a visitor. Which authority you are talking to, and the credentials and
+Which authority you are talking to, and the credentials and
 certificates behind it, are set up once for the installation and then apply to travel invoices
 without any travel-specific configuration.
+
+## Actions on these screens
+
+**Travel Service Sales Order, Sales Invoice and Sales Return — first page:**
+
+- **GeneratePayments** (*إنشاء الدفعات*) — builds the instalment schedule on the Payment Documents
+  page from the document's remaining value. It asks for the number of payments, the period between
+  them and its unit, the start date, a grace period, the payment weekday, down / first / second /
+  last payment values and a rounding mode; a down payment is written into the cash paid on the
+  header. It refuses a document whose net value is zero. The English label ships as the raw name
+  shown here.
 
 ## Where the sales cycle sits next to operations
 

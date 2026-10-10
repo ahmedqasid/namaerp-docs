@@ -54,7 +54,7 @@ The most expensive accident in ERP support is a test copy of a live database tha
 | `log-sms-data` | Records the body and the provider URL of each SMS so you can see what was actually sent. Diagnostic — turn it off afterwards. |
 
 ::: warning Restoring a production backup onto a test server
-Change `serverid`, then set `send-emails-only-to` and `send-sms-only-to` to your own address and number, **before** the first startup. The sending rule is `serverid` matched against the **Send Mails And SMS Only From Servers** list in [global settings](/platform/global-config/global-config-notifications), and that list travels inside the database you just restored — so a clone that keeps production's server id is, as far as the software is concerned, production.
+Change `serverid`, then set `send-emails-only-to` and `send-sms-only-to` to your own address and number, **before** the first startup. The sending rule is `serverid` matched against the **Send Mails And SMS Only From Servers** list in [Global Configuration](/platform/global-config/global-config-notifications), and that list travels inside the database you just restored — so a clone that keeps production's server id is, as far as the software is concerned, production.
 :::
 
 ## Keeping people out

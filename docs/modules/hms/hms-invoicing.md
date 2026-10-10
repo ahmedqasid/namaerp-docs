@@ -5,6 +5,28 @@ entities: [HMSClosingInvoice, HMSSurgeryInvoice, HMSSurgeryPackageInvoice, HMSAc
 
 Billing is the hospital's financial backbone. The rule is simple: **one invoice per service type**. These invoices are very similar in structure and then differ in their lines by service type. All of them are documents that produce an **accounting effect**.
 
+## Where the invoices are
+
+Each invoice sits in the menu group of the service it bills:
+
+| Invoice | Menu |
+|---|---|
+| **Check Invoice**, **Accommodation Invoice**, **Attendant Invoice**, **Supervision Invoice** | Hospital Management System → Documents |
+| **Laboratory Test Invoice** | Hospital Management System → Laboratory Tests |
+| **Radiology Invoice** | Hospital Management System → Radiology |
+| **Surgery Invoice** | Hospital Management System → Surgeries |
+| **Physical Therapy Invoice** | Hospital Management System → Physical Therapy |
+| **Pharmacy Invoice**, **Pharmacy Return** | Hospital Management System → Pharmacies |
+| **Blood Bank Invoice**, **Blood Bank Return** | Hospital Management System → Blood Banks |
+| **Medical Supplies Invoice**, **Services Invoice**, **Service And Supply Invoice**, **Supply Return** | Hospital Management System → Medical Services |
+| **Surgery Package Invoice** | Hospital Management System → Surgery Package Deal |
+| **Closing Patient Invoice** | Hospital Management System → Closing Invoice |
+
+Their own buttons: the **Check Invoice** has **Create Patient Admission**, which opens a new admission
+for the patient being examined; the **Closing Patient Invoice** has **Collect Invoices** (below). Every
+priced invoice except the returns, the surgery package invoice and the closing invoice also has three
+actions in its **More** menu — see [Freezing a price](#Freezing-a-price).
+
 ## The common pattern across all invoices
 
 Service invoices share one skeleton:
@@ -16,7 +38,7 @@ Service invoices share one skeleton:
 5. **Overhead lines** — on most invoices.
 
 ::: tip Split billing is the core idea
-Every line is automatically divided into a **patient share** and an **insurance share** (using the endurance percentages from the [insurance approval](./hms-insurance.md) and the admission), each taxed separately and posted to a distinct account in the **term config**. That term config is what maps the value types (patient value, insurance value, discounts, taxes, cost, subsidiary cost) to ledger accounts.
+Every line is automatically divided into a **patient share** and an **insurance share** (using the endurance percentages from the [insurance approval](./hms-insurance.md) and the admission), each taxed separately and posted to a distinct account named on the invoice's **document term**. That term is what maps the value types (patient value, insurance value, discounts, taxes, cost, subsidiary cost) to ledger accounts — pair by pair, and only where both sides are filled. See [Invoice Document Terms](./document-terms/hms-terms-invoices.md).
 :::
 
 ## Service invoices
@@ -63,9 +85,24 @@ These invoices **move stock** and add **Service Fees** accounts; their line is a
 
 **Closing Invoice** is the discharge settlement document. When a patient leaves, this single invoice gathers **every individual invoice issued during the stay** into one statement, then applies admission-level taxes, fees and discounts to reach the final amount owed by the patient/insurer.
 
-Its heart is the **Collect Invoices** button, which pulls all the patient's invoices tied to the admission into the details grid (invoice, date, value). Its header carries the admission, patient and in-date, plus **Tax 1/2**, **Fees 1/2** and **Discount 1/2** fields (percent + value) for admission-level adjustments. It posts the consolidated patient and insurance receivables together with those adjustments.
+Its heart is the **Collect Invoices** button, which pulls all the patient's invoices tied to the admission into the details grid (invoice, date, value). Its header carries the admission, patient and in-date, plus **Tax 1/2**, **Fees 1/2** and **Discount 1/2** fields (percent + value) for admission-level adjustments. It does **not** post the collected invoices again — each of them has already posted itself. What the closing invoice posts is only those admission-level taxes, fees and discounts, through the sides on its term (see [Stay and Operations Document Terms](./document-terms/hms-terms-stay-and-operations.md)).
 
 ![Closing invoice](../../ar/modules/hms/images/invoicing/closing-invoice-en.png)
+
+## Freezing a price
+
+When the invoice's term has **Update Prices With Save** ticked, every save looks each line's price up
+again from the insurance approval and the price lists, so a price typed at the desk is overwritten the
+next time anyone saves. Three switches on the invoice stop that, one per grid:
+
+- **Allow Changing Main Prices** — the main service, drug or supply lines keep their prices;
+- **Allow Changing Services Prices** — the services grid keeps its prices;
+- **Allow Changing Supplies Prices** — the supplies grid keeps its prices.
+
+On a saved invoice they are switched on from the **More** menu, using the actions of the same names;
+the invoice reopens with the switch ticked. Without *Update Prices With Save* on the term, prices are
+only looked up when a line is entered and the switches make no difference. See
+[Invoice Document Terms](./document-terms/hms-terms-invoices.md).
 
 ## Messages you may see
 

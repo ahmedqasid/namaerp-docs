@@ -12,7 +12,7 @@ question the screen answers is not "did the system try" but "how far did it get,
 other end say".
 
 ::: info Where to find it
-**Basic → Administration → Settings → Pending Tasks.**
+**Administration → Settings → Pending Tasks.**
 :::
 
 ## What puts things here
@@ -55,7 +55,7 @@ moves. That is normal.
 ::: warning Trials is not a count of attempts
 The **Trials** column looks like an attempt counter and is not. It is a running cost, and different
 failures cost different amounts: a message rejected for a business reason adds five, and one that
-breaks unexpectedly adds ten. When the total passes the ceiling set in Global Config — **Max Retray
+breaks unexpectedly adds ten. When the total passes the ceiling set in Global Configuration — **Max Retray
 Number For Pending Tasks**, spelled that way on screen, under Notifications And Messaging →
 Sending Settings — the task is **Blocked**.
 
@@ -99,11 +99,18 @@ give support staff visibility without the ability to delete a backlog.
 
 If the queue is filling and nothing is leaving, the cause is usually not on this screen.
 
-Two settings decide whether this server is allowed to send anything. Under Global Config →
+Two settings decide whether this server is allowed to send anything. Under Global Configuration →
 **Notifications And Messaging** → **Sending Settings**, the option naming which servers may send
 mail and SMS is a deliberate safety catch: on installations with a test copy of the live database,
-it stops the copy from mailing real customers. A server whose id is not on that list will queue
-messages forever and dispatch none of them.
+it stops the copy from mailing real customers. A server whose id is not on that list dispatches
+nothing. Each message fails with an error that reads
+
+*Ignoring send email and sms because allowed servers is {0} and server id is {1}*
+
+and goes back to **Retry**; once its trials pass the maximum retry count it becomes **Blocked**. If
+the list is empty, every message fails the same way with *Server ID is not defined*. Neither message
+has an Arabic translation. After correcting the list, use **Retry Selected Tasks** to bring the
+blocked messages back.
 
 The same is true of a system running in development mode, which sends nothing unless it has been
 explicitly told to.
@@ -119,4 +126,4 @@ check into something that tells you when it needs checking.
 - [Business Requests](/platform/background-processing/business-requests) — the queue for a
   document's accounting and inventory effects
 - [Notifications](/platform/notifications/) — what raises most of these messages in the first place
-- [Scheduled Tasks](/platform/scheduled-tasks) — the task scheduler, including emailed reports
+- [Scheduled Tasks](/platform/automation-and-rules/scheduled-tasks) — the task scheduler, including emailed reports

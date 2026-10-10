@@ -66,13 +66,18 @@ The Details grid is the *blanket* rule for the whole round. When a handful of em
 1. **Create** the document under **Payroll > Main > Annual Increases Document** and set its HR Year, Period, Calendar, and effective (Value) date.
 2. **Define the scope** by filling the employee range criteria — as wide or as narrow as the round requires.
 3. **Define the rule(s)** in the Details grid: for each component you want to move, pick the target component, the increase type, and the magnitude. Add any per-employee overrides in Exceptions.
-4. **Collect the employees.** Use **Collect Employees** (تجميع الموظفين) to resolve the range criteria into concrete employee lines, or **Collect Employees With Components** (تجميع الموظفين مع المفردات) to bring each employee in together with their resolved salary components — so you can see and fine-tune the effect before committing.
+4. **Collect the employees.** Use **Collect Employees** (تجميع الموظفين) to resolve the range criteria into concrete employee lines, then, if individual employees need fine-tuning, **Collect Employees With Components** (تجميع الموظفين مع المفردات) to write every employee × Details rule into the **Exceptions** grid, where you edit the few that differ.
 5. **Review the generated lines.** Each collected employee appears in the **Employees Lines** grid (سطور الموظفين), showing the employee, their supervisor, and — once processed — a link to the per-employee change document that actually carries the new figures onto the employee's record.
 6. **Save and process.** The document then generates one employee-info change per collected line, applying the raised figures going forward.
 
 ::: warning Edit the campaign, not the generated changes
 Like other batch documents in Nama, the per-employee changes an Annual Increases Document produces are managed *by* the document. Re-collecting or reprocessing the campaign is the right way to adjust the round — editing the generated single changes directly puts them out of step with the campaign that owns them.
 :::
+
+## Actions on this screen
+
+- **Collect Employees** — adds one employee line for every employee who matches the range and is still **working** at the end of the chosen period. The **HR Period** must be filled first. Employees already on the document are kept and never duplicated, so you can widen the range and press it again.
+- **Collect Employees With Components** — builds the **Exceptions** grid from what is already on the document: one line per collected employee for every **Details** rule, carrying that rule's component, increase type and percentage. It **replaces** whatever the Exceptions grid held, so press it before you start editing exceptions, then change or delete lines until only the real exceptions remain. It does nothing until both the employee lines and the Details grid have something in them.
 
 ## How it's processed
 

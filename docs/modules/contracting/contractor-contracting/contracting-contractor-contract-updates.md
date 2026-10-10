@@ -54,6 +54,13 @@ And that last point leads to the consequence that matters most on this side:
 The update re-commits the subcontract through its ordinary route, so **every rule on [the subcontract page](/modules/contracting/contractor-contracting/contracting-contractor-contract.md) applies** — including the two checks that exist only on the cost side. Raise a quantity beyond what the client contract carries for that item, across all subcontracts on it, and the commit fails and names the totals. Leave a new line's project term code blank and the commit fails on that too. Vary the client's contract first, then the subcontract.
 :::
 
+## Actions on this screen
+
+The three buttons sit on the **Terms and Conditions Before Edit** page, above the snapshot grid:
+
+- **Select All Lines** and **Unselect All Lines** — tick or clear the selection box on every line of the "before" terms grid.
+- **Copy Lines To Editable Terms** — copies the ticked "before" lines into the editable terms grid on the main page, stamping each with the header's **Edit Type** when one is set. If the editable grid is empty the copied lines replace it; otherwise they are added under what is there. With nothing ticked you are asked to select rows.
+
 ## The worked example: 300 m² more blockwork
 
 CC-0042 is three months in. One extract has been certified — 800 m² of the 2,000 — so the subcontract is frozen. Al-Fanar has since varied its own contract to 2,300 m² of blockwork through a [project contract update](/modules/contracting/project-contracting/contracting-project-contract-updates.md), and the extra wall is going to the same firm.

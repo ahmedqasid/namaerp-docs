@@ -11,9 +11,8 @@ Nama ERP rarely lives alone. Sooner or later you'll need it to talk to something
 <LandingGrid>
   <LandingCard icon="🔌" title="Nama ERP REST API" link="/integration/nama-erp-api.md" details="Read and write Nama data programmatically over a REST interface." />
   <LandingCard icon="🔗" title="Integration Scenarios" link="/integration/system-integration-scenarios.md" details="Common patterns for connecting Nama with other systems." />
-  <LandingCard icon="📧" title="Sending Invoices & Documents" link="/integration/invoice-retriever.md" details="Use the Invoice Retriever to serve on-demand invoice and document links to customers and suppliers." />
+  <LandingCard icon="📧" title="Sending Invoices & Documents" link="/platform/fields-and-entities-settings/fields-settings-integrations.md" details="Invoice Retriever lines: turn a printed form into a public link a customer opens without logging in." />
   <LandingCard icon="🕒" title="Attendance Machines" link="/integration/attendance-machines-integration.md" details="Pull punch data from attendance devices into Nama." />
   <LandingCard icon="⏱️" title="The attcron Attendance Agent" link="/integration/attcron-agent.md" details="Install and operate the branch application that collects punches and pushes them to Nama." />
   <LandingCard icon="💊" title="Reporting Medicine Movements to the SFDA" link="/integration/sfda-drug-track-and-trace.md" details="Report medicine movements to the Saudi Food and Drug Authority's drug track-and-trace platform." />
-  <LandingCard icon="🗄️" title="Oracle JDBC Connection" link="/integration/oracle-jdbc-connection.md" details="Configure an Oracle JDBC connection in context.xml for integration purposes." />
 </LandingGrid>

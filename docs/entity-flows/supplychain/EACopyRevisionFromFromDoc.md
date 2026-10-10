@@ -1,14 +1,13 @@
 ---
 title: EACopyRevisionFromFromDoc
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACopyRevisionFromFromDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

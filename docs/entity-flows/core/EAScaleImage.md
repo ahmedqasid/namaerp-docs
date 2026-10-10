@@ -1,14 +1,13 @@
 ---
 title: EAScaleImage
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAScaleImage
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

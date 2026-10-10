@@ -1,14 +1,13 @@
 ---
 title: EAExecuteUpdateQuery
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAExecuteUpdateQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

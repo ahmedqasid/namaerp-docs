@@ -1,14 +1,13 @@
 ---
 title: EASaveDraftsFromQuery
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASaveDraftsFromQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

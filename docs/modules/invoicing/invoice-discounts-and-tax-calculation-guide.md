@@ -91,7 +91,7 @@ Each `LegalEntityTax` record contains:
 | **Tax 2** | `tax2` | Tax2 rate (percentage or value) |
 | **Entity Type** | `entityType` | Specific document type |
 | **Entity Type List** | `entityTypeList` | Multiple document types |
-| **Revision ID** | `revisionId` | Version control for rates |
+| **Revision ID** | `revisionId` | Item revision this rate applies to; empty applies to every revision |
 | **Tax Configuration** | `taxConfiguration` | Override configuration for this entity |
 
 ## Discount System Configuration
@@ -170,6 +170,10 @@ When taxes are included in the price, the discount calculation adjusts:
 ```
 Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 ```
+
+::: tip Discounts that disappear when the term or customer changes
+Changing the term, the value date, the subsidiary or the customer can make the document recalculate every line's price and discount. When it does, hand-entered discounts are replaced. What triggers this, and the term options that stop it, are on the term's [Price-Update Control](/modules/supplychain/document-terms/doc-term-pricing-taxes-discounts#Price-Update-Control) section.
+:::
 
 ## Tax System Configuration
 

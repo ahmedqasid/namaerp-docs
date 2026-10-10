@@ -70,14 +70,22 @@ Two grids that mirror the job order's:
 - **Spare Parts** (قطع غيار) — task, material, unit and quantity, issue type, unit price, price,
   *Restrict In Issuing*, remarks.
 
-The **Collect Resources And Materials** button on the main page fills both of them: for every task
-already in the operations grid it appends that task's standard machines and its standard spare
-parts, pricing each part through the ordinary supply-chain sales price engine. It is a planning
-convenience — nothing is reserved and nothing is issued by a service request.
+### Actions on this screen
 
-The More menu also offers **Create Reservation Document**, which builds a supply-chain reservation
-document from the spare-parts grid. Use it when a part is scarce and you want it held for this
-booking.
+- **Collect Resources And Materials** (*تجميع الموارد والمواد الخام*) — on the main page. It
+  rebuilds the **Resources** and **Spare Parts** grids from the tasks already in the operations grid:
+  each task's standard resources, and each task's standard spare parts that fit the vehicle's brand
+  and model, priced through the ordinary supply-chain sales price engine for this customer. The two
+  grids are **replaced**, not added to, so a line typed in by hand beforehand is gone afterwards.
+  Spare parts come only when the **Product** field is filled.
+- **Create Reservation Doc** (*إنشاء سند حجز*) — in the More menu. Opens a new, unsaved
+  supply-chain reservation document whose *From Document* is this service request, with one line per row of
+  the Spare Parts grid (item, quantity, remarks). Save the service request first. With an empty Spare Parts grid
+  it refuses with:
+  *No Materials to be reserved* — «لا يوجد قطع غيار ليتم حجزها»
+
+A service request is a planning document: nothing is reserved or issued until you raise that
+reservation, or the job order's spare-parts documents.
 
 ## How the capacity check works
 

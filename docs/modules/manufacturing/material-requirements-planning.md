@@ -16,6 +16,10 @@ You'll find the MRP document under **Manufacturing → Material Resource Plannin
 
 ![The MRP document screen](../../ar/modules/manufacturing/images/mrp/mrp-document-en.png)
 
+::: info Required license
+MRP is part of the `manufacturing-mrp` license, a sub-license of the Manufacturing module. It covers every screen under **Manufacturing → Material Resource Planning**: the planning document, scenarios, available-quantity sources, sales forecasts, manual demand and MRP purchase requests. Without it that menu does not appear, even when the core `manufacturing` license is on.
+:::
+
 ## How the Calculation Thinks
 
 Underneath all the fields, MRP does one thing repeatedly, and it is worth understanding before you use the screen — because when a result surprises you, it is almost always one of these steps that explains it.
@@ -139,7 +143,7 @@ The **Aggregation Period Type** determines how demand is grouped:
 
 ### Step 2: Collect Demand
 
-After filling header information, click the **Collect** button (تجميع).
+After filling header information, click the **Collect** button.
 
 #### Collect Dialog Parameters
 
@@ -194,7 +198,7 @@ You can manually edit:
 
 ### Step 4: Analyze Requirements
 
-Click the **Analyze** button (تحليل) to perform MRP explosion.
+Click **Analyze Requirments** (تحليل المطلوب — the English label is spelt that way) to perform MRP explosion.
 
 ::: warning Save First
 The document must be saved before you can run the analysis.
@@ -311,23 +315,23 @@ Items are classified based on the **Manufacturable** flag on the item master.
 
 1. Review planned production and purchase lines
 2. Check the **Selected** checkbox for lines you want to generate
-3. Use **Select All** buttons to quickly select all lines in a tab
+3. Each tab has a **Select / Deselect All** button (تحديد / إلغاء الكل). It flips every line — ticked lines become unticked and unticked ones ticked — so press it on a tab where nothing is ticked yet to select everything
 
 #### Generate Documents
 
 Click one of these action buttons:
 
-- **Generate Production Orders** (إنشاء أوامر إنتاج)
+- **Generate Production Orders** (إنشاءأوامر الإنتاج)
   - Creates production documents from selected production lines
   - One document per line (by default)
 
-- **Generate Purchase Orders** (إنشاء أوامر شراء)
+- **Generate Purchase Orders** (إنشاء أوامر الشراء)
   - Creates purchase documents from selected purchase lines
   - One document per line (by default)
 
-- **Gen Single Purchase Order** (إنشاء أمر شراء واحد)
+- **Generate Single Purchase Order For All Selected Lines** (إنشاء أمر شراء واحد بكل السطور المختارة)
   - Consolidates all selected purchase lines into one purchase document
-  - Groups items by supplier (if configured)
+  - Every selected purchase line goes into that one document; select at least one line first
 
 ::: warning Document Terms Required
 Ensure document terms are properly configured with books for:
@@ -526,7 +530,7 @@ For each selected purchase line, the system creates:
 - Price (blank - to be filled manually)
 
 ::: tip Consolidating Purchase Orders
-Use **Gen Single Purchase Order** to:
+Use **Generate Single Purchase Order For All Selected Lines** to:
 - Create one purchase document for multiple items
 - Reduce number of purchase orders
 - Easier to manage with suppliers

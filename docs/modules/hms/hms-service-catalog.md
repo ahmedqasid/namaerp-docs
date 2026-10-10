@@ -1,9 +1,28 @@
 ---
 entities: [HMSLabTestType, HMSRadiologyType, HMSSurgeryType, HMSPhysicalTherapyType, HMSSurgeryPackage, HMSPackageItem, HMSLabTestCategory, HMSRadiologyCategory, HMSPhyTherapyCategory, HMSSurgeryClassification, HMSTest, HMSTestTube, HMSTestTubeColor]
+menu: Hospital Management System → Laboratory Tests → Laboratory Test Type
 ---
 # Medical Service Catalog
 
 Alongside general medical services, the hospital keeps specialized catalogs for each kind of clinical activity: **lab tests**, **radiology**, **physiotherapy**, and **surgeries**. These catalogs are what a doctor orders and what invoices are later priced from.
+
+These catalogue files have no buttons of their own.
+
+| Screen | Menu | Its own buttons |
+|---|---|---|
+| **Laboratory Test Type** | Hospital Management System → Laboratory Tests → Laboratory Test Type | None |
+| **Laboratory Test Category** | Hospital Management System → Laboratory Tests → Laboratory Test Category | None |
+| **HMS Test** | Hospital Management System → Laboratory Tests → HMS Test | None |
+| **Test Tube** | Hospital Management System → Laboratory Tests → Test Tube | None |
+| **Test Tube Color** | Hospital Management System → Laboratory Tests → Test Tube Color | None |
+| **Radiology Type** | Hospital Management System → Radiology → Radiology Type | None |
+| **Radiology Category** | Hospital Management System → Radiology → Radiology Category | None |
+| **Physical Therapy Type** | Hospital Management System → Physical Therapy → Physical Therapy Type | None |
+| **Physical Therapy Category** | Hospital Management System → Physical Therapy → Physical Therapy Category | None |
+| **Surgery Type** | Hospital Management System → Surgeries → Surgery Type | None |
+| **Surgery Classification** | Hospital Management System → Surgeries → Surgery Classification | None |
+| **Surgery Package Deal** | Hospital Management System → Surgery Package Deal → Surgery Package Deal | None |
+| **Packages Items Deal** | Hospital Management System → Surgery Package Deal → Packages Items Deal | None |
 
 ## A shared pattern: "a sellable service type"
 

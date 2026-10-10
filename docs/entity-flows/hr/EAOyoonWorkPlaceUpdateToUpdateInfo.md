@@ -1,14 +1,13 @@
 ---
 title: EAOyoonWorkPlaceUpdateToUpdateInfo
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAOyoonWorkPlaceUpdateToUpdateInfo
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

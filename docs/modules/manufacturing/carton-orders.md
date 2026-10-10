@@ -16,6 +16,10 @@ You'll find carton orders under **Manufacturing → Cartoon → Carton Order** (
 
 ![A carton order with two specification lines](../../ar/modules/manufacturing/images/carton/carton-order-en.png)
 
+::: info Required license
+Carton orders are part of the `manufacturing-crtn-pln` license, the carton-planning sub-license of the Manufacturing module. Without it the **Cartoon** menu does not appear, even when the core `manufacturing` license is on.
+:::
+
 ## Creating a Basic Carton Order
 
 Let's walk through a typical order entry.
@@ -174,7 +178,7 @@ The orders become available for planning again.
 
 Once you have a committed order, there's a quick path to material planning:
 
-Click the **Generate CRTN Material Planning** (إنشاء تخطيط خامات الكرتون) action button on the order.
+Click **Genrate Carton Material Planning** (إنشاء مستند تخطيط خامات الكرتون) on the order — the button's English label really is spelt that way. The order must be saved first.
 
 Nama:
 1. Creates a new material planning document
@@ -183,7 +187,11 @@ Nama:
 
 You're now in material planning, ready to run optimization. This shortcut saves you from manually creating a planning document and selecting the order - it does it in one click.
 
-**Note**: This button requires a document term configuration that specifies which book and term to use for generating planning documents.
+**Note**: This button requires a document term configuration that specifies which book and term to use for generating planning documents — the **Generation** tab of the Carton Order term, described in [Carton Document Terms](/modules/manufacturing/document-terms/mfg-terms-carton).
+
+### Opening the specification an order line was priced on
+
+A specification can change after an order is taken, so each order line remembers the specification **version** it used. Select a line and press **1. Open Specs At Version** (1. فتح نسخة المواصفة) to open that specification exactly as it was at that version; **2. Open Specs At Version** (2. فتح نسخة المواصفة) does the same for a line of the manufacturing details grid. A line with no specification answers *No specs specified* («لا يوجد مواصفة»), and one with no version *No version specified* («لا يوجد نسخة»).
 
 ## Understanding Assembled Cartons in Orders
 

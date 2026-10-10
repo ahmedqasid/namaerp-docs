@@ -1,14 +1,13 @@
 ---
 title: EAUniCreteSetQtyOfSlaveRowsAsMaster
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUniCreteSetQtyOfSlaveRowsAsMaster
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

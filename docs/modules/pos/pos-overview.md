@@ -42,7 +42,7 @@ Think of the rest of this guide as a tour of the register, roughly in the order 
 | [Data sync](./pos-data-sync.md) | How "sent" and "unsent" work, and what to do when a document won't go up |
 
 ::: tip Configuration is a separate topic
-This guide is about **using** Nama POS day to day. Setting it up — defining registers, payment methods, security profiles, screen layouts, and the many POS settings — is documented separately.
+This guide is about **using** Nama POS day to day. Setting it up — defining registers, payment methods, security profiles, screen layouts, and the many POS settings — is covered in [POS — Server-Side Setup](./erp-setup/).
 :::
 
 ## A word on roles

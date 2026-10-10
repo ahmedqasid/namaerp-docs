@@ -1,14 +1,13 @@
 ---
 title: EAFixNextAndPreviousFromQuery
 module: realestate
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAFixNextAndPreviousFromQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

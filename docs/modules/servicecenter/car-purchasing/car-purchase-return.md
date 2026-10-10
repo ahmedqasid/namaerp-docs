@@ -109,3 +109,28 @@ Two things readers reasonably expect and do not get:
   [car record](/modules/servicecenter/cars-setup/car-master-file.md) by the purchase invoice — the
   invoice reference, the stock receipt reference, the warehouse — stays there unless a
   document explicitly clears it.
+
+## Actions on this screen
+
+**More menu:**
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*) — runs the car-creation
+  routine against the lines when the term's *Create Sub Item From Line Info* option is on; with the
+  option off it does nothing. Leave the option off on a return term, as explained above.
+- **Generate Doc** (*إنشاء مستند بناءا على*) — asks which kind of document to create (stock issue,
+  stock receipt, stock transfer, purchase invoice, purchase return, car purchase return, sales invoice
+  or car sales invoice) and opens a new, unsaved one built from this return.
+- **Remove Taxes** (*حذف الضرائب*) and **Restore Taxes** (*احتساب الضرائب*) — the first asks which
+  taxes to clear and empties them on every line; the second recalculates them. Both are refused when
+  the return is not taxable.
+- **Reset discounts** (*حذف الخصومات*) — clears all eight discounts on every line.
+
+**Related Documents page:**
+
+- **Collect** (*تجميع*) — asks for a from date and a to date and fills the stock documents grid with
+  the stock issues already made to this supplier from the same warehouse that have not been taken
+  into a return yet.
+- **Apply Receipts** (*تطبيق*) — turns the stock issues in that grid into priced return lines.
+
+On the list screen, **Reset documents discounts with saving** (*حذف الخصومات من السجلات المختارة مع
+الحفظ*, More menu) clears the line discounts of every selected return and saves it.

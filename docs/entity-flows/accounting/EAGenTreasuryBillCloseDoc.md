@@ -1,13 +1,12 @@
 ---
 title: EAGenTreasuryBillCloseDoc
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAGenTreasuryBillCloseDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -1,14 +1,13 @@
 ---
 title: EAPreventQtyLessThan
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAPreventQtyLessThan
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

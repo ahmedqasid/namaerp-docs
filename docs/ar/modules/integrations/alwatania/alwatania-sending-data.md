@@ -5,7 +5,7 @@
 
 | الإجراء | ماذا يرسل | أين يعمل |
 |---|---|---|
-| `EASendMasterDataToAlwatania` | كل سجل جديد أو معدَّل من أنواع البيانات الأساسية التي تطلبها | [مهمة مجدولة](/ar/platform/scheduled-tasks) من نوع **إجراء** (Action) |
+| `EASendMasterDataToAlwatania` | كل سجل جديد أو معدَّل من أنواع البيانات الأساسية التي تطلبها | [مهمة مجدولة](/ar/platform/automation-and-rules/scheduled-tasks) من نوع **إجراء** (Action) |
 | `EASendMasterDataRecordToAlwatania` | السجل الأساسي الذي حُفظ للتو، إذا لم يكن لدى المنصة بعد | [مسار كيان](/ar/platform/entity-flows/introduction-to-entity-flows) على ذلك الملف، والإجراء **تأثيرات الحفظ** (PostCommit) |
 | `EASendInvoicesToAlwatania` | فواتير ومردودات المبيعات التي يختارها استعلام، إذا لم تُقبل من قبل | مهمة مجدولة من نوع **إجراء** |
 

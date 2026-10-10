@@ -2,85 +2,59 @@
 entities: [TranslationOverRider]
 menu: Basic → Settings → Translation OverRider
 ---
-# Modifying Translations in Nama ERP
+# Modifying Translations
 
-* Translations can be modified using the **Translation Change File**.
-* The lines in the translation file allow modifying translations for:
+Every label in the system — a field, a screen name, a page title, a group heading, an action button — comes with an Arabic and an English text. When a customer calls a field by a different name, or wants "Customer" to read "Client" everywhere, you do not need a new release: you record the change in a **Translation OverRider** record (**Basic → Settings → Translation OverRider**), and it replaces the shipped text.
 
-    * Fields
-    * Screens
-    * Page titles
-    * Groups
-    * System actions
-      in Arabic, English, or both. (Either language can be left empty.)
+Each line of a Translation OverRider names the label it changes and gives the new **Arabic** text, the new **English** text, or both; a language left empty keeps its shipped text. A record marked **Inactive** is ignored. Saving the record applies the change straight away, with no restart.
 
-### Supported Languages:
+## Supported languages
 
-* Arabic
-* English
-* French (treated as an alternative to English)
+The lines carry Arabic and English only. French is not a third column: when **Use French Instead of English** is switched on in [Global Configuration → General](/platform/global-config/global-config-general), the English side of the interface is replaced by French.
 
----
+## Translating screen names (singular and plural)
 
-### Translating Screen Names (Singular / Plural):
+Every screen has two names: the singular one on the edit screen (*Sales Invoice*) and the plural one on the list screen (*Sales Invoices*). Both are changed from the same kind of line:
 
-* The singular translation is used on the edit screen (e.g., *Sales Invoice*).
-* The plural translation is used on the list screen (e.g., *Sales Invoices*).
+* **Singular**: choose the screen in **For Type**, leave **ID** empty, then fill in **Arabic** and **English**.
+* **Plural**: choose the same screen in **For Type**, type `s` in **ID**, then fill in **Arabic** and **English**.
 
-To modify these translations:
+## Translating fields
 
-* **For singular**: Select the type, leave the "ID" field empty, then fill in the "Arabic" and "English" fields.
-* **For plural**: Select the same type, enter `s` in the "ID" field, then fill in the "Arabic" and "English" fields.
+A field is identified by its field ID, and how widely a new label applies depends on what else the line names:
 
----
+* **Everywhere the field appears**: enter the field ID in **ID** and fill in **Arabic** and **English**.
+* **On one screen only**: also choose that screen in **For Type**.
+* **On several screens**: create an **Entity Type List** record holding those screens and choose it in the line's **Entity Type List** field.
 
-### Translating Fields:
+## Editing translations from the screen itself (Alt + Ctrl + T)
 
-* **General field translation**:
+Finding field IDs by hand is slow, so the system can collect them for you while you look at the screen you want to change.
 
-    * Enter the field ID in the "ID" field.
-    * Fill in the "Arabic" and "English" fields.
-
-* **Translating a field within a specific screen**:
-
-    * Specify the screen name in the "Type" field.
-
-* **Translating a field across multiple screens**:
-
-    * Create a "Type List" file containing those screens.
-    * Use this file in the "Type List" field.
-
----
-
-### Simplifying Translation Using a Keyboard Shortcut
-
-* Use the shortcut **Alt + Ctrl + T** to show buttons next to fields and headings for editing translations.
+* Press **Alt + Ctrl + T** to show an edit button next to each field and heading.
 ![Translation Button Screenshot](../ar/platform/images/translation-button.png)
-* Clicking the button displays a box containing two fields: Arabic and English.
+* Clicking a button opens a box with two fields, Arabic and English.
 ![Translation Editor Screenshot](../ar/platform/images/translation-editor.png)
-* The translation is modified temporarily and directly within the system.
-* When finished, from the "More" menu choose **Export Translations**.
+* The new text shows on the screen at once, but only temporarily — it is not saved anywhere yet.
+* When you are done, choose **Export Translations** from the **More** menu to turn your changes into a Translation OverRider record.
 
----
+## The Export Translations window
 
-### Export Translations Window
-
-This window contains the following options:
+This window decides which of the changes you made on screen go into the record, and how each line identifies its label:
 ![Translation Export Screenshot](../ar/platform/images/translation-export.png)
 * **Include Only Fields With Arabic Or English Translation**
-  Include only fields whose translation has been modified.
+  Include only the fields whose translation you changed.
 
 * **Include Arabic Translations**
-  Add the Arabic translation.
+  Add the Arabic text to each line.
 
 * **Include English Translations**
-  Add the English translation.
+  Add the English text to each line.
 
 * **Use Full Field ID**
-  Use the full field ID.
+  Write the full field ID on each line.
 
 * **Add Entity Type**
-  Add the type to the translation file (to link the translation to the current screen only).
+  Fill **For Type** with the current screen, so the new labels apply on this screen only.
 
-After selecting the options, click **"Create Translation File"**, and a window will appear containing the selected translations.
-Fill in the remaining data and click "Save", and the translations will be loaded immediately.
+After choosing the options, click **Create Translation Overrider Record**. A Translation OverRider record opens holding the selected lines; fill in the remaining data and click **Save**, and the translations take effect immediately.

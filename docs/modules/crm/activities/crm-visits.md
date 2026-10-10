@@ -169,6 +169,17 @@ If you point **From Document** at a Visit Request or an earlier Visit by hand, t
 fields — subject, dates and times, location, job, the expense boxes, responsible employee, mediator,
 customer representative, status, plus the remarks and employee lines — is copied across.
 
+## Actions on this screen
+
+The Visit carries two buttons of its own, and both need the visit **saved** first:
+
+- **escaleted to** (*تصعيد الي*) — asks for an employee, writes it into the escaleted to box, then
+  saves and commits the stored Visit and refreshes the screen. Nobody is notified. Save your edits
+  before pressing it: it commits the version held on the server, not what is on screen.
+- **create CRM Task** (*إنشاء مهمة خدمة العملاء*) — opens a new [CRM Task](/modules/crm/activities/crm-tasks-and-follow-ups)
+  in a pop-up with this Visit as its subject and the Visit's escalated-to employee carried over. The
+  task is not saved for you.
+
 ## What the system will not stop you doing
 
 Nothing at all. A Visit with no subject, no date and no employee lines commits cleanly; the only

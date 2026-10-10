@@ -1,14 +1,13 @@
 ---
 title: EAPrintFormToPrinter
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAPrintFormToPrinter
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

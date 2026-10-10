@@ -1,13 +1,12 @@
 ---
 title: EAClearLedgerLines
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAClearLedgerLines
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

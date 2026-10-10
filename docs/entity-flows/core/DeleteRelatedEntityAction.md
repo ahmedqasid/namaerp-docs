@@ -1,13 +1,12 @@
 ---
 title: DeleteRelatedEntityAction
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # DeleteRelatedEntityAction
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

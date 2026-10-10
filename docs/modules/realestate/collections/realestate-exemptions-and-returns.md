@@ -88,3 +88,13 @@ The result: the buyer's fee entitlement is settled, and 15,000 of his future ins
 The accounting effect is one debit and one credit **per return line**, taken from the term's single pair of return-value sides. One detail to plan around: the entry is posted in the **legal entity's main ledger currency**, whatever currency the document itself carries. On a single-currency installation this never comes up; on a multi-currency one it decides how the rebate is measured.
 
 Everything else about the document behaves the way the rest of the family does — the effect is a business request processed in the background, and a failure is retried from the Business Requests list view rather than re-entered. The [collect documents page](/modules/realestate/collections/realestate-collect-documents.md) covers the ordinary, money-in direction.
+
+## Actions on these screens
+
+**On the exemption document:** it is built on the collect document's screen, so it carries the same two buttons — **Create Receipt Voucher** and **Create receipt voucher req** — which open a receipt voucher or a receipt request for the document's amount, addressed to the buyer (see [Collect Documents and Bulk Collection](/modules/realestate/collections/realestate-collect-documents.md)). An exemption settles the installments without cash, so in ordinary use neither is pressed.
+
+**On the return payment document:**
+
+- **Create Payment Voucher** — on the saved document, opens a new payment voucher to the buyer for the **Return Value**, with one installment line per return row. It works only when the payment method is *Issue*; otherwise it refuses with *Payment method must be issue*.
+
+The return document itself is usually opened from a contract, with **Create RE Return Payment Doc From Selected Line** on the sales contract and the other sales-family documents — see [The Sales Contract](/modules/realestate/sales/realestate-sales-contract#Actions-on-this-screen).

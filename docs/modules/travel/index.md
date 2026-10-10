@@ -102,25 +102,23 @@ follows the same shape.
 
 ### Setting up
 
-- **[Master Files](./travel-master-files)** — the foundation: travel countries and cities, hotel
-  and restaurant classes, the hotels, restaurants and guides you work with, and the tour services
-  that every invoice line sells.
-- **[Document Terms](./travel-document-terms)** — the real configuration of the module. Which
-  accounts each document uses, and what the tour's generate button should produce.
+<LandingGrid>
+  <LandingCard icon="🗂️" title="Master Files" link="/modules/travel/travel-master-files.md" details="The foundation: travel countries and cities, hotel and restaurant classes, the hotels, restaurants and guides you work with, and the tour services that every invoice line sells." />
+  <LandingCard icon="⚙️" title="Document Terms" link="/modules/travel/travel-document-terms.md" details="The real configuration of the module. Which accounts each document uses, and what the tour's generate button should produce." />
+</LandingGrid>
 
 ### Planning the trip
 
-- **[Tour Programs](./tour-programs)** — the reusable, day-numbered itinerary template.
-- **[Tours](./tours)** — one real group, on real dates, with its accommodation, services and
-  flights, and the button that raises the purchase orders for it.
-- **[Hotel & Restaurant Vouchers](./travel-vouchers)** — the reservation slips that tell each
-  supplier what you have booked in their name.
+<LandingGrid>
+  <LandingCard icon="🗺️" title="Tour Programs" link="/modules/travel/tour-programs.md" details="The reusable, day-numbered itinerary template." />
+  <LandingCard icon="🧳" title="Tours" link="/modules/travel/tours.md" details="One real group, on real dates, with its accommodation, services and flights, and the button that raises the purchase orders for it." />
+  <LandingCard icon="🏨" title="Hotel & Restaurant Vouchers" link="/modules/travel/travel-vouchers.md" details="The reservation slips that tell each supplier what you have booked in their name." />
+</LandingGrid>
 
 ### The money
 
-- **[Buying from Suppliers](./travel-purchase-cycle)** — travel service purchase orders,
-  invoices and returns: the cost side of every trip.
-- **[Selling to the Client](./travel-sales-cycle)** — travel service sales orders, invoices and
-  returns: the revenue side.
-- **[Payments, Instalments & Contract Terms](./travel-payments-and-terms)** — the payment,
-  instalment and contract-clause grids shared by all six financial documents.
+<LandingGrid>
+  <LandingCard icon="🛒" title="Buying from Suppliers" link="/modules/travel/travel-purchase-cycle.md" details="Travel service purchase orders, invoices and returns: the cost side of every trip." />
+  <LandingCard icon="💼" title="Selling to the Client" link="/modules/travel/travel-sales-cycle.md" details="Travel service sales orders, invoices and returns: the revenue side." />
+  <LandingCard icon="💳" title="Payments, Instalments & Contract Terms" link="/modules/travel/travel-payments-and-terms.md" details="The payment, instalment and contract-clause grids shared by all six financial documents." />
+</LandingGrid>

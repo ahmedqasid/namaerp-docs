@@ -28,7 +28,9 @@ Returns ask for a **reason** — defective, wrong item, customer changed their m
 
 ### Deducting for wear (depreciation)
 
-Not everything comes back in mint condition. A **depreciation reason** applies a preset deduction to the refunded value — "opened packaging −5%", "used a week −20%", and the like. Pick the reason and the deduction is calculated for you, so the customer is refunded the fair amount rather than the full price.
+Not everything comes back in mint condition. Each line has a **Depreciate** button that applies a **depreciation reason** — a preset deduction such as "opened packaging −5%" or "used a week −20%". Pick the reason (or tick the box to apply it to every line) and its percentages are written into the line's discounts, so the customer is refunded the reduced amount rather than the full price.
+
+The button is the same one the sales invoice screen has, and the register shows it only when its screen settings allow it (see [Depreciation reasons](./erp-setup/pos-charges-and-returns-settings.md#Depreciation-reasons)). On a return the deduction is simply a line discount: the extra ledger lines a depreciation reason can carry are booked only when it is used on a sales invoice, never on a return.
 
 ![Depreciation deduction on a return](../../ar/modules/pos/images/returns/pos-return-depreciation-en.png)
 

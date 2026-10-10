@@ -1,14 +1,13 @@
 ---
 title: EAGenerateMyFatoorahPaymentURLs
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGenerateMyFatoorahPaymentURLs
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -17,4 +17,5 @@ title: قوائم العرض
   <LandingCard icon="🗓️" title="قصر المستخدم على سنة مالية" link="/ar/platform/list-views/limit-user-to-year.md" details="اقصر المستخدم على سنة مالية واحدة عبر قوائم العرض." />
   <LandingCard icon="☑️" title="التعامل مع عدة سجلات دفعة واحدة" link="/ar/platform/list-views/mass-operations.md" details="حذف السجلات المختارة أو اعتمادها أو منعها من الاستعمال أو تصديرها من قائمة المزيد، دون أي إعداد." />
   <LandingCard icon="✏️" title="التحرير المتعدد" link="/ar/platform/list-views/bulk-edit.md" details="تغيير نفس الحقول في عدة سجلات دفعة واحدة، من نافذة يعدّها المطبّق." />
+  <LandingCard icon="📋" title="عرض قائمة مخصصة" link="/ar/platform/list-views/custom-list-views.md" details="اعرض قائمة مفلترة بالسجلات المرتبطة كبلوك داخل شاشة سجل آخر." />
 </LandingGrid>

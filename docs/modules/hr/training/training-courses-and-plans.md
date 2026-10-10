@@ -85,6 +85,14 @@ Saving it feeds two things back into the Training Plan in one step:
 Ahmed finishes "Advanced Negotiation," and his End Training Course record shows him reaching **Level 6 (Excellent)** in Negotiation — one level above the Level 5 the plan originally called for. The plan's Skills row for Ahmed/Negotiation updates its Actual level to Excellent, even though only Very Good was required, because End Training Course only ever raises the recorded level, never lowers it.
 :::
 
+## Actions on this screen
+
+**On the Training Plan:**
+
+- **Collect Courses** — rebuilds the **Details** grid from the **Skills** grid: for each skills row it takes a catalog course that develops that skill to the expected level or higher, adds it for that employee with the status **Not Started** and the course's estimated cost, and totals the plan's **Estimated Cost**. Rows you had typed into the Details grid are replaced, so press it before adding courses by hand.
+
+The **Training Course**, **Course Enrollment** and **End Training Course** have no buttons of their own.
+
 ## Where it goes next
 
 A finished course is not the end of the record — it is usually followed by a **Course Evaluation**, rating either the course itself, the student, or the instructor, using the same scored-criteria mechanism the HR module uses for staff appraisals. See [Course Evaluation](hr-course-evaluation.md) for how that works.

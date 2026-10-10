@@ -2,6 +2,7 @@
   "sortedPaths": [
     "/modules/manufacturing",
     "/modules/manufacturing/manufacturing-overview.md",
+    "/modules/manufacturing/manufacturing-configuration.md",
     "/modules/manufacturing/manufacturing-bom.md",
     "/modules/manufacturing/manufacturing-routing.md",
     "/modules/manufacturing/manufacturing-work-centers.md",
@@ -19,12 +20,22 @@
     "/modules/manufacturing/carton-orders.md",
     "/modules/manufacturing/carton-material-planning.md",
     "/modules/manufacturing/carton-material-issue.md",
+    "/modules/manufacturing/document-terms",
+    "/modules/manufacturing/document-terms/mfg-terms-production-orders.md",
+    "/modules/manufacturing/document-terms/mfg-terms-execution-and-delivery.md",
+    "/modules/manufacturing/document-terms/mfg-terms-materials.md",
+    "/modules/manufacturing/document-terms/mfg-terms-costing.md",
+    "/modules/manufacturing/document-terms/mfg-terms-carton.md",
     "/modules/manufacturing/manufacturing-faq.md"
   ],
   "folderTitles": {
     "/modules/manufacturing": {
       "ar": "التصنيع",
       "en": "Manufacturing"
+    },
+    "/modules/manufacturing/document-terms": {
+      "ar": "توجيهات المستندات",
+      "en": "Document Terms"
     }
   }
 }

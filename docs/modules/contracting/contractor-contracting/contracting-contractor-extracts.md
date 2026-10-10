@@ -124,11 +124,12 @@ typing every figure himself. Two options on the document term change the suggest
 collected quantity zero, and the other fills it with the quantity remaining after the previous
 extract.
 
-::: tip Terms with nothing left to bill are hidden — look in the More menu
+::: tip Terms with nothing left to bill are hidden
 *Collect Terms* deliberately skips any term whose remaining quantity has reached zero. When you do
 need those lines — a corrective extract, a re-measurement — the variants that pull **every** contract
-term regardless (*Collect All Terms* and *Collect All Terms Without Quantities*) are not in the
-actions block above the grid; they live in the generic **More** menu.
+term regardless (*Collect All Terms* and *Collect All Terms Without Quantities*) are not above the
+details grid; they appear only on the **Term Phase Lines** page, which exists when the module option
+**Show Term Phase Lines** is on.
 :::
 
 For the first extract on CC-0042, the line is:
@@ -168,6 +169,19 @@ change the arithmetic, and they cannot both be switched on:
 
 Separately, a header-level option makes the **total due value** cumulative-minus-previous regardless
 of how the lines are priced, for organisations whose certificate format expects that.
+
+## Actions on this screen
+
+Above the details grid:
+
+- **Collect Terms** — builds the lines from the subcontract: what has been measured but not billed, plus every remaining contract term, each with a suggested billing quantity. Refuses to run while *Based On* is filled.
+- **Collect Terms Without Quantities** — the same lines with the quantities left for you to type.
+
+Above the conditions grid:
+
+- **Collect Conditions** — assembles the retention, advance-recovery and fine lines described below.
+
+When the module option **Show Term Phase Lines** is on, the extract gains a **Term Phase Lines** page with its own four buttons: **Collect Terms**, **Collect Terms Without Quantities**, **Collect All Terms** and **Collect All Terms Without Quantities**. The two *All* variants are the only way to pull in terms that have nothing left to bill.
 
 ## Retention, advance recovery and fines: the conditions grid at work
 
@@ -261,8 +275,7 @@ yet, and on which extract?*
 Tax percentages are set on the document header and flow into the lines' tax columns, which then feed
 the tax accounts on the document term. There is no automatic tax-term derivation on this side; that
 mechanism belongs to the [owner extract](/modules/contracting/project-contracting/contracting-extract-taxes.md)
-alone, along with its tax detail grid. If you change prices after the taxes were calculated, an
-action in the **More** menu recalculates them.
+alone, along with its tax detail grid.
 
 Tax on a **condition** is handled separately: the accounts for it come from the condition record
 itself rather than from the document term, so if a retention clause is meant to carry tax, that is

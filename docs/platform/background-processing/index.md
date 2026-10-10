@@ -33,6 +33,6 @@ retrying.
 | "One slow job is holding up all the others." | Task Queues |
 
 The one queue **not** covered here is the task scheduler, which runs jobs on a timer and keeps its
-own execution log — see [Scheduled Tasks](/platform/scheduled-tasks). How its work, and deferred
+own execution log — see [Scheduled Tasks](/platform/automation-and-rules/scheduled-tasks). How its work, and deferred
 entity flows, can be split into parallel lanes is covered in
 [Task Queues](/platform/background-processing/task-queues).

@@ -81,7 +81,7 @@ folder every user has is one row in this grid, not one row per user.
 
 ::: tip Entry or list — there is a system-wide default
 Whether a master file's menu entry opens the list or a blank new record is set once for the whole
-system in Global Config, under
+system in Global Configuration, under
 [appearance settings](/platform/global-config/global-config-appearance), with separate settings for
 master files and for documents. Those settings are applied while the menu is being built, so
 changing one has no effect until the menu is rebuilt.
@@ -102,7 +102,7 @@ places.
 
 **Default Values Template** fills in a new record the moment it opens. Combined with a type of New
 Record, this turns one entry into "New Sales Invoice, already set to the Cairo branch" — see
-[default values templates](/platform/default-values-templates).
+[default values templates](/platform/everyday-tools/default-values-templates).
 
 **Extra Field Filter** restricts what the lookup fields on the opened screen will offer.
 

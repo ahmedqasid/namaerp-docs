@@ -1,5 +1,7 @@
 # Real Estate Utilities
 
+One SQL repair for real estate contracts: recalculating the system paid, collect requested and collected by financial papers values when installment payment entries have lost their reference.
+
 ## Fix System Paid, Collect Requested and Collected by Financial Papers in Contracts
 ::: details First run the following statement and then put the output in recommit file:
  ```sql

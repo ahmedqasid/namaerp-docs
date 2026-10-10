@@ -37,6 +37,10 @@ A structure is most often set directly on an employee's [HR Information](../setu
 
 Like most master data in payroll, a structure can be scoped with the standard **Dimensions** — legal entity, branch, sector, department, analysis set — so different parts of the organization can maintain their own structures without them colliding.
 
+## Actions on this screen
+
+The Salary Structure screen has no buttons of its own; it is filled in and saved.
+
 ## Related pages
 
 - **[Salary Components](salary-components.md)** — the component types and components a structure's lines point to.

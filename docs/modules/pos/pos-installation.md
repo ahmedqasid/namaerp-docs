@@ -3,7 +3,7 @@
 Nama POS is a desktop application that runs right on the cash register and keeps its own local database, so it can keep selling even when the connection to the central server drops. Because of that design, setting up a brand-new register is a little different from opening a web page — there is a local database to prepare and a one-time connection to configure. This page walks through the whole journey: from a bare Windows machine to a register that is downloading items, users and prices from the server and is ready to ring up its first sale.
 
 ::: tip This is a one-time setup
-You do this once per register. Day-to-day use — signing in, selling, shifts — starts on the [Getting Started](./pos-getting-started.md) page. Configuring the register's behaviour on the server (payment methods, security profiles, screen layout) is a separate topic.
+You do this once per register. Day-to-day use — signing in, selling, shifts — starts on the [Getting Started](./pos-getting-started.md) page. Configuring the register's behaviour on the server (payment methods, security profiles, screen layout) is covered in [POS — Server-Side Setup](./erp-setup/).
 :::
 
 ## Before you start

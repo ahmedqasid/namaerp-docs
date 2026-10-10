@@ -5,7 +5,7 @@ ready-made actions runs:
 
 | Action | What it sends | Where it runs |
 |---|---|---|
-| `EASendMasterDataToAlwatania` | Every new or changed record of the master data types you ask for | A [Task Schedule](/platform/scheduled-tasks) of type **Action** |
+| `EASendMasterDataToAlwatania` | Every new or changed record of the master data types you ask for | A [Task Schedule](/platform/automation-and-rules/scheduled-tasks) of type **Action** |
 | `EASendMasterDataRecordToAlwatania` | The one master record that was just saved, if the platform does not have it yet | An [Entity Flow](/platform/entity-flows/introduction-to-entity-flows) on that master file, target action **Post Commit** |
 | `EASendInvoicesToAlwatania` | The sales invoices and returns a query selects, if they were not accepted before | A Task Schedule of type **Action** |
 
@@ -88,7 +88,7 @@ monitor like any other. Only one run of this action can be in progress at a time
 - **Parameter 3:** *(empty)*
 - **Schedule:** every night, or every hour if the platform must see new customers quickly
 
-Use [Run Now](/platform/scheduled-tasks#Running-a-Task-on-Demand) for the first full push rather
+Use [Run Now](/platform/automation-and-rules/scheduled-tasks#Running-a-Task-on-Demand) for the first full push rather
 than waiting for the schedule.
 
 ## Sending a master record as it is saved

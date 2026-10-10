@@ -87,6 +87,8 @@ $D1 * $H
 
 ## الاستيراد عبر مسار كيان (Entity Flow) من ملفات Excel أو جملة SQL
 
+كل سطر مما يلي هو سطر في خريطة حقول. اكتب هذه السطور في مدخل خريطة الحقول لعنصر مثل [`EAFieldsValuesCalculator`](/entity-flows/core/EAFieldsValuesCalculator) (لتعبئة السجل الحالي) أو [`EAGenerateEntityFromEntityAction`](/entity-flows/core/EAGenerateEntityFromEntityAction) (لإنشاء سجل جديد من الملف). الصفحات المرجعية باللغة الإنجليزية فقط.
+
 - `excel.importFrom="attachment"`
 - يحمّل ملف Excel المرفق. يمكنك استخدام أي حقل يُرجع اسمًا صالحًا لحقل مرفق. مثلاً، يمكنك وضع attachment1,attachment2,attachment3 في description 1 كقائمة منسدلة ثم استخدام `excel.importFrom=description1`
 

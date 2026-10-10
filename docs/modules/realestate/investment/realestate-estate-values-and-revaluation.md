@@ -53,7 +53,7 @@ purchase can be backed out cleanly.
 ![The estate purchase contract with its price block, installment grid and payment actions](../../../ar/modules/realestate/images/investment/re-purchase-contract-en.png)
 
 The purchase contract is the **mirror image of the sales contract**. It is built on the same base,
-uses the same price block, the same installment-construction grid and the same *Create Installments*
+uses the same price block, the same installment-construction grid and the same *Create installments*
 button described in
 [Building the Installment Plan](/modules/realestate/sales/realestate-installment-plans).
 
@@ -81,6 +81,20 @@ purchase contract's term alongside the rest of the sales family.
 
 For our example: the fund buys a plot for **1,000,000**. That is now the estate's carrying value,
 and the first link in its chain.
+
+## Actions on these screens
+
+Of the three documents on this page, only the purchase contract has buttons of its own:
+
+- **Create installments** — builds the **Installments** grid from the price block and the
+  construction grid, replacing what was there.
+- **Select all installment lines** — ticks every row of the **Installments** grid.
+- **Create Payment Voucher From Selected Line** — opens a payment voucher to the seller for the
+  remaining value of the ticked rows, one installment line per row; rows with nothing remaining are
+  skipped.
+
+The estate addition and the revaluation document have no buttons — you fill them in, save and
+commit.
 
 ## Improving — the Estate Addition
 

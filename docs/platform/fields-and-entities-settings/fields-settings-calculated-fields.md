@@ -60,7 +60,7 @@ The query only runs against a record that has already been saved. On a document 
 
 ### How to write the query
 
-The query is written in SQL, the same language used for [Virtual Entities](/platform/virtual-entity-guide) and report definitions. Only the **first column of the first row** is used — everything else the query returns is discarded. Write the query so that it returns exactly one value.
+The query is written in SQL, the same language used for [Virtual Entities](/platform/automation-and-rules/virtual-entity-guide) and report definitions. Only the **first column of the first row** is used — everything else the query returns is discarded. Write the query so that it returns exactly one value.
 
 Anything you put in curly braces is a **placeholder** that the server fills in before the query runs, safely, as a bound parameter:
 
@@ -144,7 +144,7 @@ This grid paints the rows of a grid **inside an edit screen**. It is not the way
 ## Related pages
 
 - [Fields and Entities Settings — Overview](/platform/fields-and-entities-settings/fields-settings-overview) — how the scope columns work and how lines from several records are combined.
-- [Virtual Entities](/platform/virtual-entity-guide) — turn a query into a reusable, searchable, reportable object instead of repeating it in twenty calculated fields.
+- [Virtual Entities](/platform/automation-and-rules/virtual-entity-guide) — turn a query into a reusable, searchable, reportable object instead of repeating it in twenty calculated fields.
 - [BI Module — Dashboards & Analytics](/platform/bi/bi-module-guide) — when the answer belongs on a dashboard rather than on a document screen.
 - [Screen Modifier — Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen) — where you actually place a calculated field on the screen and give it a title.
 - [Screen Modifier — List View & Selector Pop-up](/platform/screen-modifier/screen-modifier-list-and-search) — where you add it as a column in the record file.

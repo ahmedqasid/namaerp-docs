@@ -73,6 +73,10 @@ A **Salary Component Group** (مجموعة مفردات راتب, **Payroll > Sa
 
 The exception is the group's **component types** grid. Each line names a component type, and where that type's own effect is **Other**, the line's **Other Component Effect Type** column says whether salary generation should treat it as an addition or a deduction when it works out a component that refers to the group. So the group is organization *plus* one narrow rule, and the refusal at the bottom of this page exists to keep that column confined to the types it applies to.
 
+## Actions on this screen
+
+The Salary Component Type, Salary Component and Salary Component Group screens have no buttons of their own; they are filled in and saved.
+
 ## Messages you may see
 
 | Message | Why | What to do |

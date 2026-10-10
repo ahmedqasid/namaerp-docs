@@ -1,14 +1,13 @@
 ---
 title: EAGenerateEntityFromEntityActionNoFlush
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGenerateEntityFromEntityActionNoFlush
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -66,7 +66,7 @@ throwaway contract once.
 
 Two buttons make a template into a small costing engine, and they are meant to be used as a pair.
 
-**Collect Contract Items From Standard Terms** (تجميع بنود التكلفه من البند القياسية) explodes every
+**Collect Contract Items From Standard Terms** (تجميع بنود التكلفه من البنود القياسية) explodes every
 term line into its ingredients. It reads each line's standard term, takes the cost recipe stored on
 that term, scales it to the line's quantity, and routes each resulting row into Material, Workers,
 Contractors or Other Expenses according to how the cost element is typed. The scaling respects three

@@ -31,7 +31,7 @@ Alongside them you set:
 - **Natural Side** (`Debit`/`Credit`) — the natural side of the account's balance.
 - **Class** — the financial-statement classification (Balance Sheet / Income Statement / Other).
 - **Chart Type** — the chart type it belongs to.
-- **Currency** — the account's currency. A transaction in any other currency is translated at the exchange rate.
+- **Currency** — the account's currency. A transaction in any other currency is translated at the exchange rate (see [Currencies and exchange rates](../../platform/shared-master-files/currencies-and-exchange-rates.md)).
 - **Account Category** and **Account Tax Category** — the two angles feeding the income statement, cash-flow statement, and tax reports (see [Chart of Accounts](./chart-of-accounts.md)).
 
 ## Subsidiary types (up to five)
@@ -48,7 +48,7 @@ The part that makes this screen pivotal for support is the set of flags (checkbo
 
 - **System Account** — marks an account whose balance the system builds by itself, and locks it against manual entry: a journal entry, receipt/payment voucher, bank transfer or inter-company transfer naming it is refused with *"The Account … Can Be Used Only By The System"*. Documents generated automatically are unaffected. Three things can reopen it — a module option per document type, the flag below, or a dated exception record; all three are on [System Accounts & Transaction Exceptions](./system-accounts-and-exceptions.md).
 - **Allow System Account In Opening** — a companion to the flag above: it lets the account be used manually in any period that is **not** a Normal one (opening, adjustment, closing), so opening balances and year-end adjustments can be recorded on it while it stays locked during the year.
-- **Prevent Changing Account Balance Nature** — blocks a transaction that would flip the account's balance to its unnatural side (e.g., making a cash balance credit). A safeguard against errors. The refusal names the balance the document would have produced: *The balance of account {0} will become {1}, You can not change the natural side of the account balance from Debit to Credit* — « رصيد الحساب {0} سيكون {1}, فلذلك لا يمكن تغيير طبيعه رصيد الحساب من مدين الي دائن » — with a *from credit to debit* twin and a dated variant ending *on {2}*.
+- **Prevent Change Account Balance Nature** — blocks a transaction that would flip the account's balance to its unnatural side (e.g., making a cash balance credit). A safeguard against errors. The refusal names the balance the document would have produced: *The balance of account {0} will become {1}, You can not change the natural side of the account balance from Debit to Credit* — « رصيد الحساب {0} سيكون {1}, فلذلك لا يمكن تغيير طبيعه رصيد الحساب من مدين الي دائن » — with a *from credit to debit* twin and a dated variant ending *on {2}*.
 - **Track Debt Ages** — enables debt-age tracking for this account, a prerequisite for the account appearing in debt-age reports.
 - **Do Not Auto-Include In Exchange Rate Update** — excludes the account from periodic foreign-currency revaluation.
 - **Use Transaction Local Currency** — makes the account keep its value in the transaction's local currency.
@@ -62,6 +62,8 @@ If you use financial budgets, the **Budget Exceeded Behavior** and **Prevent Sav
 - **Allow** — records the transaction and tolerates a silent overrun.
 - **Prevent Saving** — rejects the over-budget transaction with *The account {0} has a budget {1}, and this document will exceed the budget because it will it make the balance {2}* — «موازنة الحساب {0} قيمتها {1} و هذا السند سيتعدي الموازنة حيث أنه سيجعل الرصيد {2}».
 - **Request Approval** — halts the transaction pending approval. This route needs three things in place, and each has its own refusal when it is not: the accounting-configuration option (*You must enable the option {0} in accounting configuration to be able to use request approval when budget is exceeded*), an approval definition that matches the document (*The document {0} exceeded the budget and no appropriate approval definition was found* — «المستند {0} تعدي الموازنة و لم يجد النظام تعريف موافقة مناسب ليتم الموافقة علي تعدي الموازنة»), and **exactly one** such definition — two matching definitions stop the save with *The document {0} exceeded the budget and should be approved by the approval definition {1}, but it also should be approved using the approval definition {2}. This is a conflict and the system can not decide which to choose*.
+
+Saving the account itself with **Prevent Saving**, **Request Approval** or **Prevent Save If No Budget Was Found For The Account** is refused until the matching option is on in the accounting configuration; those refusals, and *The account {0} does not have a budget*, are listed on [Financial Budgets](./financial-budgets.md#Messages-you-may-see).
 
 ## When an account is closed to transactions by date
 
@@ -85,6 +87,12 @@ One button on the account does real work, and it is the one you reach for after 
 
 - **Update Balances Currency** — re-stamps the account's stored balances with the currency currently set on the account. Use it when an account was created (or imported) with the wrong currency and the balances were already built against the old one; correcting the **Currency** field alone leaves the existing balances behind. The button asks you to tick a confirmation first, because it rewrites balance records. The same button is on the account list view, so you can select several corrected accounts and run it once over all of them.
 
+**Correcting the currency of an account that already has transactions.** Once any journal line uses the account, the system refuses to save a new **Currency**:
+
+*{0} can not be changed after transactions, old value was {1}, new value is {2}* — «لا يمكن تغيير {0} بعد انشاء حركات - القيمة السابقة {1} و تم تغييرها الي {2}»
+
+The field unlocks in two cases: when the account has no transactions left, or when *Allow Changing Subsidiary Accounts After Usage In Accounts* is on in [accounting configuration](./support/accounting-configuration.md). That switch also unlocks the account type and the subsidiary types. After you change the currency, run **Update Balances Currency**. Then recommit the documents that post to this account, from the [Business Requests list](/platform/background-processing/business-requests), so their entries are rebuilt in the new currency. You do not need to reprocess the whole database.
+
 ## Reports
 
 This account's statements and balances (general/subsidiary/detail account statement, trial balance, debt ages) are all on the [Account statements & trial balance](./reports-account-statements-and-trial-balance.md) page.
@@ -93,7 +101,7 @@ This account's statements and balances (general/subsidiary/detail account statem
 
 Most "the entry won't post" or "the balance is wrong" tickets are resolved from this screen:
 
-- **"Blocking message on posting: change of balance nature"** — the account has **Prevent Changing Account Balance Nature** enabled and the transaction would have flipped its balance to the unnatural side. Review the transaction logic or the setup.
+- **"Blocking message on posting: change of balance nature"** — the account has **Prevent Change Account Balance Nature** enabled and the transaction would have flipped its balance to the unnatural side. Review the transaction logic or the setup.
 - **"The system asks for a subsidiary/customer and won't save"** — the account is of type **Subsidiary** and no party was specified; either specify it or (only if necessary) enable **Allow Transactions Without Subsidiary**.
 - **"The system mandatorily requires a reference/narration"** — one of the **Do Not Allow Empty Reference/Narration** flags is enabled on the account.
 - **"The account doesn't appear in the debt-age report"** — the **Track Debt Ages** flag is off.

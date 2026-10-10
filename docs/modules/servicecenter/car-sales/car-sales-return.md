@@ -76,10 +76,6 @@ The option that creates car records from document lines works on returns too. Sw
 sales return term and the return will **mint brand-new car records** from its lines instead of
 matching the cars that came back — and nothing anywhere checks that a chassis number is unique.
 Leave it off on every return term.
-
-Note also that the manual **Create Sub Item From Line Information** button is not available on this
-screen, even though the term option would still fire on save. That is a good thing here; do not go
-looking for the button.
 :::
 
 ## The worked example
@@ -102,3 +98,46 @@ saleable one. Then somebody has to raise the allocation cancel, and somebody has
 As with every effect in the module, the reversal is created as a **business request** processed in
 the background. If it fails, retry it from the **Business Requests** list view with **More →
 Reprocess / Recommit**.
+
+## Actions on this screen
+
+**More menu:**
+
+- **Reverse Document** (*عكس المستند*) — the return must be saved; opens a new, unsaved
+  [Car Sales Invoice](/modules/servicecenter/car-sales/car-sales-invoice.md) with this return's lines
+  copied in.
+- **Add Invoice** (*إضافة فاتورة*) — asks for a car sales invoice and appends its lines to the return.
+  It is refused on a full return.
+- **Remove Taxes** (*حذف الضرائب*) and **Restore Taxes** (*احتساب الضرائب*) — the first asks which
+  taxes to clear and empties them on every line; the second recalculates them. Both are refused when
+  the return is not taxable.
+- **Calculate Discounts From Offers** (*حساب خصم الفاتوره من العروض*) — recalculates the line
+  discounts from the sales offers in force. It is refused unless invoice discount calculation from
+  offers is activated in the supply chain configuration.
+- **Copy To First Cash Line** (*نسخ لأول سطر طريقة دفع نقدية*) — puts whatever value is not yet
+  covered by the other payment lines and the external payments onto the first cash payment line.
+- **Add Current Line To Shortage Document** (*إضافة السطر الحالي الي مستند النواقص*) — appends the
+  line you are standing on to a
+  [shortage document](/modules/supplychain/sales-operations-documents.md), using the shortage book and
+  term named on the return's term.
+- **Installment Payments** (*سندات سداد الدفعات*) — opens a list of the vouchers that paid this
+  document's instalments.
+
+**Related documents page:**
+
+- **Collect** (*تجميع*) — asks for a from date and a to date and fills the stock documents grid with
+  the stock receipts already taken back from this customer into the same warehouse that have not been
+  used yet.
+- **Apply Receipts** (*تطبيق*) — turns the receipts in that grid into priced return lines.
+
+**Installments page:**
+
+- **collect Installments By From Doc** (*تجميع الدفعات من بناءاً علي*) — rebuilds the return's
+  instalment grid from the unpaid instalments of the invoice in *From Document*, consuming the return
+  value from the earliest instalment onward until it runs out.
+- **Distribute Return Value On All Unpaid installments** (*توزيع قيمة العائد على جميع الأقساط الغير
+  المسددة*) — fills the same grid, but spreads the return value evenly across the unpaid instalments.
+  Both need a *From Document*.
+
+On the list screen, **Update Prices** (*تحديث الأسعار*, More menu) recalculates the unit prices of every
+selected return and saves it.

@@ -18,6 +18,10 @@ The list view shows every bill of materials you hold, with the product each one 
 
 ![The BOM list view](../../ar/modules/manufacturing/images/bom/bom-list-en.png)
 
+::: info Required license
+Bills of materials are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## The Header: What This Recipe Produces
 
 The top half of the screen answers "what does this BOM make, and how much of it?"

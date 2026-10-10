@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started with Fixed Assets
 
 Setting up Fixed Assets in a fresh database is not hard, but the order matters more than in most modules. Almost everything an asset knows about itself — its accounts, its expected life, its residual value, even its components — is copied down from something you set up earlier. Build the pieces in the wrong order and you end up creating assets that carry no accounts, then discovering it after the first depreciation run refuses to commit.
 

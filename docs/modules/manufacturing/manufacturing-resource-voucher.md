@@ -14,6 +14,10 @@ You'll find it under **Manufacturing → Documents → Resource Voucher** (ال�
 
 ![The resource voucher screen](../../ar/modules/manufacturing/images/resource-voucher/resource-voucher-en.png)
 
+::: info Required license
+Resource vouchers are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## When You Actually Need One
 
 Here is the thing worth understanding before you enter a single voucher: **most resource consumption never needs one**.

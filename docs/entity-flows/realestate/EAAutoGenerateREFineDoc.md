@@ -1,14 +1,13 @@
 ---
 title: EAAutoGenerateREFineDoc
 module: realestate
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAAutoGenerateREFineDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

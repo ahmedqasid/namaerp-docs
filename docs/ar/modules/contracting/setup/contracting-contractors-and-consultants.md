@@ -167,6 +167,8 @@ entities: [Contractor, ContractingAdvisory, ContractorClassification]
 
 ## إلى أين بعد ذلك
 
+- [طلب تعديل بيانات المقاول](/ar/modules/contracting/setup/contracting-modify-contractor-info-request.md)
+  — كيف يُطلب تغيير في ملف مقاول الباطن ثم يُطبَّق.
 - [دورة مقاول الباطن](/ar/modules/contracting/contractor-contracting/contracting-contractor-cycle.md) —
   سلسلة جانب التكلفة كلها، وكل موضع تتوقف فيه عن كونها مرآة لجانب المالك.
 - [مشروع المقاولات](/ar/modules/contracting/setup/contracting-projects.md) — حيث يُسمّى الإستشاري لترثه

@@ -1,14 +1,13 @@
 ---
 title: EAFillSCDetailsByBarCodeSpecs
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAFillSCDetailsByBarCodeSpecs
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

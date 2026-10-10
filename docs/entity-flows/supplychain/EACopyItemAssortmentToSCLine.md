@@ -1,14 +1,13 @@
 ---
 title: EACopyItemAssortmentToSCLine
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACopyItemAssortmentToSCLine
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

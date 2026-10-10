@@ -1,14 +1,13 @@
 ---
 title: EAGuessSourceLineIdByItem
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGuessSourceLineIdByItem
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

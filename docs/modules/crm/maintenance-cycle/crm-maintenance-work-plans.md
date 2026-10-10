@@ -116,6 +116,15 @@ If the button does nothing, check the work plan's document term for the maintena
 Split the work sensibly first. Because grouping is by date, technician and building, changing a line's technician before generating is how you split one day's work between two crews; leaving them identical is how you keep it in one order. And because the generated order carries the contract, it is the order — not the work plan — that draws down the pre-paid quantities.
 :::
 
+## Actions on this screen
+
+- **Gather Machines With Same Visit Type** (*تجميع الآلات التي لها نفس مواعيد الزيارة المحددة*) —
+  replaces the Machines grid with the machine lines of the contract in *From document* that carry any
+  of the visit types selected in the header. With no contract in *From document* it does nothing.
+- **Generate Mn Orders** (*إنشاء أوامر صيانة*) — creates or updates the maintenance orders for the
+  plan's lines and refreshes the screen; see [Generating the Orders](#Generating-the-Orders). The
+  work plan must be saved first.
+
 ## What a Work Plan Does Not Do
 
 ::: warning A work plan has no effects of its own

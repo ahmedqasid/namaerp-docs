@@ -55,6 +55,10 @@ The **Loan Disable Document** (سند تعطيل سلفة) pauses (or resumes) a
 A loan cannot be disabled if it already has a payment recorded after this document's value date — the pause only makes sense looking forward, not to unwind money already collected. This document generates no accounting entry of its own; it only flips the loan's disabled flag.
 :::
 
+## Actions on this screen
+
+None of the three — the Loan Relief Document, the Loan Installment Reschedule and the Loan Disable Document — has buttons of its own. You point each at its Loan Document, fill in the lines and save.
+
 ## Messages you may see
 
 | Message | Why | What to do |

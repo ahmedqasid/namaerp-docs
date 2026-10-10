@@ -27,7 +27,7 @@ What is different is deliberately small:
 | No *Related Records* page | There is nothing generated from an offer to list. |
 | No accrual-date column on the installment lines | Offers never generate accrual ledgers. |
 
-The action buttons are the familiar ones — *Create Rents*, *Select all installment lines*, *Create collect doc from selected line*, *Merge installments* (labelled **سداد عاجل** on the Arabic screen), *Create Receipt Voucher From Selected Line* — plus one that exists only here: **Create Rent contract** (إنشاء عقد إيجار).
+The buttons are the lease's own, plus one that exists only here — see [Actions on these screens](#Actions-on-these-screens) below.
 
 ::: tip Fill in the document term even though the offer can technically live without one
 The offer's [document term](/modules/realestate/document-terms/realestate-terms-rent.md) is where its two decisive settings come from — the default reservation status and whether it posts accounting at all. The edit screen asks for a term, and you should give it one; an offer raised without a term simply loses both of those behaviours.
@@ -76,6 +76,21 @@ When a held prospect walks away, the reservation has to be released or the unit 
 It can only follow a reservation. Raise one against a unit that no offer is holding and the commit is rejected — the message names the document that actually sits last on that estate's timeline and tells you it must be a rent offer. In other words: cancel a reservation, not a lease. A lease is ended by [the termination document](/modules/realestate/rent/realestate-rent-renewal-and-termination.md), not by an offer cancel.
 
 Note that a unit reserved by an offer and then leased through that offer needs no cancel at all — the contract supersedes the reservation on its own. You only need an offer cancel when the reservation ends *without* a lease.
+
+## Actions on these screens
+
+**On the rent offer:**
+
+- **Create Rents** — builds the **Rents** grid from the values block, exactly as on the lease, so the prospect sees a full schedule. It rewrites the grid each time.
+- **Select all installment lines** — ticks every row of the **Rents** grid.
+- **Merge installments** (**سداد عاجل** on the Arabic screen) — folds the ticked rents into the remaining ones inside the code or due-date range you give, spreading an optional discount percentage over them. Described in full on [The Rent Contract](/modules/realestate/rent/realestate-rent-contract#Actions-on-this-screen).
+- **Create Receipt Voucher From Selected Line** — a receipt voucher from the prospect for the remaining value of the ticked rows.
+- **Create Rent contract** — turns the saved offer into a lease, as described in *From offer to lease* above.
+- **Create collect doc from selected line** — a button on each row of the **Rents** grid; it opens a collect document for the ticked rows, or for that row when nothing is ticked.
+
+- **Installment Payments** (in the **More** menu) — lists the payment documents recorded against the offer's installments.
+
+**On the rent offer cancel:** the same buttons except **Create Rent contract** — a cancelled reservation does not become a lease.
 
 ## Two prospects, one shop
 

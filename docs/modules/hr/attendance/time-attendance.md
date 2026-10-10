@@ -30,13 +30,15 @@ A Time Attendance document is a container for a batch of punches — usually eve
 | Ignore Overlapping Attendance With This Document (تجاهل الحضور والانصراف المتقاطع) | See [Attendance Machines](attendance-machines.md) — lets this batch's punches coexist with punches already recorded for the same employee/time from another document, rather than conflicting. |
 | Attachment 1–5 (مرفق) | The exported machine file(s) themselves, up to five per document. |
 
+### Actions on this screen
+
 Three buttons drive how lines get onto the document, rather than typing each punch by hand:
 
 | Action | Purpose |
 |---|---|
-| **Add Employees Manually** (إضافة موظفين يدويا) | Adds specific employees as blank lines, for hand-entering their in/out times directly. |
-| **Import Attendance Lines** (إستيراد الحضور والإنصراف) | Reads the attached machine file(s) using the selected machine's formula and populates the grid automatically. |
-| **Copy Attendance From Other Documents** (نسخ الحضور والانصراف من السندات الأخرى) | Pulls in punches already saved on other Time Attendance documents, for merging or correcting a range. |
+| **Add Employees Manually** (إضافة موظفين يدويا) | Asks for a date range and an employee filter (employee range, job position, department, dimensions, employee state — **Working** by default), then writes the attendance each employee was *scheduled* for: one line per working day of their attendance plan, with the shift's start and end times, skipping weekly rest days and official holidays. Untick **Attending** or **Leaving** in the dialog to leave that half of each line empty for you to type. Two ticks record the shift in **Reference 1** and the attendance plan in **Reference 2** of each line. The lines are added to those already on the grid. |
+| **Import Attendance Lines** (إستيراد الحضور والإنصراف) | Reads the attached machine file(s) using the selected machine's formula and fills the grid, **replacing** whatever lines it held. Needs an attachment and an **Attendance Machine Name**. |
+| **Copy Attendance From Other Documents** (نسخ الحضور والانصراف من السندات الأخرى) | Asks for a date range and an employee, and copies that employee's lines from other committed Time Attendance documents that fall in the range (documents marked to ignore overlapping attendance are left out). The copies are added below the existing lines, for correcting a period without retyping it. |
 
 Each resulting line in the **Time Attendance** grid records one employee's in/out pair for one day:
 
@@ -52,8 +54,8 @@ Each resulting line in the **Time Attendance** grid records one employee's in/ou
 
 ![Time Attendance document with imported punch lines](../../../ar/modules/hr/images/attendance/time-attendance-en.png)
 
-::: tip Nama never talks to the machine directly
-Whatever the brand of fingerprint or card machine, Nama only ever reads the **file it exports** — it does not connect to the device over the network. The [Attendance Machines](attendance-machines.md) page covers how that file's format is described to Nama (the attendance formula) and how machine-to-machine punch overlaps are resolved.
+::: tip A file is one of two ways in
+This document reads the **file the machine exports**. If the machine publishes an API or writes into a database the branch can reach, Nama can instead collect the punches by itself on a schedule, through an **Attendance Machine Configuration**. The [Attendance Machines](attendance-machines.md) page covers both paths: how a file's format is described to Nama (the attendance formula), the automated collection, and how machine-to-machine punch overlaps are resolved.
 :::
 
 ## Electronic Attendance mobile self-service punches
@@ -86,7 +88,7 @@ The record then splits into a **Check-In** side and a matching **Check-Out** sid
 ![Electronic Attendance record, showing the check-in zone and distance](../../../ar/modules/hr/images/attendance/electronic-attendance-en.png)
 
 ::: tip A forgotten punch isn't a dead end
-When Electronic Attendance flags **Forgot Check In** or **Forgot Check Out**, the record doesn't just sit there incomplete. The **Convert To Leave Permission** action turns it directly into a [Leave Permission](leave-permissions-and-missions.md) of the matching type (Forgot Check In / Forgot Check Out), so the missing punch gets a proper, reviewable explanation instead of silently counting as an absence.
+When Electronic Attendance flags **Forgot Check In** or **Forgot Check Out**, record a [Leave Permission](leave-permissions-and-missions.md) of the matching type (Forgot Check In / Forgot Check Out) for that day, so the missing punch gets a proper, reviewable explanation instead of silently counting as an absence. The Electronic Attendance record itself has no buttons — it is written by the mobile app and only read here.
 :::
 
 ### Electronic Attendance Zone geofence
@@ -120,6 +122,11 @@ Time Attendance and Electronic Attendance have no ledger effect of their own —
 | *You cannot check in from your current location. The distance between your location and the nearest zone ({0}) is {1}* — «لا يمكنك تسجيل دخول من الموقع الحالي, المسافة بين موقعك وأقرب منطقة ({0}) هي {1}» | The punch was flagged out of zone and the mobile-app configuration's **Prevent Save If Attendance Out Of Zone** is on. The message names the nearest zone and how far away the employee was. | Punch from inside the zone, or raise that zone's tolerance if the site is genuinely bigger than the geofence. |
 | *You cannot check out from your current location. The distance between your location and the nearest zone ({0}) is {1}* — «لا يمكنك تسجيل خروج من الموقع الحالي, المسافة بين موقعك وأقرب منطقة ({0}) هي {1}» | The same rule applied to the check-out. | As above. |
 | *Check in zone {0} is not the same as check out zone {1}* | The configuration requires a completed pair to check out in the same zone it checked in from, and the two zones differ. This message has no Arabic string, so it stays in English on Arabic screens. | If moving between sites during a shift is normal, switch that configuration option off; otherwise close the punch at the site it started from. |
+| *Attendance Hours in line {0} is greater than Maximum allowed attendance hours* — «ساعات الحضور فى السطر {0} أكبر من أقصى عدد ساعات حضور متواصل» | On a **Time Attendance** document, the line's check-in to check-out span is longer than HR Configuration's **Max Continuous Attendance Hours** (23 unless changed). This usually means a check-out was missed and the next day's punch was paired with it. | Correct the line's out date and time. Raise the configuration value only if shifts that long are real. |
+| *Attendance Hours in line {0} is negative* | On a Time Attendance line the out date and time are before the in date and time. This message has no Arabic string, so it stays in English on Arabic screens. | Correct the line. A shift that ends after midnight needs the next day's date on the out side. |
+| *Ignoring overlapping attendance is not allowed. Enable it in HR configuration first.* | **Ignore Overlapping Attendance With This Document** is ticked on the document, but HR Configuration's **Allow Ignore Overlapping Attendance Documents** is off. This message has no Arabic string, so it stays in English on Arabic screens. | Untick the option, or have an administrator switch the configuration on first — see [Ignore Overlapping Attendance](../ignore-overlapping-attendance.md). |
+
+Messages raised while **Import Attendance Lines** reads the machine file (an unknown or repeated machine code, a row that can't be parsed) are listed on [Attendance and Departure Formulas](../attendance-machine-formula.md#When-something-goes-wrong).
 
 ## Related pages
 

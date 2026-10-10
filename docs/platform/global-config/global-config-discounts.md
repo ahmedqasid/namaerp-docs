@@ -38,7 +38,3 @@ Two 10% discounts applied to the total price take 20% off. The same two applied 
 **Calculate Discount N Percentage from Value** `value.info.calcDiscNPercentFromValue` — Normally the user types a percentage and the system computes the amount. With this on the relationship is reversed: the user types the amount and the system works out the percentage it represents. Turn it on for discounts that are negotiated as round sums ("take 500 off") rather than as rates.
 
 **Consider Tax 1 / 2 / 3 / 4** `value.info.discountN.considerTax1` through `...considerTax4` — Whether each of the four taxes is included in the base this discount is calculated on. The common case is a discount taken on the net amount before VAT, which means leaving the VAT tax unchecked. Check it only where the commercial agreement genuinely discounts the tax-inclusive figure.
-
-::: warning Discount 3 was previously unreachable
-On earlier versions, the Discount 3 tax-effect options on this screen were wired to Discount 2, so Discount 2's settings appeared twice and Discount 3's could not be set at all. That is corrected. If your installation used discount 3, check its four *Consider Tax* boxes now — they may never have been set to what you intended.
-:::

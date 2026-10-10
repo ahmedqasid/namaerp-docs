@@ -76,6 +76,15 @@ In practice the **Issue Method** decides which pattern is used:
 - **Issued Immediately** — the document is normally set up to post on its own, right away, independent of any salary run.
 - **Issued With Salary** — the far more common case — the document typically does *not* post on its own; instead its Final Value carries forward and is folded into the employee's next [Salary Document](../payroll/salary-documents.md), which is what actually posts the entry, through the same accounts configured on the Reward/Penalty type. The salary document's own **Rewards / Penalties** grid, and its **Current Month Penalties / Postponed From Previous Month / Postponed To Next Month** figures, are exactly this: the running tally of reward/penalty documents feeding into that period's pay.
 
+## Actions on this screen
+
+The Reward / Penalty catalog and the single (Reward / Penalty) Document have no buttons of their own.
+
+**On the Aggregated Reward And Penaltie Document** (سند مكافأه - جزاء مجمع), which records one reward or penalty run for many employees at once:
+
+- **Collect Employees** — adds a line for every employee who matches the employee range and is **working** on the document's value date. Employees already on the grid are kept and not added twice.
+- **Recalculate Reward Values** — recomputes every line from its reward/penalty type: the type's value for that employee on the line's date, multiplied by the line's calculation factor, then the remaining amount and the document totals. Press it after changing types, factors or dates; it works on the document as it is on screen, without saving.
+
 ## Messages you may see
 
 | Message | Why | What to do |

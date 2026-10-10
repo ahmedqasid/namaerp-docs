@@ -15,7 +15,7 @@ entities: [GlassJobOrder, GlassJobOrderReq, GlassOperationMap, ServiceItemBOM, O
 يبدأ المسار بـ**طلب أمر العمل** (GlassJobOrderReq) لدراسة التكلفة وعرض السعر، ثم يتحوّل إلى **أمر عمل الزجاج** (GlassJobOrder) الذي يحمل قائمة المواد والعمليات وأصناف التسليم. وتُعرّف العمليات عبر **خريطة العمليات** (GlassOperationMap)، وتُسجَّل التنفيذات عبر **تنفيذ العملية** (OrderExecution) التي تتتبع الموظف المسؤول والوقت والتكلفة الفعلية وتولّد صرف المواد. وتُحدَّث الحالة عبر **تحديث حالة أمر العمل** (GlassJobOrderStatusUpdate)، ويُسلَّم الناتج عبر **تسليم الأمر** (OrderDelivery) و**إنهاء الأمر** (OrderFinished). كما يدعم المسار التعاقد الخارجي عبر **طلب/صرف/استلام التعهيد** (OutsourceRequest / OutsourceIssue / OutsourceReceipt)، وتوثيق التلف عبر **تلف الأمر** (OrderDamage)، والمصاريف عبر **مصروف أمر العمل** (JOrderExpense).
 
 ::: info قطاع متخصص
-أوامر عمل الزجاج وحدة فرعية موجَّهة لقطاع محدد؛ إن لم يكن عملك في هذا المجال فلن تحتاج إليها. وتعتمد على نفس مفاهيم [التجميع](./assembly-and-packaging.md) و[الموارد](#lmwrd-wlnshT) لكن بمسار أوامر مخصّص.
+أوامر عمل الزجاج وحدة فرعية موجَّهة لقطاع محدد؛ إن لم يكن عملك في هذا المجال فلن تحتاج إليها. وتعتمد على نفس مفاهيم [التجميع](./assembly-and-packaging/) و[الموارد](#lmwrd-wlnshT) لكن بمسار أوامر مخصّص.
 :::
 
 ## قوائم مكونات الخدمات (Service Item BOM)
@@ -94,6 +94,6 @@ entities: [GlassJobOrder, GlassJobOrderReq, GlassOperationMap, ServiceItemBOM, O
 
 ## الخطوات التالية
 
-- [التجميع والتعبئة](./assembly-and-packaging.md) - الأساس الذي تبني عليه أوامر العمل
+- [التجميع والتعبئة](./assembly-and-packaging/) - الأساس الذي تبني عليه أوامر العمل
 - [رحلة الشراء](./purchasing-journey.md) - المناقصات ضمن الشراء
 - [الأسئلة الشائعة لسلسلة التوريد](./supply-chain-faq.md) - حالات وأسئلة متفرقة

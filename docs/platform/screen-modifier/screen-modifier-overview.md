@@ -106,12 +106,13 @@ A Screen Modifier does not change anything the moment you save it. Saving only r
 The usual rhythm is: build or adjust your modifier → **Save** → run **Regenerate GUI For Applicable Types Only** → reopen the affected screen to confirm. Reach for the full **Regenerate Screens** only when a change is broad enough to touch many screens.
 :::
 
+If a field is still missing after the screen has been regenerated, it may be hidden for a reason that has nothing to do with the modifier — [Why can't I see field Y?](/getting-started/licensing.md#Why-cant-I-see-field-Y) lists them all.
+
 ## Where to go next
 
 - **[Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen.md)** — reshape the edit screen: pages, groups, grids, fields, actions, formulas, embedded editors, and discussion options.
 - **[List View & Selector Pop-up](/platform/screen-modifier/screen-modifier-list-and-search.md)** — change columns, criteria, sorting, quick filters, and computed columns in lists and search pop-ups.
 - **[Visual Layout Editor](/platform/screen-modifier/screen-modifier-visual-editor.md)** — design a screen visually and save it back into a modifier.
-- **[Frequently Asked Questions](/platform/screen-modifier/screen-modifier-faq.md)**
 
 ### Videos
 

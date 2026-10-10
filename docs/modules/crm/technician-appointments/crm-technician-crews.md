@@ -55,3 +55,7 @@ For a section with three teams the sequence is short:
 3. Press **Assign As Supervisor** on the team leader's row.
 4. List the procedures the crew is trained for.
 5. Commit. If somebody is rejected as already belonging to another crew, that is your answer about where they currently sit — transfer them rather than fighting the message.
+
+## Actions on this screen
+
+The crew screen has one button of its own: **Assign As Supervisor** (*تعيين كمشرف*), on each row of the Technicians grid. It copies that row's technician into **Crew Supervisor**. It only changes the screen — the crew does not need to be saved first, and nothing is saved until you save it.

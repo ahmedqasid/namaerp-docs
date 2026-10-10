@@ -193,3 +193,13 @@ only at rent contracts and opening rent contracts.
 
 Undoing a **sale** is a completely different story with different documents — see
 [Waivers and Cancelling a Sale](/modules/realestate/sales/realestate-waiver-and-cancellation.md).
+
+## Actions on these screens
+
+Both journeys on this page start from a button on the rent contract (and on the opening rent
+contract): **Extend Contract** for a renewal and **Cancel Rent Contract** for a termination. Both need
+the contract saved first. The **Cancel Contract** document they lead to has no buttons of its own —
+you review the settlement it was opened with, then save and commit it. Its **More** menu does carry
+**Installment Payments**, which lists in a pop-up the payment documents recorded against this
+document's installments. The contract's full button
+list is on [The Rent Contract](/modules/realestate/rent/realestate-rent-contract#Actions-on-this-screen).

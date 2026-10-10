@@ -79,15 +79,25 @@ computed in the browser and the value stored on save is computed on the server, 
 slightly different rules. Same-day rows agree to within seconds; a row that crosses midnight looks
 wrong until you save it and then corrects itself.
 
-### The buttons
+### Actions on this screen
 
-**Create Call**, **Create Visit**, **Create Contact** and **create CRM Task** each open the
-respective new record in a pop-up with this task as its subject. Nothing is saved for you — you
-review the pop-up and save it yourself.
+All five buttons need the task **saved** first.
 
-**escaleted to** (*تصعيد الي*) asks for an employee, writes it into the Escalated To box, saves and
-commits the record and refreshes the screen. **Nobody is notified.** Escalation here means a field
-now holds a name.
+- **Create Call** (*إنشاء اتصال*) — opens a new Call in a pop-up with this task as its subject.
+- **Create Contact** (*إنشاء جهة اتصال*) — opens a new Contact in a pop-up, linked back to this task.
+- **Create Visit** (*إنشاء زيارة*) — opens a new Visit in a pop-up with this task as its subject and
+  this task's escalated-to employee already filled.
+- **create CRM Task** (*إنشاء مهمة خدمة العملاء*) — opens a follow-on task in a pop-up with this task
+  as its subject and as its **Related Task**, carrying over the task type, status, actual start date,
+  actual end time and the contact-information block.
+- **escaleted to** (*تصعيد الي*) — asks for an employee, writes it into the Escalated To box, saves and
+  commits the record and refreshes the screen. **Nobody is notified.** Escalation here means a field
+  now holds a name.
+- **Start** (*بدء*) and **End** (*إنهاء*) — row buttons on the **Detailed Tasks** grid; they stamp the
+  current date and time into the selected row's from or to columns, as described under the time sheet
+  above.
+
+The four Create buttons never save anything for you — you review the pop-up and save it yourself.
 
 ::: info A small quirk when a task is created from another screen
 When a task is opened from a lead, a potential or another task with a Create Task button, the

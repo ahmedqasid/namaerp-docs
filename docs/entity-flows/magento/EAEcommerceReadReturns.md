@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceReadReturns
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceReadReturns
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

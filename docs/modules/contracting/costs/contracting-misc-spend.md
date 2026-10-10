@@ -125,6 +125,12 @@ Line-level attachments are removed when the invoice is cancelled. If a scanned d
 signed timesheet is attached to a line, keep it somewhere else too before you cancel.
 :::
 
+## Actions on these screens
+
+The request, the order and the invoice each carry one button, on the page that holds the payment template:
+
+- **GeneratePayments** — the label really reads like that on English screens. It splits the document's value into an instalment schedule, asking for the number of payments, the period and its unit, the start date, a grace period, down / first / second / last payment values and a rounding mode.
+
 ## Once a Cost Execution has absorbed it
 
 Like every other cost document, a misc contracting invoice line that a committed

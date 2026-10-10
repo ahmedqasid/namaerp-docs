@@ -29,11 +29,15 @@ menu: إدارة النظام ← تخصيص شكل النظام ← مسار ا
 
 1. افتح شاشة **مسارات الكيان**.
 2. حدد نوع الكيان (مثل: فاتورة مبيعات، أمر شراء، عميل، مورد...).
-3. يمكن تحديد شرط اختياري عبر حقل **"يطبق عند التوافق مع الاستعلام"**، لتطبيق المسار فقط على السجلات التي يرجع منها الاستعلام أي قيمة (باستثناء 0 أو NULL).
+3. يمكن تحديد شرط اختياري عبر حقل **"تطبيق عند التوافق مع الاستعلام"**، لتطبيق المسار فقط على السجلات التي لا يرجع منها الاستعلام 0. القيمة الأولى 0 (أو false) وحدها توقف المسار — أما الاستعلام الذي لا يرجع أي صف، أو يرجع NULL، فيتركه يعمل.
 4. يمكن أيضًا تحديد:
     - دفتر معين
     - توجيه معين
     - معايير إضافية لفلترة السجلات المستهدفة
+
+::: tip المسار لم يعمل؟
+في رأس المسار نحو عشرة إعدادات قد توقفه بصمت، وفوقها بعض فخاخ التوقيت. صفحة [لماذا لم يعمل مسار الكيان](/ar/platform/entity-flows/entity-flow-troubleshooting) تمرّ عليها بالترتيب الذي يفحصها به النظام.
+:::
 
 ## مكونات تفاصيل المسار
 
@@ -45,6 +49,31 @@ menu: إدارة النظام ← تخصيص شكل النظام ← مسار ا
 - **مع الإجراء**: يحدد متى يتم تنفيذ هذا العنصر ضمن مراحل تنفيذ المسار (مثل: بعد الحفظ، بعد المراجعة، ...إلخ).
 
 النظام يدعم حتى 15 مدخل لكل عنصر، مما يتيح مرونة كبيرة في تخصيص السلوك المطلوب.
+
+## العناصر الأكثر استخدامًا
+
+في النظام بضع مئات من العناصر، لكن عددًا قليلًا منها يؤدي معظم العمل. في إعدادات العملاء المحفوظة لدى «نما»، العناصر التالية هي الأكثر ظهورًا بين المنشآت — ابدأ بتعلّمها. كل رابط يفتح الصفحة المرجعية للعنصر بمدخلاته بالترتيب (الصفحات المرجعية باللغة الإنجليزية فقط). وتجد بقية العناصر، وحدةً وحدة، في [مرجع مسارات الكيان](/entity-flows/).
+
+| الغرض | العنصر | ماذا يفعل |
+|---|---|---|
+| تعبئة الحقول أو تغييرها | [EAFieldsValuesCalculator](/entity-flows/core/EAFieldsValuesCalculator) | يضبط الحقول من خريطة حقول: نسخ حقل إلى آخر، أو قيمة ثابتة، أو نتيجة استعلام SQL. تستخدمه كل المنشآت تقريبًا. |
+| | [EAIgnoringNotFoundTargetFieldsValuesCalculator](/entity-flows/core/EAIgnoringNotFoundTargetFieldsValuesCalculator) | خريطة الحقول نفسها، لكن الحقل الهدف غير الموجود في السجل يُتخطّى بدل أن يوقف المسار. |
+| إنشاء سجل من سجل آخر | [EAGenerateEntityFromEntityAction](/entity-flows/core/EAGenerateEntityFromEntityAction) | ينشئ سجلًا من نوع آخر ويحفظه أثناء حفظ هذا السجل — سند صرف من فاتورة مثلًا. |
+| | [EAGenerateEntityFromEntityActionWithApproval](/entity-flows/core/EAGenerateEntityFromEntityActionWithApproval) | الشيء نفسه، لهدف عليه تعريف اعتماد، فيذهب السجل الجديد إلى الاعتماد. |
+| | [EAGenerateDraftEntityFromEntityAction](/entity-flows/core/EAGenerateDraftEntityFromEntityAction) | الشيء نفسه، لكن السجل الجديد يُحفظ كمسودة ليراجعه أحد. |
+| | [DeleteRelatedEntityAction](/entity-flows/core/DeleteRelatedEntityAction) | يحذف السجل الذي أُنشئ بالطريقة السابقة عند حذف السجل المصدر. |
+| | [EAGenSCDocFromDocWithFieldsMap](/entity-flows/supplychain/EAGenSCDocFromDocWithFieldsMap) | ينشئ مستند سلسلة توريد من مستند آخر، سطرًا بسطر، عبر خريطة حقول. |
+| الحسابات | [EAAddAccountingEffect](/entity-flows/accounting/EAAddAccountingEffect) | يضيف سطور مدين ودائن إضافية إلى قيد المستند، من قيم حقول المستند. |
+| السطور | [EAGuessSourceLineIdByItem](/entity-flows/supplychain/EAGuessSourceLineIdByItem) | يربط كل سطر بالسطر المقابل في المستند الذي جاء منه، حسب الصنف، عندما يكون هذا الربط مفقودًا. |
+| | [EADetailsRemover](/entity-flows/core/EADetailsRemover) | يحذف السطور التي تطابق شرطًا. |
+| حماية البيانات | [EAPreventChangingFields](/entity-flows/core/EAPreventChangingFields) | يرفض الحفظ عند تغيير حقول محددة في سجل محفوظ من قبل. |
+| | [EAMakeCreationDateInValueDate](/entity-flows/core/EAMakeCreationDateInValueDate) | ينقل تاريخ إنشاء المستند إلى تاريخه الفعلي مع الإبقاء على الوقت. |
+| عمل جماعي باستعلام | [EAExecuteUpdateQuery](/entity-flows/core/EAExecuteUpdateQuery) | ينفّذ جملة SQL للتعديل أو الإضافة أو الحذف. |
+| | [EARecommitFromQuery](/entity-flows/core/EARecommitFromQuery) | يعيد حفظ كل سجل يرجعه استعلام، فتُعاد تأثيراته ومساراته. |
+| | [SQLImporter](/entity-flows/core/SQLImporter) | ينشئ سجلات من صفوف استعلام SQL — انظر [استيراد البيانات من Excel أو الاستعلامات](/ar/platform/entity-flows/excel-and-sql-import-by-entity-flow). |
+| المستندات والسكربتات | [EAWordTemplate](/entity-flows/core/EAWordTemplate) | يملأ قالب Word ببيانات السجل ويحفظ النتيجة في حقل مرفق. |
+| | [EAGroovyAction](/entity-flows/core/EAGroovyAction) | ينفّذ سكربت Groovy مخصصًا عندما لا يناسب أي عنصر جاهز. |
+| | [EARunEntityFlow](/entity-flows/core/EARunEntityFlow) | يشغّل مسار كيان آخر بكوده، فتُكتب الخطوات المشتركة مرة واحدة. |
 
 ## تشغيل المسار في الخلفية
 

@@ -92,7 +92,7 @@ public static TaxConfiguration fetchTaxConfiguration(
 | **Tax 2** | `tax2` | معدل Tax2 (نسبة مئوية أو قيمة) |
 | **Entity Type** | `entityType` | نوع المستند المحدد |
 | **Entity Type List** | `entityTypeList` | أنواع مستندات متعددة |
-| **Revision ID** | `revisionId` | التحكم في إصدار المعدلات |
+| **Revision ID** | `revisionId` | إصدار الصنف الذي ينطبق عليه هذا المعدل؛ وإن كان فارغًا انطبق على كل الإصدارات |
 | **Tax Configuration** | `taxConfiguration` | إعداد تجاوز لهذه الشركة |
 
 ## إعداد نظام الخصومات
@@ -171,6 +171,10 @@ New Total = Base Amount - Discount Amount
 ```
 Discount Amount = Base Amount - (Base Amount × 100) ÷ (100 + Tax Percentage)
 ```
+
+::: tip خصومات تختفي عند تغيير التوجيه أو العميل
+قد يؤدي تغيير التوجيه أو التاريخ الفعلي أو الذمة أو العميل إلى إعادة احتساب سعر كل سطر وخصمه، وعندها تُستبدل الخصومات المُدخلة يدويًا. ما الذي يسبب ذلك، وخيارات التوجيه التي توقفه، موجودة في قسم [التحكم في تحديث الأسعار](/ar/modules/supplychain/document-terms/doc-term-pricing-taxes-discounts#ltHkm-fy-tHdyth-lsaar-Price-Update-Control) في صفحة التوجيه.
+:::
 
 ## إعداد نظام الضرائب
 

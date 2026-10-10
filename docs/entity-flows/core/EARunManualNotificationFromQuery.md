@@ -1,14 +1,13 @@
 ---
 title: EARunManualNotificationFromQuery
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARunManualNotificationFromQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

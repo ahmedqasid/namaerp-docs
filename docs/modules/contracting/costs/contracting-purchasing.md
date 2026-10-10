@@ -80,6 +80,20 @@ Apply Contacting Cost And Quantity Effects* and the request starts contributing 
 quantity** to the term lines it names. Left alone, it contributes nothing — it is paperwork, and that
 is usually what you want from a request.
 
+## Actions on these screens
+
+**On the request:**
+
+- **Collect Analysis Codes** — fills the grid with every analysis-card term on the contract where the header item appears.
+- **Select all installment lines** — ticks every line of the scheduled payments grid.
+- **GeneratePayments** — the label really reads like that on English screens. Splits the request's value into an instalment schedule from the payment template, asking for the number of payments, the period, the start date, a grace period, the down / first / last payment values and a rounding mode.
+- In the **More** menu, **Reset discounts** clears all eight discount columns on every line.
+
+**On the order:**
+
+- **GeneratePayments** — the same, on the second page, above the scheduled payments grid.
+- In the **More** menu, **Reset discounts** as above, and **Installment Payments**, which opens in a pop-up list the payment documents that have settled the order's instalments.
+
 ## The order — the commitment to a supplier
 
 ![The Contracting Purchase Order screen: supplier and contract in the header, the purchase price block on the term-coded lines](../../../ar/modules/contracting/images/contractor-contracting/contracting-purchase-order-main-en.png)
@@ -92,8 +106,8 @@ of the contracting spine. A second page holds three grids that matter on a const
 - **Purchase clauses** — a grid of standard terms with a planned end date, an extended end date, a
   fulfilment date and accumulated extension fines. This is where "delivered to site by the 20th or
   1% a week" is written down.
-- **Scheduled payments** — the instalment plan, built from the payment template, with a *View
-  Installment Payments* action for what has actually been paid.
+- **Scheduled payments** — the instalment plan, built from the payment template, with an *Installment Payments*
+  action in the **More** menu for what has actually been paid.
 - **External payments** — payment vouchers that settled this order from outside it.
 
 ### What the order actually does when it is processed

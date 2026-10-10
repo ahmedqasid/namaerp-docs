@@ -21,7 +21,7 @@ This is a Saudi pharmaceutical requirement, licensed separately under `supplycha
 
 **The document book or document term** is what connects the two. A configuration is not chosen on the document; it is found from the document's book, and if the book does not name one, from its term. On the book it sits in the **Basic Information** group; on the term it sits under **Tax Information**. This is deliberate — routing documents into different books is how one company reports through more than one configuration.
 
-**The report queue** carries each report to the Authority and keeps the evidence. You watch it from two lists under *Basic → Administration*.
+**The report queue** carries each report to the Authority and keeps the evidence. You watch it from two lists under *Administration*.
 
 ## Setting up the configuration
 
@@ -116,7 +116,7 @@ The queued report carries the user, the dimensions and the interface language fr
 
 ## Watching it
 
-Two read-only lists under *Basic → Administration* answer the two questions people actually ask.
+Two read-only lists under *Administration* answer the two questions people actually ask.
 
 **SFDA RSD Document Status** answers *"is this document reported?"* — one row per source document, summarising every report raised for it:
 

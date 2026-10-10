@@ -92,37 +92,29 @@ A normal day at `WC-MECH` runs like this.
    Collect Job Orders**. Every job order of that
    [work centre](/modules/servicecenter/workshop-setup/servicecenter-work-centers.md) that is *Under
    Processing* or *Not Started* is loaded into the Job Orders grid, with one detail row per order.
-2. Select the row for the task about to start and press **بدء المهمة للسطر الحالي / Start Task For
-   Current Line**. The start date and time are stamped with *now* and the line goes to *Under
+   Both grids are replaced, so collect on a fresh document.
+2. Select the row for the task about to start and press **بدء المهمة للسطر الحالي / Start Current Line
+   Task**. The start date and time are stamped with *now* and the line goes to *Under
    Processing*. If the order had no status row yet, one is added at *Under Processing*.
 3. When the technician downs tools, select the same row and press **إنهاء المهمة السطر الحالي /
-   Finish Task For Current Line**. The finish stamp is *now*, the line goes to *Finished*, and the
+   Finish Current Line Task**. The finish stamp is *now*, the line goes to *Finished*, and the
    net time appears in the **ساعات العمل** columns — as a decimal and as `hh:mm`.
 4. Repeat per task. **إنهاء أمر شغل / Finish Job Order** is the shortcut at the end of a car: it
-   marks every order row and every detail row finished, stamping *now* on anything still open.
-5. When the car is done, **إغلق أمر الشغل / Close Job Order** generates the job order closing
+   marks the header job order's rows in both grids finished, stamping *now* on anything still open.
+   With the header's *Job Order* left empty it does this to every order on the document.
+5. When the car is done, **إغلق أمر الشغل / Close the Job Order** generates the job order closing
    document straight from here, using the closing book and term set on this document's own term.
-   **إعاده فتح أمر الشغل / Reopen Job Order** deletes that closing again. Save the execution document
+   **إعاده فتح أمر الشغل / Re Open The Job Order** deletes that closing again. Save the execution document
    before pressing either.
 
 The three **change status** buttons — *Under Processing*, *Cancelled*, *Finished* — do nothing more
-than append one row to the Job Orders grid with that status and the current moment as its creation
-date. They are how you correct a status log that has drifted.
+than append one row to the Job Orders grid, for the job order in the header, with that status and
+the current moment as its creation date. They are how you correct a status log that has drifted.
 
-::: warning Collecting never brings in paused work
-*Collect Job Orders* asks whether to include postponed orders. Whatever you answer, the orders it
-loads are always and only those that are *Under Processing* or *Not Started* — an order you have
-suspended with a
+*Collect Job Orders* loads only orders that are *Under Processing* or *Not Started*, whatever you
+answer to its *Include Postponed Orders* question. An order you have suspended with a
 [pending operation document](/modules/servicecenter/workshop-execution/servicecenter-pending-and-resume.md)
-will not appear. Resume it first, then collect.
-:::
-
-::: warning "تحديث العمليات / Refresh Operations" does nothing
-The refresh button on the Basic Information action bar is inert: pressing it produces no message, no
-change to the grids and no error. Nothing has gone wrong and nothing needs retrying — to bring in
-more work, press *Collect Job Orders*, and to bring in a specific order's tasks, choose it in the
-header.
-:::
+is therefore not loaded: resume it first, then collect.
 
 ## Rules the document enforces
 
@@ -150,9 +142,47 @@ document once it meets one open line with no technician named.
 
 ::: warning The Term field looks optional — on this document it is not
 The document saves happily with **توجيه المستند / Term** left empty. But an empty term silently
-switches off the one-open-task-per-technician check *and* leaves the *Close Job Order* button with no
+switches off the one-open-task-per-technician check *and* leaves the *Close the Job Order* button with no
 book and term to create the closing with. Always fill it.
 :::
+
+## Actions on this screen
+
+**Basic Information** tab:
+
+- **Collect Job Orders** (*تجميع أوامر الشغل*) — asks *Include Postponed Orders*, then replaces the
+  Job Orders grid and the Review grid with the chosen work centre's orders that are *Under
+  Processing* or *Not Started*. Without a work centre it refuses with *Please Choose Work Center*.
+- **Make Job Order Under Processing** (*جعل أمر الشغل تحت التنفيذ*), **Make Job Order Cancelled**
+  (*جعل أمر الشغل ملغي*) and **Make Job Order Finished** (*جعل أمر الشغل منتهي*) — each appends one
+  status row for the header job order, stamped with the current moment.
+- **Close the Job Order** (*إغلق أمر الشغل*) — creates and commits the
+  [job order closing](/modules/servicecenter/job-cycle/servicecenter-job-order-closing.md) for the
+  header job order, on the closing book and term named on this document's term, then refreshes the
+  screen. Save the document first.
+- **Re Open The Job Order** (*إعاده فتح أمر الشغل*) — deletes the committed closing of the header job
+  order, which takes the order out of *Closed*. Save the document first.
+
+**Review** tab:
+
+- **Start Operation** (*بدأ خدمة*) — moves the header job order one task forward. It finishes the
+  lines of the task in *Current Operation* (stamping *now* where no end is recorded), adds the job
+  order's lines for the task in *Next Operation* with the *Next Technician*, and then refills the
+  current and next fields from the job order's task sequence.
+- **Finish Job Order** (*إنهاء أمر شغل*) — finishes the header job order's rows in both grids, as in
+  step 4 above.
+- **Start Current Line Task** (*بدء المهمة للسطر الحالي*) and **Finish Current Line Task**
+  (*إنهاء المهمة السطر الحالي*) — on the Details grid row; they stamp the start or finish on the
+  selected line. A line that already has a start is refused with *Operation Already Started*, and one
+  that already has a finish with *Operation Already Finished*.
+
+**Operations** tab:
+
+- **Start Current Line Operation** (*بدء المهمة للسطر الحالي*) and **Finish Current Line Operation**
+  (*إنهاء المهمة السطر الحالي*) — on the Operation Details grid row; the same stamping for a whole
+  service. Finishing a line that was never started is refused with *Operation Has Not Started Yet*.
+
+![The action block on the Basic Information tab of a job order execution](../../../ar/modules/servicecenter/images/execution/sc-production-execution-actions-en.png)
 
 ## Two ways to clock, and why you must not mix them
 

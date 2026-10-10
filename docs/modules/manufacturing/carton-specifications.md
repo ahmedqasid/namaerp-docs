@@ -18,6 +18,10 @@ The list view is your product catalogue — every carton design you can quote an
 
 ![The carton specification list view](../../ar/modules/manufacturing/images/carton/carton-specification-list-en.png)
 
+::: info Required license
+Carton specifications are part of the `manufacturing-crtn-pln` license, the carton-planning sub-license of the Manufacturing module. Without it the **Cartoon** menu does not appear, even when the core `manufacturing` license is on.
+:::
+
 ## The Four Types of Specifications
 
 Nama supports four manufacturing approaches for cartons:

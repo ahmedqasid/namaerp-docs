@@ -1,5 +1,7 @@
 # Reprocessing Quantity, Cost, and Stock Ages
 
+Scripts and utility links that rebuild quantity transactions, average cost and stock ages from the documents, either for the whole database with Tomcat stopped or partially, starting from a date.
+
 ::: danger Read this before you run anything on this page
 The scripts below **delete and rebuild the database's whole transaction history**. The first block
 alone drops the account balances, the ledger transaction lines and the dimension balances, empties

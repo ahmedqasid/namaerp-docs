@@ -21,9 +21,9 @@ The worked example runs throughout: **Palm Compound**, a development split into 
 Each level carries an action that generates the level below it. They chain in one direction:
 
 ```
-RE Project  ──Generate Square──►  Square  ──Generate Blocks──►  Block
+RE Project  ──Generate Square──►  Square  ──Generate BlockslandPrice──►  Block
                                                                  ├──Generate Lands──►  RE Land
-                                                                 └──(generate buildings)──►  RE Building
+                                                                 └──generate buildings──►  RE Building
 ```
 
 All of the generators ask the same four questions, so learning one is learning all of them:
@@ -83,7 +83,7 @@ Squares have the same price / length / width / area block as a project, and they
 plots is saved. Its Related Records page lists the square's blocks with their status, area and
 price side by side, which is the fastest view of "how much of Square A is still sellable".
 
-The action here is **Generate Blocks** (إنشاء بلوكات). Generated blocks arrive with the square's
+The action here is the block generator, which the English screen labels **Generate BlockslandPrice** (Arabic: إنشاء بلوكات). Generated blocks arrive with the square's
 project, address, original owner and dimensions already filled.
 
 ## Block — the level that nests inside itself
@@ -141,7 +141,7 @@ differently, through a group owner — see
 | Button | What it does |
 |---|---|
 | **Generate Lands** (إنشاء أراضي) | the four generator questions; creates the plots under this block |
-| *(generate buildings)* | the same four questions **plus** two switches, add mosque and add garage; creates buildings under this block with those markers set and the block's original owner as their owner |
+| **generate buildings** (إنشاء مباني) | the same four questions **plus** two switches, add mosque and add garage; creates buildings under this block with those markers set and the block's original owner as their owner |
 | **Reserve** (حجز) | refuses unless the block reads *Avaliable*; opens a new reservation document in a pop-up, already carrying this block, its owner, its price and its remarks |
 | **Sell** (بيع) | refuses if the block is already *Sold*; opens a new sales contract prefilled the same way |
 | **Revert Sale** (اتاحة للبيع) | only works on a block whose status is *Sold*; puts both the derived status and the user override back to *Avaliable* |
@@ -191,7 +191,7 @@ A land plot is small, but committing one touches several records above it:
 
 ::: info The worked example, end to end
 Palm Compound is created and saved, then **Generate Square** with count 2 and prefix `SQ-` produces
-Square A and Square B. On Square A, **Generate Blocks** with count 5 produces five blocks; Block 3
+Square A and Square B. On Square A, **Generate BlockslandPrice** with count 5 produces five blocks; Block 3
 keeps *Accepts Elements* on. On Block 3, **Generate Lands** with count 40, prefix `LX-`, suffix
 length 2 and first number 1 produces `LX-01` … `LX-40`. Each plot is given length 20 and width 20,
 so each area comes out at 400 m² and Block 3's *Calculated Area* reaches 16,000 m².
@@ -201,6 +201,18 @@ Block 3 immediately reads **Un Avaliable** — the block can no longer be sold a
 and Palm Compound are marked *partially Sold*. The other 39 plots are unaffected and remain
 *Avaliable* for sale.
 :::
+
+## Actions on these screens
+
+All of these are described in the sections above; this is the list in one place. Every one of them
+needs the record saved first.
+
+- **RE Project:** **Generate Square** — creates squares under the project.
+- **Square:** **Generate BlockslandPrice** — the block generator; creates blocks under the square.
+- **Block:** **Generate Lands** and **generate buildings** create plots or buildings under the block;
+  **Reserve** and **Sell** open a reservation document or a sales contract for the block in a pop-up;
+  **Revert Sale** puts a *Sold* block back to *Avaliable*.
+- **RE Land:** **Reserve**, **Sell** and **Revert Sale**, working on the plot exactly as on the block.
 
 ## Where the Costs Land
 

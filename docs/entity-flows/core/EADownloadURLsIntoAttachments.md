@@ -1,14 +1,13 @@
 ---
 title: EADownloadURLsIntoAttachments
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EADownloadURLsIntoAttachments
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -73,7 +73,7 @@ If someone has delegated their permissions to this user via a **Security Profile
 
 | Question | Configuration Point | Guide Page |
 |---|---|---|
-| Can the user log in? Mobile only? How many sessions? | User settings and global settings | [Users and Login](/platform/security/users-and-login.md) |
+| Can the user log in? Mobile only? How many sessions? | User settings and Global Configuration | [Users and Login](/platform/security/users-and-login.md) |
 | What can the user do with a given type? | Standard security lines (profile or user) | [Security Profile](/platform/security/security-profiles.md) |
 | Which records of a given type can the user see? | Dimensions, creator-only records, extra filters, record-level security | [Record-Level Security](/platform/security/record-level-security.md) |
 | Which fields / pages / list views? | Field settings, page security, list view security | [Field, Page, and List-View Security](/platform/security/field-page-listview-security.md) |

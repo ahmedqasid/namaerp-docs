@@ -1,13 +1,12 @@
 ---
 title: EAOpenFiscalPeriodsInRange
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAOpenFiscalPeriodsInRange
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

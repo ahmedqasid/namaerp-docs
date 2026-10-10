@@ -38,6 +38,19 @@ The quotation, the order and the [Maintenance Contract](/modules/crm/maintenance
 
 There is no Billing page on either document — the payment schedule belongs to the contract.
 
+## Actions on these screens
+
+- **Generate Machine** (*إنشاء الآلة*) — Maintenance Sales Order only. Creates a machine file for every
+  line of the Machines grid that has none and refreshes the order; read [Generate Machine](#Generate-Machine)
+  before you press it. The order must be saved first.
+- **Collect All Machines Related To The Customer** (*تجميع كل الألات المرتبطة بالعميل*) — on both
+  screens. Fills the Machines grid with every top-level machine file of the header customer, replacing
+  what the grid held. Refused with *"Customer must be entered"* if the customer is empty. Since these
+  documents are usually about machines that do not exist yet, it is of more use on the contract.
+
+Work plans come from the contract, and only from the contract — see
+[Maintenance Work Plans](/modules/crm/maintenance-cycle/crm-maintenance-work-plans.md).
+
 ## Generate Machine
 
 This is the one button that does something. It appears on the **Maintenance Sales Order** only, and it creates a real machine file for every line in the Machines grid that does not already point at one, naming it from the typed machine name and coding it from the chosen machine group.
@@ -61,16 +74,6 @@ Only then is the machine usable. See [The Machine File](/modules/crm/maintenance
 :::
 
 In our example that second step happens on 11 February: each of the three machines is opened and given its customer `C-01188`, its item (`AC-CHL-300` twice, `AC-AHU-12` once), its machine type, its serial number (`CHL300-2026-0021`, `CHL300-2026-0022`, `AHU12-2026-0004`) and its sale and installation dates.
-
-## The Button That Does Not Work Here
-
-::: warning Generate Work Plans is visible on these screens and fails when pressed
-Because the quotation, the order and the contract share a layout, the **Generate Work Plans** button appears on all three. It only functions on a maintenance contract. Pressed on a maintenance sales quotation or a maintenance sales order it produces a technical error and no work plans.
-
-Work plans come from the contract, and only from the contract — see [Maintenance Work Plans](/modules/crm/maintenance-cycle/crm-maintenance-work-plans.md).
-:::
-
-The same is true of **Collect All Machines Related To The Customer**, which is a genuine convenience on the contract but has nothing useful to do here, since these documents are usually about machines that do not exist yet.
 
 ## Moving On to the Contract
 

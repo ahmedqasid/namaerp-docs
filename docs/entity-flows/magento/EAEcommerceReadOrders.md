@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceReadOrders
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceReadOrders
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

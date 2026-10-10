@@ -1,14 +1,13 @@
 ---
 title: EAMakeSingleCheckInCheckOutIfNeeded
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAMakeSingleCheckInCheckOutIfNeeded
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -1,13 +1,12 @@
 ---
 title: EAShortenLedger
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAShortenLedger
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

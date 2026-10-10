@@ -140,7 +140,7 @@ If you fill in a payment template, the offer validates that the instalment lines
 
 ## Winning the job
 
-When the client accepts, one button does the conversion. **Convert Contract** (تحويل لعقد) opens a new, unsaved [project contract](/modules/contracting/project-contracting/contracting-project-contract.md) already filled in; you review it and save. There is also **Convert Contract With Selected Lines Only** when the client awarded you part of the scope, **Convert Contractor Contract** and its selected-lines twin when the offer is being turned into work you are giving to a subcontractor, and **Convert to Assay** (تحويل لمقايسة) when you want the internal priced bill of quantities as a separate record.
+When the client accepts, one button does the conversion. **Convert Contract** (تحويل لعقد) opens a new, unsaved [project contract](/modules/contracting/project-contracting/contracting-project-contract.md) already filled in; you review it and save. Its only companion on the offer is **Convert to Assay** (تحويل لمقايسة), for when you want the internal priced bill of quantities as a separate record. The selected-lines and subcontract conversions are not on the offer screen; they live on the [assay](/modules/contracting/project-contracting/contracting-assays.md) and the budgets.
 
 What crosses over to the contract, and what does not, is worth knowing before you press the button:
 
@@ -159,6 +159,23 @@ Two of those deserve a note. The **Source** reference is how the contract rememb
 One nuance on the subcontractor conversion: whether your selling price is copied onto the subcontract's lines is a module configuration setting, so you can choose not to reveal your own rates in a document a subcontractor may see. See [contracting configuration](/modules/contracting/contracting-configuration.md).
 
 If the measurements request is filled in on the offer, the conversion also overwrites the responsible engineer and salesman from that request — the people who actually measured the site win over whoever was typed on the offer.
+
+## Actions on this screen
+
+Above the terms grid:
+
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+- **Convert Contract** — opens a new, unsaved project contract built from the offer; the offer must be saved first.
+- **Convert to Assay** — opens a new, unsaved assay carrying the offer's header, terms and conditions; the offer must be saved first.
+
+Above the cost grids:
+
+- **Collect Contract Items From Standard Terms** — explodes every term line into its cost ingredients: it reads each line's standard term, scales the term's cost recipe to the line's quantity (allowing for waste and productivity) and routes each row into the Material, Workers, Contractors or Other Expenses grid. It also fills any empty term codes first.
+- **Collect Sub Items Cost** — the reverse: sums those four cost grids by term code and writes the result back onto each term line as its total cost and unit cost.
+- **Create Sales Offer for Selected Items**, **Create Contracting Purchase Order for Selected Items** and **Create Material Issue Order for Selected Items** — each opens a new, unsaved contracting offer, miscellaneous contracting order or project material issue in a pop-up, carrying the rows you ticked in the cost grids. With nothing ticked you are asked to select rows.
+
+In the **More** menu: **Installment Payments** opens, in a pop-up list, the payment documents that have settled the offer's instalments.
 
 ## Where to read next
 

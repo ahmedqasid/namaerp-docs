@@ -1,14 +1,13 @@
 ---
 title: EAPreventUpdateDetailedRemarkLines
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAPreventUpdateDetailedRemarkLines
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

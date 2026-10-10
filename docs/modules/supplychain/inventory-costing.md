@@ -60,7 +60,7 @@ The location and quantity stay the same, and only the value balance in the books
 
 ## Finished Product Pricing (FinishedProductPricing)
 
-When you assemble or manufacture a finished product, its cost accumulates from its components. The **Finished Product Pricing** document captures this roll-up: it gathers component costs from the bill of materials (BOM) or the assembly document, allocates co-products and indirect additional costs, and arrives at the final cost of the assembled product. This document complements the [Assembly & Packaging](./assembly-and-packaging.md) path from the costing side. Full production costing (labor and overhead for production orders), however, lives in the [Manufacturing module](/modules/manufacturing/).
+When you assemble or manufacture a finished product, its cost accumulates from its components. The **Finished Product Pricing** document captures this roll-up: it gathers component costs from the bill of materials (BOM) or the assembly document, allocates co-products and indirect additional costs, and arrives at the final cost of the assembled product. This document complements the [Assembly & Packaging](./assembly-and-packaging/) path from the costing side. Full production costing (labor and overhead for production orders), however, lives in the [Manufacturing module](/modules/manufacturing/).
 
 ## Freezing Cost at Close (FrozenCostAccounts)
 
@@ -108,5 +108,5 @@ Alongside freezing cost, the system lets you **prevent using a batch** during a 
 
 - [Receiving Stock](./receiving-stock.md) - where inventory cost begins
 - [Stock Taking](./stock-taking.md) - reconciling quantities before fixing values
-- [Assembly & Packaging](./assembly-and-packaging.md) - building products and rolling up their costs
+- [Assembly & Packaging](./assembly-and-packaging/) - building products and rolling up their costs
 - [Letters of Credit](./letters-of-credit.md) - import costs via letters of credit

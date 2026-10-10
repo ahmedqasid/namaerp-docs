@@ -36,8 +36,8 @@ the same grid.
 The quick filters appear as interactive buttons at the top of list views, showing the most common values for specific fields:
 
 - **Click Button**: Applies the filter instantly to the table
-- **Colors**: Vary by data type (green for paid, red for unpaid)
-- **Counter**: Shows record count and percentage
+- **Colors**: A button for an option-list or Yes/No value takes the colour set for that value; any other button uses the theme colour
+- **Counter**: When the group has **Show Count** ticked, shows the record count and its percentage
 
 #### 3. Using Custom Filters
 
@@ -70,8 +70,8 @@ Quick Filters are configured through the Screen Modifier system, which allows cu
    - **Show Count**: Enable to display record counts
    - **Max Button Count**: Set maximum number of buttons (typically 5-10)
    - **Remove**: Check this to hide/remove a quick filter group (useful for overriding inherited configurations)
-   - **Quick Filter Values Criteria**: Select a [Criteria Definition](/platform/criteria-definitions) to filter which values appear in the quick filter buttons
-   - **Quick Filter Values Dynamic Criteria**: Enter dynamic criteria text to filter which values are shown (uses the same syntax as [Text Criteria](../text-criteria-guide.md))
+   - **Quick Filter Values Criteria**: Select a [Criteria Definition](/platform/automation-and-rules/criteria-definitions) to filter which values appear in the quick filter buttons
+   - **Quick Filter Values Dynamic Criteria**: Enter dynamic criteria text to filter which values are shown (uses the same syntax as [Text Criteria](../automation-and-rules/text-criteria-guide.md))
 
 ##### Filtering Quick Filter Values
 You can control which values appear in the quick filter buttons using criteria. These criteria filter the database query that fetches distinct values, and can be applied on **any column in the table** - not just the column being displayed in the quick filter.
@@ -92,8 +92,8 @@ This is useful when you want the quick filter buttons to reflect only values tha
    - Create new record for your entity type
 
 2. **Add Criteria Lines**:
-   - **Dynamic Criteria**: Enter Criteria Text  (e.g., `dueDate,LessThanOrEqual,$today()'`)
-     - For more details refer to: [Text Criteria Guide](../text-criteria-guide.md)
+   - **Dynamic Criteria**: Enter Criteria Text  (e.g., `dueDate,LessThanOrEqual,$today()`)
+     - For more details refer to: [Text Criteria Guide](../automation-and-rules/text-criteria-guide.md)
    - **Arabic Title**: Arabic title
    - **English Title**: Title in English
 

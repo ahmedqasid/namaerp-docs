@@ -1,13 +1,12 @@
 ---
 title: EASaveToAnotherServer
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EASaveToAnotherServer
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

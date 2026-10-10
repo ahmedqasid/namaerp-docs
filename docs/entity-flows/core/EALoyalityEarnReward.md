@@ -1,14 +1,13 @@
 ---
 title: EALoyalityEarnReward
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EALoyalityEarnReward
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

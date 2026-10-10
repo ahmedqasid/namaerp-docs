@@ -1,13 +1,12 @@
 ---
 title: EACacheEvicter
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EACacheEvicter
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

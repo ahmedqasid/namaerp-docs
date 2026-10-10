@@ -33,6 +33,10 @@ A Suspension Document isn't just a record — the salary engine reads it directl
 Recording a Suspension Document does **not**, by itself, flip the employee's working state to `Suspended`. If a company also wants the employee's official status to read `Suspended` — for reporting, or to keep them out of other workflows — that is a deliberate, separate entry on [Change Employee State](../vacations/change-employee-state.md).
 :::
 
+## Actions on this screen
+
+The Suspension Document has no buttons of its own; it is filled in and saved.
+
 ## Related pages
 
 - **[Rewards & Penalties](rewards-and-penalties.md)** — the other discipline-related document, for adjusting a single pay figure rather than a date range.

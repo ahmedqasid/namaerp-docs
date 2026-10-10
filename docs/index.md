@@ -45,10 +45,6 @@ features:
     title: System Administration
     details: Troubleshooting common issues, reprocessing quantities, costs and the ledger, and database utilities
     link: /admin/
-  - icon: 👨‍💻
-    title: Developer Reference
-    details: Documentation writing guidelines, development request guidelines, and GUI post actions FAQ
-    link: /developer/
   - icon: 🤖
     title: Entity Flows Reference
     details: A generated reference for every entity flow in the system, module by module — parameters, behaviour, and usage notes (in English only)

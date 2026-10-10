@@ -1,5 +1,5 @@
 ---
-entities: [DashBoardWidget, DashBoard, BICrossFilter, DashBoardWidgetWizard, BIPeriodComparisonConfig]
+entities: [DashBoardWidget, DashBoard, DashBoardGroup, BICrossFilter, DashBoardWidgetWizard, BIPeriodComparisonConfig]
 ---
 # BI Module — Dashboards & Analytics
 
@@ -245,6 +245,23 @@ same dashboard in the new UI in a new tab.
 :::
 
 ---
+
+### Dashboard Groups — Putting Dashboards on the Menu
+
+A **Dash Board Group** (*Administration → DashBoards → Dash Board Group*) is a hand-picked collection
+of dashboards, the dashboard twin of a report group. List its dashboards in its **Details** grid, or
+add the group to a dashboard's own **Details** grid (the **Dash Board Group** column) — the two stay in
+step, and deleting the group takes it off every dashboard. A dashboard can be listed only once in a
+group; a second line is refused with *Dash Board {0} can not be repeated* — «اللوحة {0} لايمكن تكرارها».
+
+A group puts its dashboards on the menu in one of two ways (see [Menu structure](/platform/menus/menu-structure)):
+
+- **A menu item of type Dashboards Group** pointing at the group shows every dashboard in it as its
+  own entry.
+- **Automatically Add To Menu** on the group, together with one **Auto Dash Boards** item in the menu,
+  shows every ticked group as its own sub-menu, named after the group and listing its dashboards. The
+  Auto Dash Boards item must be the only item in its menu group. New groups then appear without
+  editing the menu.
 
 ## Tabbed Dashboards
 

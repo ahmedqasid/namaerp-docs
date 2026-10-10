@@ -45,19 +45,35 @@
 
 ### الشحن واللوجستيات
 
-- **[الملفات الأساسية](./freight-master-files.md)** — البنية التحتية التي تبني عليها كل شيء: بنود الخدمة، الحاويات وأنواعها وأحجامها، البواخر، الموانئ، جداول الإبحار، السلع، الدول والمواقع.
-- **[أوامر التشغيل](./operation-orders.md)** — المستند المركزي للشحنة وكل ما يتفرّع منه: الخدمات، الحالات، الإفراج، الملاحق، وتسليم/استلام/تحويل أوامر التشغيل.
-- **[بوالص الشحن](./bills-of-lading.md)** — المستند الملاحي الرسمي وسطوره وبياناته.
-- **[قوائم الأسعار والهوامش](./freight-pricing.md)** — أسعار البيع والشراء لكل خدمة، وهوامش الربح (Markup)، وتحديث الخدمات في أمر التشغيل منها.
-- **[الفواتير والمرتجعات](./freight-invoicing.md)** — أوامر البيع، فواتير المبيعات والمشتريات، المرتجعات، الدفعات وربط التكلفة بالبيع.
+<LandingGrid>
+  <LandingCard icon="🗂️" title="الملفات الأساسية" link="/ar/modules/freight/freight-master-files.md" details="البنية التحتية التي تبني عليها كل شيء: بنود الخدمة، الحاويات وأنواعها وأحجامها، البواخر، الموانئ، جداول الإبحار، السلع، الدول والمواقع." />
+  <LandingCard icon="📋" title="أوامر التشغيل" link="/ar/modules/freight/operation-orders.md" details="المستند المركزي للشحنة وكل ما يتفرّع منه: الخدمات، الحالات، الإفراج، الملاحق، وتسليم/استلام/تحويل أوامر التشغيل." />
+  <LandingCard icon="📜" title="بوالص الشحن" link="/ar/modules/freight/bills-of-lading.md" details="المستند الملاحي الرسمي وسطوره وبياناته." />
+  <LandingCard icon="💲" title="قوائم الأسعار والهوامش" link="/ar/modules/freight/freight-pricing.md" details="أسعار البيع والشراء لكل خدمة، وهوامش الربح (Markup)، وتحديث الخدمات في أمر التشغيل منها." />
+  <LandingCard icon="🔁" title="من أسعار الموردين إلى عروض أسعار العملاء" link="/ar/modules/freight/freight-price-list-workflow.md" details="عناصر قوائم الأسعار، وتحويل أسعار الموردين إلى عروض أسعار، وإعادة التسعير، وتغيير الأسعار دفعة واحدة بمستند تعديل قائمة أسعار المشتريات." />
+  <LandingCard icon="🧾" title="الفواتير والمرتجعات" link="/ar/modules/freight/freight-invoicing.md" details="أوامر البيع، فواتير المبيعات والمشتريات، المرتجعات، الدفعات وربط التكلفة بالبيع." />
+  <LandingCard icon="🏬" title="مواقع التخزين" link="/ar/modules/freight/freight-storage-locations.md" details="المواقع وسعاتها، واستلام بضاعة أوامر التشغيل ونقلها وإخراجها." />
+</LandingGrid>
 
 ### البريد الدولي (IPS)
 
-- **[نظرة عامة على نظام البريد](./ips-postal-intro.md)** — المفاهيم الأساسية: المواد البريدية، الأكياس (Receptacles)، المكاتب ومناطق الاستلام والتسليم.
-- **[المواد البريدية](./ips-mail-items.md)** — دورة حياة المادة البريدية: التجميع، التحويل بين المكاتب، التسوية، الجرد، التحقيق، والفرز.
-- **[الأكياس البريدية](./ips-receptacles.md)** — استلام الأكياس، إرسالها على جدول الطريق، والمنافيست الجمركي.
-- **[خدمة التوصيل](./ips-delivery.md)** — طلبات وفواتير التوصيل، بنود وأسعار خدمة التوصيل، مناطق التوصيل، وأسباب عدم التسليم.
+<LandingGrid>
+  <LandingCard icon="📮" title="نظرة عامة على نظام البريد" link="/ar/modules/freight/ips-postal-intro.md" details="المفاهيم الأساسية: المواد البريدية، الأكياس (Receptacles)، المكاتب ومناطق الاستلام والتسليم." />
+  <LandingCard icon="✉️" title="المواد البريدية" link="/ar/modules/freight/ips-mail-items.md" details="دورة حياة المادة البريدية: التجميع، التحويل بين المكاتب، التسوية، الجرد، التحقيق، والفرز." />
+  <LandingCard icon="👜" title="الأكياس البريدية" link="/ar/modules/freight/ips-receptacles.md" details="استلام الأكياس، إرسالها على جدول الطريق، والمنافيست الجمركي." />
+  <LandingCard icon="🚚" title="خدمة التوصيل" link="/ar/modules/freight/ips-delivery.md" details="طلبات وفواتير التوصيل، وكيف ينشئها الفرز ويسعّرها، وأسباب عدم التسليم." />
+  <LandingCard icon="🔌" title="التكامل مع نظام IPS" link="/ar/modules/freight/ips-integration.md" details="قراءة البيانات من خادم IPS الخارجي، والتبليغ بالأحداث، ومتابعة الأحداث الفاشلة." />
+</LandingGrid>
+
+### الإعداد
+
+<LandingGrid>
+  <LandingCard icon="⚙️" title="إعدادات وحدة الشحن" link="/ar/modules/freight/freight-configuration.md" details="إعدادات الوحدة: بنود الخدمة الافتراضية، وسلوك التخزين، وإجماليات العملات في الفواتير، والاتصال بـIPS." />
+  <LandingCard icon="📑" title="توجيهات مستندات الشحن" link="/ar/modules/freight/freight-document-terms.md" details="ما يتحكّم فيه توجيه كل مستند شحن وبريد: الجوانب المحاسبية، وحالة أمر التشغيل، والأحداث البريدية، وأثر التخزين." />
+</LandingGrid>
 
 ### الفاتورة الإلكترونية
 
-- **[التعامل مع الفاتورة الإلكترونية](./freight-einvoicing.md)** — كيف ترسل وحدة الشحن فواتيرها لهيئة الضرائب، ومعالجة نموذج الوكيل والعمولة وأكواد بنود الخدمة.
+<LandingGrid>
+  <LandingCard icon="🏛️" title="التعامل مع الفاتورة الإلكترونية" link="/ar/modules/freight/freight-einvoicing.md" details="كيف ترسل وحدة الشحن فواتيرها لهيئة الضرائب، ومعالجة نموذج الوكيل والعمولة وأكواد بنود الخدمة." />
+</LandingGrid>

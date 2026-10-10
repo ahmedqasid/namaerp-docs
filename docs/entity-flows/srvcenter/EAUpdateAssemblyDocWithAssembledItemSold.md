@@ -1,14 +1,13 @@
 ---
 title: EAUpdateAssemblyDocWithAssembledItemSold
 module: srvcenter
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUpdateAssemblyDocWithAssembledItemSold
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

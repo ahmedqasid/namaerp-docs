@@ -115,6 +115,27 @@ This document cannot be used when the HR module is configured for fully manual a
 
 Like the Vacation Changing Document, this is a balance-only mechanism — it does not generate a ledger entry; the value it creates is *days*, not money, and it lands in whichever vacation type the term settings point to. An employee whose vacation type has `Vacation Transfer Policy = Repaid` can later cash those days out with the Vacation Compensation document described above.
 
+## Actions on this screen
+
+The single **Vacation Compensation** has no buttons of its own. The batch screens each have a button that fills their grid for you:
+
+**On the Aggregated Vacation Compensation** (*Payroll > Vacations > Aggregated Vacation Compensation*, the many-employees version of Vacation Compensation):
+
+- **Collect Employees** — lists every employee in the **Working** state who matches the employee range, optionally narrowed to a **From/To Hiring Date** window and a **From/To Last Compensation Date** window. The grid is rebuilt each time; you then enter the days and the per-day value on each line.
+
+**On the Vacation Transfer Document:**
+
+- **Collect Employees** — asks for a range (employee, department, analysis set, branch, sector) and lists the matching employees in **Details**, replacing what was there. Fill in both **From Employee** and **To Employee**: without both, the button collects nothing.
+- **Calculate** — computes the **Lines** grid — assigned balance, the remainder carried from the previous year and the total — for every employee in **Details**. **From Year**, **To Year** and **Value Date** must be filled first.
+
+**On the Vacation Changing Document:**
+
+- **Collect Employees** — adds the employees in the **Working** state who match the employee range, then fills each line with that employee's current balance, consumed and remainder for the header's **Vacation Type** as of the value date, with the header's **Added Balance** applied.
+
+**On the Holidays And Rest Days Balance Compensation Document:**
+
+- **Collect Employees** — adds the employees who match the employee range and counts, for each, the official holidays and weekly rest days in **From Date**–**To Date** on which they actually attended. Both dates are required.
+
 ## Messages you may see
 
 | Message | Why | What to do |

@@ -14,6 +14,10 @@ You'll find it under **Manufacturing → Cartoon → Carton Material Issue**.
 
 ![The carton material issue screen](../../ar/modules/manufacturing/images/carton/material-issue-en.png)
 
+::: info Required license
+Carton material issues are part of the `manufacturing-crtn-pln` license, the carton-planning sub-license of the Manufacturing module. Without it the **Cartoon** menu does not appear, even when the core `manufacturing` license is on.
+:::
+
 ## The Three Rules That Govern This Screen
 
 Before anything else, three hard rules. All three are enforced, all three will stop you, and knowing them saves a puzzling half-hour.

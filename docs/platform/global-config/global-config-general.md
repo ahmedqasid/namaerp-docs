@@ -25,7 +25,7 @@ Nama stores amounts at full precision; these three settings control how many fra
 
 **Percentage Decimal Places** `value.info.percentageFractionalDecimalPlaces` *(default 5)* — Applies to every percentage field: discount and tax percentages, contracting assay percentages, point-of-sale percentages. Five places sounds generous, but percentages are usually intermediate values that get multiplied by large amounts, so the extra digits stop rounding errors from accumulating.
 
-**Currency Rate Decimal Places** `value.info.rateFractionalDecimalPlaces` *(default 5)* — Applies to exchange-rate fields. Currencies with a large ratio to the base currency need the precision.
+**Rate Fractional Decimal Places** `value.info.rateFractionalDecimalPlaces` *(default 5)* — Applies to exchange-rate fields. Currencies with a large ratio to the base currency need the precision.
 
 **Do Not Use Today and Yesterday for Dates in List Views** `value.info.doNotUseTodayAndYesterdayForDates` — By default a date within the last day or two is displayed as the words "Today" or "Yesterday", which reads well but hides the actual date. Turn this on when users need to see the real date everywhere — typically in operations where documents are compared by date all day long.
 

@@ -93,6 +93,14 @@ What the module *does* give you is the certainty that you are comparing like wit
 
 Two things to weigh besides the bottom line, since both will cost you real money later: the advance he wants — 24,000 against 16,000 is 8,000 more of your cash outstanding until the [advance](/modules/contracting/contractor-contracting/contracting-contractor-advances-and-payments.md) is recovered — and the retention percentage, which decides how much of every certificate you keep hold of until the works are accepted.
 
+## Actions on this screen
+
+All four buttons sit on page 2, above the terms grid:
+
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+- **Convert To Contract** and **Convert To Contract With Selected Lines Only** — open a new, unsaved subcontract from the whole offer or from the ticked lines (see [Awarding it](#Awarding-it-converting-the-offer-to-a-subcontract)). The offer must be saved first.
+
 ## Awarding it: converting the offer to a subcontract
 
 Save the offer first — both conversion buttons require it — and then press one of the two buttons above the terms grid:

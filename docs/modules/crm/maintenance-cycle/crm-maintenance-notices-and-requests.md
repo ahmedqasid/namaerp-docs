@@ -38,7 +38,7 @@ Picking the machine does most of the typing for you: the customer, contact, seri
 
 **The status change page** shows a system-written history of status changes (from status, to status, date, user, remark). You cannot add, edit or remove a line in it — only the system writes there when the current status changes. Underneath it sits something more interesting, which the next section covers.
 
-**The Billing page** has a payment-schedule template, a **Generate Payments** button, schedule lines, payment documents and payment methods.
+**The Billing page** has a payment-schedule template, a **GeneratePayments** button, schedule lines, payment documents and payment methods.
 
 ::: danger A notice records money and does nothing with it
 The notice recalculates the spare-part totals, the service totals, the header money block and the whole payment schedule as you type — and then **none of it reaches anything**. There is no accounting entry, no stock movement, no receivable, no customer balance and no document term to configure one. A notice is a **fault log**, and pricing it is bookkeeping for your own eyes only.
@@ -69,7 +69,7 @@ It is daily dispatch, not preventive scheduling, and the route capacity figures 
 
 ## The Maintenance Order Request
 
-The request exists so that work can be reviewed before it becomes an order. It shares the maintenance order's screen almost exactly — the same header, the same machines, dysfunctions, spare parts, services, technicians and status-change pages — with the working parts taken out. On a request there is no **Create execution** button, no **Create maintenance invoice**, no **Spare parts issue**, no **Spare parts receipt**, no **Tools issue**, no embedded visits list and no shipping address page.
+The request exists so that work can be reviewed before it becomes an order. It shares the maintenance order's screen almost exactly — the same header, the same machines, dysfunctions, spare parts, services, technicians and status-change pages — with the working parts taken out. On a request there is no **Create Mn Execution** button, no **Create Sales Invoice**, no **Spare Parts Issue Request**, no **Returned Spare Parts Receipt Request**, no **Tools Issue Request**, no embedded visits list and no shipping address page — the request carries no buttons of its own at all.
 
 ![The Maintenance Order Request screen, which repeats the maintenance order layout with the working parts removed](../../../ar/modules/crm/images/maintenance-cycle/crm-mn-request-en.png)
 
@@ -86,6 +86,23 @@ Leave the debit and credit sides on the maintenance order term **empty** unless 
 :::
 
 Requests move no stock in any configuration.
+
+## Actions on these screens
+
+**Maintenance Notice — Billing page:**
+
+- **GeneratePayments** (*إنشاء الدفعات*) — splits the value into an instalment schedule. It asks for
+  the number of payments, the period between them and its unit, the start date, a grace period,
+  down / first / second / last payment values and a rounding mode. The English label ships as the
+  raw name shown here.
+- **Request Redeem Customer Amount** — spends the customer's loyalty balance against this document.
+  It shows the net value, the points owner and the reward balance still available, and asks how
+  much to redeem and against which reward code. The page carries it twice under the same label: the
+  one above the payment documents grid records the redemption there, the one above the payment
+  methods grid records it as a payment line. This label has no Arabic translation, so it shows in
+  English on Arabic screens too.
+
+**Maintenance Order Request:** none — see above.
 
 ## When to Use Which
 

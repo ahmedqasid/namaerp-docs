@@ -170,7 +170,7 @@
 
 - تمت مراجعة التقارير النظامية التي لم تكن بعض مدخلاتها تؤثر على نتائجها، وهي: SYSF-ACC013, SYSF-ACC017, SYSR-ACC004, SYSR-ACC024, SYSR-ACC033, SYSR-ACC045, SYSR-AUD016, SYSR-BNK001, SYSR-BNK002, SYSR-BNK004, SYSR-CTR001, SYSR-FNS008, SYSR-HRS001, SYSR-HRS002, SYSR-HRS006, SYSR-INV006, SYSR-INV014, SYSR-INV020, SYSR-INV031, SYSR-IVS001, SYSR-PIV002, SYSR-PIV004, SYSR-PMG002, SYSR-SLS012, SYSR-SLS016, SYSR-TAX001.
 - تم حل مشكلة عدم عمل تقرير الأصول العام (SYSR-AST003) على الواجهة الجديدة.
-- في الكيان الافتراضي، أصبح زر (تعديل التعيينات) يعرض رسالة توضح أن المحرر متاح في الواجهة الجديدة فقط، وأصبح حقل (Column Mapping) يرفض الحفظ إذا كان الـ JSON غير صحيح، وتم حل مشكلة عدم ظهور الكيانات الافتراضية إلا بعد إعادة تشغيل السيرفر. للتفاصيل: [الكيانات الافتراضية (Virtual Entities) — وحدات SQL قابلة لإعادة الاستخدام في التقارير ولوحات المعلومات](/ar/platform/virtual-entity-guide)
+- في الكيان الافتراضي، أصبح زر (تعديل التعيينات) يعرض رسالة توضح أن المحرر متاح في الواجهة الجديدة فقط، وأصبح حقل (Column Mapping) يرفض الحفظ إذا كان الـ JSON غير صحيح، وتم حل مشكلة عدم ظهور الكيانات الافتراضية إلا بعد إعادة تشغيل السيرفر. للتفاصيل: [الكيانات الافتراضية (Virtual Entities) — وحدات SQL قابلة لإعادة الاستخدام في التقارير ولوحات المعلومات](/ar/platform/automation-and-rules/virtual-entity-guide)
 
 ### Business Intelligence
 

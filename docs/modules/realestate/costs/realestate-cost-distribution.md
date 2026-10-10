@@ -120,13 +120,19 @@ The **Credit side / الجانب الدائن** column is what decides who is ow
 account (حساب المورد), a specific account (حساب محدد), the current user's subsidiary (ذمة المستخدم
 الحالي) or a specific subsidiary (ذمة محددة).
 
-The second page, **Payment Documents / سندات الدفع**, is the payment side: a **Payment Template /
-نموذج الدفع**, the **Generate Payments / إنشاء الدفعات** button that turns it into a schedule, the
-schedule grid itself, and a list of external payment documents. The action block carries the usual
-invoice buttons — **Pay Invoice / ادفع الفاتورة**, **Pay Part Of Invoice / دفع جزء من الفاتورة**,
-**Generate payment voucher / إنشاء سند صرف**, **Collect Payment Vouchers / تجميع سندات الصرف** —
-together with **Collect Items / تجميع الأصناف** and the tax buttons **Restore Taxes / احتساب
-الضرائب** and **Remove Taxes / حذف الضرائب**.
+The second page, **Payment Documents / سندات الدفع**, is the payment side: a grid of external
+payment documents, the **GeneratePayments** button, and the payment schedule it fills.
+
+## Actions on these screens
+
+The cost voucher has exactly one button, **GeneratePayments**, on its *Payment Documents* page. It
+splits the voucher's remaining value into a payment schedule, asking for the number of payments, the
+period between them and its unit, the start date, a grace period, a day of the week, down / first /
+second / last payment values, a rounding multiple and rounding mode, and whether the periods count
+from the due date. It only fills the schedule grid; save the voucher to keep it. On the Arabic screen
+the button reads **إنشاء الدفعات**.
+
+The cost elements themselves (**RE Additional Cost**) have no buttons.
 
 ## The worked example, line by line
 
@@ -187,9 +193,21 @@ distribution rows and in Assigned Cost.
 That is usually fine — most customers want the ledger at project level and the unit-level costing in
 the Real Estate screens and reports. When you genuinely need a per-unit journal entry as well, you
 add one with an entity flow that reads the distribution rows and books a line for each of them.
-[The Real Estate Investment FAQ](/modules/realestate/real-estate-fq) walks through exactly that
-setup, and it is worth reading with this page in front of you: it explains *how* to get the entry,
-this page explains *what* is being booked.
+
+### A per-estate journal entry from the distribution
+
+The RE Cost Document can hand those distribution rows to an entity flow through **fetchCostEntries**,
+which returns the rows that belong to the document being saved. Attach the
+[EAAddAccountingEffect](/entity-flows/accounting/EAAddAccountingEffect.md) flow to the document and
+let its effect lines loop over them — for example, to book each row's cost value on the debit and
+credit sides you configured:
+
+```text
+$fetchCostEntries.costValue=CostDR,CostCR
+```
+
+Each effect line can use any field of the row, including `estate` and `owner`, so the entry can carry
+the estate and the owner on every line.
 
 ## The parallel cost table fed by Contracting
 

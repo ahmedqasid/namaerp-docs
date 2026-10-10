@@ -158,13 +158,35 @@ The **Salary Document Lines** grid (المفردات) is the heart of the paysli
 1. **Open the period.** Make sure the target [HR Period](../setup/hr-years-and-periods.md) is open — a closed period blocks generation.
 2. **Create a Salary Sheet** for that period and the relevant [issuance](../setup/hr-years-and-periods.md).
 3. **Collect employees** with **Collect Employees** (تجميع الموظفين) — the sheet pulls in everyone matching its criteria, range, generation range and Collect By Ref filters, then drops anyone already paid for that period and issuance. Read the message it shows afterwards: it reports how many of the matched employees were skipped because they already have a salary document. Press it again after changing a filter — it appends and never duplicates. Use **Select All / Deselect All** (اختيار الكل / ازالة الاختيار من الكل) to fine-tune the population, and see [How Collect Employees decides who is in](#How-Collect-Employees-decides-who-is-in) when someone is missing.
-4. **Generate the documents** with **Generate Salary Documents** (إصدار سندات الرواتب), or **Generate Salary Documents Without Save** (إصدار سندات الرواتب بدون حفظ) to preview the numbers before committing. One [Salary Document](#The-Salary-Document-payslip) is produced per selected line.
+4. **Generate the documents** with **Generate Salary Documents** (إصدار سندات الرواتب). Its dialog lets you generate all lines, only the ticked ones, or all except the ticked ones; one [Salary Document](#The-Salary-Document-payslip) is produced per line generated. See [Actions on this screen](#Actions-on-this-screen) for every option.
 5. **Review each payslip** — the component lines, the base/addition/deduction/other breakdown, and the resulting **Net Salary**. If a figure looks wrong, the day-count and indicator columns explain how it was reached; the [salary engine page](../concepts/hr-salary-engine.md) lists the usual reasons a component comes out as zero.
 6. **Regenerate if needed.** **Re Generate** (أعد الإصدار) recomputes a document; components flagged *Do Not Override After Regenerate* keep any manual edits.
 
 ::: warning Edit through the sheet, not around it
 The salary documents belong to the sheet that made them. Adjusting the population, re-collecting, and regenerating from the sheet keeps everything in step — deleting or hand-editing an individual document outside that flow risks leaving it inconsistent with the run it came from.
 :::
+
+## Actions on this screen
+
+The salary run is driven from the sheet; the individual payslip has only its regenerate buttons.
+
+**On the Salary Sheet:**
+
+- **Select All** / **Deselect All** — tick or clear the selection box on every employee line. The ticks matter to the generation options below.
+- **Collect Employees** — fills the lines from the period, the employee range, the generation range and the Collect By Ref filters (see [How Collect Employees decides who is in](#How-Collect-Employees-decides-who-is-in)). The period must be filled first.
+- **Generate Salary Documents** — creates or refreshes one salary document per line. The sheet must be saved first. A dialog asks three things: **Regenerate Lines With Salaries** (off by default — turn it on to recompute lines that already have a document), **Generate Lines Without Salaries** (on by default), and **Generate Lines**: *Generate All Lines* (the default), *Generate Selected Lines Only* or *Generate All Lines Except Selected*.
+- **Save All Drafts** — saves every salary document of the sheet that has never been saved as final, going through approvals where the document needs them, then refreshes the sheet's accounting effect. The sheet must be saved first.
+- **Generate Salary Documents Without Save** (More menu) — the same generation, but it takes the ticked lines as they are on screen, without saving the sheet first. Its dialog adds **Generate Salary Documents Generated Before Date**: fill it and only lines never generated, or last generated before that date, are processed — useful for resuming a large run that stopped part-way.
+- **Regenerate Contracting Cost Entries And Accounting Effects** (More menu) — only where the Contracting module is in use: rebuilds the project cost entries of the sheet's saved salary documents, then the accounting effect. The sheet must be saved first.
+
+From the Salary Sheet **list**, **Generate Salary Documents** and **Regenerate Contracting Cost Entries And Accounting Effects** work on every sheet you tick.
+
+**On the Salary Document:**
+
+- **Re Generate** — recomputes this payslip from the employee's current data (step 6 above). It is on the screen and in the More menu; the document must be saved first. From the list, it regenerates every document you tick and reports any that failed by code.
+- **Regenerate Contracting Cost Entries And Accounting Effects** (More menu, and the list) — the per-document version of the sheet button above.
+
+The **Salary Generation Range** has no buttons of its own.
 
 ## How it's processed / what it posts
 
@@ -187,7 +209,7 @@ Beyond the per-component postings, a salary document's term can additionally all
 | *The Employee {0} is not working* — «الموظف {0} ليس على رأس العمل» | The employee's state is not *Working* and they did not qualify as partially working for this period. | If they should be paid, correct the state history so the change falls inside the period; the collection rules above describe exactly what counts. |
 | *The employee {0} already has another salary document for the same period* — «الموظف {0} لديه سند راتب اخر على نفس الفترة» | A payslip already exists for that employee, period and issuance — drafts included. | Find and edit the existing document instead of making a second one. |
 | *Cannot Apply two documents of same type on {0} on the same period* — «لا يمكن حفظ مستندين للموظف {0} على نفس فترة الرواتب» | A second HR document of the same type is being saved for the same employee and payroll period. | Edit the existing one. |
-| *Can not regenerate revised salary document {0}* — «لا يمكن إعادة إصدار سند الراتب {0} الذي تمت مراجته» · *Can not regenerate revised salary sheet {0}* — «لا يمكن إعادة إصدار سجل الرواتب {0} الذي تمت مراجعته» | Regeneration was attempted on a document or sheet that carries a revision sign-off. | Unrevise it first — see [Revise and Unrevise](/platform/revise-and-unrevise). |
+| *Can not regenerate revised salary document {0}* — «لا يمكن إعادة إصدار سند الراتب {0} الذي تمت مراجته» · *Can not regenerate revised salary sheet {0}* — «لا يمكن إعادة إصدار سجل الرواتب {0} الذي تمت مراجعته» | Regeneration was attempted on a document or sheet that carries a revision sign-off. | Unrevise it first — see [Revise and Unrevise](/platform/governance/revise-and-unrevise). |
 
 ## Related pages
 

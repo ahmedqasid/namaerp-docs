@@ -198,6 +198,14 @@ The agent also steps its starting point back by half an hour on every run, and t
 | *Cron expression is required when automatic scheduling is enabled* | The expression is empty and **Only Work Manually** is not ticked. |
 | *Invalid cron expression: … - Error: …* | The expression could not be understood. Remember it needs six fields. |
 
+## Actions on this screen
+
+The attendance machine configuration has three buttons, all of them shortcuts that fill the record in for you:
+
+- **Create Task Schedule** (main page) — creates the scheduled task that turns collected punches into a Time Attendance document and opens it in a popup, pre-filled. What it fills in, and the two values you must change, are under *From raw readings to a Time Attendance document* above.
+- **Add Default Queries For Zk Bio Time** (ZkBioTime tab) — writes the incremental and the period query for the ZkBioTime database and adds the standard mapping lines.
+- **Add Default Queries For Zk** (SQL Server and Access tabs) — the same for ZK's classic tables, in the syntax of the tab's connection type. See *The two queries* above, including why it is the wrong button for a ZkBioTime connection.
+
 ## The manual path: importing an exported file
 
 Many machines don't expose an API or a reachable database at all — they only export a time-sheet file (Excel or delimited text) that has to be imported by hand into a **Time Attendance** document. Making sense of that file's layout — how the employee code, date, and time are encoded, what delimiter separates fields — is the job of the **attendance and departure formula**, a small pattern language (`#empid`, `#date{...}`, `#time{...}`) configured once per machine and then selected on the import.

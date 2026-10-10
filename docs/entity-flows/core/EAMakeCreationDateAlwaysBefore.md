@@ -1,14 +1,13 @@
 ---
 title: EAMakeCreationDateAlwaysBefore
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAMakeCreationDateAlwaysBefore
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

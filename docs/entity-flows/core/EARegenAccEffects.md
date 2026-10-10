@@ -1,14 +1,13 @@
 ---
 title: EARegenAccEffects
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARegenAccEffects
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

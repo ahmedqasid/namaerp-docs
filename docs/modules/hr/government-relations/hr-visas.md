@@ -129,6 +129,10 @@ passport and why.
 | Passport Number | رقم جواز السفر | The passport being handed over. |
 | Purpose | الغرض | Why the passport is being released. |
 
+## Actions on this screen
+
+None of the visa and passport requests on this page — single or aggregated — has buttons of its own; you fill them in and save.
+
 ## How it's processed
 
 None of these visa documents post to the general ledger — they are records and date-carriers, not

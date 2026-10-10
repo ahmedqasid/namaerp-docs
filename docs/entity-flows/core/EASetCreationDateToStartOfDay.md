@@ -1,14 +1,13 @@
 ---
 title: EASetCreationDateToStartOfDay
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASetCreationDateToStartOfDay
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

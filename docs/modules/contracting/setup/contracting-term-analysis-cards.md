@@ -218,12 +218,25 @@ the 350 you estimated with the figure site actually achieved.
 An analysed cost line is a purchasing instruction waiting to happen, and the card knows it. Tick the
 **selection** column on rows across any of the four grids and three actions become useful:
 
-- **Convert the selected lines to a subcontract** — the natural move for rows in the Contractors grid.
-- **Create a contracting purchase order for the selected lines** — for material and expense rows.
-- **Create a material issue order for the selected lines** — for material already in stock.
+- **Convert Selected Lines To Contractor Contract** (تحويل السطور المختارة لعقد مقاول باطن) — the natural move for rows in the Contractors grid; the new subcontract points at the card's project contract.
+- **Create Contracting Purchase Order for Selected Items** (إنشاء أمر شراء مقاولات للبنود المختارة) — for material and expense rows.
+- **Create Material Issue Order for Selected Items** (إنشاء أمر صرف خامات للبنود المختارة) — for material already in stock.
 
 Each opens the new document for you to review before saving. With nothing ticked, you are simply asked
 to select some rows.
+
+## Actions on this screen
+
+On the main page:
+
+- **Copy Costs To From Document** — sums the costs of every committed analysis card that points at this card's From Document and writes them, per term code, onto that document's term lines as total cost and unit cost, then saves the document. The card must be saved first.
+- **Copy Costs To Assay Document** — the same, aimed at the card's Assay Document.
+- **Convert Selected Lines To Contractor Contract**, **Create Contracting Purchase Order for Selected Items** and **Create Material Issue Order for Selected Items** — see [Turning Analysis Lines into Real Documents](#Turning-Analysis-Lines-into-Real-Documents).
+- **Copy Terms To Materials** — seeds the Material grid with one row per leaf term of the From Document.
+
+When the module option **Merge Term Analysis Card Grids In One Grid** is off, the Workers, Contractors and Other Expenses pages each carry their own seeding button: **Copy Terms To Workers**, **Copy Terms To Contractors** and **Copy Terms To Expenses**.
+
+![The action bar on the main page of a term analysis card](../../../ar/modules/contracting/images/setup/contracting-term-analysis-card-actions-en.png)
 
 ## What Blocks a Save
 

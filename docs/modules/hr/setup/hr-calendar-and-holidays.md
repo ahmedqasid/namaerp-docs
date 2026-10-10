@@ -42,6 +42,10 @@ Unlike holidays, the **weekly rest day** is not configured on the HR Calendar at
 
 Some companies prefer to manage weekly rest days as their own document instead of editing the attendance plan every time; for them, a **Weekend Document** (سند الراحات الأسبوعية, **Payroll > Time Attendance > Weekend Document**) exists, and a module setting — **Take Weekends from the Weekend Document Instead of the Attendance Plan** (اعتماد الراحات الأسبوعية من سندها الخاص بدلاً من خطة الدوام) — switches the whole company over to sourcing weekends from it.
 
+## Actions on this screen
+
+The **HR Calendar** and **HR Holidays** screens have no buttons of their own — both are filled in and saved.
+
 ## Why this matters downstream
 
 Holidays and weekends aren't just calendar trivia — they change how attendance and salary numbers come out:

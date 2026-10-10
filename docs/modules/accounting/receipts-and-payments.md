@@ -23,7 +23,7 @@ Not every organization needs the full chain; many start straight from the **vouc
 
 ![The Receipt Voucher screen](../../ar/modules/accounting/images/receipts/receipt-voucher-en.png)
 
-In the header you set the **Document Term**, **Creation Date**, and **Value Date** (which determines the **Period**), the **Collector**, the **Receipt Book** and **Receipt** number, and **Based On** if the voucher was generated from a prior document.
+In the header you set the **Document Term**, **Creation Date**, and **Value Date** (which determines the **Period**), the **Collector**, the **Receipt Book** and **Receipt** number (see [Receipt Books](/platform/payments/receipt-books)), and **Based On** if the voucher was generated from a prior document.
 
 In the **Debit** block you specify the party the amount concerns: the **Subsidiary** (the party type and value: customer/supplier/employee...), the **Account**, the **Amount**, and the **Currency**. The voucher is organized into tabs:
 
@@ -71,6 +71,17 @@ The three stages of the chain each carry their own buttons, and knowing them is 
 - Receipt/payment voucher, request, and entry statements (`SYSR-ACC015` to `ACC019` and `ACC046`–`ACC047`) are covered in [Account statements & trial balance](./reports-account-statements-and-trial-balance.md).
 - Printed forms: receipt voucher `SYSF-ACC002`, payment voucher `SYSF-ACC003`, receipt order `SYSF-ACC010`, payment order `SYSF-ACC022`, receipt request `SYSF-ACC014`, payment request `SYSF-ACC021`, consolidated payment request `SYSF-ACC017`.
 
+## Stopping a payment from overdrawing the cash box
+
+There is no overdraft switch on the payment voucher itself. A treasury or bank is kept from going negative by its account, through two settings that must both be on:
+
+1. **Enable Prevent Change Account Balance Nature** in [accounting configuration](./support/accounting-configuration.md#Prevent-change-of-account-balance-nature). This is the master switch. Its **Prevent Change Account Balance Nature Margin** sets how far the balance may cross zero before the check fires.
+2. **Prevent Change Account Balance Nature** on the cash or bank [account](./accounts.md) that the voucher credits.
+
+With both on, a payment voucher that would turn the cash account's debit balance into a credit is refused when you save it. The balance is checked both on the voucher's value date and overall:
+
+*The balance of account {0} will become {1}, You can not change the natural side of the account balance from Debit to Credit* — «رصيد الحساب {0} سيكون {1}, فلذلك لا يمكن تغيير طبيعه رصيد الحساب من مدين الي دائن»
+
 ## For Support
 
 - **"The request/order has no effect in the accounts"** — that's expected; the request doesn't post, and the accounting effect is recorded at the **voucher**.
@@ -83,6 +94,6 @@ The three stages of the chain each carry their own buttons, and knowing them is 
 
 | Message | Why | What to do |
 |---|---|---|
-| *The paper either in the header or lines not in both* — «يسمح بالايصال بالتواجد إما في رأس المستند وإما في سطوره» | A receipt paper is filled in the voucher header **and** on a detail line; the voucher takes one or the other. | Clear the paper from the header, or from the lines. |
+| *Put the receipt paper either in the header or in the lines, not in both* — «ضع الإيصال إما في رأس المستند وإما في سطوره، لا في الاثنين» | A receipt paper is filled in the voucher header **and** on a detail line; the voucher takes one or the other. | Clear the paper from the header, or from the lines. |
 | *Amount can not be less than {0}* — «القيمة لا يمكن ان تقل عن {0}» | The value on a **Receipt/Payment Request** is being lowered below the total of the vouchers already issued against it — the figure in the message is that voucher total. | Raise the request value back, or delete/reduce the vouchers first. |
 | *Payment request {0} remaining {1} can not be negative* — «طلب الصرف {0}، المتبقي {1} لايمكن ان يكون رقم سالب» | The voucher (or consolidated request) allocates more against a payment request than the request still has remaining. | Reduce the amount on the voucher line, or raise the request value. |

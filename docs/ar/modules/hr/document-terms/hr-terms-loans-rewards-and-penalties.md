@@ -87,5 +87,5 @@ menu: الأساسيات ← الإعدادات ← توجيه المستند
   المشتركة ومستندات المال.
 - **[سندات السلف](/ar/modules/hr/loans/hr-loan-documents)** · **[أنواع السلف](/ar/modules/hr/loans/hr-loan-types)**
 - **[المكافآت والجزاءات](/ar/modules/hr/discipline/rewards-and-penalties)**
-- **[إعدادات الجانب المحاسبي](/ar/platform/accounting-side-config)** — كيف يجد جانب المدين أو الدائن
+- **[إعدادات الجانب المحاسبي](/ar/platform/shared-master-files/accounting-side-config)** — كيف يجد جانب المدين أو الدائن
   حسابه.

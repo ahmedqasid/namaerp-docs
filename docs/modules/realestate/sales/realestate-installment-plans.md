@@ -105,23 +105,23 @@ The system columns are the important thing to understand about this grid: **it i
 
 Installment codes are generated for you unless the document term has *Manual Coding* switched on. Once a line has been collected, requested or covered by a commercial paper, its code is frozen and the line cannot be deleted.
 
-## Create Installments
+## Create installments
 
-**Create Installments**, in the action block above the grid, is the generator. It reads the construction block, the *Multiple Construction Info* grid, the fee lines and the existing content of the grid, applies the three rules above, and **rebuilds the Installments grid**.
+**Create installments** (إنشاء الاقساط), in the action block above the grid, is the generator. It reads the construction block, the *Multiple Construction Info* grid, the fee lines and the existing content of the grid, applies the three rules above, and **rebuilds the Installments grid**.
 
-::: warning Create Installments replaces the entire grid
+::: warning Create installments replaces the entire grid
 This button does not add lines and does not fill gaps — it regenerates the grid from the construction block. Every row currently there is discarded, including rows you typed by hand and rows that already carry collected amounts.
 
 **Build the plan before you collect anything.** Once collections exist, treat the grid as closed: if a rebuild drops a line that has already been paid, the contract will refuse to commit with *"Can not delete or change code of a paid line {0}"* — so the collection itself is safe, but the schedule you were working on is gone and has to be reconstructed by hand.
 
-If a live contract genuinely has to be re-planned, do it with an [extension](/modules/realestate/sales/realestate-sales-contract.md) that adds the new lines, or with *Merge Installments* below — not by regenerating.
+If a live contract genuinely has to be re-planned, do it with an [extension](/modules/realestate/sales/realestate-sales-contract.md) that adds the new lines, or with *Merge installments* below — not by regenerating.
 :::
 
-## Merge Installments — settling early
+## Merge installments — settling early
 
-The customer who has paid twenty of his sixty installments walks in and offers to clear the balance today for a discount. **Merge Installments** (سداد عاجل) is that transaction.
+The customer who has paid twenty of his sixty installments walks in and offers to clear the balance today for a discount. **Merge installments** (سداد عاجل on the Arabic screen) is that transaction.
 
-Select a range — either from one installment code to another, or between two dates — press the button, and the selected lines collapse into a **single line** carrying a discount percentage. The forty lines of 16,000 become one line of 640,000 less the agreed discount, due now; the *Merged Value* columns record what was folded in, so the history is not lost.
+Tick the installments being settled early, press the button, and give it a target range — **From Installment Code** / **To Installment Code**, or **From Date** / **To Date** on the due dates — and a **Discount** percentage. The ticked lines leave the grid; their total value is spread over the remaining lines inside the range (all remaining lines if you leave the range empty), and the discount percentage of that total is spread over the same lines as a discount. So to settle in one go, tick installments 22 to 60 and give installment 21 as both the from and the to code: the thirty-nine lines of 16,000 fold into line 21, which now carries 640,000 less the agreed discount. With nothing ticked the button refuses with *No line is selected*.
 
 ## Installment types
 

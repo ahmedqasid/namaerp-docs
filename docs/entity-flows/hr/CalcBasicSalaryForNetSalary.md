@@ -1,14 +1,13 @@
 ---
 title: CalcBasicSalaryForNetSalary
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # CalcBasicSalaryForNetSalary
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -13,7 +13,7 @@ product.
 ::: info These are not refusals
 A critical error never blocks a save. It is a statement about the server, not about the record in
 front of you. Refused saves are a different family entirely —
-[Messages and Refusals](/platform/messages-and-refusals).
+[Messages and Refusals](/platform/documents-and-records/messages-and-refusals).
 :::
 
 ## How the list behaves
@@ -89,7 +89,7 @@ exists:
 - *Backup folder {0} does not exist or is not accessible* — «مجلد النسخ الاحتياطي {0} غير موجود أو لا يمكن الوصول إليه»
 - *There is no backup file from today or yesterday in the backup folder {0}* — «لا توجد نسخة احتياطية بتاريخ اليوم أو الأمس في مجلد النسخ الاحتياطي {0}»
 
-Each links straight to the setting it is about, so clicking the message opens General Settings with
+Each links straight to the setting it is about, so clicking the message opens Global Configuration with
 the **Backup Folder** field in focus:
 <GlobalConfigOption option-code="value.info.backupFolder" />
 
@@ -100,7 +100,7 @@ it finds one, nothing is raised.
 
 **What to do about each one:**
 
-1. **The first** — the field is empty. Open the **Attachments and Storage** tab of General Settings
+1. **The first** — the field is empty. Open the **Attachments and Storage** tab of Global Configuration
    and fill in **Backup Folder** with the path the backup job writes to.
 2. **The second** — the path is filled in but the server cannot reach it. The path is resolved by the
    application server, not by your own machine: check the spelling, and for a network share check
@@ -186,7 +186,7 @@ and complains for as long as they are enabled. All of these appear in English on
 
 ## See also
 
-- [Messages and Refusals](/platform/messages-and-refusals) — messages that refuse a save, which these are not
+- [Messages and Refusals](/platform/documents-and-records/messages-and-refusals) — messages that refuse a save, which these are not
 - [Business Requests](/platform/background-processing/business-requests) — the failed-requests count, and how to clear it
 - [General FAQ](/admin/troubleshooting/general-faq) — other questions from the same corner of the system
 - [nama.properties](/getting-started/nama-properties) — the server keys named here

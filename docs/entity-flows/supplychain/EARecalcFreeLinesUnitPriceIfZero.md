@@ -1,14 +1,13 @@
 ---
 title: EARecalcFreeLinesUnitPriceIfZero
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARecalcFreeLinesUnitPriceIfZero
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

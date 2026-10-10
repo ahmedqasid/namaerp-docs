@@ -1,14 +1,13 @@
 ---
 title: EAReplaceItemColorInSystem
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAReplaceItemColorInSystem
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

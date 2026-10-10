@@ -13,8 +13,9 @@ Entity Flows let you automate the system's reaction to everyday actions — savi
 <LandingGrid>
   <LandingCard icon="🔄" title="Introduction to Entity Flows" link="/platform/entity-flows/introduction-to-entity-flows.md" details="What entity flows are, when they trigger, and how to create one — no programming required." />
   <LandingCard icon="📥" title="Importing Data from Excel or Queries" link="/platform/entity-flows/excel-and-sql-import-by-entity-flow.md" details="Pull data into the system straight from an Excel sheet or a SQL query using an entity flow." />
-  <LandingCard icon="🧬" title="Generate Entity From Entity" link="/platform/entity-flows/ea-gen-entity-from-entity.md" details="Use EAGenerateEntityFromEntityAction to create one record automatically from another." />
+  <LandingCard icon="🧬" title="Generate Entity From Entity" link="/entity-flows/core/EAGenerateEntityFromEntityAction.md" details="Create a record automatically while another one is saved; DeleteRelatedEntityAction removes it again." />
   <LandingCard icon="💡" title="Entity Flow Examples" link="/platform/entity-flows/entity-flow-examples.md" details="Worked examples that show entity flows solving real scenarios." />
+  <LandingCard icon="🔍" title="Why an Entity Flow Did Not Run" link="/platform/entity-flows/entity-flow-troubleshooting.md" details="The header settings and timing traps that stop a flow silently, checked in the order the system checks them." />
   <LandingCard icon="❓" title="Entity Flow FAQ" link="/platform/entity-flows/entity-flow-faq.md" details="Frequently asked questions about building and running entity flows." />
 </LandingGrid>
 

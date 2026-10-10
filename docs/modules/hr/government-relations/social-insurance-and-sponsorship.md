@@ -103,6 +103,10 @@ for how that two-level relationship works. It lives one menu entry along, under
 **Human Resources → Administrative Transactions → Aggregated Sponsorship Transfer Document**
 (`الموارد البشرية > معاملات إداريه > طلب نقل كفالة مجمع`).
 
+## Actions on this screen
+
+The social-insurance add and remove documents and the sponsorship transfer documents, single and aggregated, have no buttons of their own; you fill them in and save.
+
 ## How it's processed
 
 Saving any of these documents is instant; like every document in Nama, any follow-on work is raised

@@ -1,14 +1,13 @@
 ---
 title: SQLDraftImporter
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # SQLDraftImporter
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

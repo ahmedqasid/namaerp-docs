@@ -1,9 +1,23 @@
 ---
 entities: [HMSLabTestRequest, HMSLabTestResult, HMSRadiologyReq, HMSRadiologyResult, HMSSurgeryReq, HMSSurgeryReservation, HMSSurgeryApproval, HMSBloodBank, HMSBloodBankReturn]
+menu: Hospital Management System → Laboratory Tests → Lab Test Request
 ---
 # Clinical Orders & Results
 
 During a patient's stay (or an outpatient visit), the doctor orders investigations and procedures: lab tests, radiology, surgeries. The system follows a clear pattern — a **request** opened by the doctor, then a **result** entered by the labs or departments, with the two linked together. Every priced line is split between patient and insurer as usual.
+
+None of these screens has buttons of its own. The surgery documents are followed end to end on [The Surgery Lifecycle](./hms-surgery-lifecycle.md).
+
+| Screen | Menu | Its own buttons |
+|---|---|---|
+| **Lab Test Request** | Hospital Management System → Laboratory Tests → Lab Test Request | None |
+| **Laboratory Test Result** | Hospital Management System → Laboratory Tests → Laboratory Test Result | None |
+| **Radiology Request** | Hospital Management System → Radiology → Radiology Request | None |
+| **Radiology Result** | Hospital Management System → Radiology → Radiology Result | None |
+| **Surgery Request** | Hospital Management System → Surgeries → Surgery Request | None |
+| **Surgery Reservation** | Hospital Management System → Surgery Package Deal → Surgery Reservation | None |
+| **Surgery Approval** | Hospital Management System → Documents → Surgery Approval | None |
+| **Blood Bank Return** | Hospital Management System → Blood Banks → Blood Bank Return | None |
 
 ## Lab tests: request then result
 

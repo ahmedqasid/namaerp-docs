@@ -108,7 +108,7 @@ One piece of the design surprises reviewers often enough to be worth spelling ou
                               Business Requests view)
 ```
 
-This is what keeps saving fast under load, and it is what makes recovery possible: if an effect fails — a closed period, a missing account, a configuration gap — the document is not lost and the user is not blocked. An administrator sees the failure, fixes the cause, and reprocesses. For the operational side of this, see [Scheduled Tasks](../platform/scheduled-tasks.md) and the [Reprocessing](../admin/reprocessing/index.md) section.
+This is what keeps saving fast under load, and it is what makes recovery possible: if an effect fails — a closed period, a missing account, a configuration gap — the document is not lost and the user is not blocked. An administrator sees the failure, fixes the cause, and reprocesses. For the operational side of this, see [Scheduled Tasks](../platform/automation-and-rules/scheduled-tasks.md) and the [Reprocessing](../admin/reprocessing/index.md) section.
 
 Alongside these queued effects, the same background machinery runs **scheduled tasks**: recurring documents, notification sweeps, cost recalculation runs, integration polling and similar periodic work. They run inside the same Tomcat process — there is no separate job server to deploy.
 
@@ -130,7 +130,7 @@ Nama ERP rarely lives alone, and the integration surface is deliberately narrow 
 - A **REST API** for reading and writing records programmatically — see [Nama ERP REST API](../integration/nama-erp-api.md).
 - **File-based import and export** for bulk loads and periodic exchanges — see [Import and Export](../platform/import-export/index.md).
 - **Built-in connectors** for e-commerce platforms, payment gateways, tax authority e-invoicing, and messaging providers for email, SMS and WhatsApp.
-- **Database-level links** to external systems where that is the only practical route — see [Oracle JDBC Connection](../integration/oracle-jdbc-connection.md).
+- **Database-level links** to external systems where that is the only practical route — see [A Legacy System with No REST API](/integration/system-integration-scenarios.md#Special-Case-A-Legacy-System-with-No-REST-API----Integration-via-Database).
 
 Common patterns and the trade-offs between them are collected in [Integration Scenarios](../integration/system-integration-scenarios.md).
 

@@ -1,4 +1,7 @@
 # Manufacturing Utilities
+
+Two SQL repairs for manufacturing: a production delivery whose cost does not match the cost of the materials issued for it (the cost callback problem), and leftover production movement system entries.
+
 ## Production Delivery Cost Problem (Cost Callback)
 ::: details
 ```sql

@@ -1,14 +1,13 @@
 ---
 title: EATimeAttendanceFromDBImporter
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EATimeAttendanceFromDBImporter
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

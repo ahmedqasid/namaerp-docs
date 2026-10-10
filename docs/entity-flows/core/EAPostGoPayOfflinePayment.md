@@ -1,14 +1,13 @@
 ---
 title: EAPostGoPayOfflinePayment
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAPostGoPayOfflinePayment
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

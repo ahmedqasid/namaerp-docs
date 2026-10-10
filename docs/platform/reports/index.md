@@ -14,6 +14,7 @@ Reports are how you get your data back out of Nama ERP, and printed forms are ho
   <LandingCard icon="📊" title="Jasper Reports Complete Guide" link="/platform/reports/reports-guide.md" details="How reports work in Nama — where they live, parameters, subreports, fonts and how long a report may run." />
   <LandingCard icon="🧩" title="Report and Form Wizards" link="/platform/reports/report-and-form-wizards.md" details="The half both wizards share: data sources, fields, page setup and styles. Read it once and both guides get shorter." />
   <LandingCard icon="🧙" title="Report Wizard Guide" link="/platform/reports/report-wizard-guide.md" details="Build reports fast: pick the main table, choose fields, and add filters — walked through with examples." />
+  <LandingCard icon="🗃️" title="Data Sources" link="/platform/reports/report-data-sources.md" details="A saved query that wizard reports attach to reach figures their main table cannot: fields, parameters, conditions and who uses it." />
   <LandingCard icon="🖨️" title="Printing Form Wizard" link="/platform/reports/printing-form-wizard-guide.md" details="Design your own invoice, delivery note or receipt field by field, without drawing a report file." />
 </LandingGrid>
 

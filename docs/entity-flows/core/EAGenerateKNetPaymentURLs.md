@@ -1,14 +1,13 @@
 ---
 title: EAGenerateKNetPaymentURLs
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGenerateKNetPaymentURLs
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -13,6 +13,17 @@
     "/modules/pos/pos-inventory-operations.md",
     "/modules/pos/pos-reports-and-tools.md",
     "/modules/pos/pos-data-sync.md",
+    "/modules/pos/erp-setup",
+    "/modules/pos/erp-setup/pos-register-setup.md",
+    "/modules/pos/erp-setup/pos-settings-screen.md",
+    "/modules/pos/erp-setup/pos-document-numbering.md",
+    "/modules/pos/erp-setup/pos-shift-close-settings.md",
+    "/modules/pos/erp-setup/pos-document-terms.md",
+    "/modules/pos/erp-setup/pos-security-profiles.md",
+    "/modules/pos/erp-setup/pos-charges-and-returns-settings.md",
+    "/modules/pos/erp-setup/pos-items-and-sync-settings.md",
+    "/modules/pos/erp-setup/pos-screen-and-device-settings.md",
+    "/modules/pos/erp-setup/pos-documents-on-the-server.md",
     "/modules/pos/nama-pos.md",
     "/modules/pos/pos-free-items-claim-and-reconciliation.md",
     "/modules/pos/pos-fingerprint-login.md",
@@ -22,6 +33,10 @@
     "/modules/pos": {
       "ar": "نقاط البيع",
       "en": "Point of Sale"
+    },
+    "/modules/pos/erp-setup": {
+      "ar": "الإعداد على الخادم",
+      "en": "Server-Side Setup"
     }
   }
 }

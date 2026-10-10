@@ -18,6 +18,10 @@ You'll find it under **Manufacturing → Documents → Scrap Receipt** (التص
 Two different things get called "scrap" on a shop floor, and they are recorded in different places. **This document** is for the by-product of making something — offcuts, trimmings, turnings — material that was never going to be the product. **Units that failed quality** are a different matter: those are recorded as defects on [production execution](/modules/manufacturing/production-execution), against the operation where they failed, because the interesting question there is which step is producing the failures.
 :::
 
+::: info Required license
+Scrap receipts are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## The Header
 
 **Book**, **Term** and **Value Date** work as on any document.

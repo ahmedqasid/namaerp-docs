@@ -1,14 +1,13 @@
 ---
 title: EAUseReceiptPaperForEngineOrChassisItems
 module: srvcenter
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUseReceiptPaperForEngineOrChassisItems
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -297,6 +297,130 @@ Template Configuration:
 - Payment Date at Day: 1 (First of month)
 ```
 
+### السيناريو الخامس: عشرة أقساط شهرية ودفعتان إضافيتان
+
+عميل يريد سداد فاتورة على اثني عشر قسطًا: عشرة أقساط شهرية بنسبة 5% لكل قسط، وقسطان إضافيان بنسبة 25% في الشهرين الخامس والعاشر.
+
+```
+Template Configuration:
+- Payment Type: Variable Payments
+- Details (each line a Percentage, period in Months):
+  Lines 1-10: 5% at months 1, 2, ... 10
+  Line 11: 25% at month 5
+  Line 12: 25% at month 10
+```
+
+تُكوّن الأسطر الشهرية العشرة 50%، والدفعتان الإضافيتان الـ50% الباقية، فيصبح المجموع 100%. ويتولد في كلٍّ من الشهرين 5 و10 **قسطان** بالتاريخ نفسه — واحد بنسبة 5% وآخر بنسبة 25%.
+
+::: details ملف JSON للاستيراد المباشر
+```json
+{
+  "paymentType": "VariablePayments",
+  "roundingType": "CEILING",
+  "details": [
+    {
+      "paymentPeriod": {
+        "value": 1,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 2,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 3,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 4,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 5,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 6,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 7,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 8,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 9,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 10,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 5
+    },
+    {
+      "paymentPeriod": {
+        "value": 5,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 25
+    },
+    {
+      "paymentPeriod": {
+        "value": 10,
+        "uom": "Month"
+      },
+      "paymentType": "Percentage",
+      "paymentPercent": 25
+    }
+  ]
+}
+```
+
+افتح نموذج جدولة دفعات جديدًا، ثم **المزيد ← Import Into Current Record** والصق الملف — راجع [الاستيراد إلى السجل المفتوح أمامك](/ar/platform/import-export/importing-records.md#lstyrd-l-lsjl-lmftwH-mmk).
+:::
+
 ## مستندات الدفع ومتابعة الأقساط
 
 بمجرد إنشاء جداول الدفع وتطبيقها على مستندات المبيعات، يوفر النظام متابعة شاملة عبر مستندات الدفع التي يمكنها تمييز الأقساط على أنها مدفوعة.

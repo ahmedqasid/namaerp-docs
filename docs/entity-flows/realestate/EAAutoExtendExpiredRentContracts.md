@@ -1,14 +1,13 @@
 ---
 title: EAAutoExtendExpiredRentContracts
 module: realestate
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAAutoExtendExpiredRentContracts
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

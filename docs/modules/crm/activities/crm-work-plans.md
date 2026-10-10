@@ -152,6 +152,19 @@ ordinary same-day line the two agree to within a few seconds. For a line that cr
 grid shows nonsense until you save, and then it corrects itself. Do not chase the difference — save
 and read the stored value.
 
+## Actions on this screen
+
+All of them are described in context above; this is the list in one place.
+
+- **Generate Documents From Selected Lines** (*إنشاء مستندات من السطور المختارة*) — creates and
+  commits one Call or Visit per ticked line, under the books named on the term. The plan must be
+  **saved** first. See [Generating the documents](#Generating-the-documents).
+- **Choose All Lines** (*إختيار كل السطور*), **Do Not Choose All Lines** (*عدم إختيار كل السطور*) and
+  **Reverse Selected Lines** (*عكس السطور المختارة*) — tick, untick or invert the Selected column on
+  every row. They change the screen only; save afterwards.
+- **Start** (*بدء*) and **End** (*إنهاء*) — row buttons on the Details grid that stamp the current
+  date and time into the row's from or to columns, overwriting the planned times.
+
 ## What the system will not stop you doing
 
 Nothing beyond the term's books. The From and To dates are not validated against each other or

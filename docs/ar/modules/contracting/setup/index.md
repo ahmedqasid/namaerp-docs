@@ -10,6 +10,7 @@
   - [المراحل ومناطق العمل](/ar/modules/contracting/setup/contracting-phases-and-work-areas.md)
   - [نماذج العقود](/ar/modules/contracting/setup/contracting-contract-templates.md)
   - [المقاولون والاستشاريون](/ar/modules/contracting/setup/contracting-contractors-and-consultants.md)
+  - [طلب تعديل بيانات المقاول (Modify Contractor Info Request)](/ar/modules/contracting/setup/contracting-modify-contractor-info-request.md)
   - [وحدات القياس والمهام والملفات المساعدة](/ar/modules/contracting/setup/contracting-lookups.md)
 
 </div>

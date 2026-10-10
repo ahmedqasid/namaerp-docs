@@ -110,6 +110,10 @@ price. It is the fastest answer to "what have we signed on this site?".
 The full anatomy of the contract itself is in
 [Project Contracts](/modules/contracting/project-contracting/contracting-project-contract.md).
 
+## Actions on this screen
+
+- **Create Fixed Asset Creation Doc** — opens a new, unsaved fixed-asset creation document in a pop-up, with one line already pointing at this project, for capitalising a project you built for yourself. The project must be saved first.
+
 ## Tower A
 
 Here is the project record that the rest of this documentation set uses.

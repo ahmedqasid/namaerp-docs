@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceAddItemToLinker
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceAddItemToLinker
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -1,14 +1,13 @@
 ---
 title: EALiptisSetComponentFromAnotherWithMax
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EALiptisSetComponentFromAnotherWithMax
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

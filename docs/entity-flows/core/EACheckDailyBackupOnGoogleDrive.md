@@ -1,14 +1,13 @@
 ---
 title: EACheckDailyBackupOnGoogleDrive
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACheckDailyBackupOnGoogleDrive
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

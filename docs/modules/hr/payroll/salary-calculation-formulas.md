@@ -29,6 +29,40 @@ When a formula is **Related To Performance Indicator**, its **Applicability Meth
 | Daily | يومي | The indicator is factored in **per working day**. |
 | Periodic | فتري | The indicator's **whole-month total** is used once. |
 
+A Daily formula must use the **Sections** calculation method (below); saving a Daily formula set to One Percentage is refused.
+
+### Factor Value and Performance Factor: what gets multiplied
+
+Two more settings decide how a performance-indicator formula turns the indicator's figure into money. Both are required on this formula type.
+
+The **Factor Value** field (حساب المعامل) decides whether the indicator's own figure takes part in the calculation, or only whether the line applied:
+
+| Factor Value | Arabic | With **Sections** | With **One Percentage** |
+|---|---|---|---|
+| Factor Only | المعامل فقط | Each calculation line gives its rate (Multiply By ÷ Divide On) **× the number of times the line applied**: for a Daily formula, the number of days that matched it. The size of the figure on each day doesn't matter. | The first matching line gives its rate **× 1**. The indicator's figure is only used to pick the line. |
+| Factor And Value | المعامل و قيمة المؤشر | Each line gives its rate **× the sum of the indicator's figures on the days it applied**, after adding the line's **Added Value** to each day's figure. | The first matching line gives its rate **× the indicator's total**. |
+
+The **Performance Factor** (معدل الأداء) is then multiplied by that result. It sets the base the formula's result is a fraction of:
+
+| Performance Factor | Arabic | Multiplies the result by |
+|---|---|---|
+| Formula Result | ناتج المعادلة | 1. The formula's own number is the amount. |
+| Monthly Basic Salary / Today Basic Salary | الراتب الأساسي الشهري / راتب أساسي اليوم | The basic salary, or the basic salary divided by the days in the month. |
+| Monthly Net Salary / Today Net Salary | الإجمالي الشهري / راتب نهائي اليوم | The salary total, or that total divided by the days in the month. |
+| Percentage Of Specific Components | نسبة من مفردات راتب محددة | The total of the components named on the formula. |
+| Employee Daily Salary | الأجر اليومي للموظف ( عمالة ) | The employee's daily wage. |
+
+::: tip Worked example: the same lateness, two ways
+An employee is late on three days in the month: 10, 5 and 12 minutes. The lateness indicator is **Daily**, the method is **Sections**, and one line covers 1 to 15 minutes.
+
+- To deduct **a quarter day for each late day**, set **Factor Only**, Multiply By 1, Divide On 4, and Performance Factor **Today Basic Salary**. The line applies on 3 days, so the deduction is 3 × ¼ = **¾ of a day's basic salary**. It would be the same if each delay were one minute.
+- To deduct **by the minute** against an 8-hour day, set **Factor And Value**, Multiply By 1, Divide On 480, and the same performance factor. The minutes add up to 27, so the deduction is 27 ÷ 480 of a day's basic salary.
+
+If the customer complains that a deduction ignores how long the employee was late, the formula is set to Factor Only. If the customer expected a flat amount per occurrence, it is set to Factor And Value.
+:::
+
+![A lateness formula related to a performance indicator, with Factor Value and Performance Factor](../../../ar/modules/hr/images/payroll/calc-formula-factor-value-en.png)
+
 ### Calculation method: one rate, or progressive brackets
 
 | Calc Method | Arabic | Behavior |
@@ -45,6 +79,17 @@ With **Sections**, the formula's **calculation lines** define the brackets, and 
 - **Vacation / Holiday / Weekend factors** — separate multipliers applied when the day in question falls on a vacation, an official holiday, or a weekly rest day.
 
 The whole formula can also be clamped with an overall **Minimum Formula Value** / **Maximum Formula Value**, regardless of what the brackets compute.
+
+#### What an empty bound means
+
+An empty bound on a calculation line never blocks the line. It removes the limit on that side:
+
+- **Range**, **Experience Days** and **Occurrence Count**: an empty **From** has no lower limit. An empty **To** has no upper limit, and so does a **To** of **0**. A line set to "from 3, to 0" therefore means "3 or more", not "nothing". There is no way to write "up to zero".
+- **Experience Days** left empty on both sides applies to every employee, however long they have worked.
+- **Multiply By** and **Divide On** left empty count as 1.
+- A day whose indicator figure is zero never matches any line, whatever the range says. A line can't be used to pay or deduct on "zero" days.
+
+Occurrence Count is counted **per line**, on every day the line's range and criteria matched. A single line with **Occurrence Count From = 3** and an empty **To** therefore ignores the first two matching days and applies from the third onward. You don't need a second line to cover the first two days.
 
 ::: tip A worked example: a seniority bonus by brackets
 Suppose a component pays a **seniority bonus** as a percentage of basic salary, defined with **Sections** using the **Experience Days** range instead of a value range:
@@ -84,9 +129,25 @@ Each collected employee gets a **Details** line with: **Daily Wage** (days count
 
 ![Daily Salary document, with its collected employee lines](../../../ar/modules/hr/images/payroll/daily-salary-en.png)
 
+## Actions on this screen
+
+**On the Daily Salary:**
+
+- **Collect Employees** — rebuilds the **Details** grid with one line per employee who matches the employee range **and** has **Daily Wage Work** (العمل بأجر يومى) ticked on the employee record. Monthly-paid staff never come in, however wide the range. Pressing it again replaces the lines, so collect first and type the days, hours and amounts afterwards.
+
+The **Component Calculation Formula** screen has no buttons of its own.
+
 ## How it's processed / what it posts
 
 Unlike a Salary Component — which relies entirely on the component's own account lines carried through a monthly [Salary Document](salary-documents.md) — **Daily Salary posts its own accounting effect directly**. Its document term configures separate debit and credit sides for the Daily Wage Total, the Overtime Total, Other Additions, Deduction Total, and Other Deductions, each posted as its own background business request. If a Daily Salary document's processing fails, it is retried the same way as any other business request, from the Business Requests view.
+
+## Messages you may see
+
+| Message | Why | What to do |
+|---|---|---|
+| *Calculation method must be percentages not one percent if you are using daily applicability* | The formula's **Applicability Method** is Daily but its **Calculation Method** is One Percentage. A Daily formula judges each day separately, which only the Sections method does. This message has no Arabic string, so it stays in English on Arabic screens. | Switch the Calculation Method to **Sections** and put the rate on a calculation line. Use Periodic instead if a single figure for the whole month is what you want. |
+| *Employee Account Type (For Forumla Balance Type) Can not Be Empty* — «لا يمكن  ترك نوع حساب الموظف(لنوع معادلة الرصيد) فارغ» | The Formula Type is one of the **Balance From Employee Account** types, but the formula doesn't say which of the employee's accounts to read. | Fill **Employee Account Type (For Formula Balance Type)** on the formula. |
+| *The formula {0} has recursion - in line {1} of formula {2}* | A **Composite Formula** includes itself, directly or through another composite formula in its **Formulas** grid, so it could never finish calculating. This message has no Arabic string, so it stays in English on Arabic screens. | Remove the line named in the message, or point it at a formula that doesn't lead back to this one. |
 
 ## Related pages
 

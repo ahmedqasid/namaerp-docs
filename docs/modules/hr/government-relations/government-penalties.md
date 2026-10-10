@@ -120,6 +120,10 @@ employee, period and violation lines, and a computed **Financial Penalty Total**
 
 ![Penalty Document](../../../ar/modules/hr/images/government-relations/ho-penalty-document-en.png)
 
+## Actions on this screen
+
+None of these screens — **Violation List**, **Violation Item**, **Penalty Request** and **Penalty Document** — has buttons of its own; you fill them in and save.
+
 ## How it's processed / what it posts
 
 This is the accounting point that sets government penalties apart from the rest of the

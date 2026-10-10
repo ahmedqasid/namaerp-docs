@@ -1,5 +1,7 @@
 # أدوات التصنيع (Manufacturing Utilities)
 
+إصلاحان بـ SQL للتصنيع: تسليم إنتاج لا تطابق تكلفته تكلفة المواد المصروفة له (مشكلة Cost Callback)، والقيود النظامية العالقة لحركات الإنتاج.
+
 ## مشكلة تكلفة تسليم الإنتاج (Production Delivery Cost Problem - Cost Callback)
 ::: details
 ```sql

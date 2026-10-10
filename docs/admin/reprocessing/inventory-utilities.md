@@ -1,4 +1,7 @@
 # Inventory Related Utility Queries
+
+SQL queries for diagnosing and repairing inventory data: reopening a stock taking, allowing overdraft for all items and closing it again, changed base units, the dates an overdraft happened, item dimension quantities, expiry dates and lots, cost revaluation, and leftover inventory and ledger requests.
+
 ## Re-Open Stock Taking for updates after editing
 ::: details
 ```sql

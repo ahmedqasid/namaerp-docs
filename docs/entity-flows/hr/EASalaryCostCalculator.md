@@ -1,14 +1,13 @@
 ---
 title: EASalaryCostCalculator
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASalaryCostCalculator
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

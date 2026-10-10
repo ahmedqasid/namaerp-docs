@@ -70,7 +70,7 @@ notifications, scheduled jobs, the audit trail and the layout editor are written
 identically in every module. A sales invoice, an employee file and a maintenance request all sit in
 the same frame and carry the same toolbar; what differs between them is which buttons are switched on,
 not which buttons exist. That frame is documented once in
-[Buttons on every screen](/platform/screen-buttons) — learn it there and you have learned the controls
+[Buttons on every screen](/platform/everyday-tools/screen-buttons) — learn it there and you have learned the controls
 of the entire system.
 
 ## The idea that unlocks the rest: the document lifecycle
@@ -89,7 +89,7 @@ A draft does not usually own a real document number either. It gets a provisiona
 series, marked so you can recognise it: **a draft's code ends in `@draft`**. That keeps the real number
 series free of gaps left behind by drafts nobody ever finished. The consequence catches people out —
 the number written on the draft is *not* the number the document will end up with. (An installation
-can choose to hand drafts real numbers instead; see [Drafts and their numbers](/platform/document-books).)
+can choose to hand drafts real numbers instead; see [Drafts and their numbers](/platform/documents-and-records/document-books).)
 
 Because a draft is not finished, other documents cannot normally point at it. That is why a
 half-finished order sometimes cannot be found in a lookup: it exists, but it is still a draft.
@@ -103,10 +103,10 @@ fixed order:
    refused with *"The record was modified by someone else, please refresh and re-enter your changes"* —
    your edits are not lost, but you have to reload and redo them onto the current version.
 2. **It enforces the rules.** Required fields, the validation rules configured for this record type
-   (see [Criteria Based Validation](/platform/criteria-based-validation)), and whatever
+   (see [Criteria Based Validation](/platform/governance/criteria-based-validation)), and whatever
    [entity flows](/platform/entity-flows/introduction-to-entity-flows) are attached to saving.
 3. **It checks the period.** The document's value date decides its fiscal period, and if that period is
-   closed the save is rejected outright — see [Fiscal Period Control](/platform/fiscal-period-control-guide).
+   closed the save is rejected outright — see [Fiscal Period Control](/platform/governance/fiscal-period-control-guide).
 4. **It gives the document its real number** from its book's series, replacing the `@draft` code.
 5. **It stores the document** and hands you the screen back.
 6. **It queues the consequences** rather than doing them while you wait.
@@ -140,7 +140,7 @@ regenerates the effects rather than adding to them. See
 Two things deliberately freeze a committed document:
 
 - **Revising** stamps it as checked by a named person on a date and locks it — see
-  [Revise and unrevise](/platform/revise-and-unrevise). A revised document cannot be edited, deleted or
+  [Revise and unrevise](/platform/governance/revise-and-unrevise). A revised document cannot be edited, deleted or
   cancelled until someone unrevises it.
 - **Printing and approval** can freeze it too, if the security profile says so: *Prevent Edit/Delete
   After Print* and *Prevent Edit/Delete After Approval* are exactly what they sound like.
@@ -148,7 +148,7 @@ Two things deliberately freeze a committed document:
 ### Taking a committed document back
 
 There is no button that turns a committed document back into a draft. What there is instead is a
-**[Document Cancel Document](/platform/document-cancel-document.md)** — a small document of its own whose whole job is to name one or more
+**[Document Cancel Document](/platform/documents-and-records/document-cancel-document.md)** — a small document of its own whose whole job is to name one or more
 committed documents and cancel them.
 
 Committing it reverses their effects and marks each one **Cancelled**. The cancelled document keeps its
@@ -205,9 +205,9 @@ change which month it counts in; that is not a cosmetic edit. The detail is in
 - **The vocabulary.** Almost every page on this site assumes you already know what a term, a book, a
   subsidiary or a dimension is. They are all defined, in both languages, in the
   [Glossary of Nama ERP terms](/getting-started/nama-erp-glossary).
-- **The controls.** [Buttons on every screen](/platform/screen-buttons) — the toolbar, the More menu and
+- **The controls.** [Buttons on every screen](/platform/everyday-tools/screen-buttons) — the toolbar, the More menu and
   the grid buttons that every screen in the system shares.
-- **Numbering.** [Document books](/platform/document-books) — where a document's number comes from and
+- **Numbering.** [Document books](/platform/documents-and-records/document-books) — where a document's number comes from and
   what a book decides on its behalf.
 - **Behaviour.** [Supply Chain Document Terms](/modules/supplychain/document-terms/) — the record that decides what a
   document type actually does when it is saved.

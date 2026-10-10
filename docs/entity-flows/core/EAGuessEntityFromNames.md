@@ -1,14 +1,13 @@
 ---
 title: EAGuessEntityFromNames
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAGuessEntityFromNames
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

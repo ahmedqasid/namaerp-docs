@@ -77,7 +77,7 @@ record's own screen, which only marks the form as changed and waits for you to s
 
 What being retired actually does, which settings control who can still see and use such records,
 and how to tell one at a glance, are all covered in
-[Preventing a Record From Being Used](/platform/prevent-usage).
+[Preventing a Record From Being Used](/platform/everyday-tools/prevent-usage).
 
 Both actions stop at the first record they cannot process, and the records after it are left alone.
 
@@ -127,7 +127,7 @@ these over a large selection.
 
 ## See also
 
-- [Preventing a Record From Being Used](/platform/prevent-usage) — what Prevent Usage does
+- [Preventing a Record From Being Used](/platform/everyday-tools/prevent-usage) — what Prevent Usage does
 - [Bulk Edit](/platform/list-views/bulk-edit) — changing the same fields on a whole selection
 - [Importing and Exporting Records](/platform/import-export/) — the export options in full
 - [Quick Filters in List Views](/platform/list-views/quick-filters) — narrowing the list down

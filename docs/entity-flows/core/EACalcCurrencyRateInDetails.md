@@ -1,13 +1,12 @@
 ---
 title: EACalcCurrencyRateInDetails
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EACalcCurrencyRateInDetails
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

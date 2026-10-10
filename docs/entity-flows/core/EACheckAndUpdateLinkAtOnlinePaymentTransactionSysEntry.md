@@ -1,13 +1,12 @@
 ---
 title: EACheckAndUpdateLinkAtOnlinePaymentTransactionSysEntry
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EACheckAndUpdateLinkAtOnlinePaymentTransactionSysEntry
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -52,7 +52,7 @@ and the value either matches the pattern or it is rejected.
 | Allow Alpha | Untick to forbid anything that is not a digit — useful for numeric-only identifiers. |
 | Prefix | The value must start with this text. |
 | Suffix | The value must end with this text. |
-| Criteria Definition | The rule only fires for records that match this saved [Criteria Definition](/platform/criteria-definitions) — see below. |
+| Criteria Definition | The rule only fires for records that match this saved [Criteria Definition](/platform/automation-and-rules/criteria-definitions) — see below. |
 | Apply When Query | The rule only fires when this query matches — see below. |
 | Letter Case Type | `All`, `Lower Case`, or `Upper Case`. Rejects values containing the wrong case. |
 | Text Language | `All`, `Only Arabic`, or `Only English`. Rejects values written in the other script. |
@@ -121,8 +121,8 @@ want, but it does mean a rule introduced today can block a routine import that h
 years, so it is worth testing an import once after adding a strict rule.
 
 For help building the criteria and the query, see
-[Criteria Based Validation](/platform/criteria-based-validation) and
-[Criteria from Text Parser](/platform/text-criteria-guide).
+[Criteria Based Validation](/platform/governance/criteria-based-validation) and
+[Criteria from Text Parser](/platform/automation-and-rules/text-criteria-guide).
 
 ## Field Allowed Values
 
@@ -316,7 +316,7 @@ For how the terminals fit into the wider picture, see
 - [Field Appearance and Display](/platform/fields-and-entities-settings/fields-settings-field-appearance) — the cosmetic siblings of these grids, which are *not* enforced on save.
 - [Relaxing Built-in Restrictions](/platform/fields-and-entities-settings/fields-settings-relaxing-restrictions) — the opposite direction: loosening rules the system applies by default.
 - [Field, Page, and List View Security](/platform/security/field-page-listview-security) — server-enforced read-only and hidden fields, for when Disabled Fields is not strong enough.
-- [Criteria Based Validation](/platform/criteria-based-validation) — building the criteria that make a Field Formats rule conditional.
-- [Criteria from Text Parser](/platform/text-criteria-guide) — writing the query behind Apply When Query.
+- [Criteria Based Validation](/platform/governance/criteria-based-validation) — building the criteria that make a Field Formats rule conditional.
+- [Criteria from Text Parser](/platform/automation-and-rules/text-criteria-guide) — writing the query behind Apply When Query.
 - [Importing Records](/platform/import-export/importing-records) — imported data is checked against these rules too.
 - [Nama POS — Overview](/modules/pos/pos-overview) — how field settings reach the terminals.

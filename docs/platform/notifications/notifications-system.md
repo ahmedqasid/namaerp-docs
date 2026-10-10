@@ -10,7 +10,7 @@ Everything below is the definition screen, in the order the screen presents it. 
 
 ## What fires it
 
-**Notification Entity** names the record type being watched — the sales invoice, the customer, the employee. Alternatively, **Applicable For** casts a wider net without naming a type at all:
+**Approval Entity** names the record type being watched — the sales invoice, the customer, the employee. Alternatively, **Applicable For** casts a wider net without naming a type at all:
 
 | Applicable For | Arabic | Covers |
 |---|---|---|
@@ -34,7 +34,7 @@ Then tick the events. A definition fires on the events you tick and on nothing e
 | Use With Processing Failure | مع فشل المعالجه | Manually | يدوياً |
 
 ::: warning Two rules the screen enforces on save
-A definition with **no event ticked at all** is rejected — the system answers *"You must select with insert, update, or delete,… etc"*. And a definition that names neither a **Notification Entity** nor an **Apply Also To** nor an **Applicable For** is rejected too: it has nothing to watch.
+A definition with **no event ticked at all** is rejected — the system answers *"You must select with insert, update, or delete,… etc"*. And a definition that names neither an **Approval Entity** nor an **Apply Also To** nor an **Applicable For** is rejected too: it has nothing to watch.
 :::
 
 Two of those events are how administrators hear about trouble rather than about business. **Use With Processing Failure** fires when a document's [business request](/platform/background-processing/business-requests) fails, and **Use With Replication Failure** fires when a record fails to reach another site. Point them at the systems administrator and the first person to know about a stuck ledger is the person who can fix it.
@@ -83,15 +83,7 @@ The pickers that choose a recipient only offer the record types an administrator
 
 **Do Not Notify Author** (عدم تنبيه محرر السجل) drops the person who caused the event from the recipient list — most people do not need to be told what they just did.
 
-### Recipients the system removes on its own
-
-This is the answer to most "why didn't they get it?" questions. Before sending, the engine silently drops:
-
-- any **user prevented from login**;
-- any **employee whose state is Resigned, Dismissed, Pension or Suspended**, and any employee all of whose users are prevented from login;
-- a **user** who is in the list while their **employee** is in it too, so nobody is messaged twice.
-
-The employee-state part can be switched off with **Ignore Employee State When Sending Notifications** in [global settings](/platform/global-config/global-config-notifications), which leaves only the prevented-from-login rule. Nothing is written on the document when a recipient is dropped this way; the message simply goes to one person fewer.
+Not everyone on the list is actually messaged. The system silently drops former employees and blocked users. See [Why a notification was not delivered](#Why-a-notification-was-not-delivered).
 
 ### Delegation: reaching the stand-in
 
@@ -104,9 +96,9 @@ The delegate joins the recipient list itself, which means they are reached throu
 Two switches control the behaviour:
 
 - **Do Not Apply Delegation** (عدم تطبيق التفويض) on the notification definition turns delegation off for that definition alone. Use it for messages that must never leave the intended person: salary changes, disciplinary matters, anything an employee would not want a colleague reading.
-- **Do Not Send Notifications To Delegated Employee** in [global settings](/platform/global-config/global-config-notifications) turns the behaviour off for the whole installation.
+- **Do Not Send Notifications To Delegated Employee** in [Global Configuration](/platform/global-config/global-config-notifications) turns the behaviour off for the whole installation.
 
-Notifications raised by [scheduled tasks](/platform/scheduled-tasks) follow the same rule. A scheduled task has no per-record switch, so only the global setting applies to it.
+Notifications raised by [scheduled tasks](/platform/automation-and-rules/scheduled-tasks) follow the same rule. A scheduled task has no per-record switch, so only the global setting applies to it.
 
 ::: tip Notifications that were already waiting
 Delegation covers notifications raised *while* the period is active; it does not reach back to the messages that piled up before the delegation was created. For those, open the Delegation document and use **More → Move Notifications To Delegated Employee**. Every unread notification of the delegator whose date falls inside the delegation period is transferred to the stand-in and stamped with **Delegated From**.
@@ -171,16 +163,42 @@ Two more timing-related fields:
 - **Flush Before Notification** writes pending changes to the database before the templates are rendered. If the definition uses a **Query**, you want this on — otherwise the query may not see the very record that triggered the message. The screen warns you about exactly that when you save a definition that has a query with the switch off.
 - **Notify In Sites** (التنبيه في) restricts the definition to named replication sites, so a head-office rule does not fire again at every branch.
 
-::: tip Nothing is being sent at all
-Before digging into a single definition, check the server side: e-mails and SMS only leave a server whose **Server Id** matches the **Send Mails And SMS Only From Servers** list in [global settings](/platform/global-config/global-config-notifications). A test server cloned from production and left carrying production's server id is the classic cause of "the customer received two copies".
-:::
+## Why a notification was not delivered
+
+"The definition is set up, but she never got it" is the most common notification ticket. Work down the list in order. It starts at the definition, moves to the recipient and ends at the server.
+
+**1. The definition never fired.** Check that **Inactive** is not ticked, that the event is ticked, and that every filter you filled in agrees with the record. Then check that no definition at a higher **Priority** matched first (see the priority box above). A **Manually** definition never fires by itself, and **Notify In Sites** may limit the definition to another site.
+
+**2. The system removed the recipient.** Before anything is created, the system silently drops these recipients:
+
+- a user whose **Prevent Login** is ticked;
+- an employee whose **Employee State** is Resigned, Dismissed, Pension or Suspended, and a user linked to such an employee;
+- an employee all of whose users have **Prevent Login** ticked.
+
+These checks apply only to users and employees. A customer, supplier or typed-in address is never dropped. **Ignore Employee State When Sending Notifications**, on the **Notifications And Messaging** tab of [Global Configuration](/platform/global-config/global-config-notifications), switches the employee-state rule off for the whole installation. The Prevent Login rule still applies. A dropped recipient leaves no trace on the record or in Pending Tasks. The only record is a line in the server log that reads *Notification … was not sent to … because …*. **Do Not Notify Author** also removes the person who caused the event, and a user who is listed alongside their own employee gets one copy, not two.
+
+**3. The recipient has no address for that channel.** An e-mail is queued only for a recipient with an e-mail address on file, and an SMS only for one with a mobile number. If the address is missing, nothing is queued and no error appears. The in-app notification still arrives, which is why "he saw it in the bell but got no e-mail" usually means an empty e-mail field.
+
+**4. The record arrived by replication.** E-mails and SMS are not raised for a record that is being saved by replication from another site. The site where the record was entered sends them.
+
+**5. The message is queued but has not left.** Open [Pending Tasks](/platform/background-processing/pending-tasks). **Postponed** means the definition's sending-times grid is holding the message back. **Retry** or **Blocked** come with an **Error Message** column that names the cause. If *every* task is stuck, check **Send Mails And SMS Only From Servers (CSV)** in [Global Configuration](/platform/global-config/global-config-notifications). E-mail, SMS, WhatsApp, Telegram and mobile push only leave a server whose server id is in that list. When the list is empty, each task fails with:
+
+*Server ID is not defined*
+
+When this server's id is not in the list, each task fails with:
+
+*Ignoring send email and sms because allowed servers is {0} and server id is {1}*
+
+Neither message has an Arabic translation, so both appear in English on Arabic screens. The reverse also happens: a test server cloned from production that still carries production's server id sends real messages, which is the classic cause of "the customer received two copies".
 
 ## Firing one by hand
 
 Tick **Manually** and the definition stops reacting to events; it waits to be run against a record on demand. There are two ways to run it:
 
 - An [entity action](/platform/entity-flows/introduction-to-entity-flows) — *Run Manual Notification* — takes the definition's **code** as its parameter, so a button or a flow step can send it for the record at hand.
-- A **Bulk Message** runs a manual definition over every record a query returns, which is the tool for "send this to every customer with an overdue balance".
+- A **Bulk Message** is a document whose lines list the recipients by hand — customers, suppliers, employees, contacts. Its **Send** button runs a manual definition set up for Bulk Message once, and the message goes to everyone on the lines. It is the tool for "send this to these forty customers".
+
+How to set up and send a Bulk Message is in [Bulk Messages, WhatsApp Messages and Internal Chat](/platform/notifications/bulk-messages-whatsapp-and-chat).
 
 Because a manual definition never fires on its own, it is also the safe way to build and test a template on a live system.
 

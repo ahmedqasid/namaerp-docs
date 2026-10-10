@@ -1,6 +1,7 @@
 ---
 title: EAForceUsersToChangePassword
 module: core
+entities: [EntityFlow]
 ---
 
 

@@ -14,6 +14,7 @@ title: التقارير والنماذج المطبوعة
   <LandingCard icon="📊" title="دليل Jasper Reports الشامل" link="/ar/platform/reports/reports-guide.md" details="كيف تعمل التقارير في نما — أين تعيش، والمدخلات، والتقارير الفرعية، والخطوط، ومدة التشغيل المسموحة." />
   <LandingCard icon="🧩" title="أداتا إنشاء التقارير ونماذج الطباعة" link="/ar/platform/reports/report-and-form-wizards.md" details="النصف المشترك بين الأداتين: مصادر البيانات والحقول وإعداد الصفحة والتنسيقات. اقرأه مرة يقصُر الدليلان." />
   <LandingCard icon="🧙" title="دليل أداة إنشاء التقارير" link="/ar/platform/reports/report-wizard-guide.md" details="ابنِ التقارير بسرعة: اختر الجدول الرئيسي وحدد الحقول وأضف الفلاتر — مشروحًا بالأمثلة." />
+  <LandingCard icon="🗃️" title="مصادر البيانات" link="/ar/platform/reports/report-data-sources.md" details="استعلام محفوظ تربطه تقارير الأداة لتصل إلى أرقام لا يبلغها جدولها الرئيسي: الحقول والمدخلات والشروط ومن يستخدمه." />
   <LandingCard icon="🖨️" title="أداة إنشاء نماذج الطباعة" link="/ar/platform/reports/printing-form-wizard-guide.md" details="صمّم فاتورتك أو إذن تسليمك أو سند قبضك حقلًا حقلًا، دون رسم ملف تقرير." />
 </LandingGrid>
 

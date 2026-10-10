@@ -1,14 +1,13 @@
 ---
 title: SQLImporter
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # SQLImporter
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

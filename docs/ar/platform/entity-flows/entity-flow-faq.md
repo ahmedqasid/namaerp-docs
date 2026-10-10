@@ -86,7 +86,7 @@ details.n3=details.project.n2
 details.n4=sql(select {details.n3} * {totalActualValue} / 100)
 ```
 
-ثم تم استخدام قيمة `details.n4` لإضافة تأثير محاسبي عبر المسار `EAAddAccountingEffect` بالشكل التالي:
+ثم تم استخدام قيمة `details.n4` لإضافة تأثير محاسبي عبر المسار [`EAAddAccountingEffect`](/entity-flows/accounting/EAAddAccountingEffect) بالشكل التالي:
 
 ```
 details.n4=DrEffect,CrEffect
@@ -228,7 +228,7 @@ details.n4=sql(select {details.n3} * {details.price.actualVal} / 100)
 
 ## إذا كنت ترغب في إنشاء مسار كيان يقوم بجلب سعر بيع الصنف من قائمة الأسعار وتخزينه في الحقل `n1` ضمن سطور إذن التوريد المخزني، فكيف يتم ذلك؟
 
-يمكنك تنفيذ هذا الطلب من خلال استخدام **مسار كيان** من النوع `EAFieldsValuesCalculator` مع الدالة `itemprice` التابعة لمكتبة `tempo`، وذلك بالشكل التالي:
+يمكنك تنفيذ هذا الطلب من خلال استخدام **مسار كيان** من النوع [`EAFieldsValuesCalculator`](/entity-flows/core/EAFieldsValuesCalculator) مع الدالة `itemprice` التابعة لمكتبة `tempo`، وذلك بالشكل التالي:
 
 ```
 details.n1=tempo({itemprice(itemIdOrCode=details.item.item)})

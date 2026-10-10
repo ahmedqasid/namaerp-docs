@@ -242,6 +242,12 @@ A few consequences worth stating plainly:
   business request that fails. Power users find it in the Business Requests list view, fix the term,
   and use More > Reprocess. Nothing is lost.
 
+## Actions on this screen
+
+The standard-term screen itself has no buttons. Its **list view** has one, in the **More** menu:
+
+- **Update Conditions From Conditions Group** — for every standard term you select in the list, re-copies the condition lines from the term's conditions group and saves the term. Select rows first, or you are asked to.
+
 ## Where a Term Goes Next
 
 Every term line anywhere in the module is required to point at a standard term, which makes this

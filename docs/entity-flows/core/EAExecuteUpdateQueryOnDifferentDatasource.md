@@ -1,14 +1,13 @@
 ---
 title: EAExecuteUpdateQueryOnDifferentDatasource
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAExecuteUpdateQueryOnDifferentDatasource
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

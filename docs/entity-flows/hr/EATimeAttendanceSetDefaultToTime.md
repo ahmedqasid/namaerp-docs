@@ -1,14 +1,13 @@
 ---
 title: EATimeAttendanceSetDefaultToTime
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EATimeAttendanceSetDefaultToTime
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

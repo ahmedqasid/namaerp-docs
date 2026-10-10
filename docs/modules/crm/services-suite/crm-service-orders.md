@@ -18,7 +18,7 @@ Sales Quotation ──manual──▶ Sales Order ──manual──▶ Contract
                                                       ▼
                                                   Work Plans
                                                       │
-                                                      │ button: Generate Orders
+                                                      │ button: Generate Service Orders
                                                       ▼
    Notice ──manual (From Document)──────────────▶ Service Order
                                                       │
@@ -97,13 +97,13 @@ A work plan has **no accounting and no inventory effect** — it is a calendar w
 
 ## Generating the Orders
 
-Open a work plan and press **Generate Orders** (إنشاء أوامر). The book and term for the new orders come from the work plan's document term.
+Open a work plan and press **Generate Service Orders** (إنشاء أوامر خدمة). The book and term for the new orders come from the work plan's document term.
 
 Lines are grouped by **(expected date, employee, building)** and one service order is created per group. `SWP-0011` holds two dates across three buildings, so it produces six orders, `SO-0058` to `SO-0063`. Each order gets its value date from the line's expected date, its Service Contract from the work plan's From Document, and the header service, task template, technician, maintenance group, contact, customer, warranty fields and price classifiers copied down.
 
 Pressing the button again **edits the order it created last time** rather than making a duplicate — the work-plan line remembers which order it produced.
 
-There is a second, tidier route into the same screen: **Gather Services With Same Options** (تجميع الخدمات ذات نفس الخصائص) collapses work-plan lines that share the same options before you generate, which is useful when a contract has many sites on identical schedules.
+To build or rebuild a work plan's lines by hand, tick one or more visit types in the work plan's **Visit Type** group and press **Gather Services With Same Options** (تجميع الخدمات التى لما نفس مواعيد الزيارة). It reads the contract named in From Document and fills the services grid with every contract line that carries any of the ticked visit types, replacing what the grid held. It does nothing if From Document is not a service contract.
 
 ## The Service Order
 
@@ -129,7 +129,7 @@ Total Price Of Spare Parts, Total Price Of Services, Total Price Of Returned Spa
 
 **The status type** is copied from whichever status you choose. If your Maintenance Order Status records have no status type set, the order's lifecycle records nothing useful — that setup detail is covered with the statuses themselves in the maintenance files.
 
-**Moving parts out of stock** is a manual step here. The **Spare Parts Issue** (طلب صرف قطع غيار) and **Tools Issue** (طلب صرف عِدد) buttons on the order open a pre-filled Stock Issue Request that the user must then save; the **Spare Parts Receipt** button does the same for returned parts. Nothing leaves the warehouse when the order is saved. Two cautions: the Tools Issue button appears twice on the screen with the same label, and one of the two actually produces a stock **receipt** request rather than an issue — check the document that opens before you save it. And the receipt variant arrives with an empty *From Document*, so type the link in if you rely on it.
+**Moving parts out of stock** is a manual step here. The **Spare Parts Issue** (طلب صرف قطع غيار) and **Tools Issue** (طلب صرف عِدد) buttons on the order open a pre-filled Stock Issue Request that the user must then save; the **Spare Parts Receipt** button does the same for returned parts. Nothing leaves the warehouse when the order is saved. A receipt request arrives with an empty *From Document*, so type the link in if you rely on it.
 
 ## Ad-Hoc Work: The Service Notice
 
@@ -141,7 +141,7 @@ The notice **has no accounting effect and no inventory effect**. It is a fault l
 
 The execution is what the technician fills in. From the order, **Create Service Execution For All Lines** (إنشاء سند تنفيذ لكل السطور) — or *For Selected Lines* — creates one **Maintenance Service Order Execution** per service line, taking its book and term from the order's document term. If that term has the option to consider task-template tasks switched on, each execution arrives with the checklist already loaded.
 
-`SEX-0090` is the execution for `SRV-0071` on 15 May 2026. The technician presses **Start** (بدء) at 09:00 to stamp the from-time, works through the five checklist lines, records the parts actually used (8 × `SP-FLT-10`), and presses **End** (إنهاء) at 11:30. Net time comes out at 2:30. **Make All Lines Done** ticks the whole checklist in one go, and **Change Status To In Progress** is there for work that spans days.
+`SEX-0090` is the execution for `SRV-0071` on 15 May 2026. The technician presses **Start** (بدء) at 09:00 to stamp the from-time, works through the five checklist lines, records the parts actually used (8 × `SP-FLT-10`), and presses **End** (إنهاء) at 11:30. Net time comes out at 2:30. **Make All Lines Done** ticks the whole checklist in one go. **Change Status To In Progress** sets the sheet's status to *ReOpen* (معاد فتحه), which the order counts as still in progress — use it to reopen a sheet that was ended too early.
 
 **What saving it does:** the execution writes its status back onto the matching line of the parent order, and then sets the order's overall status type — *In Progress* if any line is still in progress or reopened, *Finished* otherwise. Cancelling the execution clears the link and the status from those lines again.
 
@@ -155,10 +155,48 @@ Four documents in this folder — the work plan, the sales order, the sales quot
 
 When the work is done, [Service Invoicing](/modules/crm/services-suite/crm-service-invoicing) is the next and last step — and the one with the most important warning in this folder.
 
+## Actions on these screens
+
+Every button below is pressed by a person; none of them runs on its own. Buttons that create other documents need the record saved first.
+
+**On the Maintenance Service Contract** (main tab):
+
+- **Collect All Services Related To Customer** (*تجميع كل الخدمات المرتبطة بالعميل*) — fills the services grid with every service record whose customer is the contract's customer, replacing what the grid held. Refused with *"Customer must be entered"* if the Customer box is empty.
+- **Generate Services Work Plans** (*إنشاء خطط عمل*) — builds the work plans from the visit types, as described in [Generating the Work Plans](#Generating-the-Work-Plans).
+- On the **service sales order**, the same block adds **Generate Service** (*إنشاء الخدمة*): for every services line that has no service record yet, it creates and saves one, named from the line's service name and carrying its building, floor, room and dimensions, and links it to the line.
+
+**On the Maintenance Service Work Plan:**
+
+- **Gather Services With Same Options** (*تجميع الخدمات التى لما نفس مواعيد الزيارة*) — refills the services grid from the contract in From Document with the lines that carry any of the visit types ticked on the work plan.
+- **Generate Service Orders** (*إنشاء أوامر خدمة*) — creates or updates one service order per expected date, employee and building, as described in [Generating the Orders](#Generating-the-Orders).
+
+**On the Maintenance Service Order:**
+
+- **Create Service Execution For All Lines** (*إنشاء سند تنفيذ لكل السطور*) — creates and saves one execution sheet per services line, or updates the one the line already points to, and marks the order *In Progress*. It needs the execution book and term on the order's document term; otherwise it refuses with *"You must select execution doc book and term in the term {0}"*.
+- **Create Service Execution For Selected Line** (*إنشاء سند تنفيد للسطور المختارة*) — the same, for the services lines you ticked in the **Selected** column only.
+- **Create Service Invoice** (*إنشاء فاتورة خدمة*) — opens a new, unsaved Maintenance Service Invoice in a pop-up with the whole order copied in; see [Service Invoicing](/modules/crm/services-suite/crm-service-invoicing).
+- **Tools Issue** (*طلب صرف عِدد*), on the Tools And Visits tab — opens an unsaved stock request pre-filled with the tools grid and the customer.
+- **Spare Parts Issue** (*طلب صرف قطع غيار*), on the Spare Parts And Services tab — opens an unsaved Stock Issue Request with the spare-parts lines, the customer, the order's issue warehouse and the order as From Document.
+- **Spare Parts Receipt** (*طلب توريد قطع غيار المرتجعة*), on the same tab — opens an unsaved Stock Receipt Request with the returned spare parts and the order's receipt warehouse.
+
+**On the Maintenance Service Order Execution:**
+
+- **Make All Lines Done** (*تفعيل اختيار في جميع السطور*) — ticks Done on every checklist line.
+- **Start** (*بدء*) — fills the status (*In Progress*), the from-date and the from-time, but only the boxes that are still empty.
+- **End** (*انهاء*) — sets the status to *Finished*, stamps today's date and the current time as the end, and calculates the net time. It does nothing if the sheet is already finished.
+- **Change Status To In Progress** (*تغيير الحالة إلى قيد التنفيذ*) — sets the status to *ReOpen* (معاد فتحه).
+- **Create Service Invoice** (*إنشاء فاتورة خدمة*) — opens a new, unsaved Maintenance Service Invoice in a pop-up with the execution's header, its service and its spare parts copied in.
+- **SrvSparePartsIssueRequest** (*طلب صرف قطع غيار*), on the Spare Parts And Services tab — opens an unsaved Stock Issue Request with the spare parts and the customer; choose the warehouse yourself. The English label shows the button's internal name; that is how it ships.
+- **Spare Parts Issue** (*طلب صرف قطع غيار*) — opens an unsaved **Stock Issue** itself, not a request, with the spare parts, the customer, your current dimensions and the execution as From Document. On an Arabic screen this button and the previous one carry the same label; the first one in the block is the request.
+
+The **Maintenance Service Notice** has no buttons of its own beyond the standard toolbar.
+
 ## Messages you may see
 
 | Message | Why | What to do |
 |---|---|---|
+| *Customer must be entered* — «يجب ادخال العميل» | **Collect All Services Related To Customer** was pressed on a contract with no Customer. | Fill the Customer box and press the button again. |
+| *You must select execution doc book and term in the term {0}* — «يجب اختيار دفتر وتوجيه سند التنفيذ في التوجيه {0}» | **Create Service Execution For All Lines** or **For Selected Line** was pressed, but the order's document term names no execution book and term. | Fill the execution book and term on the service order's document term. |
 | *Visit type {0} is after contract end date {1} in line number {2}* — «نوع الزبارة {0} هو بعد تاريخ نهاية العقد {1} في السطر {2}» | *Generate Services Work Plans* computed a first visit date that already falls after the contract's Warranty End Date. | Check the contract's Warranty Start Date and Warranty End Date — they are usually the wrong way round. |
 | *Main Quantity can not be less than the Sold Quantity* — «الكمية الأساسية لا يمكن ان تقل عن الكمية المباعة» | A spare-parts line on the contract has a Quantity lower than the Sold Quantity typed beside it. | Raise the Quantity or correct the Sold Quantity; nothing maintains that column for you. |
 | *The Item {0} in line {1} is repeated* — «البند {0} في السطر {1} مكرر» | The same spare part is listed twice in the contract's Spare Parts And Services grid. | Merge the two rows into one carrying the combined quantity. |

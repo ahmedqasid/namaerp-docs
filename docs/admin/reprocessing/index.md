@@ -23,6 +23,9 @@ The tools on these pages empty and rebuild whole tables. On a large database a f
 | Account balances or customer/supplier ageing are wrong | [Ledger and Debt Ages Reprocessing](/admin/reprocessing/reprocess-ledger-and-debt-ages.md) |
 | You suspect something is wrong but cannot yet name it | [Queries to Check for (and Fix) Cost And Qty Problems](/admin/reprocessing/cost-and-qty-problems.md) |
 | The problem is inside one module | The module's utilities — inventory, manufacturing, fixed assets or real estate, below |
+| A known list of records must be recommitted, deleted, re-replicated or exported | [Batch Utilities That Work From a List File](/admin/reprocessing/batch-utilities-from-file.md) |
+| Ownership, rental status, employee state, vacation balances, car status or asset values disagree with the documents | [Rebuilding Module System Entries](/admin/reprocessing/module-entries-rebuild-utilities.md) |
+| Pending approvals show finished or deleted records, or an old summary | [Approval Repair Utilities](/admin/reprocessing/approval-repair-utilities.md) |
 | A site is out of step with head office | [Replication Utilities](/admin/reprocessing/replication.md) |
 | Everything is correct but painfully slow | [Suggest Indexes for Large Detail Tables](/admin/reprocessing/suggest-index-creation.md) |
 
@@ -34,6 +37,10 @@ The tools on these pages empty and rebuild whole tables. On a large database a f
 4. **A full rebuild is last**, with a backup, an agreed window and the server stopped.
 
 If step 1 does not explain the symptom, that is the moment to escalate rather than to widen the blast radius.
+
+## Launcher links on these pages
+
+Many tools on these pages are started from a link rather than a menu. Each one is shown as a small form: an input for each of the tool's parameters, the finished link below them, and two buttons beside it — **copy**, which copies the link exactly as shown, and **show server URL** (the eye icon), which opens a box where you type the address of the customer's server. The link is rebuilt as you type, and the address you enter is remembered by your browser for every launcher link on the site, so you set it once per server rather than once per page.
 
 ## Find the problem first
 
@@ -57,6 +64,14 @@ If step 1 does not explain the symptom, that is the moment to escalate rather th
   <LandingCard icon="🏭" title="Manufacturing Utilities" link="/admin/reprocessing/manufacturing-utilities.md" details="Repairs for assembly documents, production orders and their cost effects." />
   <LandingCard icon="🏗️" title="Fixed Assets Utilities" link="/admin/reprocessing/fixed-asset-utilities.md" details="Depreciation, asset cards and the entries behind them." />
   <LandingCard icon="🏢" title="Real Estate Utilities" link="/admin/reprocessing/real-estate-utilities.md" details="Units, contracts and instalment data that has drifted out of line." />
+</LandingGrid>
+
+## Utilities started from a link
+
+<LandingGrid>
+  <LandingCard icon="📄" title="Batch Utilities From a List File" link="/admin/reprocessing/batch-utilities-from-file.md" details="Recommit, delete, re-replicate, regenerate or export a list of records read from a file, resumable line by line." />
+  <LandingCard icon="🧱" title="Rebuilding Module System Entries" link="/admin/reprocessing/module-entries-rebuild-utilities.md" details="Empty and rebuild the real estate, HR, service center and fixed asset histories from the committed documents." />
+  <LandingCard icon="✅" title="Approval Repair Utilities" link="/admin/reprocessing/approval-repair-utilities.md" details="Refresh approval summaries and clear pending approvals that have nothing left to approve." />
 </LandingGrid>
 
 ## Database and sites

@@ -182,6 +182,27 @@ lost in the conversion. See
 [Real Estate Module Configuration](/modules/realestate/realestate-configuration.md).
 :::
 
+## Actions on these screens
+
+**On the reservation document:**
+
+- **Confirmed** and **Cancelled** — set the reservation's **Status**. The status field itself cannot be typed into; these two buttons are the only way to move it by hand, and only a *Confirmed* reservation locks the unit (see *Status is the whole story* above).
+- **Creat Sales Document** — on the saved reservation, opens a new sales contract in a pop-up, pre-filled as described in *Turning it into a contract* above.
+- **Create installments** — builds the reservation's own **Installments** grid from its construction block.
+- **Create Receipt Voucher From Selected Line** — a receipt voucher for the remaining value of the ticked installments; the usual way to record a deposit paid in instalments.
+- **Create collect doc from selected line** — a button on each row of the **Installments** grid; it opens a collect document for the ticked rows, or for that row when nothing is ticked.
+- **Installment Payments** (in the **More** menu) — lists, in a pop-up, the payment documents recorded against the reservation's installments.
+
+**On the reservation document cancel:**
+
+- **Create installments** — builds the cancellation's **Installments** grid.
+- **Create Payment Voucher From Selected Line** — a payment voucher for the remaining value of the ticked rows: the refund.
+- **Create collect doc from selected line** on each **Installments** row, and **Installment Payments** in the **More** menu, as on the reservation.
+
+**On the initial sales contract:** the sales contract's installment toolbar — **Create installments**, **Select all installment lines**, **Merge installments**, **Create Receipt Voucher From Selected Line**, **Create RE Return Payment Doc From Selected Line**, **Create Fine Document**, and the four commercial-paper buttons (**Create A Bank Portfolio For Selected Installments**, **Create Postponed Bank Portfolio for Selected Installments**, **Create A Partial Payment For Selected Installments**, **Create Notification For Selected Installment**). Each is described on [The Sales Contract](/modules/realestate/sales/realestate-sales-contract#Actions-on-this-screen). Here, the **Create collect doc from selected line** button sits on the rows of the *Multiple Construction Info* grid and collects the installments you have ticked in the **Installments** grid.
+
+![The reservation's action block: Confirmed, Cancelled and Create Sales Document](../../../ar/modules/realestate/images/sales/re-reservation-doc-actions-en.png)
+
 ## Where to go next
 
 - The binding contract these documents feed:

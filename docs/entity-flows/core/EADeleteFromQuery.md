@@ -1,14 +1,13 @@
 ---
 title: EADeleteFromQuery
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EADeleteFromQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

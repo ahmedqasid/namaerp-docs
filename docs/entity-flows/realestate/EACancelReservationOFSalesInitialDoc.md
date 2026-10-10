@@ -1,14 +1,13 @@
 ---
 title: EACancelReservationOFSalesInitialDoc
 module: realestate
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACancelReservationOFSalesInitialDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

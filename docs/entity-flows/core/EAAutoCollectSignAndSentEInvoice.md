@@ -1,13 +1,12 @@
 ---
 title: EAAutoCollectSignAndSentEInvoice
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAAutoCollectSignAndSentEInvoice
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

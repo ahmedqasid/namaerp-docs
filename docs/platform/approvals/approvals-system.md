@@ -6,19 +6,11 @@ menu: Basic → Settings → Approval Definition
 
 ## Overview
 
-The Nama ERP Approvals System provides a comprehensive workflow management solution that allows organizations to define approval processes for various business operations. This system ensures proper authorization and control over critical business transactions before they are finalized.
-
-::: tip Key Benefits
-- **Flexible Workflow Design**: Create custom approval workflows for any entity type
-- **Multi-step Approvals**: Support for complex, multi-level approval processes
-- **Rule-based Logic**: Apply approval rules based on specific business conditions
-- **Real-time Notifications**: Automatic notifications via email, SMS, and in-app messages
-- **Audit Trail**: Complete tracking of approval decisions and comments
-:::
+An approval definition holds a record of a chosen type until the people it names have approved it. It says which records need approval, in what steps, and who decides each step. The approvers are notified by e-mail, SMS, in-app notification and the mobile apps, and every decision is kept on the approval case.
 
 ## Core Concepts
 
-### Approval Definition (تعريف موافقه)
+### Approval Definition
 An Approval Definition is the master configuration that defines when, how, and who should approve specific business transactions. Each definition contains:
 
 - **Target Entity**: Which type of record requires approval (invoices, purchase orders, etc.)
@@ -39,7 +31,7 @@ When a transaction meets approval criteria, an Approval Case is automatically cr
 
 ### Accessing Approval Definitions
 
-Navigate to: **Basic > Settings > Approval Definition** (الأساسيات > الإعدادات > تعريف موافقه)
+Navigate to: **Basic → Settings → Approval Definition**
 
 ### Creating Your First Approval Definition
 
@@ -58,7 +50,6 @@ Navigate to: **Basic > Settings > Approval Definition** (الأساسيات > ا
 3. **Define Approval Steps**
    - Add sequential approval steps
    - Assign responsible employees or roles
-   - Set escalation timeframes
    - Configure decision options (Approve, Reject, Return, etc.)
 
 ### Special Approval Options
@@ -221,7 +212,7 @@ When **enabled**:
 
 ### Conditional Approvals
 
-Use a [Criteria Definition](/platform/criteria-definitions) and **Apply When Query** to create sophisticated approval triggers:
+Use a [Criteria Definition](/platform/automation-and-rules/criteria-definitions) and **Apply When Query** to create sophisticated approval triggers:
 
 ```sql
 -- Example: Approve invoices above 50,000 SAR
@@ -286,51 +277,17 @@ When a rule triggers approval, the affected lines are available in templates:
 
 ### Budget Exceeded Approvals
 
-The system supports automatic approval requirements when financial transactions exceed predefined budget limits. This feature integrates with the accounting module to monitor budget consumption in real-time.
+A document that would push an account over its budget can be sent for approval instead of being refused. The budget check itself belongs to the accounting module — how budgets are built, which lines are checked and how a document is matched to a budget line is on [Financial Budgets](../../modules/accounting/financial-budgets.md). This section covers only the approval side.
 
-#### How Budget Approvals Work
+What happens on an overrun is decided **per account**, by the account's **Budget Exceeded Behavior** (see [Budget control on the account](../../modules/accounting/accounts.md#Budget-control-on-the-account)): **Prevent Saving** refuses the document outright, **Request Approval** sends it for approval, and **Allow** lets it through.
 
-1. **Budget Validation**: When a document is saved, the system checks if it generates accounting entries that exceed budget limits
-2. **Account-Level Configuration**: Each account can be configured with budget exceeded behavior:
-   - **Prevent Saving**: Block the transaction entirely
-   - **Request Approval**: Allow saving but require approval before commitment
-3. **Dynamic Checking**: Budget validation considers multiple dimensions (department, branch, fiscal period, etc.)
+To make **Request Approval** work:
 
-#### Configuration Requirements
+1. In the **accounting configuration** (not the global configuration), turn on **Enable Approvals For Budgets**. Until it is on, no account can be saved with **Request Approval** and no approval definition can be saved with **Use With Budget Exceeded**.
+2. Set **Budget Exceeded Behavior** to **Request Approval** on the accounts you want to control, and mark the budget lines **Use This Budget For Validation and Approvals**.
+3. Create an approval definition for the document type with **Use With Budget Exceeded** ticked — and none of **Use With Insert**, **Use With Update** or **Use With Delete**: a budget definition cannot be combined with them. The document type must be one that produces accounting effects.
 
-::: warning Prerequisites
-For budget approvals to function, ensure the following are configured:
-
-1. **Enable Budget Approvals**: Set `Enable Approvals For Budgets` to `true` in global configuration
-2. **Budget Definitions**: Create budget records in the system for relevant accounts
-3. **Account Configuration**: Set `budgetExceededBehavior` on accounts to "Request Approval"
-4. **Approval Definition**: Create approval definition with `useWithBudgetExceeded = true`
-:::
-
-#### Budget Validation Process
-
-The system performs these checks when documents are saved:
-
-::: tip Budget validation logic
-1. Generate pseudo accounting entries for the document
-2. Compare against existing budget allocations
-3. Check if transaction will exceed budget limits
-4. Consider account's budgetExceededBehavior setting
-5. If "Request Approval" → trigger approval workflow
-6. If "Prevent Saving" → block transaction with error
-:::
-
-#### Budget Dimensions Considered
-
-Budget validation can consider multiple organizational dimensions:
-
-- **Legal Entity**: Company-level budgets
-- **Fiscal Year/Period**: Time-based budget allocation
-- **Department**: Departmental spending limits
-- **Branch**: Location-based budgets
-- **Sector**: Division-level controls
-- **Analysis Set**: Custom analytical groupings
-- **Account Subsidiaries**: Sub-account level budgets
+The check runs when a new document is saved, or an existing one that has never been committed, and when a committed document is deleted. Nama works out the ledger lines the document would create, and if any of them takes a **Request Approval** account over budget, the document enters the approval cycle of that definition. An edit to a document that was already committed is not sent for budget approval.
 
 ### Dynamic Responsible Parties
 
@@ -340,6 +297,41 @@ Configure approval routing based on:
 - **Department-based**: Route to department managers
 - **Field-based**: Use employee fields from the transaction
 - **Custom Selectors**: Advanced logic for approver selection
+
+To send a step to a role or to "the manager of the document's branch" rather than to a named person, see [Responsibilities, Special Responsibles and Delegation](/platform/approvals/responsibilities-and-delegation).
+
+#### Worked example: route a stock transfer to the receiving warehouse
+
+A company runs several warehouses, each with its own **warehouse keeper**, and that keeper has a direct supervisor. It wants a stock transfer approved by the warehouse that **receives** the goods, not the one that sends them.
+
+1. Create an approval definition for **Stock Transfer** (`StockTransfer`).
+2. Add one step and set its **Responsible Type** to **From Field**.
+3. In the step's field id, list the receiving side's people, separated by a comma:
+
+```
+toWarehouse.warehouseKeeper,toWarehouse.warehouseKeeper.directSupervisor
+```
+
+The request now goes to the receiving warehouse's keeper and to that keeper's direct supervisor, so each transfer follows the management line of the warehouse it lands in.
+
+::: details JSON for direct import
+```json
+{
+  "approvalEntity": "StockTransfer",
+  "steps": [
+    {
+      "stepSeq": 1,
+      "name1": "موافقة أمين المخزن",
+      "responsible": {
+        "responsibleType": "Field",
+        "fieldId": "toWarehouse.warehouseKeeper,toWarehouse.warehouseKeeper.directSupervisor"
+      }
+    }
+  ]
+}
+```
+Open a new Approval Definition, then **More → Import Into Current Record** and paste it — see [Importing Into the Record You Have Open](/platform/import-export/importing-records.md#Importing-Into-the-Record-You-Have-Open).
+:::
 
 ### Alternate Approvers
 
@@ -507,7 +499,7 @@ An approval must always have something to do. If you make **every** step conditi
 
 #### Global Approval Decision Configuration
 
-The system provides global configuration options to control which approval decisions are available in approval workflows. These settings are configured in the Global Configuration (إعدادات عامة) and affect all approval processes system-wide.
+The system provides global configuration options to control which approval decisions are available in approval workflows. These settings are configured in Global Configuration and affect all approval processes system-wide.
 
 ##### Available Decision Configuration Options
 
@@ -566,39 +558,27 @@ Approval reasons flagged **Used With Escalation** (تستخدم مع التصع�
 
 ### Step 3: Notification Configuration
 
-#### Email Templates
-Configure automated email notifications with:
-- **Email Template**: HTML template for approval requests
-- **Email Subject**: Dynamic subject line
-- **Additional Recipients**: CC other stakeholders
+The messages sent to each step's approvers are set on the **Advanced** tab:
 
-#### SMS Notifications
-- **SMS Template**: Text message format
-- **Mobile Number Source**: Employee contact info
+- The **Templates** group holds **Email Template**, **Approval Email Subject (With Report)**, **Notification Template** and **SMS Template**. It also has the same per-channel templates, **Copy … From** fields and preferred senders as a [notification definition](/platform/notifications/notifications-system).
+- The **Mobile Apps Notifications Templates** group holds the push **Notification Title Template (Optional)** and **Notification Body Template**, plus **Do Not Send Notifications To Mobile Apps**.
 
-#### In-App Notifications
-- **Notification Template**: In-system message format
-- **FCM Templates**: Push notifications for mobile apps
+To copy a step's approval e-mail to addresses outside the approver list, fill **Send Emails To Addresses** on that row of the **Steps** grid.
 
 ### Step 4: Advanced Features
 
-#### Critical Fields Monitoring
-Track specific field changes that require re-approval:
-- Amount changes beyond tolerance
-- Key date modifications
-- Status field updates
+#### Critical Fields
+The **Critical Fields** grid at the bottom of the **Advanced** tab lists field ids. For an update, the definition applies only when one of those fields actually changed. **Skip notification when only critical fields changed** reverses that: the definition applies only when something *other* than the listed fields changed. Leave the grid empty and every update qualifies.
 
 #### Auto-escalation
-Set time limits for approval steps:
-- **Auto Escalate After**: Time period (hours/days)
-- **Escalation Target**: Supervisor or specific employee
+**Automatic Escalate To After Period** on the main tab takes a number and a unit. Once an approver has had a case for longer than that, a scheduled action escalates it on their behalf. Each candidate is escalated only once.
 
 ::: warning Task Schedule Required
 For auto-escalation to work, you must create a **Task Schedule** with the following configuration:
 - **Schedule Type**: Action
 - **Class Name**: Choose one of:
-  - `EAAutoEscalateApprovalToSupervisor` - Escalates to the approver's direct supervisor
-  - `EAAutoEscalateApprovalToFallBackEmployee` - Escalates to the fallback employee defined in the approval definition
+  - `EAAutoEscalateApprovalToSupervisor` - Escalates to the approver's **Supervisor** (the higher manager), exactly like the **Escalate to Supervisor** decision
+  - `EAAutoEscalateApprovalToFallBackEmployee` - Escalates to the **Fallback Employee** defined in the approval definition
 - **Schedule Frequency**: Recommended to run every 15-30 minutes to check for overdue approvals
 :::
 
@@ -890,7 +870,7 @@ Access candidate details from `$firstCandidate`, `$secondCandidate`, etc.:
 #### Budget-Based Approvals
 ```
 Account Setup:
-- Expense Accounts → budgetExceededBehavior = "Request Approval"
+- Expense Accounts → Budget Exceeded Behavior = Request Approval
 - Budget Limits → Department/Branch level allocation
 - Approval Flow → Department Head → Finance Manager
 
@@ -940,6 +920,34 @@ When **enabled**, this option creates an Actions History record for **each indiv
 - **User Context**: Captures who made each decision and when
 :::
 
+## Common configuration traps
+
+### An update approval on a document will not save
+
+Ticking **Use With Update** on a definition for a document — a stock transfer, an invoice — is refused when the definition is saved:
+
+*Update approval can not be used with documents, can be used with documents only* — «لا يمكن استعمال "مع التعديل" مع المستندات - تستعمل مع الملفات فقط»
+
+Update approvals are meant for master files. This is deliberate: editing a document after it has been approved invites manipulation, so the normal route is to reverse the document and issue a new one. When a genuine business case needs approvals on document edits, switch on this Global Configuration option first:
+
+<GlobalConfigOption option-code="value.info.allowApprovalsOnDocumentsUpdate" />
+
+::: tip Locking approved records instead
+If what you actually want is to stop people changing a document once it is approved, you do not need an update approval at all: tick **Prevent Edit After Approval** (and, for deletion, **Prevent Delete After Approval**) on the security profile's lines or in the user's settings.
+:::
+
+### A purchase invoice asks for approval again when a receipt is saved
+
+With an update approval on the purchase invoice, saving a **stock receipt** or a **receipt additional costs** document linked to that invoice raises a fresh approval request on the invoice. Those documents write back to the invoice — they update its received quantities and its cost distribution, and make it re-save its other linked receipts — so to the approval engine it looks like an edit.
+
+These saves are made by the system, not by a user, and the record carries a flag saying so. Make the definition ignore them by putting this in its **Apply When Query**:
+
+```sql
+select case when {$systemIsCommiting} = 1 then 0 else 1 end
+```
+
+The approval still fires when a user edits the invoice directly, and no longer fires when a receipt updates it.
+
 ## Messages you may see
 
 Refusals raised while a record is in an approval cycle:
@@ -961,5 +969,9 @@ Refusals raised while saving the Approval Definition itself:
 | *Approval definition must at least have one step* — «تعريف سير العمل يجب أن يحتوي على خطوة واحدة على الأقل» | The steps grid is empty. | Add a step. |
 | *Must specify when to use the approval. (with insert, delete, update, etc)* — «يجب تحديد حالة علي الأقل يتم استخدام سير العمل معها (عند الانشاء أو الحذف ... إلخ)» | None of the *use with* switches is ticked, so the definition would never fire. | Tick at least one of insert, update, delete and the rest. |
 | *Duplicate step sequence : {0}* — «مسلسل خطوة مكرر : {0}» | Two steps carry the same sequence number. | Renumber one of them. |
+| *Update approval can not be used with documents, can be used with documents only* — «لا يمكن استعمال "مع التعديل" مع المستندات - تستعمل مع الملفات فقط» | **Use With Update** is ticked on a definition for a document. | See [An update approval on a document will not save](#An-update-approval-on-a-document-will-not-save). |
 | *Approval Definition priority repeated before in definition {0}* — «أولوية تعريف سير العمل مكررة مسبقا في تعريف آخر {0}» | Another definition for the same entity already uses that priority, so the order between them would be undefined. | Give this one a different priority. |
 | *Modify while under approval policy should be {0} or empty, as allow modify while under approval is not checked* — «سياسة التعديل أثناء الموافقة يجب أن تكون {0} أو فارغة لأن اوبشن التعديل أثناء الموافقة غير مفعل» | A per-step modify policy was chosen while the global **Allow Modify While Under Approval** is off. | Enable the global option, or clear the step's policy. |
+| *You must enable the option {0} in accounting configuration to be able to use the option {1}* — «يتوجب عليك تفعيل الأوبشن {0} في إعدادات الحسابات حتي تتمكن من استعمال الأوبشن {1}» | **Use With Budget Exceeded** is ticked while **Enable Approvals For Budgets** is off in the accounting configuration. | Turn the option on in the accounting configuration, or untick **Use With Budget Exceeded**. |
+| *You can not select the field {0} and also any of the fields {1},{2},{3}, please unselect these fields* — «لا يمكنك التعليم علي الحقل {0} و أي من الحقول {1},{2},{3} في نفس الوقت. يرجي ازالة العلامة من تلك الحقول» | **Use With Budget Exceeded** is ticked together with insert, delete or update. | Keep a separate definition for the budget approval. |
+| *The entity type {0} can not be used with budget approval because it does not generate an accounting request.* (English only — the product has no Arabic for it) | The definition, or its **Apply Also To** list, names a type that never produces accounting effects, so it can never go over a budget. | Remove that type from the budget definition. |

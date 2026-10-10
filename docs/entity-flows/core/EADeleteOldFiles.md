@@ -1,14 +1,13 @@
 ---
 title: EADeleteOldFiles
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EADeleteOldFiles
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

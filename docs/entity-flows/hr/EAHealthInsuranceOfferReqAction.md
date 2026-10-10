@@ -1,14 +1,13 @@
 ---
 title: EAHealthInsuranceOfferReqAction
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAHealthInsuranceOfferReqAction
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

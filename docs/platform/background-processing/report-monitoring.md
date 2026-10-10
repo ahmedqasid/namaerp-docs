@@ -1,3 +1,7 @@
+---
+menu: Reports → Reports Monitoring
+---
+
 # Report Monitoring
 
 A report that takes thirty seconds and a report that has hung look identical from the outside — a
@@ -60,7 +64,7 @@ Separately from the live view, Nama can record every completed run in the databa
 until somebody removes it. That log is what answers questions about the past: which reports are
 slow, who is running what, how often a form gets reprinted.
 
-It is off until you turn it on, in Global Config → **Reports And Printing** → **Reports Logging** →
+It is off until you turn it on, in Global Configuration → **Reports And Printing** → **Reports Logging** →
 **Log Report Performance To DB**. Logging begins immediately once saved.
 
 ::: info The Report Log tab needs a screen regeneration before it appears
@@ -98,7 +102,7 @@ monitoring screens at all; they show up only in the log.
 ::: warning Scheduled and emailed reports are not logged
 A report sent out by the task scheduler does not write a log entry, whatever these switches say.
 The scheduler keeps its own execution log instead — see
-[Scheduled Tasks](/platform/scheduled-tasks) — and that is where you check whether last night's
+[Scheduled Tasks](/platform/automation-and-rules/scheduled-tasks) — and that is where you check whether last night's
 report went out.
 :::
 
@@ -109,7 +113,7 @@ monitoring screens, and after it fails there is nothing to find.
 ## See also
 
 - [Reports](/platform/reports/) — building and running reports
-- [Scheduled Tasks](/platform/scheduled-tasks) — emailed and printed reports on a timer, with their
+- [Scheduled Tasks](/platform/automation-and-rules/scheduled-tasks) — emailed and printed reports on a timer, with their
   own execution log
 - [Business Requests](/platform/background-processing/business-requests) — the queue for a
   document's accounting and inventory effects

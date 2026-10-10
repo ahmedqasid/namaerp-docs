@@ -13,35 +13,35 @@ Two related concerns live on this tab. The first is protecting the server from w
 
 Each of these caps how long one kind of query may run before it is abandoned. They exist because a single badly written filter can otherwise occupy a database connection indefinitely and slow the system for everyone.
 
-**Maximum Minutes to Execute SQL Field Query** `value.info.maxMinutesToExecuteSqlFieldQuery` — Ceiling in minutes for an SQL field query.
+**Max Minutes To Execute SqlField Query** `value.info.maxMinutesToExecuteSqlFieldQuery` — Ceiling in minutes for an SQL field query.
 
-**Maximum Seconds to Execute SQL Field Query** `value.info.maxSecondsToExecuteSqlFieldQuery` — The same limit expressed in seconds, for finer control.
+**Max Seconds To Execute SqlField Query** `value.info.maxSecondsToExecuteSqlFieldQuery` — The same limit expressed in seconds, for finer control.
 
-**Maximum Seconds to Execute User Timed Queries** `value.info.maxSecondsToExecuteUserTimedQueries` — For queries users schedule themselves.
+**Max Seconds To Execute User Timed Queries** `value.info.maxSecondsToExecuteUserTimedQueries` — For queries users schedule themselves.
 
-**Maximum Seconds to Execute Dashboard Query** `value.info.maxSecondsToExecuteDashboardQuery` — For dashboard widgets. Worth setting fairly low: a dashboard is meant to load at a glance, and a widget that takes half a minute is broken whether or not it eventually returns.
+**Max Seconds To Execute Dashboard Query** `value.info.maxSecondsToExecuteDashboardQuery` — For dashboard widgets. Worth setting fairly low: a dashboard is meant to load at a glance, and a widget that takes half a minute is broken whether or not it eventually returns.
 
-**Maximum Seconds to Execute List View Queries** `value.info.maxSecondsToExecuteListViewQueries` *(default 300)* — For list views.
+**Max Seconds To Execute List View Queries** `value.info.maxSecondsToExecuteListViewQueries` *(default 300)* — For list views.
 
-**Maximum Seconds to Execute List Page Queries** `value.info.maxSecondsToExecuteListPageQueries` *(default 300)* — For list pages embedded in a record.
+**Max Seconds To Execute Reference Suggestion Queries** `value.info.maxSecondsToExecuteListPageQueries` *(default 300)* — For the suggestions a reference field looks up while the user types or searches in it.
 
-**Maximum Seconds to Execute Reports Queries** `value.info.maxSecondsToExecuteReportsQueries` — For report queries. This is usually the most generous of the set, since a heavy month-end report legitimately takes minutes.
+**Max Seconds To Execute Report Queries** `value.info.maxSecondsToExecuteReportsQueries` — For report queries. This is usually the most generous of the set, since a heavy month-end report legitimately takes minutes.
 
-**Log SQL Statements Taking (ms)** `value.info.logSqlStatementsTakingMS` *(default 2000)* — Any statement slower than this is written to the log. This is the setting to reach for when the system "feels slow" and nobody can say where: lower it for a day, read the log, then put it back. An entity flow can also override it for a single run.
+**Warn About SQL Statements Taking more than (milliseconds)** `value.info.logSqlStatementsTakingMS` *(2000 when empty)* — Any database statement slower than this is added to the list under **Utilities → View SQL Statements With Excessive Time**, once per statement, with its longest run time and how many times it ran. This is the setting to reach for when the system "feels slow" and nobody can say where: lower it for a day, read the list, then put it back. The list is kept in memory, so it starts empty after every restart — see [When the System Is Slow](/admin/troubleshooting/system-is-slow).
 
 ## Usage limits
 
-**Maximum Records per Page for List Views** `value.info.maxRecordsPerPageForListViews` — Caps the page size a user can request. Without it, someone will eventually ask for fifty thousand rows in one page.
+**Maximum Records Per Page For List Views when using All** `value.info.maxRecordsPerPageForListViews` — Caps how many records a list shows when the user picks *All* as the page size. Without it, someone will eventually ask for fifty thousand rows in one page. A user's own settings, or their security profile, can set a different cap for them; and a user cannot be given *All* as their default page size while this is empty.
 
-**Maximum List Views per User** `value.info.maxListViewCountPerUser` *(default 20)* — How many saved list views one user may keep.
+**Max Concurrent List View Operations Count Per User** `value.info.maxListViewCountPerUser` *(default 20)* — How many list-view loads one user may have running on the server at the same moment. A user who goes past it is refused until some of them finish.
 
-**Maximum List Page Matching References per User** `value.info.maxListPageMatchingRefCountPerUser` *(default 10)* — How many matching-reference list pages one user may keep.
+**Max Concurrent List Page Matching Operations Count Per User** `value.info.maxListPageMatchingRefCountPerUser` *(default 10)* — The same cap for reference-field lookups: how many one user may have running at once.
 
-**Maximum Export Count** `value.info.maxExportCount` *(default 2)* — How many exports a user may run. A per-user setting overrides this where someone genuinely needs more.
+**Maximum Export Count** `value.info.maxExportCount` *(default 2)* — How many exports one user may have running at the same time; a further export is refused until one finishes. The same field in a user's own settings overrides this for that user.
 
-**Count Prints per User** `value.info.countPrintsPerUser` — Records each print against the user in the action history and enforces per-report print limits. Turn it on where printing is controlled — price lists, certificates, anything with a cost per copy.
+**Count Number Of Prints Per User** `value.info.countPrintsPerUser` — Changes how reprints are counted. Normally a record that has been printed once counts as printed for everyone, so the next print by anyone needs the **Print More Than Once** permission and counts toward the print limit. With this on, only the current user's own earlier prints of that record count.
 
-**Prevent User from Running Same Report Multiple Times** `value.info.prevUserToRunSameRepMultipleTimes` — Stops a user launching a report again while their previous run is still going. This one solves a real and common problem: a slow report appears to hang, the user clicks again, and now two copies compete for the same database.
+**prevent User To Run Same Report Multiple Times** `value.info.prevUserToRunSameRepMultipleTimes` — Stops a user launching a report again while their previous run of it is still going. This one solves a real and common problem: a slow report appears to hang, the user clicks again, and now two copies compete for the same database. The same option exists in a user's settings and in a security profile, so it can be applied to some users only.
 
 ## Search behaviour
 

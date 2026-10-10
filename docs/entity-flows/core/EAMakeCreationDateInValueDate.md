@@ -1,14 +1,13 @@
 ---
 title: EAMakeCreationDateInValueDate
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAMakeCreationDateInValueDate
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

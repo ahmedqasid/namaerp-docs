@@ -68,6 +68,10 @@ Only a handful of these columns are yours:
 
 The three ways of arriving at a quantity are worth knowing because they cover three real site situations. Typing the **quantity** suits bulk work measured in cubic metres. Typing the **percentage** suits a term you can only judge as "about 60% done" — a staircase, a lift shaft. Typing the **dimensions** suits anything measured off a drawing: count × length × width × height, less the openings you took out.
 
+## Actions on this screen
+
+- **Collect Terms** — loads the Executions grid from the project contract named on the header, one line per term, so you only type this period's quantities.
+
 ## The worked example, carried through two months
 
 Throughout the project-contracting pages we use one contract:

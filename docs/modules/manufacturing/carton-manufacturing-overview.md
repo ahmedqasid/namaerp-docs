@@ -12,6 +12,10 @@ This is where things get complicated fast. The math becomes a massive optimizati
 
 **Nama ERP's Carton Manufacturing module** solves this with industrial-strength optimization algorithms. You tell it what orders you need to fulfill and what rolls you have in stock. It figures out the optimal cutting plan, minimizes waste, and even helps you find "companion orders" - other pending orders that would fit perfectly with what you're already planning to cut.
 
+::: info Required license
+Carton manufacturing is part of the `manufacturing-crtn-pln` license, the carton-planning sub-license of the Manufacturing module. Without it the **Cartoon** menu does not appear, even when the core `manufacturing` license is on.
+:::
+
 ## How It All Fits Together
 
 Think of carton manufacturing in Nama ERP as flowing through four stages:

@@ -8,7 +8,7 @@ An offer being accepted, a suspension ending, a long vacation running its course
 
 ## Work Starting Request
 
-Found at **Human Resources > Recruitment > Work Starting Request**, this is the optional approval layer described in [HR Requests, Documents & Aggregated Documents](../concepts/hr-requests-and-documents.md): the same business fields as the document below, plus the approval state (**Initial**, **Accepted**, **Rejected**, **Processed**) and the **Accept**/**Reject** buttons. Use it whenever a manager should sign off on a start date before it becomes real — for example, confirming a return date after a long unpaid leave.
+Found at **Human Resources > Recruitment > Work Starting Request**, this is the optional approval layer described in [HR Requests, Documents & Aggregated Documents](../concepts/hr-requests-and-documents.md): the same business fields as the document below, plus the approval state (**Initial**, **Accepted**, **Rejected**, **Processed**). Use it whenever a manager should sign off on a start date before it becomes real — for example, confirming a return date after a long unpaid leave.
 
 | Field | Purpose |
 |---|---|
@@ -20,7 +20,7 @@ Found at **Human Resources > Recruitment > Work Starting Request**, this is the 
 | Open Shift | The [attendance shift](../attendance/attendance-plans-and-shifts.md) to open for the person from this date. |
 | Copy Start Date To Last Work Starting Date / Extend Last Vacation Return Date | Housekeeping switches that keep the employee's own start-date history and vacation return date in step with this record. |
 
-Once a reviewer accepts the request, HR turns it into the real Work Starting Document either from the request's generate button or by picking the accepted request as the document's **From Document**.
+Once a reviewer accepts the request, HR turns it into the real Work Starting Document by picking the accepted request as the document's **From Document**.
 
 ## Work Starting Document
 
@@ -70,6 +70,10 @@ Some employees don't return from vacation just once a year — think of rotation
 | Extend Last Vacation Return Date / Copy Start Date To Last Work Starting Date | The same housekeeping switches as on a single Work Starting Document, applied to the whole batch. |
 
 As with any [aggregated document](../concepts/hr-requests-and-documents.md), the individual Work Starting Documents underneath are system-managed — add, remove, and edit the lines on the batch rather than the singles it produces.
+
+## Actions on this screen
+
+The **Work Starting Request**, the **Work Starting Document** and the **Aggregated Vacation Work Starting Document** have no buttons of their own; you fill them in and save.
 
 ## Messages you may see
 

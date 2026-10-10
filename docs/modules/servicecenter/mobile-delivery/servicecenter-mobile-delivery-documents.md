@@ -106,3 +106,21 @@ In practice, switch **courier** on. Add region, branch or salesman as your dispa
 ::: warning Address copying behaves differently on the two screens
 Both screens carry the *Copy Customer Locations From Selected Lines* action, but they do not behave identically when a selected line's recipient cannot hold contact information: on the batch document the remaining lines are still processed, while on the single delivery document the run stops there. Spot-check large selections on the delivery document.
 :::
+
+## Actions on these screens
+
+**Mobile Delivery Document and Multi Mobile Delivery Document — above the stops grid:**
+
+- **Select All** (*اختيار الكل*) — ticks *Selected* on every line.
+- **Deselect All** (*ازالة الاختيار من الكل*) — clears *Selected* on every line.
+- **Reverse Selected** (*عكس الاختيار*) — flips *Selected* on every line, so the ticked lines become
+  unticked and the rest become ticked.
+- **Copy Customer Locations From Selected Lines** (*نسخ عناوين العملاء من السطور المختارة*) — save the
+  document first. Writes the address on each ticked line back onto that recipient's master file, then
+  reloads the screen. With no line ticked it asks you to select rows.
+
+**Multi Mobile Delivery Document only:**
+
+- **Collect Invoices By Chosen Date And Time** (*تجميع الفواتير حسب الوقت والتاريخ المختارين*) — fills
+  the grid with the sales invoices and work tasks created inside the header's date and time window, as
+  described under [Collecting](#Collecting).

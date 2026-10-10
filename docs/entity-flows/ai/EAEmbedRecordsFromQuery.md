@@ -1,13 +1,12 @@
 ---
 title: EAEmbedRecordsFromQuery
 module: ai
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAEmbedRecordsFromQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

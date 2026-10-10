@@ -68,6 +68,15 @@ Then comes the part that has no owner-side equivalent, and it is the reason this
 
 Below them sit a free *Additional Info* grid — a scratch pad of numbers, texts, dates and references that nothing in the system reads — and the dimensions block.
 
+## Actions on this screen
+
+The subcontract carries only the two code buttons, above the terms grid on page 2:
+
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+
+Nothing on this screen pulls terms in — see [How a subcontract gets its content](#How-a-subcontract-gets-its-content).
+
 ## Page 2 — terms, conditions and payments
 
 ### The terms grid

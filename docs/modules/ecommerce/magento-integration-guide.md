@@ -28,14 +28,7 @@ entities: [MAGMagentoSite, MagentoItemLinker, MagentoPriceUpdaterDoc, EcommerceP
 
 ## Introduction
 
-The Nama ERP E-Commerce Integration module provides seamless connectivity between Nama ERP and various e-commerce platforms. This comprehensive guide covers setup, configuration, and management of e-commerce integrations for end users and technical support staff.
-
-### Key Benefits
-
-- **Multi-Platform Support**: Connect to Magento, Shopify, Salla, BigCommerce, Zid, WooCommerce, and custom e-commerce frameworks
-- **Real-Time Synchronization**: Automatic sync of products, prices, inventory, and orders
-- **Flexible Configuration**: Customizable field mappings and business rules
-- **Comprehensive Tracking**: Full audit trail and error handling
+Each online shop you sell through is one **Magento Site** record in Nama. Despite the name, the record is not limited to Magento: its **Site Type** picks the platform — Magento, WooCommerce, BigCommerce, Shopify, Zid, Salla, Atheer, Salasa or Amazon — and there is also a type for the OTO logistics platform, which only receives stock quantities. This guide covers setting up that record, linking your items to the shop's products, pushing prices, and how the shop's orders come into Nama.
 
 ---
 
@@ -577,7 +570,7 @@ The e-commerce integration module uses a sophisticated webhook processing system
 
 #### EcommerceWebhookProcessor
 
-The `EcommerceWebhookProcessor` class (`com.namasoft.modules.magento.domain.utils.EcommerceWebhookProcessor`) handles incoming webhook events from e-commerce platforms:
+The webhook processor handles incoming webhook events from e-commerce platforms:
 
 **Key Features:**
 - **Batch Processing**: Processes webhook events in configurable batches (default 300 events)

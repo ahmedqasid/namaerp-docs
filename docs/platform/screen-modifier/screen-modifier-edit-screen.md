@@ -56,10 +56,10 @@ When adding a grid column that points at a reference (for example `lines.account
 Most screens carry a **discussion** block — the area at the bottom of the record where users add notes, attachments and reference links. Each note can also carry two general-purpose **date** fields and two **time** fields (Date 1 / Date 2, Time 1 / Time 2) for recording things like a follow-up date or a call time alongside the note. Without listing individual fields, you can switch off parts of the block directly on the modifier:
 
 - **Remove Discussion Field** — hides the free-text discussion field.
-- **Remove Attachment 1 … 4** — hides each of the four attachment slots.
-- **Remove Reference 1 … 2** — hides each of the two reference links.
-- **Remove Date 1 / Date 2** — hides each of the two date fields.
-- **Remove Time 1 / Time 2** — hides each of the two time fields.
+- **Remove Discussion Attachment 1 … 4** — hides each of the four attachment slots.
+- **Remove Discussion Reference 1 … 2** — hides each of the two reference links.
+- **Remove Discussion Date 1 / Date 2** — hides each of the two date fields.
+- **Remove Discussion Time 1 / Time 2** — hides each of the two time fields.
 
 You can also control how much room the note itself takes up with **Discussion Field Layout**:
 
@@ -68,7 +68,14 @@ You can also control how much room the note itself takes up with **Discussion Fi
 - **Spanned 2** *(the default)* — a full-width, taller box, giving users more visible room to read and type longer notes.
 - **Alone** — the box sits on its own row with nothing beside it, while keeping the compact width of *Normal*.
 
-See the [FAQ](/platform/screen-modifier/screen-modifier-faq.md) for a step-by-step walk-through of trimming the discussion block on a specific screen.
+All of these switches sit together in the **Modified Discussion Fields** group, on the modifier's **Modified Group Fields** page. For example, to stop users adding references or attachments under the notes on the Sales Invoice screen:
+
+1. Open (or create) the Screen Modifier for the type — here `SalesInvoice`.
+2. On the **Modified Group Fields** page, find the **Modified Discussion Fields** group.
+3. Switch on the parts you want to hide — say **Remove Discussion Reference 1**, **Remove Discussion Reference 2** and the four **Remove Discussion Attachment** switches.
+4. Save the modifier, then run **Regenerate GUI For Applicable Types Only** (or **Regenerate Screens**) — see [Making your changes take effect](/platform/screen-modifier/screen-modifier-overview.md#Making-your-changes-take-effect).
+
+Reopen a Sales Invoice: the discussion block now shows only the parts you left switched off.
 
 ## Action Authorities — adding buttons
 

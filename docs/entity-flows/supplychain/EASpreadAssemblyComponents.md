@@ -1,14 +1,13 @@
 ---
 title: EASpreadAssemblyComponents
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASpreadAssemblyComponents
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

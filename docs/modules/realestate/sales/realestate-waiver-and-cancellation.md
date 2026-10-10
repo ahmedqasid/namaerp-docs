@@ -13,7 +13,7 @@ The second question has the shorter answer, so let us deal with it first.
 Nothing in the module cancels a sales contract. When a sale has to be undone, there are exactly two routes:
 
 - **A waiver of type *For Company*** — the proper instrument. The unit comes back to the company, the settlement with the buyer is recorded and accounted for, and the original contract stays on file stamped as waivered. This is what you use once anything at all has happened against the contract.
-- **Cancelling or deleting the sales contract** — done with the platform's own [Document Cancel Document](../../../platform/document-cancel-document.md), or by deleting the contract outright. The honest route only when the contract should never have existed: entered on the wrong unit, for the wrong buyer, in the wrong month, with nothing collected against it. Cancelling or deleting it reverses what the commit did — the property goes back to available, the reservation flips back to *Confirmed*, the journal entry is withdrawn.
+- **Cancelling or deleting the sales contract** — done with the platform's own [Document Cancel Document](../../../platform/documents-and-records/document-cancel-document.md), or by deleting the contract outright. The honest route only when the contract should never have existed: entered on the wrong unit, for the wrong buyer, in the wrong month, with nothing collected against it. Cancelling or deleting it reverses what the commit did — the property goes back to available, the reservation flips back to *Confirmed*, the journal entry is withdrawn.
 
 There *is* a document called **Cancel Contract Request** (طلب فسخ تعاقد) at *Real Estate and Property > Documents > Cancel Contract Request*. It is a paper trail, and it is worth being clear about what that means: it records the unit, the contract to be cancelled, all the parties and a grid of the commissions that will have to be settled or clawed back — and it does nothing else. It has no document term, no accounting effect and no automation behind it. Approving one changes nothing; somebody still has to issue the waiver.
 
@@ -74,6 +74,16 @@ The button beside it, **Create Payment Voucher For Waiver Price** (إنشاء س
 | **Terms and conditions** | the standard-terms reference, the **Other Fees** grid, the **Commissions** grid and the clause grid |
 | **Related Records** | collect documents, fine documents and extensions raised against this waiver |
 | **Terms** | the structured standard-clause grid |
+
+## Actions on these screens
+
+**On the waiver document:**
+
+- **Create Payment Voucher For Waiver Price** — opens a new payment voucher for the waiver value, made out to the document's Owner, as described under *The waiver price* above.
+- The sales contract's installment toolbar, working on the waiver's own **Installments** grid — **Create installments**, **Select all installment lines**, **Merge installments**, **Create Receipt Voucher From Selected Line**, **Create RE Return Payment Doc From Selected Line**, **Create Fine Document**, and the four commercial-paper buttons (**Create A Bank Portfolio For Selected Installments**, **Create Postponed Bank Portfolio for Selected Installments**, **Create A Partial Payment For Selected Installments**, **Create Notification For Selected Installment**). Each is described on [The Sales Contract](/modules/realestate/sales/realestate-sales-contract#Actions-on-this-screen).
+- **Create collect doc from selected line** — a button on each row of the **Installments** grid; it opens a collect document for the ticked rows, or for that row when nothing is ticked.
+
+**On the cancel contract request:** no buttons on the screen. Its **More** menu carries **Installment Payments**, which lists in a pop-up the payment documents recorded against the request.
 
 ## What a waiver books
 

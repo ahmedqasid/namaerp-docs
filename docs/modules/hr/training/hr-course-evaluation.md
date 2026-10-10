@@ -52,6 +52,12 @@ Max Weight is where the training-specific rates from the element catalog come in
 Suppose Evaluation Type is set to **Training Course**, and the Details grid includes "Course Content Quality" — Default Weight 20, but with a Course Evaluation Rate of 30 set on the element itself. Because this record's Evaluation Type is Training Course, that element's Max Weight here becomes 30, not 20. A score of 27 points works out to 90%; if that element's own Ranges say "80 and above = Excellent," its Finding shows as **Excellent**.
 :::
 
+## Actions on this screen
+
+- **Collect** — with **Evaluation Type** set to **Training Course**, replaces the **Details** grid with every evaluation element whose **Target Of Evaluation** is the training course, so you only have to score them. With no evaluation type chosen it does nothing.
+
+The **Evaluation Element** has no buttons of its own.
+
 ## Related pages
 
 - **[Training Courses & Plans](training-courses-and-plans.md)** — the course, plan, enrollment, and closing records a Course Evaluation typically follows.

@@ -72,12 +72,14 @@ The cutting document is for the geometric transformation of two-dimensional item
 
 ## Batch Selection: Which Items Are Issued?
 
-When you have several batches of the same item, which one is issued? The system can select automatically based on:
+When you have several batches of the same item, which one is issued? When the user enters an item on an issue line, the system lists the lots and other properties that have stock, each with its available quantity, and the user picks one. The order of that list is the stock-rotation policy. It is set once, on the **Qty Suggestion** tab of supply chain configuration, by three keys: **First**, **Second** and **Third Suggestion Order**. Each key is set to *Expiry Date*, *First Receipt Date* or *Search Property*, and each can be ascending or descending.
 
-- **FIFO (First In First Out)**: issue the oldest stock first - suitable for perishable items and obsolescence prevention.
-- **LIFO (Last In First Out)**: issue the newest stock first - sometimes used for items where newer is better.
-- **FEFO (First Expiry First Out)**: issue the nearest-to-expiry first - essential for medicines, food, and any item with an expiry date.
-- **Manual selection**: when you need to pick a specific batch for quality considerations or a customer preference.
+- The default order is Expiry Date, then First Receipt Date, then Search Property, all ascending. This is **FEFO** (First Expiry First Out): the lot nearest to expiry is offered first.
+- To get **FIFO** (First In First Out), put First Receipt Date first.
+- To offer the newest stock first, set First Receipt Date to descending.
+- To sort one property differently, such as lots, give it its own line in the per-property table on the same tab.
+
+The fields, defaults and the per-property table are documented in [Quantity Suggestion Configuration](./configuration/quantity-suggestion-configuration.md#Suggestion-Order).
 
 ## Serial Number Management
 

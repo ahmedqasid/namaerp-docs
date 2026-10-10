@@ -1,14 +1,13 @@
 ---
 title: EACalComponentFromLoan
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACalComponentFromLoan
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -56,6 +56,19 @@ title: التصنيع
   <LandingCard icon="🚚" title="صرف خامات الكرتون" link="/ar/modules/manufacturing/carton-material-issue.md" details="نقل المواد المخطّطة من المستودع إلى أرض الإنتاج." />
 </LandingGrid>
 
+## الإعدادات وتوجيهات المستندات
+
+مفاتيح الموديول العامة، وتوجيهات كل مستند التي تحدد سلوك كل مستند تصنيع.
+
+<LandingGrid>
+  <LandingCard icon="🛠️" title="إعدادات التصنيع" link="/ar/modules/manufacturing/manufacturing-configuration.md" details="إعدادات الموديول: الصرف والتنفيذ ومطابقة التخطيط وقواعد مكونات المنتج." />
+  <LandingCard icon="📋" title="توجيهات أوامر الإنتاج والتخطيط" link="/ar/modules/manufacturing/document-terms/mfg-terms-production-orders.md" details="أوامر الإنتاج وطلباتها والمستندات المجمعة وسند التخطيط." />
+  <LandingCard icon="🔁" title="توجيهات التنفيذ والتسليم" link="/ar/modules/manufacturing/document-terms/mfg-terms-execution-and-delivery.md" details="ما يُنشئه التنفيذ، والتسليم التلقائي، وبوابات الجودة." />
+  <LandingCard icon="🧪" title="توجيهات المواد الخام" link="/ar/modules/manufacturing/document-terms/mfg-terms-materials.md" details="الصرف والإرتجاع وطلباتهما والجرد المخزني للتصنيع." />
+  <LandingCard icon="🧮" title="توجيهات التكاليف والموارد والقوالب" link="/ar/modules/manufacturing/document-terms/mfg-terms-costing.md" details="من أين يأخذ إغلاق الأمر وسند الموارد والقوالب حساباتها." />
+  <LandingCard icon="📦" title="توجيهات الكرتون" link="/ar/modules/manufacturing/document-terms/mfg-terms-carton.md" details="الدفاتر والتوجيهات التي تسلّم كل مستند كرتون إلى التالي." />
+</LandingGrid>
+
 ## المساعدة
 
 أكثر الأسئلة شيوعًا حول التصنيع.

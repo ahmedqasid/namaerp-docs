@@ -1,9 +1,12 @@
 
 # General FAQ
+
+Answers to recurring support questions that do not belong to one screen: a blank error when searching with the lens, granting permissions on all record types at once, installing SQL Server on new SSDs, adding the discussion panel to a screen, SMS encoding, and several error messages with their fixes.
+
 <ServerBaseURL/>
 
 ### When Searching for Documents via the Lens, a Blank Error Sometimes Appears
-This can be resolved by setting an appropriate number in `MaxRecordsPerPageForListViews` inside the General Settings.
+This can be resolved by setting an appropriate number in `MaxRecordsPerPageForListViews` inside Global Configuration.
 <GlobalConfigOption option-code="value.info.maxRecordsPerPageForListViews" />
 
 ##  How Can Permissions Be Assigned to All Record Types in Nama ERP in a Flexible and Fast Way Without Adding a Row for Each Type?
@@ -78,7 +81,7 @@ The discussion screen only appears on saved records - when creating a new record
 ## SMS Messages Arrive with a Plus Sign (+) Instead of Spaces
 Messages arrive incorrectly with a plus sign (+) instead of spaces.
 `Dear+Customer` instead of `Dear Customer`
-### The Solution is to Use `{utf8msg_sp20}` in the Other Settings Field in the Mail and SMS Settings Screen in General Settings Instead of `{utf8msh`}
+### The Solution is to Use `{utf8msg_sp20}` in the Other Settings Field in the Mail and SMS Settings Screen in Global Configuration Instead of `{utf8msh`}
 For example, if the current value in the message settings is:
 ```
 https://api.oursms.com/api-a/msgs?username=info@xyz.com&token=ToKenVaLue&src=SourceName&dests={to}&body={utf8msg}&priority=0&delay=0&validity=0&maxParts=0&dlr=0&prevDups=0
@@ -138,6 +141,43 @@ Therefore, when attempting to load a list that includes this column for a file t
 ### Solution
 
 Remove the `valueDate` column from the visible columns in this general modification (For All Screens or All Files), or specify the screen type precisely so that this modification is not applied to files that do not contain this field.
+
+## Opening a Fixed Asset Expense Document Fails with "Could not perform the action."
+
+The screen refuses to open with *Could not perform the action.* — «لم يمكن تنفيذ العملية», and the server log shows:
+
+```log
+Could not extract column [19] from JDBC ResultSet [The conversion from nvarchar to NCLOB is unsupported.]
+```
+
+The remarks columns of the fixed-asset line tables are still the old fixed-length text type on this database, while the application now reads them as long text. Widening them fixes it:
+
+::: details SQL to widen the remarks columns to NVARCHAR(MAX)
+```sql
+ALTER TABLE FACustodyScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOrderScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOfferScheduledPay ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAInitialReceiptScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAOpeningDocumentScheduleLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAInitialReceiptLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOfferLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchaseOrderLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAPurchOrderReqLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FALcExpenseLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FALCScheduledPayLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAReceiptDocLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FAScheduleTemplateLine ALTER COLUMN remarks NVARCHAR(MAX);
+ALTER TABLE FATakingActualLine ALTER COLUMN remarks NVARCHAR(MAX);
+
+ALTER TABLE CustodyCustodianLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyDeliveryLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyDeliveryEmpLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyTransferFromLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodyTransferToLine ALTER COLUMN remark NVARCHAR(MAX);
+ALTER TABLE FACustodianLine ALTER COLUMN remark NVARCHAR(MAX);
+```
+:::
 
 ## Warnings When Logging Into the System
 

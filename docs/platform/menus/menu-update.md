@@ -26,9 +26,9 @@ What makes this genuinely dangerous is *when* the rebuild happens. It is not a r
 act:
 
 - **Utilities → Regenerate UI** rebuilds it, which is at least an obvious thing to have pressed.
-- **Regenerate Screens**, on the Screen Modifier or Config Entry screen, rebuilds it too.
-- **Reset To System Defaults**, on the Screen Modifier or Custom List View screen, rebuilds it as
-  well.
+- **Regenerate Screens**, on the Screen Modifier, Config Entry or Custom List View screen, rebuilds
+  it too.
+- **Reset To System Defaults**, on the Screen Modifier screen, rebuilds it as well.
 
 So a colleague tidying up an unrelated screen layout, pressing a button that says nothing about
 menus, can wipe out a week of menu work. Months can pass between the customisation and the loss,

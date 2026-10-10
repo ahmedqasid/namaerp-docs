@@ -1,13 +1,12 @@
 ---
 title: EAUpdateRemarksInContractorExtractFromProjectContractTermDescription
 module: contracting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAUpdateRemarksInContractorExtractFromProjectContractTermDescription
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

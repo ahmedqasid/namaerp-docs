@@ -11,18 +11,13 @@ One question recurs throughout this module's guides: "where do the debit and cre
 
 When you save any document that generates an accounting effect — a receipt voucher, a payment voucher, a loan issue, an LC opening… — the system doesn't pick the accounts out of thin air; it picks them from a **term** linked to the **document type**. The term is the recipe that says: "for this kind of document, make the debit side this account, the credit side that one, and handle tax like so." So by changing the term — rather than editing each document one by one — you govern the behavior of a whole class of documents.
 
-Each term has a two-page edit screen: **Settings** (account and subsidiary sources and controls) and **Effect** (the details of the posted value). The top of the screen sets its basic data: the **document type**, the **code**, a **System** flag (for terms the system creates), an **Inactive** flag, a **field filter** and the printed **template**.
+The edit screen's tabs depend on the document type: most terms have an **Effect** tab holding the account sides, many have a **Settings** tab, and some have a tab per paper status or per amount. The top of the screen sets the term's basic data: the **document type**, the **code**, a **System** flag (for terms the system creates), an **Inactive** flag, a **field filter** and the printed **template**.
 
 ## Where does each side come from?
 
-The heart of the term is the **Debit** and **Credit** blocks. In each side, the **account resource type** field decides how the account is derived; the most common sources are:
+Most terms hold one or more **pairs** of account sides — a debit and a credit for each amount the document posts: the voucher amount, the fees, the tax, the cash cover of a letter of guarantee, and so on. A side is either a full account-side block, whose **account source** decides how the account is derived (a fixed account, the document's party with its **subsidiary account type** and **account bag code**, a field of the document…), or a single reference to a saved [Accounting Side Config](/platform/shared-master-files/accounting-side-config) record.
 
-- **A fixed account** — you pick a specific **account** that's always used for this side.
-- **From the subsidiary** — the account comes from the party's own subsidiary (the customer/supplier), specifying the **subsidiary account type** and **account bag code** when the subsidiary has multiple accounts.
-- **From a safe deposit or bank account** — for the cash side, the account comes from a specific **safe deposit** or **bank account**.
-- **From the payment method** — the account comes from the **payment method** chosen on the document.
-
-The **related subsidiary** field on the other side links the two sides together, and you can constrain the user with **prevent inserting values different from the term's** so everyone sticks to the term's setup.
+Receipt and payment vouchers work differently. Their cash side comes from the **account resource type**: a fixed account (**Specific**), a **Bank Account**, a **Safe Deposit**, the **Current User Subsidiary** or an **Employee**; a payment method chosen on the voucher must belong to that safe or bank (see [Payment Methods](/platform/payments/payment-methods-and-terminals)). The **related subsidiary** field on the other side names the kind of party on the lines, and you can constrain the user with **prevent inserting values different from the term's** so everyone sticks to the term's setup.
 
 ### Conditional sources (based on "from doc")
 
@@ -60,6 +55,10 @@ Each document that posts has its own term with its own sides — a receipt vouch
 | Credit-facility issuance & payment | [Credit facilities](../credit-facilities.md)                |
 | Deposit issue & interest payment | [Fixed deposits](../fixed-deposits.md)                      |
 | Treasury-bill purchase & ROI proof | [Treasury bills](../treasury-bills.md)                      |
+
+## Option-by-option reference
+
+Every option of every accounting term — with its field id, its label in both languages and what it actually does — is in [Accounting Document Terms](/modules/accounting/document-terms/), grouped by document family: vouchers and requests, journals and closing, notes and miscellaneous invoices, commercial papers, letters of guarantee and credit, loans and deposits, and investments and prepaid expenses.
 
 ## For Support
 

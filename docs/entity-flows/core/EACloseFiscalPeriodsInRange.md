@@ -1,13 +1,12 @@
 ---
 title: EACloseFiscalPeriodsInRange
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EACloseFiscalPeriodsInRange
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

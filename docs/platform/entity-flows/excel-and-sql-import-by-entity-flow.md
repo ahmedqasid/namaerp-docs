@@ -86,6 +86,8 @@ The same addresses work outside Groovy: in a field map as `excel.rows.B2`, and i
 
 ## Import by Entity Flow From Excel Sheets or SQL Statement
 
+Each line below is a field-map line. Type the lines into the field-map parameter of an element such as [`EAFieldsValuesCalculator`](/entity-flows/core/EAFieldsValuesCalculator) (fill the current record) or [`EAGenerateEntityFromEntityAction`](/entity-flows/core/EAGenerateEntityFromEntityAction) (create a new record from the sheet).
+
 - `excel.importFrom="attachment"`
 - Loads the excel sheet in attachment, note that you can use any field that returns a valid name of an attachment field. For example you can put attachment1,attachment2,attachment3 in description 1 as a combo, and then use the following `excel.importFrom=description1`
 

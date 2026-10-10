@@ -14,9 +14,6 @@ hero:
     - theme: brand
       text: Start here
       link: /modules/mobile/mobile-application-guide
-    - theme: alt
-      text: FAQ
-      link: /modules/mobile/mobile-apps-faq
 features:
   - icon: 🧭
     title: Overview, Navigation & Settings
@@ -34,14 +31,18 @@ features:
     title: Customer Service, Delivery & Receipts
     details: Customer visits, maintenance and questionnaires, delivery vouchers and driver tools, and field electronic receipts
     link: /modules/mobile/mobile-crm-delivery
+  - icon: 📦
+    title: Shipment Delivery (ERP side)
+    details: The seven back-office screens behind the driver app — delivery config, areas, cars, driver assignments, the plan, the delivery document and returns
+    link: /modules/mobile/mobile-shipment-delivery
+  - icon: 🛠️
+    title: Administering the App
+    details: The Basic → Mobile Apps menu for administrators — screen layouts, card titles, labels, lookup filters, the mobile dashboard and binding users to their phones
+    link: /modules/mobile/mobile-administration
   - icon: 🔳
     title: Mobile QR Integrator
     details: The system's response to scanned QR codes to create and update entities and run custom actions dynamically
     link: /modules/mobile/mobile-qr-integrator
-  - icon: ❓
-    title: Frequently Asked Questions
-    details: Quick answers about mobile apps in Nama ERP — such as printing support on Sunmi devices
-    link: /modules/mobile/mobile-apps-faq
 ---
 
 ## One app for every field team

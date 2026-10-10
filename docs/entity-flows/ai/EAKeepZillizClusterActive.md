@@ -1,13 +1,12 @@
 ---
 title: EAKeepZillizClusterActive
 module: ai
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAKeepZillizClusterActive
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -31,7 +31,7 @@ sends you to the two that own it:
 - [The Sales Contract](/modules/realestate/sales/realestate-sales-contract) for the header, the
   parties and what commit does.
 - [Building the Installment Plan](/modules/realestate/sales/realestate-installment-plans) for the
-  price block, the construction rules and **Create Installments**, which overwrites the whole grid
+  price block, the construction rules and **Create installments**, which overwrites the whole grid
   exactly as it does on a live contract.
 
 What follows is only what is different.
@@ -52,9 +52,21 @@ collectable. Nobody has to reconstruct the past out of receipt vouchers, and nob
 collect an installment that was paid two years ago.
 
 ::: tip Enter the schedule before you tick
-*Create Installments* rebuilds the grid from scratch, and rebuilding it clears the ticks along with
+*Create installments* rebuilds the grid from scratch, and rebuilding it clears the ticks along with
 everything else. Generate or type the schedule first, then go through it marking what was paid.
 :::
+
+## Actions on this screen
+
+The opening sale carries the sales contract's installment toolbar with three buttons fewer — there is no **Create Bank Transfer From Selected Line**, no **Create Fine Document From Selected Line** and no **Create Fees**. What is there works exactly as on [The Sales Contract](/modules/realestate/sales/realestate-sales-contract#Actions-on-this-screen):
+
+- **Create installments**, **Select all installment lines** and **Merge installments** — build and reshape the **Installments** grid.
+- **Create Receipt Voucher From Selected Line** and **Create RE Return Payment Doc From Selected Line** — collect, or hand back, the remaining value of the ticked rows.
+- **Create Fine Document** — opens a fine document linked to this contract.
+- **Create A Bank Portfolio For Selected Installments**, **Create Postponed Bank Portfolio for Selected Installments**, **Create A Partial Payment For Selected Installments** and **Create Notification For Selected Installment** — move the commercial papers on the ticked rows.
+- **Create collect doc from selected line** — a button on each row of the **Installments** grid (and of the multiple-construction grid); it opens a collect document for the ticked rows, or for that row when nothing is ticked.
+
+The one to keep away from after the history is typed in is **Create installments**, for the reason in the tip above.
 
 ## The opening fiscal period
 

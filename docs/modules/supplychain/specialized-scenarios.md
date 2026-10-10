@@ -14,7 +14,7 @@ For the glass-manufacturing sector and similar process-based manufacturing, the 
 The path starts with the **Job Order Request** (GlassJobOrderReq) for cost study and quotation, then converts to the **Glass Job Order** (GlassJobOrder) that carries the bill of materials, operations, and delivery items. Operations are defined via the **Operation Map** (GlassOperationMap), and executions are recorded via **Order Execution** (OrderExecution), which tracks the responsible employee, time, and actual cost and generates material issues. Status is updated via **Job Order Status Update** (GlassJobOrderStatusUpdate), and output is delivered via **Order Delivery** (OrderDelivery) and **Order Finished** (OrderFinished). The path also supports outsourcing via **Outsource Request / Issue / Receipt** (OutsourceRequest / OutsourceIssue / OutsourceReceipt), damage documentation via **Order Damage** (OrderDamage), and expenses via **Job Order Expense** (JOrderExpense).
 
 ::: info A Specialized Sector
-Glass job orders are a sector-specific sub-module; if your business isn't in this field, you won't need them. They rely on the same concepts as [assembly](./assembly-and-packaging.md) and [resources](#Resources-and-Activities) but with a dedicated order path.
+Glass job orders are a sector-specific sub-module; if your business isn't in this field, you won't need them. They rely on the same concepts as [assembly](./assembly-and-packaging/) and [resources](#Resources-and-Activities) but with a dedicated order path.
 :::
 
 ## Bills of Materials for Services (Service Item BOM)
@@ -93,6 +93,6 @@ Some specialized scenarios have their own standalone modules even though they in
 
 ## Next Steps
 
-- [Assembly & Packaging](./assembly-and-packaging.md) - the foundation job orders build on
+- [Assembly & Packaging](./assembly-and-packaging/) - the foundation job orders build on
 - [The Purchasing Journey](./purchasing-journey.md) - tenders within purchasing
 - [Supply Chain FAQ](./supply-chain-faq.md) - miscellaneous cases and questions

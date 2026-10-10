@@ -69,7 +69,7 @@ menu: الأساسيات ← الإعدادات ← أعدادات الحقول 
 Query)** و**يجب مطابقة السطور (Lines Should Match)** موجودة كي تكون القاعدة ضيقة لا شاملة، وتستحق
 الفهم الجيد لأنها تعمل معًا.
 
-**المعايير (Criteria Definition)** تشير إلى [تعريف معايير](/ar/platform/criteria-definitions) محفوظ. قبل تطبيق القاعدة يسأل النظام المعايير:
+**المعايير (Criteria Definition)** تشير إلى [تعريف معايير](/ar/platform/automation-and-rules/criteria-definitions) محفوظ. قبل تطبيق القاعدة يسأل النظام المعايير:
 هل هذا السجل مما يعنيك؟ فإن كان الجواب لا، تُتخطى القاعدة كليًا وتمر القيمة. بهذا تقول: «نمط الرقم
 الضريبي ينطبق فقط على العملاء المسجلين في السعودية» — تصفّي المعايير على الدولة، ويُترك العملاء في
 باقي الدول وشأنهم.
@@ -114,8 +114,8 @@ Query)** و**يجب مطابقة السطور (Lines Should Match)** موجود�
 الاستيراد مرة واحدة بعد إضافة قاعدة صارمة.
 
 للمساعدة في بناء المعايير والاستعلام، انظر
-[التحقق بالمعايير](/ar/platform/criteria-based-validation) و
-[المعايير من محلل النصوص](/ar/platform/text-criteria-guide).
+[التحقق بالمعايير](/ar/platform/governance/criteria-based-validation) و
+[المعايير من محلل النصوص](/ar/platform/automation-and-rules/text-criteria-guide).
 
 ## القيم المسموح بها للحقول (Field Allowed Values)
 
@@ -289,7 +289,7 @@ Replication ويُطبَّق هناك، فسلسلة بأربعين فرعًا �
 - [مظهر الحقول والعرض](/ar/platform/fields-and-entities-settings/fields-settings-field-appearance) — الأشقاء الشكليون لهذه الجداول، وهم **غير** مفروضين عند الحفظ.
 - [تخفيف القيود المدمجة](/ar/platform/fields-and-entities-settings/fields-settings-relaxing-restrictions) — الاتجاه المعاكس: إرخاء قواعد يفرضها النظام افتراضيًا.
 - [تأمين الحقول والصفحات وشاشات العرض](/ar/platform/security/field-page-listview-security) — حقول للقراءة فقط ومخفية مفروضة على الخادم، حين لا تكفي الحقول المعطلة.
-- [التحقق بالمعايير](/ar/platform/criteria-based-validation) — بناء المعايير التي تجعل قاعدة تنسيقات الحقول مشروطة.
-- [المعايير من محلل النصوص](/ar/platform/text-criteria-guide) — كتابة الاستعلام وراء تطبيق عند التوافق مع الاستعلام.
+- [التحقق بالمعايير](/ar/platform/governance/criteria-based-validation) — بناء المعايير التي تجعل قاعدة تنسيقات الحقول مشروطة.
+- [المعايير من محلل النصوص](/ar/platform/automation-and-rules/text-criteria-guide) — كتابة الاستعلام وراء تطبيق عند التوافق مع الاستعلام.
 - [استيراد السجلات](/ar/platform/import-export/importing-records) — البيانات المستوردة تُفحص بهذه القواعد أيضًا.
 - [نقاط البيع — نظرة عامة](/ar/modules/pos/pos-overview) — كيف تصل إعدادات الحقول إلى الأجهزة.

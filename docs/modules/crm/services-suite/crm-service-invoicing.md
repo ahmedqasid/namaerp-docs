@@ -22,7 +22,7 @@ If your product *is* labour — cleaning, security cover, a monthly servicing re
 
 ## Raising the Invoice
 
-There are two buttons that produce one, and they behave the same way: **Create Service Invoice** (إنشاء فاتورة خدمة) on the Maintenance Service Order, and its twin on the Maintenance Service Order Execution. Either opens a new Maintenance Service Invoice with the source document copied wholesale — customer, contact, service, status, order type, salesman, serial number, warranty fields and all four money groups on the header, and the services, dysfunctions, tools, spare parts, technicians, maintenance groups and returned spare parts in the grids. The order being invoiced is listed in the invoice's own orders grid.
+There are two buttons that produce one, both labelled **Create Service Invoice** (إنشاء فاتورة خدمة), and both open a new, unsaved Maintenance Service Invoice in a pop-up with the source document as its From Document. The one on the **Maintenance Service Order** copies the order wholesale — customer, contact, service, status, order type, salesman, serial number, warranty fields and all four money groups on the header, and the services, dysfunctions, tools, spare parts, technicians, maintenance groups and returned spare parts in the grids. The one on the **Maintenance Service Order Execution** copies less: the customer, the service (as a single services line), the remarks, the money groups and the spare parts.
 
 Al Nokhba invoices `SO-0058` on 16 May 2026 as `SINV-0033`:
 
@@ -87,6 +87,19 @@ The **Maintenance Service Invoice Return** (مردود فاتورة خدمة ا�
 It also **requires a warehouse** before it will save — the one validation the invoice is missing.
 
 Like the invoice, its *Generate Stock Receipt With Service Items* option does nothing, and its Total Price Of Services is 0.00.
+
+## Actions on these screens
+
+**On the Maintenance Service Invoice:**
+
+- **Copy All Lines From Service Orders** (*نسخ كل السطور من أوامر الشغل*), on the main tab — fill the invoice's **Orders** grid with one or more service orders first, then press it. It copies the services, dysfunctions, tools, spare parts, technicians, maintenance groups and returned spare parts of every listed order into the invoice's grids, replacing what they held. If the invoice's document term has **Consider Lines Of FromDoc** (اعتبار سطور مستند بناءً على) ticked, the lines of the From Document are copied too. With an empty Orders grid it does nothing.
+- **Tools Issue** (*طلب صرف عِدد*), on the Tools And Visits tab — opens an unsaved stock request pre-filled with the tools grid and the customer.
+- **Spare Parts Issue** (*طلب صرف قطع غيار*), on the Spare Parts And Services tab — opens an unsaved Stock Issue Request with the spare parts, the customer and the invoice's issue warehouse. You do not need it when the invoice's term generates the stock issue on save, as described above.
+- **Spare Parts Receipt** (*طلب توريد قطع غيار المرتجعة*), on the same tab — opens an unsaved Stock Receipt Request with the returned spare parts.
+
+All three stock buttons need the invoice saved first, and none of them saves anything itself.
+
+**On the Maintenance Service Invoice Return:** **Copy All Lines From Service Orders** (*نسخ كل السطور من أوامر الشغل*) works exactly as on the invoice, reading the return's own Orders grid.
 
 ## When a Document Refuses to Save With a Technical Error
 

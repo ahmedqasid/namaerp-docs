@@ -1,14 +1,13 @@
 ---
 title: EASRVCCopyExecutionRemarksToJobOrder
 module: srvcenter
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASRVCCopyExecutionRemarksToJobOrder
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

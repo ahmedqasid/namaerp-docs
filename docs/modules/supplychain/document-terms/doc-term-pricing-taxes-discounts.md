@@ -151,6 +151,8 @@ This block is added only for **Sales** documents. It governs how sale prices are
 
 ## Price-Update Control
 
+A common complaint is "I changed the term and my discounts disappeared". This is not data loss. On a sales document, the prices and discounts of **every line** are worked out again when the user changes the **term**, the **value date** or the **subsidiary**. They are also worked out again when the user changes the **customer**, but only if *Update Price After Updating Customer* is on in supply chain configuration. Any price or discount typed by hand is replaced by what the price lists and offers give. Changing an item's quantity or unit reprices that one line. The options below switch these recalculations off, either for one event or completely.
+
 These options are added to the From-Document group for any `IInvoice` document (sales and purchase). They decide when automatic price recalculation runs, which suggested price is offered, and whether prices freeze after a from-document, term change, or value-date change.
 
 **Do Not Update Prices At All** `termConfig.doNotUpdatePricesAtAll` — Completely disables automatic price recalculation for the document; prices remain as entered.

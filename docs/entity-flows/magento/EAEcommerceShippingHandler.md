@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceShippingHandler
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceShippingHandler
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

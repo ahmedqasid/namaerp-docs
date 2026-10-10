@@ -1,14 +1,13 @@
 ---
 title: EAKWSendIPSEvents
 module: frm
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAKWSendIPSEvents
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

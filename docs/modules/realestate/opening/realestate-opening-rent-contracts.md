@@ -84,6 +84,28 @@ ledger documents. See
 [How Installment Collection Works](/modules/realestate/collections/realestate-collection-basics).
 :::
 
+## Actions on this screen
+
+The opening contract carries the rent contract's buttons, minus one. Each is described in full on
+[The Rent Contract](/modules/realestate/rent/realestate-rent-contract#Actions-on-this-screen):
+
+- **Create Rents** — builds the **Rents** grid from the values block, rewriting it.
+- **Select all installment lines** — ticks every row of the **Rents** grid.
+- **Merge installments** — folds the ticked rents into the remaining ones within a code or date range,
+  with an optional discount percentage.
+- **Extend Contract** — rolls the lease into a new contract (see the next section for what comes out).
+- **Cancel Rent Contract** — opens a **Cancel Contract** document pre-filled from this lease.
+- **Create Fine Document** — opens a fine document linked back to this contract.
+- **Create Receipt Voucher From Selected Line** — a receipt voucher for the remaining value of the
+  ticked rows.
+- **Create collect doc from selected line** — on each row of the **Rents** grid; opens a collect
+  document for the ticked rows, or for that row when nothing is ticked.
+
+- **Installment Payments** (in the **More** menu) — lists the payment documents recorded against the
+  contract's installments.
+
+The one that is missing is **Create Payment Voucher From Selected Line** — it is not on this screen.
+
 ## The renewal is where it turns into an ordinary lease
 
 This is the part that makes the whole design click. Press **Extend Contract** on an opening rent

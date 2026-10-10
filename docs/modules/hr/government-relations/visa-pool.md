@@ -94,6 +94,10 @@ real, numbered visa in progress. A later step in the recruitment process (when t
 arrives) is what finally moves a visa from **Under Procedure** into **Finished**, closing out that
 unit of the pool for good.
 
+## Actions on this screen
+
+**Issued Visas**, **Visas Delegation** and **Visa Handling** have no buttons of their own; you fill them in and save.
+
 ## How it's processed
 
 None of the three documents in this funnel post to the general ledger — they move quantities

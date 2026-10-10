@@ -1,13 +1,12 @@
 ---
 title: EAShortenLedgerChangeToAccountCurrency
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAShortenLedgerChangeToAccountCurrency
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

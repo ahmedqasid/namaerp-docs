@@ -1,4 +1,7 @@
 # Database Related Operations
+
+SQL Server operations an administrator runs directly against a Nama database: snapshot isolation, finding running queries and table sizes, repairing a suspect database, dropping the foreign keys that stop users, attachments, accounts and other records from being deleted, clearing history tables, shrinking, and scheduling backups. These statements bypass the application, so take a backup first.
+
 ## Enable READ_COMMITED_SNAPSHOT
 ::: details
 ```sql
@@ -287,7 +290,7 @@ end
 :::
 ## Cleanup Utility for Recycle Bin, Action History, Notifications, and Pending Tasks
 
-This SQL script performs cleanup operations on several tables. The operations are **safe by default**—nothing is deleted unless you explicitly set the parameters.
+This SQL script performs cleanup operations on several tables. Emptying the recycle bin is permanent: every record listed in **Administration → Other → Recycle Bin** disappears and can no longer be restored — see [Recovering and Finding Records](/platform/documents-and-records/recovering-and-finding-records). The operations are **safe by default**—nothing is deleted unless you explicitly set the parameters.
 
 ### Cleanup Targets
 

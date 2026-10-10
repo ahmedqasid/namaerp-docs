@@ -1,13 +1,12 @@
 ---
 title: EAGenSalarySheet
 module: hr
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAGenSalarySheet
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

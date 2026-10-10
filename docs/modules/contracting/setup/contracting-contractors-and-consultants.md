@@ -181,6 +181,8 @@ when we sell him cement out of our own store, the charge comes back as a deducti
 
 ## Where to Go Next
 
+- [Modify Contractor Info Request](/modules/contracting/setup/contracting-modify-contractor-info-request.md)
+  — how a change to a subcontractor's file is requested and then applied.
 - [The Subcontractor Cycle](/modules/contracting/contractor-contracting/contracting-contractor-cycle.md)
   — the whole cost-side chain, and every place it stops being a mirror of the owner side.
 - [Contracting Projects](/modules/contracting/setup/contracting-projects.md) — where the consultant is

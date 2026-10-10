@@ -1,14 +1,13 @@
 ---
 title: EAEcommerceReadOrdersFromDate
 module: magento
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAEcommerceReadOrdersFromDate
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -47,6 +47,8 @@ For writing and running reports, see the [Reports guide](../reports/reports-guid
 
 ## Report definitions
 
+What a system report is, what an update does to it and who may run a report are explained in the [Jasper Reports guide](/platform/reports/reports-guide#System-reports).
+
 **Allow Report if User Allowed Through Security Table Regardless of Security** `value.info.allowReportIfUserAllowedThroughSecurityTableRegardlessOfSecurity` — A grant in the security table is enough to run a report even where normal security would refuse.
 
 **Allow Change System Report to Non System** `value.info.allowChangeSystemReportToNonSystem` — Permits converting a system report into an ordinary one, so it can be edited locally.

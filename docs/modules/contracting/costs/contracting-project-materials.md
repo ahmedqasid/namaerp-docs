@@ -150,6 +150,12 @@ column immediately after committing is not a fault. The same mechanism can be tr
 cost correction elsewhere changes the answer — and a Cost Execution asks every material issue it is
 about to absorb to refresh its cost first, precisely because average cost moves.
 
+## Actions on these screens
+
+- **Collect Analysis Codes** (on the material request and the material issue) — name an item and a contract, press it, and the grid fills with every analysis-card term on that contract where the item appears. Both fields must be filled first.
+
+The material return has no button of its own.
+
 ## The return
 
 ![The Contracting Material Return screen, with the project field and the term-coded return lines](../../../ar/modules/contracting/images/costs/contracting-material-return-main-en.png)

@@ -1,14 +1,13 @@
 ---
 title: EACopyEmptyAccountsFromBag
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACopyEmptyAccountsFromBag
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

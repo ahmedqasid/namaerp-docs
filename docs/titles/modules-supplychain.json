@@ -21,12 +21,17 @@
     "/modules/supplychain/offer-apply-rules.md",
     "/modules/supplychain/reservation-system-guide.md",
     "/modules/supplychain/delivery-and-loading.md",
-    "/modules/supplychain/assembly-and-packaging.md",
+    "/modules/supplychain/assembly-and-packaging",
+    "/modules/supplychain/assembly-and-packaging/assembly-boms-and-components.md",
+    "/modules/supplychain/assembly-and-packaging/assembly-documents-and-requests.md",
+    "/modules/supplychain/assembly-and-packaging/multi-level-and-aggregated-assembly.md",
+    "/modules/supplychain/assembly-and-packaging/processing-documents-and-machines.md",
     "/modules/supplychain/quality-control.md",
     "/modules/supplychain/letters-of-credit.md",
     "/modules/supplychain/weight-scale.md",
     "/modules/supplychain/specialized-scenarios.md",
     "/modules/supplychain/ignore-reservation-qty-check-by-date.md",
+    "/modules/supplychain/supplychain-reports.md",
     "/modules/supplychain/supply-chain-faq.md",
     "/modules/supplychain/development-requests",
     "/modules/supplychain/development-requests/allow-empty-item-dimensions-before-date.md",
@@ -59,6 +64,10 @@
     "/modules/supplychain": {
       "ar": "سلسلة التوريد",
       "en": "Supply Chain"
+    },
+    "/modules/supplychain/assembly-and-packaging": {
+      "ar": "التجميع والتعبئة",
+      "en": "Assembly & Packaging"
     },
     "/modules/supplychain/configuration": {
       "ar": "إعدادات سلسلة التوريد",

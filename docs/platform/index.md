@@ -14,16 +14,9 @@ How every record in the system is numbered, evidenced and tracked — the mechan
 documents and master files alike.
 
 <LandingGrid>
-  <LandingCard icon="🔄" title="The Life of a Document" link="/platform/document-lifecycle.md" details="Draft, commit, approval, revise, cancel — the states every document passes through and what each one allows." />
-  <LandingCard icon="🚫" title="Why a Record Will Not Save or Delete" link="/platform/why-a-record-will-not-save-or-delete.md" details="Every delete and edit refusal in the order the system checks them, including the used-mark on books and parties and the hidden action that clears it." />
-  <LandingCard icon="💬" title="Messages and Refusals" link="/platform/messages-and-refusals.md" details="The messages any screen can raise — permissions, licence, periods, budgets — and where the answer to each one lives." />
-  <LandingCard icon="🔢" title="Document Books" link="/platform/document-books.md" details="The numbering series every document draws its number from — prefixes, serials, yearly resets, and the behaviour a book imposes on its documents." />
-  <LandingCard icon="↩️" title="Document Cancel Document" link="/platform/document-cancel-document.md" details="The only way to take a committed document back — what it reverses, what refuses to be cancelled, and how to restore one as a draft." />
-  <LandingCard icon="🗂️" title="Master Groups" link="/platform/master-groups.md" details="The master-file twin of a document book — it codes customers, items and the rest, and files them into the tree beside every list." />
-  <LandingCard icon="🧭" title="Dimensions and Composite Dimensions" link="/platform/dimensions-and-composite-dimensions.md" details="Legal entity, sector, branch, department and analysis set — the five master files every record is filed under, the PUBLIC value, and the composite that stands for several at once." />
-  <LandingCard icon="🤝" title="Customers, Suppliers and Other Parties" link="/platform/customers-suppliers-and-parties.md" details="The customer, supplier, contact and third-party master files — classification, accounts, the credit limit and what it does not do, and the documents that change a party after the fact." />
-  <LandingCard icon="⚖️" title="Accounting Side Config" link="/platform/accounting-side-config.md" details="One account side — account, subsidiary, dimensions and narration — saved once as a master file and shared by every document term that needs it." />
-  <LandingCard icon="📎" title="Attachments" link="/platform/attachments.md" details="Storing files on a record: header and detail-line attachment fields, scanning and signatures, and where the bytes are kept." />
+  <LandingCard icon="📄" title="Documents and Records" link="/platform/documents-and-records/" details="The life of a document, numbering books, cancelling, master groups, attachments, why a record will not save or delete, and the spare documents kept for one-off needs." />
+  <LandingCard icon="🧭" title="Shared Master Files" link="/platform/shared-master-files/" details="Dimensions, customers and suppliers, currencies and exchange rates, and reusable account sides — the master files every module reads." />
+  <LandingCard icon="💳" title="Payments and Card Terminals" link="/platform/payments/" details="Payment methods and where they post, receipt books, and connecting card machines through PGW." />
 </LandingGrid>
 
 ## Tailoring the System
@@ -46,11 +39,7 @@ Control who can do what, and keep your books and processes under firm control.
 <LandingGrid>
   <LandingCard icon="🔐" title="Security & Permissions" link="/platform/security/" details="Security profiles, field/page/list-view permissions, record-level security, users and login, and temporary delegation." />
   <LandingCard icon="✅" title="Approvals" link="/platform/approvals/" details="Route documents through approval cycles, with email templates and a full definition guide." />
-  <LandingCard icon="🖊️" title="Revise and Unrevise" link="/platform/revise-and-unrevise.md" details="Sign off committed records level by level, name each step and its owner, and lock what has been checked." />
-  <LandingCard icon="🗓️" title="Fiscal Period Control" link="/platform/fiscal-period-control-guide.md" details="Lock accounting periods so no one can post into a closed month." />
-  <LandingCard icon="🛡️" title="Criteria-Based Validation" link="/platform/criteria-based-validation.md" details="Block or warn on documents that don't meet rules you define." />
-  <LandingCard icon="❗" title="Required Fields" link="/platform/required-fields.md" details="Make a field mandatory on any screen — always, or only when a condition holds — and exempt the branches or people who should be spared." />
-  <LandingCard icon="🕓" title="Audit Trail &amp; Version History" link="/platform/audit-trail.md" details="Who changed a record and what it said before — the version history, field-level auditing, comparing versions, and reverting to an earlier one." />
+  <LandingCard icon="🖊️" title="Controls and Governance" link="/platform/governance/" details="Revise levels, fiscal period control, freezing the past, criteria-based validation, required fields, and the audit trail." />
 </LandingGrid>
 
 ## Automation & Data
@@ -61,14 +50,9 @@ Let the system do repetitive work for you, and build reusable rules and data blo
   <LandingCard icon="📦" title="Importing & Exporting Records" link="/platform/import-export/" details="Pull records out to Excel or JSON, edit them, and push them back in — plus saved export menus and advanced import mapping." />
   <LandingCard icon="🗄️" title="Document Management" link="/platform/dms/" details="A register for physical paperwork — archives, folders and topics, who borrowed what, and bulk loading an archive from a ZIP file." />
   <LandingCard icon="🔄" title="Entity Flows" link="/platform/entity-flows/" details="Automate what the system does when a record is saved, edited or revised — the concepts, worked examples, and the full catalogue of ready-made flows." />
-  <LandingCard icon="⏰" title="Scheduled Tasks" link="/platform/scheduled-tasks.md" details="Run jobs automatically on a schedule — the task scheduler." />
+  <LandingCard icon="⏰" title="Automation and Rules" link="/platform/automation-and-rules/" details="GUI post actions, scheduled tasks and recurring documents, plus the reusable criteria, entity type lists and virtual entities the rest of the system points at." />
   <LandingCard icon="⏳" title="Background Processing" link="/platform/background-processing/" details="The queues that carry out a document's effects, send your messages and run your reports — and where to look when one of them quietly fails." />
-  <LandingCard icon="🔁" title="Recurring Documents" link="/platform/recurring-documents.md" details="Reproduce a template document on a cadence — automatically on a schedule or in an on-demand batch." />
-  <LandingCard icon="🧱" title="Virtual Entities" link="/platform/virtual-entity-guide.md" details="Reusable SQL building blocks that power reports and dashboards." />
-  <LandingCard icon="🧮" title="Criteria Definitions" link="/platform/criteria-definitions.md" details="The saved, named filter that approvals, notifications, flows, required fields and lookups all point at — how to build one, how to test it, and where it is used." />
-  <LandingCard icon="🗃️" title="Entity Type Lists" link="/platform/entity-type-lists.md" details="One named list of screens, so a single setting can apply to a whole family of them — and the Add From Group shortcut that builds it from a menu." />
   <LandingCard icon="🔎" title="Field Filtering" link="/platform/field-filtering/" details="Why a lookup offers the records it does — loosening the branch and legal-entity narrowing on one field, or narrowing it by a criteria condition." />
-  <LandingCard icon="📝" title="Text Criteria Parser" link="/platform/text-criteria-guide.md" details="Write criteria as plain text and have the parser turn them into filters." />
 </LandingGrid>
 
 ## Insight & Communication
@@ -86,13 +70,5 @@ Turn the data you capture into reports and dashboards, and keep people in the lo
 Small helpers that speed up daily work.
 
 <LandingGrid>
-  <LandingCard icon="🖲️" title="Buttons on Every Screen" link="/platform/screen-buttons.md" details="The three toolbars every screen shares — the edit and list toolbars, the More menu, and the buttons on a grid — and why a button is sometimes missing." />
-  <LandingCard icon="📝" title="Remarks, Agenda and Work Tasks" link="/platform/remarks-and-agenda.md" details="Notes you can attach to any record, the per-employee agenda behind Add To Agenda, and work tasks assigned to a person." />
-  <LandingCard icon="🚪" title="Form Documents — the Escape Hatch" link="/platform/form-documents.md" details="Sixteen deliberately empty documents you can turn into whatever one-off thing a single customer needs — and when to call development instead." />
-  <LandingCard icon="🗄️" title="Spare Master Files" link="/platform/spare-master-files.md" details="The same escape hatch for files rather than documents — five spare subsidiaries that post to the ledger, and the remarks family." />
-  <LandingCard icon="🧩" title="Default Values Templates" link="/platform/default-values-templates.md" details="Saved sets of field values that fill in a new record the moment it is opened, automatically or on demand." />
-  <LandingCard icon="🚫" title="Preventing a Record From Being Used" link="/platform/prevent-usage.md" details="Retire a master file or document so it stops appearing in the pickers, without deleting it or touching its history." />
-  <LandingCard icon="🔗" title="Utility Links" link="/platform/utils.md" details="Handy direct links into the system for common tasks." />
-  <LandingCard icon="⌨️" title="Keyboard Shortcuts" link="/platform/shortcuts.md" details="Work faster with the keyboard across Nama ERP screens." />
-  <LandingCard icon="🎨" title="Themes" link="/platform/ui-themes.md" details="The thirteen built-in themes in light and dark, how a user picks one, and how a company sets its default." />
+  <LandingCard icon="⌨️" title="Everyday Tools" link="/platform/everyday-tools/" details="Screen buttons, keyboard shortcuts, top-bar search, field help, themes, remarks and agenda, default values templates, and preventing a record from being used." />
 </LandingGrid>

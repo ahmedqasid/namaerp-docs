@@ -220,3 +220,15 @@ Reprocess / Recommit**.
   cancel pattern in one place.
 - [Traffic Letters](/modules/servicecenter/car-sales/car-traffic-letters.md) — the registration
   paperwork.
+
+## Actions on the quotation screens
+
+The Car Sales Quotation Request and the Car Sales Quotation carry one action each, in the More menu:
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*) — for every line whose item
+  has sub items, creates the car record (or refreshes the one already on the line) from the line's
+  data and writes it back onto the line. The car record is saved straight away, even before you save
+  the document. It does nothing, and shows no message, unless the term's *Create Sub Item From Line
+  Info* option is on.
+
+The actions on the later documents in the chain are listed on each document's own page.

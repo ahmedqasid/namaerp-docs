@@ -31,7 +31,7 @@ Unlike most grids on this screen, a Clear On Duplicate line may not be left comp
 The clearing is done by the server at the moment the copy is made, so a change here is live as soon as you save the record. There is nothing to reload and no session to restart.
 
 ::: tip Recurring documents
-If users are duplicating the same document month after month, it is worth reading [Recurring Documents](/platform/recurring-documents) as well — a document that is generated on a schedule may suit them better than a copy made by hand, and the two features work happily side by side.
+If users are duplicating the same document month after month, it is worth reading [Recurring Documents](/platform/automation-and-rules/recurring-documents) as well — a document that is generated on a schedule may suit them better than a copy made by hand, and the two features work happily side by side.
 :::
 
 ## Audit Fields
@@ -56,7 +56,7 @@ On this grid, use **For Type** (or **For Type List**) rather than the Applicable
 This grid is applied by the server, so it takes effect the moment you save. The next edit of an audited field is already recorded in detail; edits made before you added the line are not, because the detail simply was not captured at the time.
 
 ::: info Where audit trails earn their keep
-Detailed auditing pairs naturally with the two other places where "who changed what" decides an argument: [Revise and Unrevise](/platform/revise-and-unrevise), where a posted document is pulled back and edited, and the [Approvals System](/platform/approvals/approvals-system), where a value may be changed after somebody has already approved it.
+Detailed auditing pairs naturally with the two other places where "who changed what" decides an argument: [Revise and Unrevise](/platform/governance/revise-and-unrevise), where a posted document is pulled back and edited, and the [Approvals System](/platform/approvals/approvals-system), where a value may be changed after somebody has already approved it.
 :::
 
 ## Add Discussion To
@@ -127,7 +127,7 @@ This grid is applied by the browser, not the server. After you save your changes
 - [Reference Lookups and Search](/platform/fields-and-entities-settings/fields-settings-reference-lookups) — the sibling page on how reference fields find and offer records.
 - [Screen Modifier — Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen) — the tool for arranging everything else on an edit screen, including the tabs the discussion and related-documents panels are placed on.
 - [Nama ERP Notification System](/platform/notifications/notifications-system) — the other way a record reaches a person, and the natural companion to both the discussion panel and e-mail sending.
-- [Revise and Unrevise](/platform/revise-and-unrevise) — pulling a processed document back for editing, where a detailed audit trail earns its keep.
+- [Revise and Unrevise](/platform/governance/revise-and-unrevise) — pulling a processed document back for editing, where a detailed audit trail earns its keep.
 - [Approvals System](/platform/approvals/approvals-system) — approval states are a classic Clear On Duplicate candidate, and a classic thing to audit in detail.
-- [Recurring Documents](/platform/recurring-documents) — generating a document on a schedule instead of duplicating last month's by hand.
+- [Recurring Documents](/platform/automation-and-rules/recurring-documents) — generating a document on a schedule instead of duplicating last month's by hand.
 - [Jasper Reports Complete Guide](/platform/reports/reports-guide) — the reports whose send dialog the Email Send To Types grid configures.

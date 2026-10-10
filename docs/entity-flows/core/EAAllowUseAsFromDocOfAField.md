@@ -1,13 +1,12 @@
 ---
 title: EAAllowUseAsFromDocOfAField
 module: core
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAAllowUseAsFromDocOfAField
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

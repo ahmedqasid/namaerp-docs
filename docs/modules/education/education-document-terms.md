@@ -161,6 +161,6 @@ The **book** decides the document's numbering series and a few small behaviours;
 how the document behaves and what it books. A term can restrict which books it will work with,
 through its Allowed Books grid or an allowed-books rule, and that is how each book ends up paired
 with the term that belongs to it — a Riyadh book with the Riyadh term, a corporate-training book with
-the corporate term. The details are on the [Document Books](/platform/document-books) page, and the
+the corporate term. The details are on the [Document Books](/platform/documents-and-records/document-books) page, and the
 term fields that are common to every module across Nama are described in
 [Document Terms](/modules/supplychain/document-terms/doc-term-general).

@@ -1,14 +1,13 @@
 ---
 title: EARunEntityFlow
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARunEntityFlow
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

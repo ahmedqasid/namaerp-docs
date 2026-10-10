@@ -49,7 +49,7 @@ The fastest route is to pick the folder first and let it do the work for you.
 ::: warning Nothing watches the dates
 Renewal Date and Expiration Date are recorded and nothing else. There is no reminder, no
 notification and no scheduled check anywhere in DMS. To be warned about lapsing licences, build a
-[scheduled task](/platform/scheduled-tasks.md) over a filtered document list, or keep a saved
+[scheduled task](/platform/automation-and-rules/scheduled-tasks.md) over a filtered document list, or keep a saved
 [quick filter](/platform/list-views/quick-filters.md) that people actually look at.
 :::
 

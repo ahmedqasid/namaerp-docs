@@ -50,6 +50,13 @@ Its **Collect Employees** block defines a range or criteria — from/to employee
 Employment Information generates no accounting effect and runs no payroll on its own. It's purely a convenience tool for writing the same component and vacation setup into many employees' records in one operation — typically right after a batch of hires has gone through [work starting](../recruitment/work-starting.md).
 :::
 
+## Actions on this screen
+
+The **Employee HR Information** screen has no buttons of its own. **Employment Information** has two:
+
+- **Collect Employees** — adds a line for every employee matching the range or criteria. It does not check what is already in the grid, so pressing it twice lists the same employees twice; clear the grid first if you change the range.
+- **Collect Vacations** — fills the **Vacancies** grid with the vacation types that apply to the **first** employee on the grid, each with its type's default days. The grid is rebuilt, not added to. At least one employee must be on the grid.
+
 ## How it fits into onboarding
 
 A new hire's record usually comes together in this order: a [job offer](../recruitment/job-offers-and-tests.md) proposes a salary structure, a [work starting](../recruitment/work-starting.md) document creates the employee (and their HR Information record), and — if a whole cohort joined at once — Employment Information bulk-fills their component lines and vacation entitlements in a single pass. From then on, day-to-day adjustments for one person happen directly on their Employee HR Information record.

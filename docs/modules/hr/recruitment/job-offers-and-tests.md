@@ -30,17 +30,17 @@ The **Salary Structure** field on a job offer works exactly like it does anywher
 
 The **Salary Components** page repeats the familiar shape (HR Calendar, Component Type, Salary Component Value, Component Calculation Formula, Issuance, From/To Date, Criteria) alongside Housing and Transportation allowance switches, ticket entitlements, and the read-only Total Additions / Deductions / Other / Salary figures — so the whole package can be reviewed as one number before it's sent to the candidate. A **Vacancies** page lets the offer pre-assign vacation entitlement (vacation type, assigned days, balance range) for the new hire, the same information that later appears on their [Employee HR Information](../setup/employee-hr-information.md) record.
 
-Two actions close out an offer: **Collect Vacations** (تجميع الأجازات) pulls in the entitlement lines from the chosen vacation balance ranges, and **Reject** (رفض) records that the candidate — or the company — walked away from the offer.
+Two actions sit on the **Salary Components** page: **Collect Vacations** (تجميع الأجازات) fills the vacations grid with every vacation type that applies to the employee the offer is for, at each type's default days, and **Reject** (رفض) sets the **Offer State** to **Rejected** when the candidate — or the company — walks away.
 
 ![Job Offer edit screen, showing job details and offer state](../../../ar/modules/hr/images/recruitment/job-offer-en.png)
 
 ## Candidate Job Offer
 
-**Candidate Job Offer** (عرض وظيفي لمتقدم للعمل), at **Payroll > Recruitment > Candidate Job Offer**, is the same idea narrowed to one specific use: it carries a direct **Candidate** field instead of the generic "Offer For" reference, and it's the document created automatically when a recruiter clicks **Transfer To Employee And Create Job Offer** on a [candidate's record](vacancies-and-candidates.md). Everything else — job details, salary components, vacancies, the **Reject** action — mirrors the plain Job Offer.
+**Candidate Job Offer** (عرض وظيفي لمتقدم للعمل), at **Payroll > Recruitment > Candidate Job Offer**, is the same idea narrowed to one specific use: it carries a direct **Candidate** field instead of the generic "Offer For" reference, and it is the offer you make before the applicant is an employee. Once it is accepted, **Transfer To Employee And Create Job Offer** — on this document or on the [candidate's record](vacancies-and-candidates.md) — turns it into an employee and a plain Job Offer. Everything else — job details, salary components, vacancies — mirrors the plain Job Offer.
 
 ## Aggregated Job Offer
 
-Hiring rarely happens one person at a time when a whole cohort starts together — a new branch opening, a seasonal intake. **Aggregated Job Offer** (عرض وظيفي مجمع), at **Payroll > Recruitment > Aggregated Job Offer**, is the batch version: define an employee range or criteria (department, organization position, job position, branch, sector, nationality, and more) in its **Collect Employees** block, click **Collect Employees** (تجميع الموظفين), and Nama pulls in every matching person into the **Employees** grid — one line each, with a back-pointer to the individual **Job Offer** it will generate.
+Hiring rarely happens one person at a time when a whole cohort starts together — a new branch opening, a seasonal intake. **Aggregated Job Offer** (عرض وظيفي مجمع), at **Payroll > Recruitment > Aggregated Job Offer**, is the batch version: define an employee range or criteria (department, organization position, job position, branch, sector, nationality, and more) in its **Collect Employees** block, click **Collect Employees** (تجميع الموظفين), and Nama pulls every matching employee whose **Employee State** is still empty — someone registered but not yet working — into the **Employees** grid — one line each, with a back-pointer to the individual **Job Offer** it will generate.
 
 The same Job Details, Salary Components, and Vacancies pages appear here, applied once to every collected line; a **Generated Doc Book / Term** pair tells Nama which book and term to use for the individual offers it spawns, and **Create Offers Only And Do Not Update When Saving** controls whether re-saving the batch is allowed to touch offers it already created. As with any [aggregated document](../concepts/hr-requests-and-documents.md), work in the batch — not in the generated singles underneath it.
 
@@ -50,13 +50,34 @@ Found at **Payroll > Recruitment > HR Test**, an **HR Test** (إختبار) defi
 
 ## HR Test Result
 
-**HR Test Result** (نتائج الإختبار), at **Payroll > Recruitment > Test Result**, is where the actual scoring happens. Pick the **Vacancy** and the **Test** being scored, use **Collect Candidates** (تجميع المتقدمين) to pull in everyone waiting on that test, then fill each candidate's **Test Score** in the **Details** grid; Nama compares it against the **Minimum Acceptance Grade** and records a **Test Conclusion** — **Passed**, **Partial Passed**, or **Failed** — for that line. Those per-test conclusions are what a candidate's own Tests Total Grade and Tests Status summarise.
+**HR Test Result** (نتائج الإختبار), at **Payroll > Recruitment > Test Result**, is where the actual scoring happens. Pick the **Vacancy** and the **Test** being scored, use **Collect Candidates** (تجميع المتقدمين) to add every candidate who applied for that vacancy and is not already in the grid, then fill each candidate's **Test Score** in the **Details** grid; Nama compares it against the **Minimum Acceptance Grade** and records a **Test Conclusion** — **Passed**, **Partial Passed**, or **Failed** — for that line. Those per-test conclusions are what a candidate's own Tests Total Grade and Tests Status summarise.
 
 ![HR Test edit screen, showing test type, grading and related skills](../../../ar/modules/hr/images/recruitment/hr-test-en.png)
 
 ## From offer to employee
 
 Accepting an offer isn't a separate click on the offer itself — the hire happens back on the [candidate's record](vacancies-and-candidates.md), whose **Create Employee** or **Transfer To Employee And Create Job Offer** button turns the applicant into a real employee. From there, onboarding continues with [Work Starting](work-starting.md), which puts the new hire on the payroll and creates their [Employee HR Information](../setup/employee-hr-information.md) record.
+
+## Actions on this screen
+
+**On the Job Offer** (on the **Salary Components** page):
+
+- **Collect Vacations** — replaces the vacations grid with every vacation type that applies to the employee in **Offer For**, each at its default days, and copies the employee's bank, bank account and IBAN onto the offer. It does nothing when the offer is not made to an employee.
+- **Reject** — sets **Offer State** to **Rejected**. An offer whose state is already set is refused with *Can Not Modify Processed Offer* — «لا يمكن تعديل حالة العرض».
+
+**On the Candidate Job Offer:**
+
+- **Transfer To Employee And Create Job Offer** — asks for a **Start Date**, creates an employee from the candidate (or reuses the one already created from them), then creates and commits a plain **Job Offer** for that employee carrying this offer's terms. The candidate job offer must be saved first, and its document term must name the **Generated Job Offer Book** and **Generated Job Offer Term**.
+
+**On the Aggregated Job Offer:**
+
+- **Collect Employees** — replaces the **Employees** grid with every employee who matches the **Collect Employees** range and has no **Employee State** yet.
+
+**On the Test Result:**
+
+- **Collect Candidates** — adds every candidate who applied for the chosen **Vacancy** and is not already in the **Details** grid; existing lines are kept. It does nothing until a vacancy is chosen.
+
+The **HR Test** has no buttons of its own.
 
 ## Messages you may see
 

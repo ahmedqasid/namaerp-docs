@@ -88,7 +88,7 @@ Documents in Nama can be *revised* — stamped as reviewed at one of five levels
 | **Can UnRevise / UnRevise Levels** | The same pair for removing a revision stamp. |
 
 ::: warning A dash is a separator, not a range
-`1-3` does **not** mean levels 1 through 3 — it is read as the two levels **1 and 3**, and a sign-off at level 2 is refused. Write out every level you want to allow: `1,2,3`. [Revise and Unrevise](/platform/revise-and-unrevise) covers the levels themselves.
+`1-3` does **not** mean levels 1 through 3 — it is read as the two levels **1 and 3**, and a sign-off at level 2 is refused. Write out every level you want to allow: `1,2,3`. [Revise and Unrevise](/platform/governance/revise-and-unrevise) covers the levels themselves.
 :::
 
 ### Data Transfer and Miscellaneous
@@ -102,7 +102,7 @@ Documents in Nama can be *revised* — stamped as reviewed at one of five levels
 | **Prevent View System Transaction** | Hide the system effects of the record (journal entries, stock movements). |
 | **Prevent View More Menu** | Hide the "More" menu on the type's screens. |
 | **Can Change Capability** | Allow assigning/changing a capability at the individual record level (see [Record-Level Security](/platform/security/record-level-security.md)). |
-| **Display Prevent-Usage Records** | Whether records flagged "prevent usage" are visible to this role: **Display**, **Hide**, or **Same As Config** (follows global settings). |
+| **Display Prevent-Usage Records** | Whether records flagged "prevent usage" are visible to this role: **Display**, **Hide**, or **Same As Config** (follows Global Configuration). |
 | **Can Edit/Delete Docs In Closed Shifts** | POS-specific: allow interacting with documents that belong to a closed cash shift. |
 
 ## Menu Allow/Block
@@ -125,7 +125,7 @@ Hide entire pages from the type's screen or make them read-only.
 
 ## List View Security Page
 
-Allow or block specific list views.
+Allow or block specific list views — including the blocks that [Custom List Views](/platform/list-views/custom-list-views) add to other screens. The rules are in [Field, Page, and List View Security](/platform/security/field-page-listview-security.md).
 
 ![Security Profile — List View Security](../../ar/platform/security/images/security-profile-listview-security-en.png)
 
@@ -144,7 +144,9 @@ How it works:
 Custom capability lines also carry optional inputs (two references, two dates, two text fields) that specific features can interpret — for example a reference to a cost center to which the capability applies.
 
 ::: info System Reports
-The **View System Reports** flag in the screen header is implemented internally as a built-in capability with code `SYSTEMREPORTS`. Enabling it on the profile or user automatically grants that capability, and reports tagged as *system reports* are visible only to users who hold it.
+The **View System Reports** flag in the screen header grants one built-in capability, *System Reports* (code `SYSTEMREPORTS`). That covers far less than its name suggests. The reports Namasoft ships are filed under groups such as *System Reports - Accounting*, and each one carries its group's own capability as its view capability. So to let a user without full authority run the shipped accounting reports, add a Custom Capabilities line for *System Reports - Accounting*, and likewise for every other group they need. The flag on its own only opens the few system reports filed without a group.
+
+Who may run a particular report — its own security grid, its security equivalent, and the capability each shipped report carries — is explained in [Who may run a report](/platform/reports/reports-guide#Who-may-run-a-report).
 :::
 
 ![Capability Type Screen](../../ar/platform/security/images/security-capability-en.png)

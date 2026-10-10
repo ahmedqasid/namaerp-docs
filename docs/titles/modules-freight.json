@@ -5,12 +5,17 @@
     "/modules/freight/operation-orders.md",
     "/modules/freight/bills-of-lading.md",
     "/modules/freight/freight-pricing.md",
+    "/modules/freight/freight-price-list-workflow.md",
     "/modules/freight/freight-invoicing.md",
+    "/modules/freight/freight-storage-locations.md",
     "/modules/freight/freight-einvoicing.md",
     "/modules/freight/ips-postal-intro.md",
     "/modules/freight/ips-mail-items.md",
     "/modules/freight/ips-receptacles.md",
-    "/modules/freight/ips-delivery.md"
+    "/modules/freight/ips-delivery.md",
+    "/modules/freight/ips-integration.md",
+    "/modules/freight/freight-configuration.md",
+    "/modules/freight/freight-document-terms.md"
   ],
   "folderTitles": {
     "/modules/freight": {

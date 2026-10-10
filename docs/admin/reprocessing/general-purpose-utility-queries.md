@@ -1,4 +1,7 @@
 # General Purpose Utility Queries
+
+General SQL helpers that are not tied to one module: generating date ranges, finding missing document numbers, unlinking documents from their source documents, cancelling a document's current approval case, recovering after two application servers ran on one database, exporting contacts to a Grandstream LDAP phonebook, and resetting the revised and prevent-usage flags.
+
 ## Get All Dates between two dates
 ::: details
 ```sql
@@ -67,8 +70,6 @@ select code from InvItem
 select code from #Items
 ```
 :::
-
-- TODO: maybe create a widget to create temp tables
 
 ## Cancel Current Approval Case of a document
 ::: details

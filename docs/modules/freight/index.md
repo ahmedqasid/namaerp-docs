@@ -45,19 +45,35 @@ The module is large, so we've split it into two main areas that mirror how the s
 
 ### Freight & Logistics
 
-- **[Master Files](./freight-master-files.md)** — the infrastructure everything builds on: service items, containers and their types and sizes, vessels, ports, sailing schedules, commodities, countries, and locations.
-- **[Operation Orders](./operation-orders.md)** — the central shipment document and everything that branches from it: services, statuses, release, short shipments, and operation-order delivery/receipt/transfer.
-- **[Bills of Lading](./bills-of-lading.md)** — the official shipping document, its lines and data.
-- **[Price Lists & Markups](./freight-pricing.md)** — sales and purchase prices per service, profit markups, and updating operation-order services from them.
-- **[Invoices & Returns](./freight-invoicing.md)** — sales orders, sales and purchase invoices, returns, payments, and linking cost to sale.
+<LandingGrid>
+  <LandingCard icon="🗂️" title="Master Files" link="/modules/freight/freight-master-files.md" details="The infrastructure everything builds on: service items, containers and their types and sizes, vessels, ports, sailing schedules, commodities, countries, and locations." />
+  <LandingCard icon="📋" title="Operation Orders" link="/modules/freight/operation-orders.md" details="The central shipment document and everything that branches from it: services, statuses, release, short shipments, and operation-order delivery/receipt/transfer." />
+  <LandingCard icon="📜" title="Bills of Lading" link="/modules/freight/bills-of-lading.md" details="The official shipping document, its lines and data." />
+  <LandingCard icon="💲" title="Price Lists & Markups" link="/modules/freight/freight-pricing.md" details="Sales and purchase prices per service, profit markups, and updating operation-order services from them." />
+  <LandingCard icon="🔁" title="From Supplier Rates to Customer Quotations" link="/modules/freight/freight-price-list-workflow.md" details="Price-list elements, turning supplier rates into quotations, re-pricing, and bulk rate changes with the Edit Purchase Price List." />
+  <LandingCard icon="🧾" title="Invoices & Returns" link="/modules/freight/freight-invoicing.md" details="Sales orders, sales and purchase invoices, returns, payments, and linking cost to sale." />
+  <LandingCard icon="🏬" title="Storage Locations" link="/modules/freight/freight-storage-locations.md" details="Locations and their capacity, and receiving, moving and releasing operation-order cargo." />
+</LandingGrid>
 
 ### International Postal System (IPS)
 
-- **[Postal System Overview](./ips-postal-intro.md)** — the core concepts: mail items, receptacles, offices, and receipt/delivery areas.
-- **[Mail Items](./ips-mail-items.md)** — the mail-item lifecycle: manifesting, transfer between offices, adjustment, stock taking, retention, and sorting.
-- **[Receptacles](./ips-receptacles.md)** — receiving receptacles, dispatching them on route schedules, and the customs manifest.
-- **[Delivery Service](./ips-delivery.md)** — delivery requests and invoices, delivery service items and prices, delivery areas, and non-delivery handling.
+<LandingGrid>
+  <LandingCard icon="📮" title="Postal System Overview" link="/modules/freight/ips-postal-intro.md" details="The core concepts: mail items, receptacles, offices, and receipt/delivery areas." />
+  <LandingCard icon="✉️" title="Mail Items" link="/modules/freight/ips-mail-items.md" details="The mail-item lifecycle: manifesting, transfer between offices, adjustment, stock taking, retention, and sorting." />
+  <LandingCard icon="👜" title="Receptacles" link="/modules/freight/ips-receptacles.md" details="Receiving receptacles, dispatching them on route schedules, and the customs manifest." />
+  <LandingCard icon="🚚" title="Delivery Service" link="/modules/freight/ips-delivery.md" details="Delivery requests and invoices, how the sort creates and prices them, and non-delivery handling." />
+  <LandingCard icon="🔌" title="IPS Integration" link="/modules/freight/ips-integration.md" details="Reading data from the external IPS server, reporting events, and following up failed events." />
+</LandingGrid>
+
+### Setup
+
+<LandingGrid>
+  <LandingCard icon="⚙️" title="Freight Configuration" link="/modules/freight/freight-configuration.md" details="The module settings: default service items, storage behaviour, invoice currency totals, and the IPS connection." />
+  <LandingCard icon="📑" title="Freight Document Terms" link="/modules/freight/freight-document-terms.md" details="What each freight and postal document term controls: accounting sides, operation-order status, postal events and storage effect." />
+</LandingGrid>
 
 ### E-Invoicing
 
-- **[E-Invoicing Handling](./freight-einvoicing.md)** — how the freight module sends its invoices to the tax authority, and how it handles the agent/commission model and service-item tax codes.
+<LandingGrid>
+  <LandingCard icon="🏛️" title="E-Invoicing Handling" link="/modules/freight/freight-einvoicing.md" details="How the freight module sends its invoices to the tax authority, and how it handles the agent/commission model and service-item tax codes." />
+</LandingGrid>

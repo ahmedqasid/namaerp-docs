@@ -1,14 +1,13 @@
 ---
 title: EARecommitFromQuery
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARecommitFromQuery
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -110,6 +110,15 @@ up into the party document's approval state, and that state is what a settlement
 respect. Because the clearance and the money are deliberately separate, you can run the two in
 parallel and simply require the clearance to be **Approved** before the dues liquidation is paid.
 
+## Actions on this screen
+
+**On the Evacuation Party Document** (both need the document saved first and its **Approval Settings** filled):
+
+- **Generate Evacuation Approval Documents** — creates and saves one Evacuation Approval Document per step of the approval settings, each assigned to the step's responsible person and carrying the party document's company and dimensions. Steps already approved are skipped, but every other step gets a new approval document each time you press it — so press it once, not again while steps are still pending. When every step is already approved it stops with *All steps are approved* — «تم الموافقة علي كل الخطوات».
+- **Generate Draft Evacuation Approval Documents** — the same, but the approval documents are left as drafts, so you can review or adjust them before they go out.
+
+The Evacuation Approval Settings and the Evacuation Approval Document have no buttons of their own.
+
 ## Messages you may see
 
 | Message | Why | What to do |

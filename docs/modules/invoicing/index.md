@@ -43,12 +43,20 @@ Reporting your invoices to national tax platforms, with a country-specific guide
   <LandingCard icon="🇦🇪" title="UAE e-Invoicing (Orchida osTax)" link="/modules/invoicing/uae-orchida-einvoice-guide.md" details="Connect to the UAE e-invoicing system through the Orchida osTax service." />
 </LandingGrid>
 
+## The Rules Behind the Invoice, and Its Reports
+
+A sales invoice behaves the way its document term tells it to — what it copies from the order, how it prices and taxes its lines, what it records in the ledger — and that term is documented with the other supply chain terms. The reports that total, compare and cost your invoices live there too.
+
+<LandingGrid>
+  <LandingCard icon="⚙️" title="Document Terms" link="/modules/supplychain/document-terms/" details="The term settings behind the Sales Invoice and every other sales and purchase document, one page per tab." />
+  <LandingCard icon="📊" title="Supply Chain and Sales Reports" link="/modules/supplychain/supplychain-reports.md" details="The catalogue of shipped inventory, purchasing, sales and point-of-sale reports: sales detail, profitability, comparisons and statements." />
+</LandingGrid>
+
 ## Document Tools & Help
 
-Helpers that speed up invoice data entry and answer the common questions.
+Helpers that speed up invoice data entry.
 
 <LandingGrid>
   <LandingCard icon="📜" title="Standard Terms & Conditions" link="/modules/invoicing/standard-terms-feature-documentation.md" details="Define standard terms, attach them to sales documents, and track whether each one has been fulfilled." />
   <LandingCard icon="📦" title="Barcode Field for Sequential Scanning" link="/modules/invoicing/barcode-field-feature.md" details="A smart barcode field that keeps focus so you can scan many item codes in a row without re-clicking." />
-  <LandingCard icon="❓" title="Invoices & Payments FAQ" link="/modules/invoicing/invoices-faq.md" details="Answers to the questions that come up most often around invoices and payments." />
 </LandingGrid>

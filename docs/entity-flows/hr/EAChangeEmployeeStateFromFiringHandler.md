@@ -1,6 +1,7 @@
 ---
 title: EAChangeEmployeeStateFromFiringHandler
 module: hr
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>

@@ -1,9 +1,19 @@
 ---
 entities: [InsuranceCompanyApproval, HMSInsuranceCompany, HMSInsuranceClass, HMSInsuranceCompanyClass]
+menu: Hospital Management System → Master Files → Insurance Company Approval
 ---
 # Medical Insurance & Approvals
 
 Insurance is what makes hospital billing different: the patient rarely pays the whole bill. So before we price any service, we define the insurance companies we deal with, how we classify them, and most importantly the **insurance approval** that sets the agreed prices and how they split between patient and company.
+
+These files have no buttons of their own.
+
+| Screen | Menu | Its own buttons |
+|---|---|---|
+| **Insurance Company Approval** | Hospital Management System → Master Files → Insurance Company Approval | None |
+| **Medical Insurance Company** | Hospital Management System → Master Files → Medical Insurance Company | None |
+| **Insurance Classification** | Hospital Management System → Master Files → Insurance Classification | None |
+| **Medical Insurance Company Class** | Hospital Management System → Master Files → Medical Insurance Company Class | None |
 
 ## Insurance companies and their classes
 

@@ -1,14 +1,13 @@
 ---
 title: EASupplyChainMergeStockTakingElectronicDocLines
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EASupplyChainMergeStockTakingElectronicDocLines
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

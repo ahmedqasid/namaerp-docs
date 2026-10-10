@@ -40,6 +40,8 @@ The lists aren't a static reference — they're the actual pricing source. Insid
 
 The **Edit Purchase Price List** document also lets you update purchase prices in bulk without opening each list individually.
 
+Each list also carries its own buttons. On the purchase list: **Create Sales Quotation**, **Update Sales Quotation**, **Duplicate Selected Record**, and **Copy Valid From And Valid To From Lines To Generated Purchase Price Element And Sales Price List Related To It**. On every service tab of the sales list: **Update Prices**. On the Edit Purchase Price List: **Collect Elements**. What each does, and the day-to-day work they support, is on [From Supplier Rates to Customer Quotations](./freight-price-list-workflow.md).
+
 ## Linking sale to cost
 
 When [invoicing sales](./freight-invoicing.md), the system matches each sale line to its corresponding purchase line in the same operation order (same service item, currency, quantity, ports, container, and commodity), computing the **actual cost** and the **difference (profit)** for each line — so you know your profit at the level of a single service, not just the shipment.

@@ -56,9 +56,9 @@ Used within those limits it is genuinely useful: a place to assemble the cost of
 
 **Main page.** The header is the order's header plus two additions: a **warehouse**, which is mandatory, and a read-only **stock issue** reference that fills in if the document generates one. Then the **Orders** grid and its **Copy All From MnOrders** button, a **Machines** grid, a **Dysfunctions** grid, and a totals group.
 
-**Tools and visits page.** A tools grid, a **Tools Issue Request** button, and a read-only list of the maintenance visits pointing at this document.
+**Tools and visits page.** A tools grid and a read-only list of the maintenance visits pointing at this document.
 
-**Spare parts and services page.** The spare-parts grid with a **Spare Parts Issue Request** button and totals, then the services grid and its totals. The price block here is noticeably thinner than the invoice's: unit price, discount percentage and value, and net value — **no tax columns at all**. An estimation therefore shows a net figure, not a figure a customer would pay after tax; add the tax yourself when you quote.
+**Spare parts and services page.** The spare-parts grid and its totals, then the services grid and its totals. The price block here is noticeably thinner than the invoice's: unit price, discount percentage and value, and net value — **no tax columns at all**. An estimation therefore shows a net figure, not a figure a customer would pay after tax; add the tax yourself when you quote.
 
 **Technicians page.** Technicians and their rewards.
 
@@ -68,11 +68,17 @@ The document refuses to save when: the warehouse is empty; the per-technician re
 On the other maintenance documents, a machine typed in the header is added to the machines grid automatically. Do not rely on that here — on the estimation it is not dependable, and a header machine that is not already in the grid can produce a technical error when you save. Add the machines to the grid first, then set the header.
 :::
 
-## The Manual Issue Buttons
+## Actions on this screen
 
-**Spare Parts Issue Request** and **Tools Issue Request** open a pre-filled supply-chain document in a popup for you to review and save. They are an **alternative** to term-driven generation, never a supplement.
+- **Copy All From MnOrders** (*نسخ كل السطور من أوامر الشغل*) — on the main page. Appends every detail
+  line (machines, spare parts, services, dysfunctions, technicians, tools, maintenance groups) of
+  every order listed in the *Orders* grid. If the document term ticks *Consider Lines Of FromDoc*,
+  the *From document*'s lines are appended too. Pressing it twice appends the lines twice.
 
-If the estimation term already generates a stock issue and somebody also presses the button, the parts leave twice. The same applies across documents: the order, the execution, the estimation and the invoice all carry issue buttons of their own, and none of them checks what the others have already issued. Decide once, per installation, where stock leaves the store, and tell the technicians.
+Stock does not leave the store from a button on this screen. If it leaves because of an estimation,
+it is the term-driven generation described above. The order, the execution and the invoice carry
+issue buttons of their own, and none of them checks what the others have already issued — decide
+once, per installation, where stock leaves the store, and tell the technicians.
 
 ## How to Use It Safely
 

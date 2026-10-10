@@ -38,7 +38,7 @@ Found at **Payroll > Recruitment > Vacancy**, an **HR Vacancy** (فرصة عمل
 
 A vacancy also carries the standard **Dimensions** (legal entity, branch, sector, department, analysis set), so recruitment can be scoped the same way as every other master record in Nama.
 
-Once every seat is filled — or the opening is called off — a recruiter uses the **Change Status** button (تغيير الحالة) to flip it from Open to Closed, rather than deleting it; the closed vacancy stays on record as a history of what was hired for and when.
+Once every seat is filled — or the opening is called off — a recruiter uses the **Change Status** button (تغيير الحالة), which asks for the new status — **Open**, **Closed** or **Pending** — to close it, rather than deleting it; the closed vacancy stays on record as a history of what was hired for and when.
 
 ![HR Vacancy edit screen, showing status and the position details](../../../ar/modules/hr/images/recruitment/hr-vacancy-en.png)
 
@@ -79,8 +79,8 @@ There's also a **Salary Components** grid, identical in shape to the one on [Emp
 ::: tip Two ways to turn a candidate into an employee
 A candidate's record carries two buttons for closing out a successful application:
 
-- **Create Employee** (إنشاء موظف) — hires the candidate directly, with no job offer document in between.
-- **Transfer To Employee And Create Job Offer** (تحويل المتقدم للعمل لموظف وإنشاء عرض وظيفي) — hires the candidate *and* generates the matching job offer record in the same step, so the terms that were discussed are captured on paper.
+- **Create Employee** (إنشاء موظف) — opens a new employee record filled in from the candidate (code, names, contact details, gender, birth date, nationality, qualifications, residency and so on) for you to complete and save, with no job offer document in between.
+- **Transfer To Employee And Create Job Offer** (تحويل المتقدم للعمل لموظف وإنشاء عرض وظيفي) — asks for a **Start Date**, then creates the employee *and* a job offer from the candidate's committed [Candidate Job Offer](job-offers-and-tests.md#Candidate-Job-Offer) in one step, so the terms that were discussed are captured on paper. The candidate job offer must exist first.
 
 Most organisations use the second path so there's always a documented offer behind every hire — see [Job Offers & Tests](job-offers-and-tests.md) for what that document looks like.
 :::
@@ -89,7 +89,24 @@ Most organisations use the second path so there's always a documented offer behi
 
 Found at **Payroll > Recruitment > HR Test**, an **HR Test** (إختبار) defines one assessment a candidate might be put through — a written test, an interview, or trial work — with its own **Test Type**, **Average Cost**, **Max Grade**, **Minimum Acceptance Grade**, **Test Period**, whether it's **Mandatory**, and a **Related Skills** grid tying it back to the skills it's meant to measure.
 
-**HR Test Result** (نتائج الإختبار), at **Payroll > Recruitment > Test Result**, records the outcome: pick the **Vacancy** and the **Test**, use the **Collect Candidates** button (تجميع المتقدمين) to pull in every candidate awaiting that test, then score each one in the **Details** grid — **Test Score** and the resulting **Test Conclusion** (Passed / Partial Passed / Failed). Those per-test conclusions are what roll up into a candidate's own Tests Total Grade and Tests Status.
+**HR Test Result** (نتائج الإختبار), at **Payroll > Recruitment > Test Result**, records the outcome: pick the **Vacancy** and the **Test**, use the **Collect Candidates** button (تجميع المتقدمين) to add every candidate who applied for that vacancy and is not already listed, then score each one in the **Details** grid — **Test Score** and the resulting **Test Conclusion** (Passed / Partial Passed / Failed). Those per-test conclusions are what roll up into a candidate's own Tests Total Grade and Tests Status.
+
+## Actions on this screen
+
+**On the Vacancy:**
+
+- **Change Status** — asks for the new status (**Open**, **Closed** or **Pending**) and sets the vacancy to it.
+
+**On the Candidate** (both explained in the tip above):
+
+- **Create Employee** — opens a new employee record filled in from the candidate, for you to complete and save. The candidate must be saved first.
+- **Transfer To Employee And Create Job Offer** — asks for a **Start Date** and creates the employee and a job offer from the candidate's committed candidate job offer. The candidate must be saved first.
+
+**On the Test Result:**
+
+- **Collect Candidates** — adds every candidate who applied for the chosen **Vacancy** and is not already in the grid.
+
+The **Vacancy Type** and the **HR Test** have no buttons of their own.
 
 ## Where this leads
 

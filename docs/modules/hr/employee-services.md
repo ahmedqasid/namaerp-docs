@@ -170,13 +170,27 @@ Feeding employees runs on the same catalog-then-apply pattern as most other empl
 3. **Generate and track the actual delivery: Meal Delivery Plan.** A **Meal Delivery Plan**
    (`خطة توصيل الوجبة`) is the operational plan that actually gets meals to people. Set a from/to date
    range and an employee/department/position range, then use **Collect Meals** (`تجميع الوجبات`) to
-   pull in every eligible employee — respecting both the Meal Type criteria and any Meals Details
-   overrides — as a line carrying its own meal type, delivery date/time, cost and a **Status**
-   (Planned, Delivered, Cancelled). As meals actually go out, **Update Status** (`تحديث الحالة`)
-   marks each line's real delivery outcome (Meal, Meal Allowance, Cancelled).
+   list the employees and the meal type each one gets. Each line carries a delivery date, cost and a
+   **Status** (Planned, Delivered, Cancelled); as meals actually go out, **Update Status**
+   (`تحديث الحالة`) moves lines from one status to another in bulk. Both buttons are described under
+   *Actions on this screen* below.
 
 None of the three meal documents post to the general ledger — meal cost here is an operational and
 allowance-tracking figure, not an accounting entry.
+
+## Actions on this screen
+
+The vehicle, insurance, transport, **Meal Type** and **Meals Details** screens on this page have no
+buttons of their own. The **Meal Delivery Plan** has two:
+
+- **Collect Meals** — rebuilds the grid with one line per employee in the plan's **From/To Employee**
+  range, carrying the meal type whose own employee range covers that employee; when several meal
+  types do, the one with the lowest **Priority** number wins. The department and position ranges on
+  the plan narrow which meal types are considered. Employees no meal type covers are left out.
+- **Update Status** — asks for a **From Date**, an optional **To Date**, an optional **From Status**
+  and a **To Status**, and sets every line delivered between the dates (and, if given, currently in
+  the From Status) to the To Status. The dates themselves are not included: a line dated exactly on
+  the From Date or To Date keeps its status. From Date and To Status are required.
 
 ## Messages you may see
 

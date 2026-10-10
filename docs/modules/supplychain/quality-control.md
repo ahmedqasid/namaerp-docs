@@ -42,7 +42,7 @@ When a checklist is linked to an item (see [Understanding Inventory Items](./und
 Quality control isn't isolated, but a step within larger paths:
 
 - **With receiving**: via [Receipt Inspection](./receiving-stock.md), goods first arrive in an "under inspection" warehouse/location, and move into available stock only after acceptance.
-- **With production and assembly**: quality checks are embedded within [assembly](./assembly-and-packaging.md) stages and production orders, so output isn't approved before passing its check.
+- **With production** (Manufacturing module): a routing operation can carry a quality check list, and the production execution can raise the quality control document for it. When the execution's term asks for it, quantity cannot leave such an operation — and the product delivery cannot go out — until a committed quality document for the production order approves that operation. The switches are on [Execution and Delivery Terms](../manufacturing/document-terms/mfg-terms-execution-and-delivery.md). Assembly documents have no such gate.
 - **Re-testing**: for items with a re-test period (chemicals and medicines), the system reminds you to re-inspect periodically.
 
 ## Actions on these screens
@@ -68,5 +68,5 @@ Quality control isn't isolated, but a step within larger paths:
 ## Next Steps
 
 - [Receiving Stock](./receiving-stock.md) - receipt inspection as a gate to inventory
-- [Assembly & Packaging](./assembly-and-packaging.md) - quality within assembly stages
+- [Execution and Delivery Terms](../manufacturing/document-terms/mfg-terms-execution-and-delivery.md) - the quality gates on production
 - [Understanding Inventory Items](./understanding-items.md) - linking checklists to items

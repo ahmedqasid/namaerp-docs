@@ -66,7 +66,7 @@ Both of these do useful work; both are named in a way that sends readers looking
 
 **تجميع التحليلات** — labelled *Collect Terms* on English screens — does **not** collect terms. It pushes the analysed costs from [term analysis cards](/modules/contracting/setup/contracting-term-analysis-cards.md) onto the term lines this document already has, filling in their unit cost from the analysis. Use it after the terms are in place, when you want the cost side to reflect the analysis cards rather than whatever came off the term sheet. The Arabic label is the accurate one.
 
-**تحديث الأرباح من كراسة الشروط** (*Update Profits From Sheet*) copies profit percentage, unit price and total price from the matching term sheet line, matched by term code. It is how a company governs its margin centrally: the sheet is the sanctioned rate card, and this button re-imposes it on a document somebody has been editing.
+**تحديث الأرباح من كراسة الشروط** (*update Profits From Term Sheet*) copies profit percentage, unit price and total price from the matching term sheet line, matched by term code. It is how a company governs its margin centrally: the sheet is the sanctioned rate card, and this button re-imposes it on a document somebody has been editing.
 
 ::: tip There is no "copy terms" button on a contract
 This is worth stating here because it is the question the pair of buttons above provokes. Terms reach a project contract in one of two ways: by **converting** a مقايسة or an offer (or by pointing the contract's *Source* field at one), or by choosing a **contract template** on the contract, whose selection triggers the copy. There is no action anywhere that copies terms onto an existing contract on demand.
@@ -95,6 +95,20 @@ On every contracting term screen the main accounts are labelled *Debit 2* (مد�
 :::
 
 If the document is posting and you cannot see the entry immediately, that is expected: the effect is a background business request. Failed requests are visible in the **Business Requests** list view, where you filter by status and use **More → Reprocess / Recommit**.
+
+## Actions on this screen
+
+All of them sit above the terms grid; the first two need the assay saved.
+
+- **Collect Terms** — despite the English label, it pushes the analysed costs from the committed term analysis cards that point at this assay onto its term lines, then saves the assay (see [Two buttons whose names mislead](#Two-buttons-whose-names-mislead)).
+- **update Profits From Term Sheet** — copies profit percentage, unit price and total price from the matching term-sheet lines.
+- **Update Codes** — renumbers every term line from scratch by walking the grid top to bottom (`1`, `1.1`, `1.2`, `2` …), following the parent/leaf type of each line. It overwrites codes you typed yourself.
+- **Update Empty Term Codes Only** — the safe version: gives a code only to lines that have none, leaving existing codes alone.
+- **Convert Contract** — opens a new, unsaved project contract built from this assay's terms and conditions, for you to review and save. The document must be saved first.
+- **Convert Contract With Selected Lines Only** — the same, carrying only the term lines you ticked.
+- **Convert Contractor Contract** and **Convert Contractor Contract With Selected Lines Only** — the same pair, producing a subcontract instead.
+
+![The assay's action bar](../../../ar/modules/contracting/images/project-contracting/contracting-assay-actions-en.png)
 
 ## Carrying it to signature
 

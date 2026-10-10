@@ -1,14 +1,13 @@
 ---
 title: EAIgnoringNotFoundTargetFieldsValuesCalculator
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAIgnoringNotFoundTargetFieldsValuesCalculator
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -17,4 +17,5 @@ doing something to all of them at once without opening each one.
   <LandingCard icon="🗓️" title="Limit User To Year" link="/platform/list-views/limit-user-to-year.md" details="Restrict a user to a single fiscal year across list views." />
   <LandingCard icon="☑️" title="Acting on Several Records at Once" link="/platform/list-views/mass-operations.md" details="Delete, commit, retire or export a whole selection from the More menu — no setup needed." />
   <LandingCard icon="✏️" title="Bulk Edit" link="/platform/list-views/bulk-edit.md" details="Change the same fields on many records at once, from a dialog an implementer sets up." />
+  <LandingCard icon="📋" title="Custom List Views" link="/platform/list-views/custom-list-views.md" details="Show a filtered list of related records as a block inside another record's screen." />
 </LandingGrid>

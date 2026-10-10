@@ -1,14 +1,13 @@
 ---
 title: EAUpdateLotIdDates
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUpdateLotIdDates
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

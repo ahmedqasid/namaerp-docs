@@ -1,14 +1,13 @@
 ---
 title: EACodeValidator
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EACodeValidator
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

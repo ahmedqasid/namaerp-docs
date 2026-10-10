@@ -1,14 +1,13 @@
 ---
 title: EAJsonRecordExporter
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAJsonRecordExporter
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

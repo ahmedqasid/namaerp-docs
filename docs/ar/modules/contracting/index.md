@@ -28,6 +28,7 @@ title: المقاولات
 
 <LandingGrid>
   <LandingCard icon="📐" title="الملفات والإعدادات" link="/ar/modules/contracting/setup/contracting-standard-terms.md" details="المشروعات، والبنود القياسية، وكراسات الشروط، وكروت التحليل، والشروط التعاقدية، وقوائم الأسعار، والمراحل، ومناطق العمل، والنماذج، والمقاولون والاستشاريون." />
+  <LandingCard icon="✏️" title="طلب تعديل بيانات المقاول" link="/ar/modules/contracting/setup/contracting-modify-contractor-info-request.md" details="كيف يُكتب تغيير مطلوب في ملف مقاول الباطن، ثم يُطبَّق أو يتحول إلى مقاول جديد بزر واحد." />
   <LandingCard icon="🧾" title="توجيهات المستندات" link="/ar/modules/contracting/document-terms/contracting-terms-basics.md" details="التوجيه وراء كل مستند: الحسابات التي يُرحَّل إليها، والخيارات التي تغيّر طريقة تسعير المستخلص." />
 </LandingGrid>
 

@@ -1,3 +1,7 @@
+---
+entities: [ReportDefinition]
+---
+
 # NamaRep Expression Reference
 
 Inside a report, anywhere JasperReports accepts an expression — a text field, a variable, a parameter default, a print-when condition — you can call `NamaRep`. It is the bridge between the layout and the rest of Nama ERP: it translates, formats dates and numbers, looks prices up, builds links back into the system, and applies the security rules a raw SQL query would otherwise ignore.
@@ -385,7 +389,7 @@ NamaRep.listView()
 
 #### Criteria format
 
-The filter follows the [Text Criteria format](../text-criteria-guide.md):
+The filter follows the [Text Criteria format](../automation-and-rules/text-criteria-guide.md):
 
 ```
 fieldID,operator,value,logic;
@@ -396,7 +400,7 @@ fieldID,operator,value,logic;
 **Logic connectors:** `AND`, `OR` — **dates:** `dd-MM-yyyy` — **references:** `id:entityType:code`, where the code is optional
 
 ::: tip Let the system write the criteria for you
-Build the conditions visually on the [Criteria Definition](/platform/criteria-definitions) screen, then use **Convert to Text**. The result is a working template you can paste in and then make dynamic with `tempo(...)`.
+Build the conditions visually on the [Criteria Definition](/platform/automation-and-rules/criteria-definitions) screen, then use **Convert to Text**. The result is a working template you can paste in and then make dynamic with `tempo(...)`.
 :::
 
 ## Creating records from a report

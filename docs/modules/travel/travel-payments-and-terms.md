@@ -69,10 +69,6 @@ somewhere unexpected — the method, not the term, is usually the place to look.
 counter does not mark any instalment as settled; it only lowers the Remaining that the instalment
 plan has to add up to.
 
-Two small helpers on the toolbar save typing when the customer is settling in full:
-**Copy Remaining To First Cash Payment Method Line** and **Copy To First Cash Line** push the
-outstanding amount into the first cash row for you.
-
 Where a payment method demands an authorization number, saving without one is rejected. Paid and
 remaining cash are recalculated for you on every save, and a document can never be committed with a
 negative Remaining, negative Cash Paid or negative change.
@@ -95,10 +91,6 @@ Which kind of voucher a document listens to follows the direction of the money:
 | Travel Service Sales Order, Travel Service Sales Invoice, Travel Service Purchase Return | **Receipt** vouchers — money coming in |
 | Travel Service Purchase Order, Travel Service Purchase Invoice, Travel Service Sales Return | **Payment** vouchers — money going out |
 
-If a party has open vouchers that have not been matched to anything yet, the toolbar actions
-**Collect Receipt Vouchers** and **Collect Payment Vouchers** pull them into this grid for you
-rather than making you go voucher by voucher.
-
 Like payment lines, these rows lower *Total Paid* and *Remaining*. Unlike payment lines, they can
 also carry accounting of their own: the document term has an **External Effects** grid where you can
 say "a voucher of this type, matching these criteria, books to these two accounts" — see
@@ -116,9 +108,9 @@ lines are what this grid holds.
 
 You rarely type them. Above the grid sits the **Payment Template** field, where you pick a
 [Payment Schedule Template](/modules/invoicing/payment-schedules-user-guide) — a reusable pattern
-such as "deposit now, remainder over four months". Then the **Generate Payments** button on the
+such as "deposit now, remainder over four months". Then the **GeneratePayments** button (*إنشاء الدفعات*; the English label ships as that raw name) on the
 document's first page builds the rows: it asks for the down payment, how many instalments you want,
-the period between them, any grace period before the first one, the day of the month payments fall
+the period between them, any grace period before the first one, the weekday payments fall
 on, specific values for the first, second and last instalment if they differ, and how to round. It
 then spreads the document's **Remaining** across the rows it creates and writes the down payment
 back into **Cash Paid** on the header.
@@ -143,7 +135,7 @@ which is what fills the Paid Value, Collected by System, Remaining and Paid colu
 
 Because the plan and the money must agree, the document will not commit unless the schedule
 reconciles with the document's Remaining plus whatever the vouchers have already covered. If you
-change a price after generating the schedule, run **Generate Payments** again — otherwise the two
+change a price after generating the schedule, run **GeneratePayments** again — otherwise the two
 numbers drift apart and the save is rejected.
 
 One term option changes how the plan behaves once vouchers start arriving: **Pay Installments In

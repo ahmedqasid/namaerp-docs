@@ -83,6 +83,12 @@ A plan, like a shift, can be scoped with the standard **Dimensions** (legal enti
 4. **Assign the shift** (and, if needed, an added shift) on each collected line.
 5. **Optionally add Weekends overrides** on the same plan for employee groups whose weekly rest days differ from the default.
 
+## Actions on this screen
+
+The **Shift** screen has no buttons of its own — you fill in its weekly pattern and save it. The **Attendance Plan** has one:
+
+- **Collect Employees** — adds a line for every employee in the **Working** state who fits the employee range, sorted by code. Employees already on the grid are not added twice. It fills in only the employee; the **Shift** on each line is yours to set afterwards.
+
 ## Messages you may see
 
 | Message | Why | What to do |

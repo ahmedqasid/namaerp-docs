@@ -256,5 +256,5 @@ need to put in the link is not on the record and can only be worked out with a q
 - **[Edit-Screen Modifications](/platform/screen-modifier/screen-modifier-edit-screen.md)** — the
   other collections on the same record.
 - **[Tempo Language Manual](/admin/tempo.md)** — the full template language, creators included.
-- **[Buttons on Every Screen](/platform/screen-buttons.md)** — the standard buttons your new one
+- **[Buttons on Every Screen](/platform/everyday-tools/screen-buttons.md)** — the standard buttons your new one
   sits beside.

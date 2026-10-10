@@ -1,14 +1,13 @@
 ---
 title: EARecalcSalesDocDiscounts
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARecalcSalesDocDiscounts
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

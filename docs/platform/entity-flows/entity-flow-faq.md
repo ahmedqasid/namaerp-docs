@@ -79,7 +79,7 @@ details.n3=details.project.n2
 details.n4=sql(select {details.n3} * {totalActualValue} / 100)
 ```
 
-The `details.n4` value was then used to add an accounting effect via the `EAAddAccountingEffect` flow as follows:
+The `details.n4` value was then used to add an accounting effect via the [`EAAddAccountingEffect`](/entity-flows/accounting/EAAddAccountingEffect) flow as follows:
 
 ```
 details.n4=DrEffect,CrEffect
@@ -221,7 +221,7 @@ You can change the field name `n1` and the codes `BankExpensesDebit` and `BankEx
 
 ## How can I create an entity flow that fetches the item's selling price from the price list and stores it in the `n1` field within the lines of a stock supply order?
 
-You can implement this request by using an **entity flow** of type `EAFieldsValuesCalculator` with the `itemprice` function from the `tempo` library, as follows:
+You can implement this request by using an **entity flow** of type [`EAFieldsValuesCalculator`](/entity-flows/core/EAFieldsValuesCalculator) with the `itemprice` function from the `tempo` library, as follows:
 
 ```
 details.n1=tempo({itemprice(itemIdOrCode=details.item.item)})

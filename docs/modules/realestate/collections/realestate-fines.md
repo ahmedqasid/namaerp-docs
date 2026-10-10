@@ -54,6 +54,10 @@ Two buttons on the contract screens save you from re-typing everything:
 - **Create Fine Document** (إنشاء سند غرامة) opens a fine in a popup, pre-filled with the owner, buyer, estate and location, related to that contract, and carrying **all** of the contract's installment lines. If that is more than you want, switch on the fine term's option *Do Not Copy Installments With Related To* (عدم نسخ الأقساط مع اختيار يرتبط بـ) and the fine arrives with an empty grid instead.
 - **Create Fine Document From Selected Line** (إنشاء سند غرامة للأقساط المختارة) does the same for the installment lines you have ticked — and only those that still have something outstanding. Tick a fully paid line and it refuses, asking you to select an installment with a remaining value.
 
+## Actions on this screen
+
+The fine document has one button of its own, **Create Receipt Voucher**, described under *Billing and collecting it* above. The two buttons that raise fines — **Create Fine Document** and **Create Fine Document From Selected Line** — live on the contract screens, as described under *Raising a fine from the contract*. The fine type master file has no buttons.
+
 ## Fine Types
 
 **Real Estate and Property > Fines > Fine doc type** (العقارات و الممتلكات > الغرامات > تصنيف الغرامة) is a plain master file: a code, an Arabic name, an English name, attachments and dimensions.

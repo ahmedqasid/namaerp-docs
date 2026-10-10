@@ -1,13 +1,12 @@
 ---
 title: EAAddAccountingEffect
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAAddAccountingEffect
-
-**This document was enhanced using Claude.ai for technical support staff**
 
 ## Purpose
 This entity flow adds extra accounting effects (journal entries) to documents that already have existing ledger transactions. It works by creating additional debit and credit entries based on field values in your document.

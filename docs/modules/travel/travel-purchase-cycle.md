@@ -207,21 +207,29 @@ fees tax, authorization number, issuer and card details.
 
 The **Payments** grid is the instalment plan: what you have promised to pay, in how many instalments,
 on which dates, with the paid and remaining amounts tracked for you as vouchers settle them. The
-**Generate Payments** action fills it in from a count, a period and a down payment rather than making
+**GeneratePayments** action fills it in from a count, a period and a down payment rather than making
 you type each row.
 
 The **Payment Documents** grid lists payment and receipt vouchers written *outside* this document
 that settle it. You do not type these rows — the system maintains them whenever a voucher points at
-the document, converting the voucher amount into the document's currency — and the **Collect Payment
-Vouchers** action pulls existing vouchers for the party in a date range into the grid.
+the document, converting the voucher amount into the document's currency.
 
 The **Standard Terms** grid attaches contractual clauses to the deal: each row is a standard term with
 a planned end date, and the system tracks when it was fulfilled and any extension penalties.
 
 All four are covered properly on
-[Payments, Instalments & Contract Terms](./travel-payments-and-terms), along with the **Generate
-payment voucher** actions that turn an outstanding balance, or a set of selected instalments,
-straight into a payment voucher.
+[Payments, Instalments & Contract Terms](./travel-payments-and-terms).
+
+## Actions on these screens
+
+**Travel Service Purchase Order, Purchase Invoice and Purchase Return — first page:**
+
+- **GeneratePayments** (*إنشاء الدفعات*) — builds the instalment schedule on the Payment Documents
+  page from the document's remaining value. It asks for the number of payments, the period between
+  them and its unit, the start date, a grace period, the payment weekday, down / first / second /
+  last payment values and a rounding mode; a down payment is written into the cash paid on the
+  header. It refuses a document whose net value is zero. The English label ships as the raw name
+  shown here.
 
 ## Carrying a document forward
 

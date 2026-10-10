@@ -9,8 +9,7 @@ This feature lets you restrict users' access to specific fiscal years and accoun
 
 ## Screen Location
 
-- **Arabic path**: Administration > Security > Limit User To Year
-- **English path**: Administration > Security > Limit User To Year
+**Path**: Administration → Security → Limit User To Year
 
 ## Overview
 

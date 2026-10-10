@@ -1,14 +1,13 @@
 ---
 title: EARefreshGoogleDriveOrMailToken
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARefreshGoogleDriveOrMailToken
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

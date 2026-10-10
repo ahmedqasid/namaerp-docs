@@ -145,7 +145,7 @@ delete selected entries outright, which is the way to abandon work that will nev
 with their **Expected Next Run** and whether each is **Currently Running**. This is the quickest
 way to see that a queue is doing what you set it up to do.
 
-**Pending Task Schedules** — at **Basic → Administration → Settings → Pending Task Schedules** — is
+**Pending Task Schedules** — at **Administration → Settings → Pending Task Schedules** — is
 the same information for every queue at once, with a **Task Queue** column so you can see how the
 work is spread. It is the screen to open when someone asks why a task has not fired: if it is not
 in this list, it is not scheduled at all, and the reason is on the task itself — inactive, or never
@@ -202,7 +202,7 @@ Refusals raised when you save an entity flow with the background fields on this 
 
 ## Related
 
-- [Scheduled Tasks](/platform/scheduled-tasks) — everything else about task schedules: types,
+- [Scheduled Tasks](/platform/automation-and-rules/scheduled-tasks) — everything else about task schedules: types,
   cron, recipients, execution logs.
 - [Introduction to Entity Flows](/platform/entity-flows/introduction-to-entity-flows) — what a flow
   is, and the execution points it can attach to.

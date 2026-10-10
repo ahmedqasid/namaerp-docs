@@ -8,6 +8,17 @@ The challenge with manufacturing isn't just about making things. It's about know
 
 Nama ERP handles all of this complexity. Whether you're making simple products or complex assemblies with hundreds of components, the system gives you the tools to plan, execute, and track your manufacturing operations from start to finish.
 
+## Licenses: One Core and Three Add-Ons
+
+The module is sold as a core license plus three optional sub-licenses, and a missing menu is almost always a missing license rather than a missing permission.
+
+| License | What it switches on |
+|---|---|
+| `manufacturing` | The core: BOMs, routings, work centers, standard operations, production order requests, production orders, execution, raw material issue and return, resource vouchers, product delivery and return, scrap receipts, order close and the costing screens. |
+| `manufacturing-mrp` | Everything under **Manufacturing → Material Resource Planning** — see [Material Requirements Planning](/modules/manufacturing/material-requirements-planning). |
+| `manufacturing-molds` | Everything under **Manufacturing → Manufacturing Molds** — see [Manufacturing Molds](/modules/manufacturing/manufacturing-molds). |
+| `manufacturing-crtn-pln` | Everything under **Manufacturing → Cartoon** — see [Carton Manufacturing](/modules/manufacturing/carton-manufacturing-overview). |
+
 ## The Building Blocks: What You Need to Set Up
 
 Before you can start making anything, you need to teach the system how your products are made. This is where the master data comes in - think of it as the instruction manual for your factory.

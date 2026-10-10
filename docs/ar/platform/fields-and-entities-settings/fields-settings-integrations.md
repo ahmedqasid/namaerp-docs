@@ -147,7 +147,14 @@ https://<عنوان الخادم لديك>/erp/r/{retrieverFileId}.{code}.pdf
 https://<عنوان الخادم لديك>/erp/r/invoices/{retrieverFileId}
 ```
 
-هذه البادئة هي ما يتيح لنظام واحد نشر أكثر من نوع من المستندات: سطر ببادئة `invoices` يشغّل نموذج الفاتورة، وآخر ببادئة `receipts` يشغّل نموذج الإيصال، ولكلٍّ عنوانه. وصفحة [إرسال الفواتير والمستندات للعملاء](/ar/integration/invoice-retriever) تشرح الجانب الخاص بالتنبيهات بتفصيل أوفى، و[نظام التنبيهات في Nama ERP](/ar/platform/notifications/notifications-system) يشرح كيف تُعدّ الرسالة النصية أو البريدية التي تحمل الرابط.
+هذه البادئة هي ما يتيح لنظام واحد نشر أكثر من نوع من المستندات: سطر ببادئة `invoices` يشغّل نموذج الفاتورة، وآخر ببادئة `receipts` يشغّل نموذج الإيصال، ولكلٍّ عنوانه. ويصل الرابط إلى العميل في تنبيه عادي — رسالة نصية أو بريد إلكتروني يحمل نصه المتغير `{retrieverFileId}`، مثلًا:
+
+```
+Thanks for visiting us, view your invoice by clicking on this link:
+https://<your server>/erp/r/{retrieverFileId}
+```
+
+ويشرح [نظام التنبيهات في Nama ERP](/ar/platform/notifications/notifications-system) كيف يُعدّ هذا التنبيه.
 
 ::: warning ترتيب الأسطر مهم، والبادئة الفارغة تبتلع كل شيء
 تُطابَق الأسطر **بالترتيب الذي تظهر به في الجدول**، ويفوز أول سطر تطابق بادئته العنوان الوارد. والسطر ذو **URL Prefix** الفارغ يطابق كل عنوان بلا استثناء.
@@ -198,7 +205,6 @@ https://<عنوان الخادم لديك>/erp/r/invoices/{retrieverFileId}
 - [تصدير السجلات](/ar/platform/import-export/exporting-records) — الاتجاه الآخر، وصيغ الملفات التي سيُرسَل بها المتكامل.
 - [مقدمة عن مسارات الكيان](/ar/platform/entity-flows/introduction-to-entity-flows) — للمنافذ التي تشغّل مسار كيان بدلاً من ملء الحقول.
 - [استيراد البيانات من إكسل أو الاستعلامات](/ar/platform/entity-flows/excel-and-sql-import-by-entity-flow) — البديل المجدول على الخادم حين لا يحتاج أي طرف خارجي إلى الاستدعاء.
-- [إرسال الفواتير والمستندات للعملاء](/ar/integration/invoice-retriever) — أمثلة عملية على رابط الفاتورة العام.
 - [نظام التنبيهات في Nama ERP](/ar/platform/notifications/notifications-system) — كيف تُرسَل الرسالة التي تحمل ذلك الرابط.
 - [دليل Jasper Reports الشامل](/ar/platform/reports/reports-guide) — تصميم النموذج الذي يشغّله سطر استرجاع الفواتير.
 - [نظرة عامة على نظام الصلاحيات](/ar/platform/security/security-overview) — ما يجب وما لا يجب السماح به لحساب التكامل.

@@ -35,8 +35,4 @@ features:
     title: المحرر المرئي للتخطيط
     details: محرر السحب والإفلات الذي يتيح لك إعادة تصميم الشاشة بصريًا وحفظ النتيجة مباشرة في سجل تعديل شاشة.
     link: /ar/platform/screen-modifier/screen-modifier-visual-editor.md
-  - icon: ❓
-    title: أسئلة شائعة
-    details: إجابات سريعة عن الأسئلة الأكثر تكرارًا — حقول النقاش، وإظهار التغييرات، وتجاوز العرض الافتراضي.
-    link: /ar/platform/screen-modifier/screen-modifier-faq.md
 ---

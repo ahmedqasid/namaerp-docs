@@ -1,14 +1,13 @@
 ---
 title: SetAttendanceToFixedTimeIfEmpty
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # SetAttendanceToFixedTimeIfEmpty
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

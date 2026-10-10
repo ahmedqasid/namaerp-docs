@@ -1,13 +1,12 @@
 ---
 title: EASortLedger
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EASortLedger
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

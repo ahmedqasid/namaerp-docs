@@ -117,5 +117,5 @@ menu: الأساسيات ← الإعدادات ← توجيه المستند
   المشتركة ومستندات المال.
 - **[توجيهات التوظيف والعلاقات الحكومية](/ar/modules/hr/document-terms/hr-terms-employment-and-government)**
 - **[التأمين الصحي للموظفين](/ar/modules/hr/health-insurance/employee-health-insurance)**
-- **[إعدادات الجانب المحاسبي](/ar/platform/accounting-side-config)** — كيف يجد جانب المدين أو الدائن
+- **[إعدادات الجانب المحاسبي](/ar/platform/shared-master-files/accounting-side-config)** — كيف يجد جانب المدين أو الدائن
   حسابه.

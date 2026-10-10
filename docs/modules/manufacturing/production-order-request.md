@@ -16,6 +16,10 @@ You'll find it under **Manufacturing → Documents → Production Order Request*
 
 ![The production order request screen](../../ar/modules/manufacturing/images/production-order/production-order-request-en.png)
 
+::: info Required license
+Production order requests are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## The Screen Is Deliberately Small
 
 Compare this screen to a production order and the difference is the point. The order has ten attachment slots, planned and actual dates, cost reallocation, QC checklists, lot tracking. The request has barely a dozen fields.

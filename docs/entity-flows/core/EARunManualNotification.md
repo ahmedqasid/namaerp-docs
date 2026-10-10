@@ -1,14 +1,13 @@
 ---
 title: EARunManualNotification
 module: core
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EARunManualNotification
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

@@ -64,3 +64,7 @@ For managers, this is the one screen that tells the whole financial story of a s
 ::: info A quick cash count
 You do not always need a full close to check the drawer. A standalone cash count, reached from the inventory screen (`Ctrl+F2`), lets you reconcile cash mid-shift without ending it.
 :::
+
+::: tip Setting it up
+Whether the cash is reset to zero at close, which held documents block a close, and how differences reach the accounts are all decided on the server — see [Shift Opening, Closing & Cash-Reset Settings](./erp-setup/pos-shift-close-settings.md).
+:::

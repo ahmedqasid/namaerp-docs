@@ -28,10 +28,12 @@ A **stock-taking** document is a physical count — the periodic check that what
 
 ## Writing off damaged or missing stock
 
-Two documents handle the stock that should no longer be on the books:
+Two documents record the stock that should no longer be on the books:
 
-- A **scrap document** is for goods that are damaged, expired, or otherwise unusable — they are removed from stock with a reason and an audit trail.
+- A **scrap document** is for goods that are damaged, expired, or otherwise unusable, recorded with a reason and an audit trail.
 - A **shortfalls document** records stock that is missing or unaccounted for — shrinkage, loss, breakage — again with a description for later review.
+
+Whether either one actually takes the quantity out of stock is decided on the server by the document term it is saved with, not by the register — see [POS documents on the server](./erp-setup/pos-documents-on-the-server.md). If a scrapped item still shows as available, check that term first.
 
 ![Scrap document](../../ar/modules/pos/images/inventory/pos-scrap-doc-en.png)
 

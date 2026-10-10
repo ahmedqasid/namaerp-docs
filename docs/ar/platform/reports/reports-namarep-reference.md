@@ -1,3 +1,7 @@
+---
+entities: [ReportDefinition]
+---
+
 # مرجع تعبيرات NamaRep
 
 داخل التقرير، وفي كل موضع يقبل فيه JasperReports تعبيراً — حقل نصي، أو متغير، أو قيمة افتراضية لمدخل، أو شرط طباعة — تستطيع استدعاء `NamaRep`. فهو الجسر بين التصميم وبقية نظام نما: يترجم، وينسّق التواريخ والأرقام، ويستخرج الأسعار، ويبني الروابط الراجعة إلى النظام، ويطبّق قواعد الأمان التي يتجاهلها استعلام SQL الخام.
@@ -385,7 +389,7 @@ NamaRep.listView()
 
 #### تنسيق المعايير
 
-يتبع الفلتر [تنسيق معايير النص](../text-criteria-guide.md):
+يتبع الفلتر [تنسيق معايير النص](../automation-and-rules/text-criteria-guide.md):
 
 ```
 fieldID,operator,value,logic;
@@ -396,7 +400,7 @@ fieldID,operator,value,logic;
 **روابط المنطق:** `AND`، `OR` — **التواريخ:** `dd-MM-yyyy` — **المراجع:** `id:entityType:code` والكود اختياري
 
 ::: tip دع النظام يكتب المعايير لك
-ابنِ الشروط بصرياً في شاشة [تعريف المعايير](/ar/platform/criteria-definitions) (Criteria Definition)، ثم استخدم **Convert to Text**. والناتج قالب يعمل تلصقه ثم تجعله ديناميكياً بـ `tempo(...)`.
+ابنِ الشروط بصرياً في شاشة [تعريف المعايير](/ar/platform/automation-and-rules/criteria-definitions) (Criteria Definition)، ثم استخدم **Convert to Text**. والناتج قالب يعمل تلصقه ثم تجعله ديناميكياً بـ `tempo(...)`.
 :::
 
 ## إنشاء السجلات من التقرير

@@ -143,13 +143,9 @@ mistake is refused instead of accepted.
 :::
 
 Both screens also carry a **More → إنشاء صنف فرعي من السطر (Create Sub Item From Line Information)**
-action, which runs the same routine on demand against the grid you are looking at.
-
-::: warning The button is a silent no-op when the term flag is off
-It is gated by the same term option. With the option off, pressing it refreshes the grid, creates
-nothing, and shows no message at all. If nothing appears to happen, check the term before you check
-anything else.
-:::
+action, which runs the same routine on demand against the grid you are looking at. It is gated by the
+same term option: with the option off, pressing it creates nothing and shows no message, so if nothing
+appears to happen, check the term first.
 
 And remember the prerequisite from
 [The Car Dealership in Nama](/modules/servicecenter/cars-setup/servicecenter-cars-overview.md):
@@ -157,6 +153,42 @@ And remember the prerequisite from
 pro-forma display only the **السياره (Customer Car)** picker, so there is nowhere to type the chassis
 number the creation routine is meant to read. Add the car-property columns through a screen
 modification first.
+
+## Actions on these screens
+
+**Car Purchase Order:**
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*, More menu) — runs the
+  car-creation routine against the lines, as described above: for every line whose item has sub items
+  it creates the car record (or refreshes the one already on the line) and writes it back onto the
+  line. The car record is saved straight away, even before you save the order.
+- **GeneratePayments** (*إنشاء الدفعات*, details page) — splits the order value into an instalment
+  schedule. It asks for the number of payments, the period between them and its unit, the start date,
+  a grace period, down / first / second / last payment values and a rounding mode. The English label
+  ships as the raw name shown here.
+
+**Car Proforma Purchase Invoice:**
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*, More menu) — the same routine
+  as on the order.
+- **Generate Doc** (*إنشاء مستند بناءا على*, More menu) — asks which kind of document to create
+  (stock issue, stock receipt, stock transfer, purchase invoice, purchase return, car purchase return,
+  sales invoice or car sales invoice) and opens a new, unsaved one built from this pro-forma.
+- **Remove Taxes** (*حذف الضرائب*) and **Restore Taxes** (*احتساب الضرائب*), More menu — the first
+  asks which taxes to clear and empties them on every line; the second recalculates them. Both are
+  refused when the document is not taxable.
+- **Reset discounts** (*حذف الخصومات*, More menu) — clears all eight discounts on every line.
+- **Installment Payments** (*سندات سداد الدفعات*, More menu) — opens a list of the vouchers that paid
+  this document's instalments.
+- On the shipping and billing page: **GeneratePayments** (*إنشاء الدفعات*), the same scheduling
+  dialog; **Generate payment voucher** (*إنشاء سند صرف*) — the pro-forma must be saved; it creates a
+  payment voucher for the whole remaining value against the supplier; **Generate Payment Voucher For
+  Selected Payments** (*إنشاء سند صرف للسطور المختارة*) — the same for only the instalment lines you
+  ticked; and **Collect Payment Vouchers** (*تجميع سندات الصرف*) — brings existing vouchers onto the
+  pro-forma.
+
+On the list screen of both, **Reset documents discounts with saving** (*حذف الخصومات من السجلات
+المختارة مع الحفظ*, More menu) clears the line discounts of every selected record and saves it.
 
 ## What moves the car's status
 

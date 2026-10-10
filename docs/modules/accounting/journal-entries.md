@@ -52,6 +52,8 @@ The **Currency Diff Journal** (`Accounting > Documents > Currency Diff Journal`)
 
 When currency rates change, your foreign-currency balances need **revaluation** at the new rate. The **Exchange Rate Update** (`Accounting > Documents > Exchange Rate Update`) does this in one batch: you specify the **account** (or a range of accounts), the **currency**, the new **exchange rate**, and the **mediator account** where revaluation differences are recorded; the system computes the difference for each balance and generates the corresponding currency-difference entries.
 
+This document revalues balances you already hold. The day-to-day rates that new documents pick up are entered on a different screen, **Exchange Rate** — see [Currencies and exchange rates](../../platform/shared-master-files/currencies-and-exchange-rates.md).
+
 ::: warning
 Accounts with **Do Not Auto-Include In Exchange Rate Update** enabled (see [Accounts](./accounts.md)) are excluded from revaluation. This is a feature within the banks license `accounting-banks`.
 :::

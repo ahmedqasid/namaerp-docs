@@ -68,27 +68,30 @@ The columns, in order:
 Reading a row is straightforward: *Created On* is when the customer took the ticket, *Assigned On* is when an advisor called them, *Finished On* is when the visit was closed, and *Manually Assigned By* is filled only when a supervisor pushed the ticket to somebody rather than the advisor pulling it.
 
 ::: warning Neither list is limited to today
-Despite the name, both lists show the branch's tickets **without a date filter**. In particular, a ticket that was created days ago and never pulled is still sitting in *Not Assigned Tickets*, and it is still in the waiting list the advisors' stations draw from — the nightly reset restarts the **numbering**, it does not clear or expire tickets. Filter the lists by *Created On* when you want the current day, and clear stale tickets out deliberately (see the housekeeping action below).
+Despite the name, both lists show the branch's tickets **without a date filter**. In particular, a ticket that was created days ago and never pulled is still sitting in *Not Assigned Tickets*, and it is still in the waiting list the advisors' stations draw from — the nightly reset restarts the **numbering**, it does not clear or expire tickets. Filter the lists by *Created On* when you want the current day, and clear stale tickets out deliberately with **Delete Day Ticket** (see below).
 :::
 
-## What you can do from the branch screen
+## Actions on this screen
 
-The *Not Assigned Tickets* list carries five actions in its More menu, and there is a separate action button in the middle of the page:
+The *Not Assigned Tickets* list carries five actions in its More menu:
 
 | Action | Arabic | What it does |
 |---|---|---|
-| **Add Day Ticket** | إضافة تذكرة | Issues a ticket by hand — the fallback when the kiosk is down or a customer has to be slotted in. |
-| **Modify Day Ticket** | تعديل تذكرة | Edits a waiting ticket, for instance to correct a plate number or attach the right customer. |
-| **Manually Assign Day Ticket** | سحب التذكرة يدويا | Pushes the selected ticket to a service provider. |
-| **Self Assign Day Ticket** | سحب التذكرة (للمستخدم الحالي) | Pulls the selected ticket to yourself — how an advisor takes a customer out of turn. |
-| **Delete Day Ticket** | حذف تذكرة | Removes a waiting ticket. |
-| **Delete Assigned Ticket Till Date** | حذف التذاكر التي تمت تنفيذها حتي تاريخ | The housekeeping action, on its own button: clears out served tickets up to a date you give. |
+| **Add Day Ticket** | إضافة تذكرة | Issues a ticket by hand — the fallback when the kiosk is down or a customer has to be slotted in. It asks for the branch, the queue code, the customer and the plate number. |
+| **Modify Day Ticket** | تعديل تذكرة | Edits one selected waiting ticket — the same four questions — for instance to correct a plate number or attach the right customer. |
+| **Manually Assign Day Ticket** | سحب التذكرة يدويا | Pushes one selected ticket to a service provider. It asks for the provider and the engineer number (1 to 12) of the station that will serve it. |
+| **Self Assign Day Ticket** | سحب التذكرة (للمستخدم الحالي) | Pulls one selected ticket to yourself, asking only for your engineer number — how an advisor takes a customer out of turn. |
+| **Delete Day Ticket** | حذف تذكرة | Removes the selected tickets; several may be selected at once. |
 
-**Every one of these is checked against the configuration's Queue Providers grid.** The current user must have a provider row on this branch's configuration carrying the matching permission — *Can Modify* for editing, *Can Manually Assign* for either kind of assignment, *Can Delete* for deleting — or the action is refused with *User {0} do not have the capability {1} on Ticket Branch {2}*. When a supervisor reports that a button "does nothing", that grid is where you look first.
+Modify and the two assign actions work on exactly one selected row; with none, or with several, they ask you to select a single row.
+
+**Modify, the two assign actions and Delete are checked against the configuration's Queue Providers grid.** The current user must have a provider row on this branch's configuration carrying the matching permission — *Can Modify* for editing, *Can Manually Assign* for either kind of assignment, *Can Delete* for deleting. Without it the action leaves the ticket exactly as it was, so when a supervisor reports that a button "does nothing", that grid is where you look first.
 
 ::: tip Assigning by hand closes what the advisor already had
 Pushing or pulling a ticket to a provider behaves exactly like the advisor pressing *next* on their own station: whatever they still had open is stamped finished at that moment. One advisor is never serving two customers at once.
 :::
+
+![A queue service branch with its Not Assigned Tickets and Day Tickets lists](../../../ar/modules/servicecenter/images/queues/sc-queue-branch-ticket-actions-en.png)
 
 ## Tickets are not documents
 

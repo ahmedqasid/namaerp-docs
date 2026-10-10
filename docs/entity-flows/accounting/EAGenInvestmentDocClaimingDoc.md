@@ -1,13 +1,12 @@
 ---
 title: EAGenInvestmentDocClaimingDoc
 module: accounting
+entities: [EntityFlow]
 ---
 
 <div class='entity-flows'>
 
 # EAGenInvestmentDocClaimingDoc
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

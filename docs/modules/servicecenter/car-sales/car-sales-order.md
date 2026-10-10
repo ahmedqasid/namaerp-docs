@@ -69,7 +69,7 @@ This is the part of the screen that has no equivalent anywhere else in the chain
 approval:
 
 - **Payment method lines** — how the customer pays, including card and payment-gateway columns.
-- A **payment template** plus a **Generate Payments** action, which builds the schedule for you.
+- A **payment template** plus a **GeneratePayments** (*إنشاء الدفعات*) action, which builds the schedule for you.
 - **Schedule lines** — the dated instalments of the agreed price.
 - **External payment documents** — payments already collected on other documents.
 - **Standard terms** — the contractual clauses printed with the order.
@@ -159,3 +159,20 @@ Two smaller differences from the sales order are worth knowing:
   order alone.
 - **No cancellation document targets the sales approval.** The cancelled fields exist on it, but
   nothing can ever set them. To undo an approval, delete it.
+
+## Actions on these screens
+
+The Car Sales Order and the Car Sales Approval carry the same three actions.
+
+- **Create Sub Item From Line Information** (*إنشاء صنف فرعي من السطر*, More menu) — for every line
+  whose item has sub items, creates the car record (or refreshes the one already on the line) from the
+  line's data and writes it back onto the line. The car record is saved straight away. It does
+  nothing, and shows no message, unless the term's *Create Sub Item From Line Info* option is on.
+- **Add Current Line To Shortage Document** (*إضافة السطر الحالي الي مستند النواقص*, More menu) —
+  appends the line you are standing on to a
+  [shortage document](/modules/supplychain/sales-operations-documents.md), using the shortage book and
+  term named on this document's term; it refuses with a message if they are missing.
+- **GeneratePayments** (*إنشاء الدفعات*, main page, beside the payment template) — splits the
+  remaining value into an instalment schedule. It asks for the number of payments, the period between
+  them and its unit, the start date, a grace period, down / first / second / last payment values and a
+  rounding mode. The English label ships as the raw name shown here.

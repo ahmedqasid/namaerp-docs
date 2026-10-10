@@ -1,14 +1,13 @@
 ---
 title: EADSCNormalizeTimeAttendance
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EADSCNormalizeTimeAttendance
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

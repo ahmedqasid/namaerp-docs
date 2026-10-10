@@ -37,8 +37,8 @@ Annual leave is normally set up as `Vacation Class = Annual Vacation`, credited 
 |---|---|---|
 | Vacation Transfer Policy | سياسة ترحيل الأجازة | What happens to days left unused at year end: Ignored (تجاهل — simply lost), Repaid (تعويض — cashed out, see [Vacation Compensation & Transfer](vacation-compensation-and-transfer.md)), or Migrated (ترحيل — carried into next year's balance). |
 | Minimum Consumed Days Per Year | الترحيل بحد أدني من المستهلك سنويا | A floor on how many days must actually be *used* before migration/repayment of the rest is allowed. |
-| No Max Limit (Allow Over Balance) | السماح بتعدى رصيد الاجازة | Lets an employee go negative on this vacation type's balance. |
-| Allowed Days For Balance Exceed | السماح بتعدى رصيد الاجازه بمدة (أيام) | How far into negative the balance may go, when the above is checked. |
+| No Max Limit (Allow Over Balance) | السماح بتعدى رصيد الاجازة | Lets an employee go negative on this vacation type's balance with no limit at all — the balance check is skipped. |
+| Allowed Days For Balance Exceed | السماح بتعدى رصيد الاجازه بمدة (أيام) | How many days into negative the balance may go. It is used while **No Max Limit** is unticked — with No Max Limit ticked there is no limit to apply. |
 | Without Salary Deducted From Termination | بدون مرتب و يخصم من نهاية الخدمة | Marks this as unpaid leave whose days *do* reduce the end-of-service gratuity calculation. |
 | Without Salary Not Deducted From Termination | بدون مرتب ولا يخصم من نهاية الخدمة | Unpaid leave that does **not** touch the gratuity calculation. |
 | Deduct Percentage From Salary Components | استقطاع نسبة من المفردات | Instead of an all-or-nothing unpaid day, deduct only a percentage from selected salary components — configured on the **Deduction Percentage Lines** grid. |
@@ -96,6 +96,10 @@ One document can carry many lines — one per employee/vacation-type combination
 ::: info No accounting or GL effect
 Unlike most Nama documents, an Opening Vacation Balance Document does not generate a business request or touch the ledger. It simply establishes the number that every later vacation document, request, and balance inquiry will be calculated against.
 :::
+
+## Actions on this screen
+
+None of the three screens on this page — **Vacation Type**, **Vacation Balance Range File** and **Opening Vacation Balance Document** — has buttons of its own; they are filled in and saved.
 
 ## Messages you may see
 

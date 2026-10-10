@@ -1,14 +1,13 @@
 ---
 title: EAUpdateEmployeeResidencyRenewDate
 module: hr
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUpdateEmployeeResidencyRenewDate
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

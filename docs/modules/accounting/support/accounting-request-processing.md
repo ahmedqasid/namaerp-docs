@@ -1,5 +1,4 @@
 ---
-entities: [LedgerTransReq]
 menu: Administration → Settings → Business Requests
 ---
 # When a Document Has No Accounting Effect

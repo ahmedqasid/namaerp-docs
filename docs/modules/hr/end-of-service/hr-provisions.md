@@ -151,6 +151,18 @@ employee, each posting its own adjustment. As with all aggregated documents, you
 not the generated singles — see
 [HR Requests, Documents & Aggregated Documents](../concepts/hr-requests-and-documents).
 
+## Actions on this screen
+
+**On the Employee Provisions Recalculation Document:**
+
+- **Recalculate Document** — recomputes the **Details** grid from the employee, period and dates currently on screen (step 2 above). It does not need the document saved, so you can change the period and press it again to see the new figures before saving.
+
+**On the Aggregated Employee Provisions Recalculation Document:**
+
+- **Collect Employees** — adds a line for every employee who matches the employee range and the document's company and dimensions and had started work by the end of the chosen HR period. The **HR Period** must be filled first. Employees who already have a recalculation document for that period — even a draft — are left out, and employees already on the grid are not added twice.
+
+The Employee Provisions Opening Document has no buttons of its own.
+
 ## Messages you may see
 
 | Message | Why | What to do |

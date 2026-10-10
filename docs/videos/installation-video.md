@@ -151,8 +151,3 @@ The latest SQL Server updates for the Windows operating system must be downloade
 > **Tip**
 > Always ensure you use strong passwords for all database accounts, secure only the necessary open ports, and monitor system and software updates.
 
----
-
-# End of Documentation
-
-With this, all the video's content has been covered in meticulous detail, documenting all steps, tips, and technical differences, with timestamp links for easy reference in the original video.

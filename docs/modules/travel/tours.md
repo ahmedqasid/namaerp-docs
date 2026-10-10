@@ -361,6 +361,17 @@ services, the parties — press the button once the itinerary has settled, and p
 that. If the itinerary really does change afterwards, expect to check the prices on every order the
 rebuild touched.
 
+## Actions on this screen
+
+- **Create Tourism Service Purchase Orders** (*إنشاء أوامر الشراء*, More menu) — save the tour first.
+  Raises, or rebuilds, one Travel Service Purchase Order per hotel, flight supplier, service supplier,
+  tour guide and restaurant on the tour, writes each order back onto the tour lines it covers, deletes
+  orders whose party has left the itinerary, and reloads the tour. It produces nothing until the tour
+  has a Term whose purchase-order book and term pairs are filled — see
+  [Create Tourism Service Purchase Orders](#Create-Tourism-Service-Purchase-Orders) above.
+
+![The Tour's More menu with Create Tourism Service Purchase Orders](../../ar/modules/travel/images/tours/tr-tour-more-menu-en.png)
+
 ## Messages you may see
 
 | Message | Why | What to do |
@@ -372,6 +383,5 @@ rebuild touched.
 | *Check in {0} must be between {1} and {2}* — «تاريخ الدخول {0} يجب ان يكون فى الفترة بين {1} و {2}» | An accommodation row's check-in falls outside the tour window. The offending row is highlighted. | Correct the row, or the header dates. |
 | *Check out {0} must be between {1} and {2}* — «تاريخ الخروج {0} يجب ان يكون فى الفترة بين {1} و {2}» | An accommodation row's check-out falls outside the tour window — most often a stay running a day past the departure date. | Correct the row, or extend the departure date. |
 | *Date {0} must be between {1} and {2}* — «التاريخ {0} يجب ان يكون فى الفترة بين {1} و {2}» | A row in the Services grid or in the Flights grid carries a date outside the tour window. | Check both grids — the same wording is used for each, so read the highlighted row. |
-| *TRTour {0} must have term* — «مستند الرحلة السياحية {0} يجب ان يحتوي على توجيه» | *Create Tourism Service Purchase Orders* was pressed on a tour with no document term, so nothing says which books and terms the orders should go into. | Set the Term on the tour, and fill the book-and-term pairs on the [tour term](./travel-document-terms) before pressing the button again. |
 
 The date rules only run once both header dates are filled, so a tour with an empty arrival or departure date passes all of them.

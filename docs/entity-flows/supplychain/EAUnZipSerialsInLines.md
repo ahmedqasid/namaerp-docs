@@ -1,14 +1,13 @@
 ---
 title: EAUnZipSerialsInLines
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAUnZipSerialsInLines
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

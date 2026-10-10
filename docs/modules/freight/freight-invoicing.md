@@ -29,6 +29,24 @@ The invoice is the document that records the sale in accounting and bills the cu
 When the sales invoice is posted, the system looks for the matching purchase lines in the same operation order and links them to the sale lines, computing each service's cost and marking the purchase lines as "used" in this invoice. This way you know your net profit on each service, and cost is never counted twice.
 :::
 
+#### Buttons on the sales invoice
+
+- **Update Data** (main tab) — rebuilds the service lines from the invoice's **Operation Order**:
+  one line per operation-order service line priced in the invoice currency, at its selling price,
+  with the line's tax taken from the service item's tax plan. Ocean-freight lines that carry ENS-CDD
+  or ISPS amounts add a line for each, under the default service items of
+  [Freight Configuration](./freight-configuration.md). The same lines are brought in when you pick
+  the invoice currency after the operation order. The invoice must already have the operation order.
+- **Pay Invoice** and **Sales Collect Lots** (main tab), and **GeneratePayments**, **Generate
+  Receipt Voucher** and **Collect Receipt Vouchers** on the **Billing** tab — the standard payment
+  buttons of Nama invoices; they behave here as on an ordinary sales invoice.
+- **Collect Bill of Ladings** (**Bills of Lading** tab) — fills the tab with every container line of
+  every bill of lading created from the invoice's operation order. Tick the ones this invoice
+  covers and press **Delete UnRelated Lines** to drop the rest.
+
+The Sales Return carries the payment buttons but not **Update Data** or the bill-of-lading buttons;
+the Sales Order has only **Generate Receipt Voucher** and **Collect Receipt Vouchers**.
+
 ### Sales Return
 
 To reverse a sales invoice fully or partially (a service that wasn't performed, or an invoicing correction), recording the reverse effect on the customer and revenue accounts.
@@ -41,6 +59,13 @@ Records what you buy from suppliers (shipping line, clearance agent, transport c
 
 ![Purchase invoice](../../ar/modules/freight/images/invoicing/purchase-invoice-en.png)
 
+On the purchase invoice, the lines also fill by themselves when you pick the **Operation Order**
+and the **Service Provider**: every service line of that order bought from that provider in the
+invoice currency, at its purchase price. The **Update** button goes further and needs no operation
+order — given the **Service Provider** and currency, it collects every operation-order service line
+from that provider that has not been invoiced yet, across all operation orders, so one supplier
+invoice can cover a month of shipments.
+
 ### Purchase Return
 
 To reverse a purchase invoice fully or partially when cancelling a service you bought from a supplier or correcting its value.
@@ -51,6 +76,8 @@ The document's **Term Config** controls how each invoice is posted to accounting
 
 - **Status** — the operation-order status that is recorded automatically when the invoice is posted, so you track which shipment has been invoiced.
 - **Do not send a cost line for commission items** — an option for the agent model in [E-Invoicing](./freight-einvoicing.md).
+
+Every option on the freight invoice terms is explained on [Freight Document Terms](./freight-document-terms.md).
 
 ::: warning Repeated items not allowed
 The system won't accept the same service item with the same currency and same quantity twice in one invoice, to keep cost matching accurate. If you need two identical lines, merge them into one line with a combined quantity.

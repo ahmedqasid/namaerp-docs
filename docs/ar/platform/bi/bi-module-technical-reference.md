@@ -81,7 +81,7 @@ entities: [DashBoardWidget, BICrossFilter, DashBoard, DashBoardWidgetWizard]
 يحتوي كل widget على حقل `dataSource` يتضمن استعلام SQL (T-SQL لـSQL Server). **يجب** أن يتضمن الاستعلام placeholder نصي `/*AND-FILTERS*/` في جملة WHERE الخاصة به. يستبدل الخادم هذا بشروط cross-filter النشطة في وقت التشغيل. بما أن الـplaceholder تعليق SQL، يظل الاستعلام صالحاً عند تشغيله مباشرةً في SQL Server Management Studio دون أي تعديلات.
 
 ::: tip إعادة استخدام SQL المعقد عبر الـwidgets
-إذا ظهر نفس الـ`UNION` / multi-join / SELECT مكتوباً يدوياً عبر عدة widgets بوضع SQL، فكِّر في ترقيته إلى **Virtual Entity** بدلاً من ذلك. يلفّ Virtual Entity الـSELECT في view لـSQL Server ويسجّله ككيان من الدرجة الأولى، فيصبح قابلاً للاختيار من منتقي الجدول الرئيسي في الـwizard (`tableType = "VirtualEntity"`) — ومن هناك تعمل كل ميزات wizard mode (الربط التلقائي على حقول المراجع، وdrill-by الأبعاد، وأعمدة cross-filter المستنتجة تلقائياً) مقابله كما لو كان جدولاً حقيقياً. انظر [دليل Virtual Entity](../virtual-entity-guide.md).
+إذا ظهر نفس الـ`UNION` / multi-join / SELECT مكتوباً يدوياً عبر عدة widgets بوضع SQL، فكِّر في ترقيته إلى **Virtual Entity** بدلاً من ذلك. يلفّ Virtual Entity الـSELECT في view لـSQL Server ويسجّله ككيان من الدرجة الأولى، فيصبح قابلاً للاختيار من منتقي الجدول الرئيسي في الـwizard (`tableType = "VirtualEntity"`) — ومن هناك تعمل كل ميزات wizard mode (الربط التلقائي على حقول المراجع، وdrill-by الأبعاد، وأعمدة cross-filter المستنتجة تلقائياً) مقابله كما لو كان جدولاً حقيقياً. انظر [دليل Virtual Entity](../automation-and-rules/virtual-entity-guide.md).
 :::
 
 ### النمط

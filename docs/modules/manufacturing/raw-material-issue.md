@@ -18,6 +18,10 @@ The list view shows what has been drawn against which orders.
 
 ![The raw materials issue list view](../../ar/modules/manufacturing/images/raw-material-issue/raw-material-issue-list-en.png)
 
+::: info Required license
+Raw materials issue, return and change are part of the core `manufacturing` license. If the **Manufacturing** menu is missing altogether, that license is not enabled.
+:::
+
 ## The Header
 
 **Book** and **Term** are the document's book and its term configuration — the settings that decide how this kind of document behaves and what it does to stock and to the ledger. **Value Date** is the date the movement takes effect.
@@ -72,9 +76,20 @@ If you issued the wrong material, returning it and issuing the right one leaves 
 
 ## Raw Material Change
 
-There is a third document in this family, for a situation the other two handle awkwardly: the job needs a *different* material from the one the BOM specified. The approved pipe is out of stock and the equivalent from another supplier will do. The **Raw Material Change** (تغيير خامة) records that substitution against the order, under **Manufacturing → Documents → Raw Material Change** (التصنيع ← المستندات ← تغيير خامة).
+The third screen in this family does not move any stock at all. The **Raw Material Change** (تغيير خامة), under **Manufacturing → Documents → Raw Material Change** (التصنيع ← المستندات ← تغيير خامة), is a bulk editor for bills of materials: it finds every BOM that uses one material and swaps in another.
 
-You could achieve the same movement with a return and a fresh issue. What you would lose is the reason. A change document says *this material stood in for that one on this job*, and that is the record you want when someone later asks why a product's cost that month came out different from every other month.
+The situation it exists for is a material that is being replaced for good — a supplier discontinues a grade of copper pipe and an equivalent takes its place in forty product recipes. Opening forty BOMs by hand is slow and easy to get half-done. This document does it in one pass and leaves a record of which BOMs were changed, when, and to what.
+
+1. Fill in **Material** (the one being replaced — the only required field) and **Alternative Material** (its replacement). Narrow the search, if you need to, with **From Product Components** / **To Product Components** (a range of BOM codes) and **From Manufactured Item** / **To Manufactured Item** (a range of finished-item codes).
+2. Press **Collect Components** (تجميع المكونات). Every BOM in the range whose component lines use the material is added to the grid as a line showing the **BOM**, the **Material Classification**, the **Material** and the **Alternative Material**. Pressing it again adds only BOMs not already listed. Without a material it stops with *Raw material is required* («يجب إدخال الخامة»).
+3. Tick **Selected** on the lines you want changed. **Select All** (اختيار الكل), **Unselect All** (إلغاء اختيار الكل) and **Invert Selection** (عكس الاختيارات) work on the whole grid. You can also change the **Alternative Material** on an individual line.
+4. Save, then press **Update Items In BOMS** (تبديل الخامات في مكونات المنتجات). For each selected BOM, every component line carrying the material is changed to that line's alternative material and the BOM is saved.
+
+::: warning Saving changes nothing
+Saving the document only records the plan. The BOMs change when **Update Items In BOMS** is pressed, and only for the selected lines. Production orders already created keep the components they were created with — the change affects orders built from those BOMs afterwards.
+:::
+
+![A Raw Material Change document after Collect Components and Select All](../../ar/modules/manufacturing/images/raw-material-issue/raw-material-change-en.png)
 
 ## What Happens After You Save
 

@@ -1,14 +1,13 @@
 ---
 title: EAAutoCreateSCDocSerial
 module: supplychain
+entities: [EntityFlow]
 ---
 
 
 <div class='entity-flows'>
 
 # EAAutoCreateSCDocSerial
-
-**This document was generated using Claude.ai**
 
 ## Overview
 

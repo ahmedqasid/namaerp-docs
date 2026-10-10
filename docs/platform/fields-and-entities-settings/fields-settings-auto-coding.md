@@ -25,12 +25,12 @@ called **Files Auto Coding**.
 This is coding for **master files** only. Documents — sales invoices, stock issues, receipt
 vouchers — do not get their numbers from here. Document numbering belongs to document books, which
 decide the prefix, the serial and the reset period per document type. See
-[Document Books](/platform/document-books) for that side of the system.
+[Document Books](/platform/documents-and-records/document-books) for that side of the system.
 
 If you put a document type in **For Type** here, the line is simply never reached.
 
 It is also not the first thing tried for a master file. A record that belongs to a
-[Master Group](/platform/master-groups) is coded by that group — by its per-criteria formula
+[Master Group](/platform/documents-and-records/master-groups) is coded by that group — by its per-criteria formula
 grid, then its own formula block — and only a record whose group has neither, or which has no
 group at all, reaches this grid.
 
@@ -45,7 +45,7 @@ condition columns of its own.
 |---|---|
 | For Type | The single entity type the line codes, e.g. Customer or Warehouse. |
 | Entity List | A reusable named list of entity types, so one line can cover several files at once. |
-| Criteria Definition | A saved [Criteria Definition](/platform/criteria-definitions) record; the line only runs when the record being saved matches it. |
+| Criteria Definition | A saved [Criteria Definition](/platform/automation-and-rules/criteria-definitions) record; the line only runs when the record being saved matches it. |
 | Reversed Criteria Definition | The opposite: the line is skipped when the record matches this criteria. |
 | Apply When Query | A query; the line only runs when the query returns a result for the record being saved. |
 | Do Not Apply When Query | The opposite: the line is skipped when this query returns a result. |
@@ -215,7 +215,7 @@ onto the record, then the query runs; it should return **1 to reject the code** 
 to the counter and tries again) and **0 to accept it**.
 
 The query is an ordinary Nama query, so it reads the record with `{ }` placeholders exactly like
-the queries in [Criteria Based Validation](/platform/criteria-based-validation) — including
+the queries in [Criteria Based Validation](/platform/governance/criteria-based-validation) — including
 `{code}`, which by then holds the code being tested:
 
 ```sql
@@ -335,11 +335,11 @@ record is being saved.
 ## Related pages
 
 - [Fields and Entities Settings — Overview](/platform/fields-and-entities-settings/fields-settings-overview) — the scope columns every grid shares, and how the records combine.
-- [Document Books](/platform/document-books) — numbering for documents, which this grid does not cover.
-- [Master Groups](/platform/master-groups) — the master-file coder that runs before this grid does.
+- [Document Books](/platform/documents-and-records/document-books) — numbering for documents, which this grid does not cover.
+- [Master Groups](/platform/documents-and-records/master-groups) — the master-file coder that runs before this grid does.
 - [Tempo Language Manual](/admin/tempo) — the full formula language, its functions and its date and text helpers.
-- [Criteria Based Validation](/platform/criteria-based-validation) — how the queries behind Criteria Definition and Code Validity Query are written and tested.
-- [Criteria from Text Parser](/platform/text-criteria-guide) — writing the criteria expressions themselves.
+- [Criteria Based Validation](/platform/governance/criteria-based-validation) — how the queries behind Criteria Definition and Code Validity Query are written and tested.
+- [Criteria from Text Parser](/platform/automation-and-rules/text-criteria-guide) — writing the criteria expressions themselves.
 - [Field Formats and Input Validation](/platform/fields-and-entities-settings/fields-settings-input-validation) — the mirror image of this page: checking a code the user typed instead of generating one.
 - [Items & Master Data Configuration](/modules/supplychain/configuration/items-and-master-data-configuration) — where the item coding formula and its variant name formulas live.
 - [Item Barcode Specifications](/modules/supplychain/configuration/item-barcode-specifications) — reading structured item codes back out of a scanned barcode.

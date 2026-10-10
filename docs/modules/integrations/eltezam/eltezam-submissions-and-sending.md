@@ -83,7 +83,7 @@ document itself is not changed. Dates must be written as `yyyy-MM-dd`, for examp
 ### Sending on a schedule: `EASubmitEltezamData`
 
 For sending at night or re-sending on demand, use a task schedule of type **Action** with
-`EASubmitEltezamData` (see [Scheduled Tasks](/platform/scheduled-tasks)).
+`EASubmitEltezamData` (see [Scheduled Tasks](/platform/automation-and-rules/scheduled-tasks)).
 
 | Parameter | Meaning |
 |---|---|

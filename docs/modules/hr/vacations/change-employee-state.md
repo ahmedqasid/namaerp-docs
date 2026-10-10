@@ -35,6 +35,10 @@ That state history is not just informational — the [salary sheet](../payroll/s
 
 In practice this means recording a suspension or a return to work through Change Employee State — whether entered directly or generated automatically from a vacation document — is what tells payroll whether to include that employee in the next salary run at all.
 
+## Actions on this screen
+
+The Change Employee State document has no buttons of its own — you fill it in and save it.
+
 ## Where this fits
 
 - **[HR Suspension](../discipline/hr-suspension.md)** — the disciplinary suspension document; it's related but separate — recording it does **not** by itself change the employee's state. Putting someone into the `Suspended` working state still takes a Change Employee State entry, recorded here.
