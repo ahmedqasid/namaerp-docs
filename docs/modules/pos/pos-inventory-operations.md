@@ -4,9 +4,11 @@ entities: [NamaPOSStockReceipt, NamaPOSStockTransferReq, NamaPOSStockTakingDetai
 
 # Inventory Operations at the Register
 
-A point of sale is not only a till — it is also the front line of the store's stock. From the **inventory screen** (`Ctrl+F2`) a shop user can receive goods, move them to another branch, count them, and write off what is damaged or missing, all without leaving the register. Each of these is a document that syncs up to the central system like everything else.
+A point of sale is not only a till — it is also the front line of the store's stock. From the **Documents** group of the slide menu a shop user can receive goods, move them to another branch, count them, and write off what is damaged or missing, all without leaving the register. Each of these is a document that syncs up to the central system like everything else.
 
-![Inventory screen](../../ar/modules/pos/images/inventory/pos-inventory-screen-en.png)
+The same group also holds the **Cash Count** screen, which `Ctrl+F2` opens directly. It counts the cash in the drawer, not stock — see [Shifts & cash](./pos-shifts-and-cash.md).
+
+![The Cash Count screen, opened with Ctrl+F2](../../ar/modules/pos/images/inventory/pos-inventory-screen-en.png)
 
 ## Receiving stock
 

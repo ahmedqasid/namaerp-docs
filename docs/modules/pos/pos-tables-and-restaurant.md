@@ -16,7 +16,7 @@ Seating is organised into **halls** (dining areas) and the **tables** within the
 
 ![Halls and tables](../../ar/modules/pos/images/tables/pos-halls-tables-en.png)
 
-To work a table, open it from the viewer; its order loads onto the sales screen and you add items exactly as in any [sales invoice](./pos-sales-invoice.md). Order another round and it joins the same table's running bill. When the guests are ready, you settle the table at the [tender screen](./pos-payment-and-tender.md) and it returns to free.
+To seat guests, pick a free table in the viewer; it fills the invoice's **Table** field and you add items exactly as in any [sales invoice](./pos-sales-invoice.md). Hold the order with `F6` and the table turns busy. A busy table cannot be picked again from the viewer — to add another round, recall the table's order from the held-orders list (`Ctrl+F6`), add the items, and hold it again. When the guests are ready, recall the order, settle it at the [tender screen](./pos-payment-and-tender.md), and the table returns to free.
 
 ![Busy table](../../ar/modules/pos/images/tables/pos-table-busy-en.png)
 

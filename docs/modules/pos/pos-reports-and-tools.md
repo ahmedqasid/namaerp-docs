@@ -29,7 +29,7 @@ Those pop-ups are part of a wider **notifications** stream — incoming messages
 
 ## The price checker
 
-`Ctrl+F9` gives any cashier a quick **price inquiry** mid-sale, as covered on the [sales page](./pos-sales-invoice.md). On top of that, a register can run as a dedicated **price-checker station** — a full-screen kiosk, often at the shop floor, where customers scan an item themselves and see its name and price in large, clear type (with promotional images cycling alongside). Scanning the next item clears the last, and a button returns the machine to normal sales mode.
+`Ctrl+F9` gives any cashier a quick **price inquiry** mid-sale, as covered on the [sales page](./pos-sales-invoice.md). On top of that, a register can run as a dedicated **price-checker station** — a full-screen kiosk, often at the shop floor, where customers scan an item themselves and see its name and price in large, clear type (with promotional images cycling alongside). Scanning the next item clears the last. The **Point of sale** button beside the barcode field leaves the station and returns to the login screen.
 
 ![Price checker mode](../../ar/modules/pos/images/reports/pos-price-checker-mode-en.png)
 

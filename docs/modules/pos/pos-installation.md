@@ -73,30 +73,36 @@ Then it starts the Nama POS desktop application.
 
 ## Step 4 — Fill in the settings dialog
 
-The very first time POS starts it has no idea where its database or its server are, so before anything else it opens the **Settings** dialog. Everything POS needs to connect lives here, in two groups of fields.
+The very first time POS starts it has no idea where its database or its server are, so before anything else it opens the **Settings** dialog. Everything POS needs to connect lives here, in four groups of fields.
 
 ![POS settings dialog](../../ar/modules/pos/images/installation/pos-settings-en.png)
 
-**The database group** describes the local SQL Server you set up in steps 1 and 2:
+**Database Settings** describes the local SQL Server you set up in steps 1 and 2:
 
-- **Database server address** — `localhost` when SQL Server is on the same machine as the register.
-- **Database port** — `1433` by default.
-- **Database user** — `sa`, or the dedicated login you created.
-- **Database password** — that login's password.
-- **Database name** — the database you created in step 2 (for example `pos101`).
-- **Database server type** — `sqlserver`.
-- **Image server** — optional; leave it empty unless you serve item images from a separate address.
-- **Read data / Send data** — keep these on (`1`) so the register both pulls fresh data down and pushes its documents up.
+- **Data Base Url** — `localhost` when SQL Server is on the same machine as the register.
+- **Data Base Port Number** — `1433` by default.
+- **Data Base User** — `sa`, or the dedicated login you created.
+- **Data Base Password** — that login's password.
+- **Data base Name** — the database you created in step 2 (for example `pos101`).
+- **Data Base Type** — `sqlserver`.
 
-**The Nama server group** describes the central ERP the register syncs with:
+**Server Settings** describes the central ERP the register syncs with:
 
-- **Nama server address** and **Nama server port** — where the Nama ERP server answers (for example port `8080`). You can also enter a full `http://…` / `https://…` address.
-- **Nama server user** and **Nama server password** — the server login POS uses. Instead of a user and password you may supply an **API key**, which keeps working even after the user's password changes.
+- **Server Url** and **Server Port** — where the Nama ERP server answers (for example port `8080`). You can also enter a full `http://…` / `https://…` address; **Server Port** is then greyed out because the address already carries it.
+- **Server Login Id** and **Server Login Password** — the server login POS uses. Instead of a user and password you may supply an **API Key**, which keeps working even after the user's password changes.
+- **Gui Server** — the image server; optional, leave it empty unless you serve item images from a separate address.
+
+**Read / Write Settings** controls the sync itself:
+
+- **Write Data** and **Read Data** — keep these on (`1`) so the register both pushes its documents up and pulls fresh data down.
+- **Read Data Count** and **Read Data Time - Per MS** — how many records each sync pulls and how often, in milliseconds. The defaults are fine for most setups.
+
+**General Settings** holds the rest:
+
+- **Registery Code** — the **register's code as defined on the server**. This is the link between this machine and its register record.
 - **Language** — the register's interface language.
-- **Machine code** — the **register's code as defined on the server**. This is the link between this machine and its register record.
-- **Number of records read** and **Read every (ms)** — how many records each sync pulls and how often. The defaults are fine for most setups.
 
-When the fields are filled, press **Check Data**. POS tests the database connection, signs in to the server, and confirms the register code exists — anything wrong is flagged on the offending field so you can correct it. Once it checks out, press **Confirm**.
+Each of the first two groups has its own check button. **Check Database Settings** tests the database connection, and **Check Server Settings** signs in to the server and confirms the register code exists; the result shows next to the button (**Settings are valid**, or what is wrong). **Check Data** in the footer runs both checks at once and also flags any required field left empty. Once it checks out, press **Confirm**. The footer's language button (**العربية** on the English dialog, **English** on the Arabic one) reopens the dialog in the other language without losing what you have typed.
 
 ## Step 5 — Restart, and the first sync
 

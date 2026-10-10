@@ -49,7 +49,7 @@ A busy counter runs on the keyboard, not the mouse. Nama POS ships with sensible
 | `Ctrl+F1` | Sales return | `Shift+F6` | Delete all held invoices |
 | `Shift+F1` | Sales replacement (exchange) | `Ctrl+Shift+F6` | Show call-center held orders |
 | `F2` | Shift screen (open/close) | `F7` | Choose the customer |
-| `Ctrl+F2` | Inventory screen | `Shift+F7` | Add a new customer |
+| `Ctrl+F2` | Cash Count | `Shift+F7` | Add a new customer |
 | `F3` | Item / record search | `Ctrl+F7` | Remove the customer |
 | `Ctrl+F3` | Open an existing invoice | `F8` | Choose the salesman |
 | `F4` | Change font size | `Ctrl+F8` | Remove the salesman |

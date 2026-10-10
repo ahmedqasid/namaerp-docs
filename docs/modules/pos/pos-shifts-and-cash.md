@@ -62,7 +62,7 @@ The **shift analysis** view answers "where did the money come from and go?" for 
 For managers, this is the one screen that tells the whole financial story of a shift at a glance — useful both for the nightly cash-up and for investigating a stubborn variance.
 
 ::: info A quick cash count
-You do not always need a full close to check the drawer. A standalone cash count, reached from the inventory screen (`Ctrl+F2`), lets you reconcile cash mid-shift without ending it.
+You do not always need a full close to check the drawer. A standalone cash count, opened with `Ctrl+F2`, lets you reconcile cash mid-shift without ending it.
 :::
 
 ::: tip Setting it up
