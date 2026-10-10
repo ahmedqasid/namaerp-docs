@@ -31,7 +31,7 @@ export const SEARCH_INDEX_FILE_NAME = 'search-index.json'
 const INDEX_PATH_PREFIXES: { [indexName: string]: string[] } = {
     'videos': ['/videos/', '/ar/videos/'],
     'entity-flows': ['/entity-flows/'],
-    'release-notes': ['/ar/release-notes/'],
+    'release-notes': ['/release-notes/', '/ar/release-notes/'],
 }
 
 // The search pages themselves must not show up as search results

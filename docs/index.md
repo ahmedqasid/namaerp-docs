@@ -55,6 +55,6 @@ features:
     link: /entity-flows/
   - icon: 📋
     title: Release Notes
-    details: What every Nama ERP release brought — new features, improvements, and fixes, month by month (published in Arabic)
-    link: /ar/release-notes/
+    details: What every Nama ERP release brought — new features, improvements, and fixes, month by month
+    link: /release-notes/
 ---
