@@ -29,7 +29,15 @@ Those pop-ups are part of a wider **notifications** stream — incoming messages
 
 ## The price checker
 
-`Ctrl+F9` gives any cashier a quick **price inquiry** mid-sale, as covered on the [sales page](./pos-sales-invoice.md). On top of that, a register can run as a dedicated **price-checker station** — a full-screen kiosk, often at the shop floor, where customers scan an item themselves and see its name and price in large, clear type (with promotional images cycling alongside). Scanning the next item clears the last. The **Point of sale** button beside the barcode field leaves the station and returns to the login screen.
+`Ctrl+F9` gives any cashier a quick **price inquiry** mid-sale, as covered on the [sales page](./pos-sales-invoice.md). On top of that, a register can run as a dedicated **price-checker station** — a full-screen kiosk, often at the shop floor, where customers scan an item themselves and see its name and price in large, clear type (with promotional images cycling alongside). Scanning the next item clears the last.
+
+A register becomes a price-checker station through its `nama.properties` file (in the POS folder), not through a screen. Restart POS after editing it:
+
+| Property | What it does |
+|---|---|
+| `priceCheckerMode=1` | Starts POS as a price-checker station instead of the login screen. |
+| `priceCheckerShowPOSButton=1` | Shows a **Point of sale** button beside the barcode field. It leaves the station and returns to the login screen. Without this property the button is hidden, so customers cannot leave the station. |
+| `promotionalImagesFolderPath=D:/promo` | The folder whose `.png`, `.jpg`, `.jpeg` and `.gif` images cycle beside the price, after the register's logo. Defaults to `C:\posPromotionalImages`. |
 
 ![Price checker mode](../../ar/modules/pos/images/reports/pos-price-checker-mode-en.png)
 
