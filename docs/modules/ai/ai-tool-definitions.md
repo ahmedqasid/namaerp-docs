@@ -204,7 +204,7 @@ A report runs with the permissions of the user the tool acts for, and its parame
 ::: warning A report that filters on nothing answers with everything
 This check matters more than it sounds. When a report's filters do not reach it, nothing fails and nothing warns: it prints the same headings, the same columns and a full page of entirely plausible figures — for every period and every branch instead of the one that was asked for — and the parameters still appear in its own header. Somebody comparing those figures against a customer's question reaches a confident, wrong conclusion.
 
-So `RunReport` refuses the run instead of answering with unfiltered figures: when an id is not a parameter of that report, when a value cannot be applied to the parameter it was given for, and when a parameter that points at a record names one that does not exist. The answer also repeats the parameters that were actually applied, in the form the report received them, so the figures can be checked against what was asked for rather than taken on trust.
+So `RunReport` refuses the run instead of answering with unfiltered figures: when an id is not a parameter of that report, when a value cannot be applied to the parameter it was given for, and when a parameter that points at a record names one that does not exist. The answer also repeats the parameters that were actually applied, as they were sent to the report, so the figures can be checked against what was asked for rather than taken on trust. A parameter that points at a record is repeated as the whole record reference — its id, type and code run together — and that is not what the report filters on: the report takes only the part it reads, usually the code.
 :::
 
 ::: tip Read the numbers, don't look at a picture
