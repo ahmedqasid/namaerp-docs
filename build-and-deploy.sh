@@ -142,7 +142,7 @@ function evictNlmSearchCache() {
     ( exit $rc )    # hand wget's status to checkForErrors, which reads $?
     checkForErrors
 }
-# The support knowledge base (github.com/ahmedqasid/namaerp-support-kb) bundles this repo and
+# The support knowledge base (github.com/namasoft/namaerp-support-kb) bundles this repo and
 # namaerp-dm as git submodules so support staff can run Claude Code over both. A submodule pins
 # one commit and never follows master on its own -- somebody has to move the pointer, and until
 # they do, support answers questions from whatever the docs looked like on the day the pin was
@@ -248,7 +248,7 @@ function advanceSupportKb() {
     fi
     if [[ ! -d "$kb_dir/.git" ]] ; then
       echo "WARNING: no support KB clone at $kb_dir - pin not advanced." >&2
-      echo "         git clone https://github.com/ahmedqasid/namaerp-support-kb.git $kb_dir" >&2
+      echo "         git clone https://github.com/namasoft/namaerp-support-kb.git $kb_dir" >&2
       return 0
     fi
     acquireSupportKbLock || return 0

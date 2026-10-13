@@ -47,7 +47,7 @@ The window is now pointed at that folder. It is empty, which is exactly right â€
 
 Here is the part that surprises people: **you do not have to run any commands yourself**. Type this into the prompt box, in these words or your own:
 
-> Please clone `https://github.com/ahmedqasid/namaerp-support-kb.git` into this folder, including its submodules, and then tell me what you found.
+> Please clone `https://github.com/namasoft/namaerp-support-kb.git` into this folder, including its submodules, and then tell me what you found.
 
 Claude will run the download for you. If it asks permission to run a command, allow it. When it finishes you will have the Nama support knowledge base on your machine: this entire documentation site, the [data model](https://dm.namasoft.com) describing every table, column and enum, and a set of instructions that teaches the assistant how Nama is organised â€” where the modules live, that the Arabic pages mirror the English ones, that the item master file is called `InvItem` and not `Item`, and how to cite what it found.
 

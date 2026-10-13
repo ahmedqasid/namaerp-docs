@@ -320,11 +320,11 @@ gtag('config', 'G-H68GM8HY15');`]
         logo: '/hero.svg',
         sidebar: SIDEBAR_CONFIG,
         editLink: {
-            pattern: 'https://github.com/ahmedqasid/namaerp-docs/edit/master/docs/:path',
+            pattern: 'https://github.com/namasoft/namaerp-docs/edit/master/docs/:path',
             text: 'Edit On github'
         },
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/ahmedqasid/namaerp-docs'}
+            {icon: 'github', link: 'https://github.com/namasoft/namaerp-docs'}
         ],
     },
     transformHtml: (html, id, ctx) => {
