@@ -1294,9 +1294,9 @@
 - [General Purpose Utility Queries](https://docs.namasoft.com/admin/reprocessing/general-purpose-utility-queries.html) (ar: استعلامات عامة متعددة الأغراض (General Purpose Utility Queries)): General SQL helpers that are not tied to one module: generating date ranges, finding missing document numbers, unlinking documents from their source documents, cancelling a document's current approval case...
 - [Replication Utilities](https://docs.namasoft.com/admin/reprocessing/replication.html) (ar: أدوات النسخ المتطابق (Replication Utilities)): SQL that clears sent messages, and messages for inactive sites, out of the replication message tables, and the steps for taking a backup of the head office and restoring it at a branch.
 
-## AI Generated Entity Flows Documentation
+## Entity Flows Reference
 
-- [AI Generated Entity Flows Documentation](https://docs.namasoft.com/entity-flows/)
+- [Entity Flows Reference](https://docs.namasoft.com/entity-flows/)
 
 ### Core
 
@@ -1503,7 +1503,7 @@
 - [EAEcommerceShippingHandler](https://docs.namasoft.com/entity-flows/magento/EAEcommerceShippingHandler.html): Handles e-commerce shipping operations for supply chain documents through configured shipping sites. - entities: EntityFlow
 - [EAEcommerceUploadQuantityCSVFileToFTPServer](https://docs.namasoft.com/entity-flows/magento/EAEcommerceUploadQuantityCSVFileToFTPServer.html): Exports SKU and quantity data from Magento sites to CSV files and uploads them to FTP/SFTP servers. - entities: EntityFlow
 - [EAReadSalasaInventoryData](https://docs.namasoft.com/entity-flows/magento/EAReadSalasaInventoryData.html): Reads the current stock that the Salasa fulfilment platform holds for you and records it in Nama as one committed FormDoc4 document, one line per item and Salasa warehouse. - entities: EntityFlow
-- [EASalesRecalculateFreeAndRelatedItems (AI Generated Entity Flows Documentation › e-commerce Integration Module)](https://docs.namasoft.com/entity-flows/magento/EASalesRecalculateFreeAndRelatedItems.html): Recalculates sales documents by updating unit prices, discounts, and free/related item promotions. - entities: EntityFlow
+- [EASalesRecalculateFreeAndRelatedItems (Entity Flows Reference › e-commerce Integration Module)](https://docs.namasoft.com/entity-flows/magento/EASalesRecalculateFreeAndRelatedItems.html): Recalculates sales documents by updating unit prices, discounts, and free/related item promotions. - entities: EntityFlow
 
 ### Manufacturing Module
 
@@ -1589,7 +1589,7 @@
 - [EASCDocFromDocDeleter](https://docs.namasoft.com/entity-flows/supplychain/EASCDocFromDocDeleter.html): Deletes supply chain documents that are referenced in specified fields of the source document. - entities: EntityFlow
 - [EASCPreventChangingFromDocFields](https://docs.namasoft.com/entity-flows/supplychain/EASCPreventChangingFromDocFields.html): Enforces data integrity by preventing unauthorized changes to specified fields when comparing supply chain documents with their source documents (fromDoc). - entities: EntityFlow
 - [EASCSpreadOriginDoc](https://docs.namasoft.com/entity-flows/supplychain/EASCSpreadOriginDoc.html): Spreads origin document lines for details that have an origin document but no item. - entities: EntityFlow
-- [EASalesRecalculateFreeAndRelatedItems (AI Generated Entity Flows Documentation › Supply Chain Module)](https://docs.namasoft.com/entity-flows/supplychain/EASalesRecalculateFreeAndRelatedItems.html): Recalculates pricing information for sales documents including unit prices, discounts, free items, and related items. - entities: EntityFlow
+- [EASalesRecalculateFreeAndRelatedItems (Entity Flows Reference › Supply Chain Module)](https://docs.namasoft.com/entity-flows/supplychain/EASalesRecalculateFreeAndRelatedItems.html): Recalculates pricing information for sales documents including unit prices, discounts, free items, and related items. - entities: EntityFlow
 - [EASendCustomerToDatanuum](https://docs.namasoft.com/entity-flows/supplychain/EASendCustomerToDatanuum.html): Synchronizes customer information with the Datanuum external service for reward points and loyalty program integration. - entities: EntityFlow
 - [EASendInvItemToDatanuum](https://docs.namasoft.com/entity-flows/supplychain/EASendInvItemToDatanuum.html): Synchronizes inventory item information with the Datanuum external service for reward points and loyalty program integration. - entities: EntityFlow
 - [EASendInvoiceToDatanuum](https://docs.namasoft.com/entity-flows/supplychain/EASendInvoiceToDatanuum.html): Synchronizes sales invoice/receipt information with the Datanuum external service for reward points and loyalty program integration. - entities: EntityFlow

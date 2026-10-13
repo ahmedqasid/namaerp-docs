@@ -1,6 +1,6 @@
 <div class="ignore-in-full-text-search">
 
-# AI Generated Entity Flows Documentation
+# Entity Flows Reference
   - [Core](/entity-flows/core/)
     - [Field Maps in Nama ERP - Complete Guide](/entity-flows/core/ai-generated-field-maps-documentation.md)
     - [DeleteRelatedEntityAction](/entity-flows/core/DeleteRelatedEntityAction.md)

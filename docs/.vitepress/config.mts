@@ -5,6 +5,7 @@ import postcssRTLCSS from 'postcss-rtlcss'
 import {Mode} from 'postcss-rtlcss/options'
 import {SIDEBAR_CONFIG} from './sidebar.js'
 import {SECTION_PAGER, SECTION_SIDEBARS} from './section-trees.js'
+import {PAGE_DESCRIPTIONS} from './page-descriptions.js'
 import {collectPageForSearchIndex, devSearchIndexPlugin, writeSearchIndexJSON} from './search-index-builder.mts'
 import fs from 'node:fs'
 import path from 'node:path'
@@ -174,6 +175,21 @@ function pageKey(relativePath) {
     return '/' + relativePath.replace(/index\.md$/, '').replace(/\.md$/, '')
 }
 
+// Search engines show the meta description as the result snippet, so every page needs its own rather
+// than the site-wide one. Order: the page's frontmatter, then its first prose sentence (written by
+// GenNamaDocsIndex), then its title for pages that open with a link list instead of prose.
+function pageDescription(pageData) {
+    if (pageData.description)
+        return pageData.description
+    if (PAGE_DESCRIPTIONS[pageData.relativePath])
+        return PAGE_DESCRIPTIONS[pageData.relativePath]
+    if (!pageData.title)
+        return ''
+    return pageData.relativePath.startsWith('ar/')
+        ? `${pageData.title} — توثيق نظام نما ERP`
+        : `${pageData.title} — Nama ERP documentation`
+}
+
 // VitePress's dead-link checker only validates markdown-syntax links; links rendered by a Vue
 // component (LandingCard props, the page-data driven sidebar) become raw <a> tags it never inspects.
 // This walks the built output and fails the build on any of them that doesn't resolve.
@@ -290,6 +306,7 @@ gtag('config', 'G-H68GM8HY15');`]
             pageData.frontmatter.prev ??= pager.prev
         if (pager?.next)
             pageData.frontmatter.next ??= pager.next
+        pageData.description = pageDescription(pageData)
         pageData.frontmatter.head ??= []
         pageData.frontmatter.head.push(
             ['link', {rel: 'canonical', href: pageUrl(pageData.relativePath)}],

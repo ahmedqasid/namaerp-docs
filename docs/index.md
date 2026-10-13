@@ -3,6 +3,7 @@
 # (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
 layout: home
 title: Nama ERP Docs
+description: Step-by-step guides, video tutorials and FAQs for every Nama ERP module, from installation to mastery.
 hero:
   name: Nama ERP
   text: Documentation & User Guides

@@ -3,6 +3,7 @@
 # (see hasHandcraftedHomePage in GenNamaDocsIndex.java)
 layout: home
 title: Nama ERP Docs
+description: أدلة تفصيلية وشروحات فيديو وأسئلة شائعة لجميع وحدات نظام نما، من التثبيت حتى الاحتراف.
 hero:
   name: Nama ERP
   text: دليل الاستخدام والتوثيق

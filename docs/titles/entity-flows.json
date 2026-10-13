@@ -6,8 +6,8 @@
   ],
   "folderTitles": {
     "/entity-flows": {
-      "ar": "توثيق مسارات الكيان (مولد بالذكاء الاصطناعي)",
-      "en": "AI Generated Entity Flows Documentation"
+      "ar": "مرجع مسارات الكيان",
+      "en": "Entity Flows Reference"
     },
     "/entity-flows/accounting": {
       "ar": "وحدة الحسابات",
