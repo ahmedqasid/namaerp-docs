@@ -20,7 +20,7 @@ hero:
 features:
   - icon: 🧾
     title: الفواتير والضرائب والخصومات
-    details: الفواتير ومرتجعاتها، حساب الضرائب والخصومات، نقاط الولاء، جداول الدفع، والفاتورة الإلكترونية (ZATCA ومصر والإمارات)
+    details: الفواتير ومرتجعاتها، حساب الضرائب والخصومات، نقاط الولاء، جداول الدفع، والفاتورة الإلكترونية (ZATCA ومصر والأردن والإمارات)
     link: /ar/modules/invoicing/
   - icon: 💰
     title: الحسابات والبنوك
@@ -88,7 +88,7 @@ features:
     link: /ar/modules/mobile/
   - icon: 🛍️
     title: تكامل التجارة الإلكترونية
-    details: التكامل مع Magento وOmniful ومنصات التجارة الإلكترونية
+    details: متاجر سلة وزد وShopify وWooCommerce وMagento وBigCommerce وأمازون، إلى جانب منصّات التنفيذ سلاسه وOTO وOmniful
     link: /ar/modules/ecommerce/
   - icon: 🔗
     title: التكاملات

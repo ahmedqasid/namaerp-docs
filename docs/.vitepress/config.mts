@@ -13,6 +13,7 @@ import {fileURLToPath} from 'node:url'
 
 const HOSTNAME = 'https://docs.namasoft.com/'
 const SEARCH_INDEX_STABLE_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'search-index.json')
+const DOCS_DIR = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 
 function rtlLtrContainer(md, type) {
     md.use(container, type, {
@@ -54,7 +55,8 @@ const RETIRED_PAGE_REDIRECTS = {
     // Omniful flows are documented only inside the Omniful guide (decision 2026-10-10)
     'EAReadOmnifulOrders': '/modules/ecommerce/omniful-integration.html',
     'EAReadOmnifulOrdersByIds': '/modules/ecommerce/omniful-integration.html',
-    'EAReReadOmnifulOrder': '/modules/ecommerce/omniful-integration.html'
+    'EAReReadOmnifulOrder': '/modules/ecommerce/omniful-integration.html',
+    'magento-integration-guide': '/modules/ecommerce/ecommerce-integration-guide.html'
 }
 
 // Pages moved to a new folder (basename unchanged), and pages replaced by a folder landing. The
@@ -66,6 +68,8 @@ const MOVED_PAGE_REDIRECTS = {
     // The developer/ folder was dropped (2026-10-10); its only content was a card to GUI Post Actions
     '/developer/index': '/platform/automation-and-rules/gui-post-actions',
     '/developer': '/platform/automation-and-rules/gui-post-actions',
+    // Renamed (2026-10-13): the guide covers every storefront platform, not only Magento
+    '/modules/ecommerce/magento-integration-guide': '/modules/ecommerce/ecommerce-integration-guide',
     ...Object.fromEntries(Object.entries({
         'documents-and-records': ['document-lifecycle', 'document-books', 'document-cancel-document',
             'why-a-record-will-not-save-or-delete', 'messages-and-refusals', 'master-groups', 'attachments',
@@ -166,6 +170,37 @@ function pageUrl(relativePath) {
     return HOSTNAME + relativePath.replace(/\.md$/, '.html').replace(/(^|\/)index\.html$/, '$1')
 }
 
+// Search engines only serve a reader the copy in their language when each copy names the other, so
+// link the English page and its /ar/ mirror (English as the default) whenever both exist.
+function languageAlternates(relativePath) {
+    const english = relativePath.replace(/^ar\//, '')
+    const arabic = 'ar/' + english
+    if (!fs.existsSync(path.join(DOCS_DIR, english)) || !fs.existsSync(path.join(DOCS_DIR, arabic)))
+        return []
+    return [
+        ['link', {rel: 'alternate', hreflang: 'en', href: pageUrl(english)}],
+        ['link', {rel: 'alternate', hreflang: 'ar', href: pageUrl(arabic)}],
+        ['link', {rel: 'alternate', hreflang: 'x-default', href: pageUrl(english)}]
+    ]
+}
+
+// The home page links the newest release notes. Found at build time from the file names, and labelled
+// with the month from the page's own H1 ("# Nama ERP Release Notes - September 2026"), so it never
+// goes stale and the Arabic label is the Arabic page's own wording.
+function latestReleaseAction(localePrefix) {
+    const root = path.join(DOCS_DIR, localePrefix, 'release-notes')
+    const year = fs.readdirSync(root).filter(name => /^\d{4}$/.test(name)).sort().at(-1)
+    const file = fs.readdirSync(path.join(root, year)).filter(name => /^nama-erp-\d{6}-release-notes\.md$/.test(name)).sort().at(-1)
+    const month = fs.readFileSync(path.join(root, year, file), 'utf8').match(/^# .* - (.+)$/m)?.[1].trim()
+    if (!month)
+        return null
+    return {
+        theme: 'alt',
+        text: (localePrefix ? 'أحدث إصدار: ' : 'Latest release: ') + month,
+        link: `/${localePrefix}release-notes/${year}/${file.replace(/\.md$/, '')}`
+    }
+}
+
 // The keys GenNamaDocsIndex writes into section-trees.js: the folder holding the page, and the page itself
 function folderKey(relativePath) {
     return '/' + relativePath.replace(/[^/]*\.md$/, '')
@@ -177,12 +212,15 @@ function pageKey(relativePath) {
 
 // Search engines show the meta description as the result snippet, so every page needs its own rather
 // than the site-wide one. Order: the page's frontmatter, then its first prose sentence (written by
-// GenNamaDocsIndex), then its title for pages that open with a link list instead of prose.
+// GenNamaDocsIndex), then a landing page's hero tagline, then its title for pages that open with a
+// link list instead of prose.
 function pageDescription(pageData) {
     if (pageData.description)
         return pageData.description
     if (PAGE_DESCRIPTIONS[pageData.relativePath])
         return PAGE_DESCRIPTIONS[pageData.relativePath]
+    if (pageData.frontmatter.hero?.tagline)
+        return pageData.frontmatter.hero.tagline
     if (!pageData.title)
         return ''
     return pageData.relativePath.startsWith('ar/')
@@ -313,8 +351,15 @@ gtag('config', 'G-H68GM8HY15');`]
             ['meta', {property: 'og:title', content: pageData.title || 'Nama Docs'}],
             ['meta', {property: 'og:description', content: pageData.description || 'Nama ERP Documentation'}],
             ['meta', {property: 'og:url', content: pageUrl(pageData.relativePath)}],
-            ['meta', {property: 'og:type', content: 'article'}]
+            ['meta', {property: 'og:type', content: 'article'}],
+            ...languageAlternates(pageData.relativePath)
         )
+        if (pageData.relativePath === 'index.md' || pageData.relativePath === 'ar/index.md') {
+            const latest = latestReleaseAction(pageData.relativePath === 'ar/index.md' ? 'ar/' : '')
+            const actions = pageData.frontmatter.hero?.actions
+            if (latest && actions && !actions.some(action => action.link === latest.link))
+                actions.push(latest)
+        }
     },
     themeConfig: {
         logo: '/hero.svg',

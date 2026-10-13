@@ -1,6 +1,6 @@
 ---
 entities: [OmnifulConfig]
-menu: ims → Master Files → Omniful Configuration
+menu: e-Commerce Integration → Master Files → Omniful Configuration
 ---
 # Omniful Integration Guide
 

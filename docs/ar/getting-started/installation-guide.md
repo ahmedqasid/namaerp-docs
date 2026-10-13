@@ -1,6 +1,6 @@
 # دليل تثبيت Nama ERP
 
-**Nama ERP** هو تطبيق ويب مبني على Java يعمل على Apache Tomcat ويستخدم Microsoft SQL Server كمحرك قاعدة بيانات افتراضي.
+**Nama ERP** هو تطبيق ويب مبني على Java يعمل على Apache Tomcat ويستخدم Microsoft SQL Server محركًا لقاعدة البيانات.
 
 ## متطلبات النظام
 

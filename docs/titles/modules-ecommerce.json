@@ -1,7 +1,15 @@
 {
   "sortedPaths": [
     "/modules/ecommerce",
-    "/modules/ecommerce/magento-integration-guide.md",
+    "/modules/ecommerce/ecommerce-integration-guide.md",
+    "/modules/ecommerce/salla-integration.md",
+    "/modules/ecommerce/zid-integration.md",
+    "/modules/ecommerce/shopify-integration.md",
+    "/modules/ecommerce/woocommerce-integration.md",
+    "/modules/ecommerce/bigcommerce-integration.md",
+    "/modules/ecommerce/salasa-integration.md",
+    "/modules/ecommerce/oto-stock-sync.md",
+    "/modules/ecommerce/atheer-integration.md",
     "/modules/ecommerce/omniful-integration.md",
     "/modules/ecommerce/amazon-order-notifications.md"
   ],

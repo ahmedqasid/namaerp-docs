@@ -1,6 +1,6 @@
 # Nama ERP Installation Guide
 
-**Nama ERP** is a Java-based web application that runs on Apache Tomcat and uses Microsoft SQL Server as its default database engine.
+**Nama ERP** is a Java-based web application that runs on Apache Tomcat and uses Microsoft SQL Server as its database engine.
 
 ## System Requirements
 

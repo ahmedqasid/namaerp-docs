@@ -4,6 +4,8 @@ Nama ERP is a single Java web application. Users reach it with a browser, all of
 
 It is worth being clear about what Nama ERP is *not*, because it changes how you plan for it. It is not a collection of separately deployed micro-services with a database each. It is not a desktop product with a shared file on a network drive. It is one application, deployed on one application server, talking to one relational database — with a small family of companion applications at the edges for the places a browser cannot reach, such as a point-of-sale counter or an attendance device in a remote branch.
 
+One server also shapes the questions reviewers ask next: what happens when it fails, and how far it scales. Resilience is built beneath the application rather than by clustering it. [Availability and disaster recovery](infrastructure-architecture.md#Availability-and-disaster-recovery) explains the supported approach and the recovery times it gives, and [Backup and recovery](infrastructure-architecture.md#Backup-and-recovery) covers what to back up and how often.
+
 ## The picture from outside
 
 ```text
@@ -46,7 +48,7 @@ Everything a user does — opening a screen, saving an invoice, running a report
 | Reporting | JasperReports for printed documents; a built-in report wizard and BI dashboards for analysis |
 | Web services | REST and SOAP endpoints for integration |
 
-MySQL is also supported at the database layer, but SQL Server is the default and the tested target — talk to Nama technical support before choosing anything else, as described in the [Installation Guide](../getting-started/installation-guide.md).
+Microsoft SQL Server is the only supported database for production installations. The versions it needs are listed in the [Installation Guide](../getting-started/installation-guide.md).
 
 ## How the application is layered
 

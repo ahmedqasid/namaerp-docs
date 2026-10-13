@@ -1,6 +1,6 @@
 ---
 entities: [OmnifulConfig]
-menu: ims ← الملفات ← Omniful Configuration
+menu: تكامل التجارة الإلكترونية ← الملفات ← Omniful Configuration
 ---
 
 # دليل التكامل مع Omniful

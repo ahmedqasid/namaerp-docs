@@ -20,7 +20,7 @@ hero:
 features:
   - icon: 🧾
     title: Invoicing, Taxes & Discounts
-    details: Invoices and returns, tax and discount calculation, loyalty points, payment schedules, and e-invoicing (ZATCA, Egypt, UAE)
+    details: Invoices and returns, tax and discount calculation, loyalty points, payment schedules, and e-invoicing (ZATCA, Egypt, Jordan, UAE)
     link: /modules/invoicing/
   - icon: 💰
     title: Accounting & Banks
@@ -88,7 +88,7 @@ features:
     link: /modules/mobile/
   - icon: 🛍️
     title: e-commerce Integration
-    details: Integration with Magento, Omniful, and e-commerce platforms
+    details: Salla, Zid, Shopify, WooCommerce, Magento, BigCommerce and Amazon storefronts, plus the Salasa, OTO and Omniful fulfilment platforms
     link: /modules/ecommerce/
   - icon: 🔗
     title: Integrations
