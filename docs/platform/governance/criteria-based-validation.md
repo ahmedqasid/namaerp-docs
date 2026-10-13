@@ -192,6 +192,45 @@ one* line answers non-zero, and the error is raised for exactly those lines that
 but failed **Then**. This is what you want for anything phrased as "no line may…", and it is by
 far the most common setting in real implementations.
 
+### A half that reads only header fields
+
+A rule often mixes the two: the **When** half looks at the lines, the **Then** half looks only at
+the header, or the other way round. Take a vacation request where some vacation types are allowed
+for female employees only:
+
+```sql
+-- When Query: this line asks for one of the restricted types
+select case when {details.vacationType.code} in ('014','016','017') then 1 else 0 end
+-- Then Query: the employee must not be male
+select case when {employee.gender} = 'Male' then 0 else 1 end
+```
+
+The Then Query has no line placeholder, so it runs once for the whole document, and its answer
+counts for **every** line. If the employee is female, every line passes; if male, every line that
+asked for a restricted type is reported. The same holds for a **Then Condition** whose criteria
+use only header fields, and for a **When** half that reads only the header: when it answers yes,
+every line goes on to the **Then** check.
+
+::: warning Releases before 20261014 judged a header-only half against the first line only
+On releases older than 20261014, a half with no line placeholder counted for the first line only. A
+header-only **Then** then rejected every later line that passed **When**, however it answered, and a
+header-only **When** sent only the first line to the **Then** check. If a customer on one of these
+releases meets this, repeat the line condition inside the header-only query, so it runs once per
+line:
+
+```sql
+select case when {details.vacationType.code} in ('014','016','017')
+    and {employee.gender} = 'Male' then 0 else 1 end
+```
+:::
+
+::: warning With Lines Should Match on, a line with no answer fails Then
+The "a query that returns nothing counts as yes" rule above does not hold for a **Then Query**
+that runs per line. When it returns no rows for a line, that line counts as failing, and it is
+reported if it passed **When**. Make a per-line Then Query always return a row: put the
+condition inside the `case` rather than in a `where` clause.
+:::
+
 ### Telling the user which line
 
 Once a rule runs per line, the system knows the line numbers that failed and hands them to you as
