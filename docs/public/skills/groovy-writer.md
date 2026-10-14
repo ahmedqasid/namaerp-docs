@@ -39,6 +39,59 @@ Use `web_fetch` on each DM URL provided. From the DM page, extract:
 
 ---
 
+## Step 2b — Learn From the Published Examples
+
+Before writing, read the published example closest to the requested logic. Each one is a tested product
+script with a page explaining what it does, which event it runs on and how its parameters are filled:
+
+- Index of all examples, grouped by theme: https://docs.namasoft.com/entity-flows/groovy/
+- Each page: `https://docs.namasoft.com/entity-flows/groovy/<ClassName>.html`
+- Each raw script: `https://docs.namasoft.com/groovy-examples/<ClassName>.groovy`
+- In a local checkout of the docs, the pages are under `docs/entity-flows/groovy/` and the scripts are under
+  `docs/public/groovy-examples/`.
+
+Pick the example closest to the task. Each name below is both a page (`<ClassName>.html`) and a script
+(`<ClassName>.groovy`):
+
+| The script must… | Study |
+|---|---|
+| Refuse a save with a message, checking lines against the From Document | `EAQtyMustMatchFromDocPerItem` |
+| Refuse a save based on one field's format | `EASerialNumberLen` |
+| Validate a master file's grid for duplicates or conflicts | `EAPreventDifferentNamesForSameSizeOrColor` |
+| Refuse editing or deleting lines that were already saved (old vs new lines) | `EAPreventChangingItemPriceLines` |
+| Fill an empty line field from the item or a fixed default | `EAFillDefaultRevision`, `EASetDefaultLocatorIfEmpty` |
+| Clear line values that are not valid for the line's warehouse or item | `EAClearLocatorWhenWarehouseDoesNotAllowLocators`, `EAClearLotIdsWithNoItemDimensionsQty` |
+| Copy prices or discounts from the document this one was made from | `EACopyLinePriceAndHeaderDiscountFromFromDoc` |
+| Find source lines by query and split a line across them | `EACollectInvoicesInReturn` |
+| Add lines, or replace one line with several | `EAAddFreeLinesFromLineReferences`, `EASpreadAssemblyBOMLineByItemClass` |
+| Create other documents from this one and keep them in step on re-save | `EAGenMultiplePurchaseOrdersFromQuotation` |
+| Update the From Document (or a chain of them) after commit | `EASetDeliveryStatusInFromDocLines`, `EAMarkFromDocFulfilled` |
+| Find or create another record by query and maintain one line in it | `EAMaintainLimitSalesQtyFromItem` |
+| Write back into a master file from a document | `EAUpdateItemDimensionsFromPurchaseReturnReqLines`, `EALearnDefaultLocatorFromStockTransfer` |
+| Number lines with a running serial per group and year | `EACreateSerialForLineSubsidiary`, `EAAutoLotIdFromItemSectionAndYear` |
+| Enforce a cap with running totals across earlier documents | `EAYearlyLimitPerEmployeeInPVRequest` |
+| Take field ids from the parameters instead of hard-coding them | `EAGroovyUpdateRefInMiscPurchaseInvDetails` |
+| Recalculate totals after the script or a field map changes prices | `EACalculateMoneyFields` |
+| Change the accounting or inventory request just before it is sent | `EASetTransCurrencyToLocalCurrencyAndRateOne`, `EASetInvRequestAnalysisSetFromWarehouse` |
+| Change the electronic invoice sent to the tax authority | `EAEInvoiceCreationWithCustomServiceFees` |
+| Call an external web service for all lines at once | `EAIPSCDSFetchMailItemData` |
+| Copy a security setting (View Capability) onto documents | `EACopyViewCapabilityFromAccountToJournalEntry` |
+| Fix attendance lines (times, check-in vs check-out) | `EAClearFromDateIfFromTimeIsMidnight`, `EATimeAttendanceMakeInOutIfBeforeTime` |
+| Run on a Document Term and force one of its settings | `EASetDoNotUpdateSalesPrice` |
+| Show diagnostic information as messages from a Manual flow | `EAFindDaysInfoForEmployee` |
+| Run as a task schedule over a query's records, or write a result into a parameter | `EAUpdateQtyTrackingEffectsFromQuery`, `EASuggestIndexForDetails` |
+
+Reuse the example's structure, imports and calls. Don't copy its business logic beyond what was asked. Pages tagged
+*Customer-specific example* hard-wire one setup's fields or codes, so treat them as a pattern only.
+
+**Parameter numbering in the examples.** The published scripts read their first input from `parameters[1]`
+(Parameter 2) and leave `parameters[0]` unused. They were written for the older setup, where Parameter 1 held the
+script itself (see Step 4). Their `columnNames()` therefore starts with a "Not used - leave empty" title. When you
+write a **new** script for the Groovy Script column, start at `parameters[0]` as Step 4 describes. Do not copy the
+examples' offset.
+
+---
+
 ## Step 3 — Write the Script
 
 ### Package & Class Naming
@@ -354,3 +407,17 @@ if (ObjectChecker.isTrue(l.getB1())) { ... }
 // CORRECT
 if (BooleanDF.isTrue(l.getB1())) { ... }
 ```
+
+---
+
+### ❌ Calling an `EntityAction` static helper without its class name
+```groovy
+// WRONG: saving the flow fails with "Could not perform the action."
+ensureParamIsNotEmpty(info, result, 1, parameters)
+
+// CORRECT
+EntityAction.ensureParamIsNotEmpty(info, result, 1, parameters)
+```
+A Groovy class does not inherit the static methods of an interface it implements. Inside a script that
+`implements EntityAction`, always prefix the interface's static helpers with `EntityAction.`. (Confirmed on a
+test server, 2026-10-14.)

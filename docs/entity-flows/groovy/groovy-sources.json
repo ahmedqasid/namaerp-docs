@@ -1,0 +1,190 @@
+{
+  "EAAddFreeLinesFromLineReferences": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/beautyandbeyond/EAAddFreeLinesFromLineReferences.groovy",
+    "customerPackage": "beautyandbeyond"
+  },
+  "EAAutoLotIdFromItemSectionAndYear": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAAutoLotIdFromItemSectionAndYear.groovy"
+  },
+  "EACalculateMoneyFields": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EACalculateMoneyFields.groovy"
+  },
+  "EAClearFromDateIfFromTimeIsMidnight": {
+    "source": "modules/hr/hrdomain/src/main/java/com/namasoft/modules/humanresource/utils/actions/EAClearFromDateIfFromTimeIsMidnight.groovy"
+  },
+  "EAClearLocatorWhenWarehouseDoesNotAllowLocators": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAClearLocatorWhenWarehouseDoesNotAllowLocators.groovy"
+  },
+  "EAClearLotIdsWithNoItemDimensionsQty": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAClearLotIdsWithNoItemDimensionsQty.groovy"
+  },
+  "EAClearToDateIfToTimeIsMidnight": {
+    "source": "modules/hr/hrdomain/src/main/java/com/namasoft/modules/humanresource/utils/actions/EAClearToDateIfToTimeIsMidnight.groovy"
+  },
+  "EACollectInvoicesInReturn": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EACollectInvoicesInReturn.groovy"
+  },
+  "EACollectStockReceiptsByFromDoc": {
+    "source": "modules/srvcenter/srvcenterdomain/src/main/java/com/namasoft/modules/srvcenter/domain/utils/EACollectStockReceiptsByFromDoc.groovy"
+  },
+  "EACopyLinePriceAndHeaderDiscountFromFromDoc": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/xpress/EACopyLinePriceAndHeaderDiscountFromFromDoc.groovy",
+    "customerPackage": "xpress"
+  },
+  "EACopyLinePriceFromSalesOrderViaStockIssue": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/khozama/EACopyLinePriceFromSalesOrderViaStockIssue.groovy",
+    "customerPackage": "khozama"
+  },
+  "EACopySerialToLot": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EACopySerialToLot.groovy"
+  },
+  "EACopyViewCapabilityFromAccountToJournalEntry": {
+    "source": "modules/accounting/accountingdomain/src/main/java/com/namasoft/modules/accounting/utils/entityactions/EACopyViewCapabilityFromAccountToJournalEntry.groovy"
+  },
+  "EACopyViewCapabilityFromAccountToRVPV": {
+    "source": "modules/accounting/accountingdomain/src/main/java/com/namasoft/modules/accounting/utils/entityactions/EACopyViewCapabilityFromAccountToRVPV.groovy"
+  },
+  "EACreateAliasesForDrafts": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EACreateAliasesForDrafts.groovy"
+  },
+  "EACreateSerialForLineSubsidiary": {
+    "source": "modules/accounting/accountingdomain/src/main/java/com/namasoft/modules/accounting/domain/utils/actions/EACreateSerialForLineSubsidiary.groovy"
+  },
+  "EAEInvoiceCreationWithCustomServiceFees": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAEInvoiceCreationWithCustomServiceFees.groovy"
+  },
+  "EAFillDefaultRevision": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAFillDefaultRevision.groovy"
+  },
+  "EAFillDefaultSizeAndColor": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/nabilco/EAFillDefaultSizeAndColor.groovy",
+    "customerPackage": "nabilco"
+  },
+  "EAFillExpensesWithRecommitRECancelContract": {
+    "source": "modules/realestate/realestatedomain/src/main/java/com/namasoft/modules/realstate/domain/utils/plugnplay/EAFillExpensesWithRecommitRECancelContract.groovy"
+  },
+  "EAFindDaysInfoForEmployee": {
+    "source": "modules/hr/hrdomain/src/main/java/com/namasoft/modules/humanresource/utils/actions/EAFindDaysInfoForEmployee.groovy"
+  },
+  "EAFixUOMConversionsToBaseUnit": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/abella/EAFixUOMConversionsToBaseUnit.groovy",
+    "customerPackage": "abella"
+  },
+  "EAGenMultiplePurchaseInvoicesFromQuotationWithCurrency": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAGenMultiplePurchaseInvoicesFromQuotationWithCurrency.groovy"
+  },
+  "EAGenMultiplePurchaseOrdersFromQuotation": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAGenMultiplePurchaseOrdersFromQuotation.groovy"
+  },
+  "EAGroovyUpdateRefInMiscPurchaseInvDetails": {
+    "source": "modules/accounting/accountingdomain/src/main/java/com/namasoft/modules/accounting/domain/utils/actions/EAGroovyUpdateRefInMiscPurchaseInvDetails.groovy"
+  },
+  "EAIPSCDSFetchMailItemData": {
+    "source": "modules/frm/frmservices/src/main/java/com/namasoft/modules/frm/contracts/impl/EAIPSCDSFetchMailItemData.groovy"
+  },
+  "EALearnDefaultLocatorFromOpeningStock": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/albay/EALearnDefaultLocatorFromOpeningStock.groovy",
+    "customerPackage": "albay"
+  },
+  "EALearnDefaultLocatorFromStockTransfer": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/albay/EALearnDefaultLocatorFromStockTransfer.groovy",
+    "customerPackage": "albay"
+  },
+  "EAMaintainLimitSalesQtyFromCustomer": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/unitedpharma/EAMaintainLimitSalesQtyFromCustomer.groovy",
+    "customerPackage": "unitedpharma"
+  },
+  "EAMaintainLimitSalesQtyFromItem": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/unitedpharma/EAMaintainLimitSalesQtyFromItem.groovy",
+    "customerPackage": "unitedpharma"
+  },
+  "EAMarkFromDocFulfilled": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/sws/EAMarkFromDocFulfilled.groovy",
+    "customerPackage": "sws"
+  },
+  "EAPreventChangingItemPriceLines": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/toyland/EAPreventChangingItemPriceLines.groovy",
+    "customerPackage": "toyland"
+  },
+  "EAPreventChangingSalesPriceListLines": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/toyland/EAPreventChangingSalesPriceListLines.groovy",
+    "customerPackage": "toyland"
+  },
+  "EAPreventDifferentNamesForSameSizeOrColor": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAPreventDifferentNamesForSameSizeOrColor.groovy"
+  },
+  "EAPreventDuplicateDefaultSizeAndColor": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAPreventDuplicateDefaultSizeAndColor.groovy"
+  },
+  "EAQtyMustMatchFromDocPerItem": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/sws/EAQtyMustMatchFromDocPerItem.groovy",
+    "customerPackage": "sws"
+  },
+  "EAReInitializePOSData": {
+    "source": "modules/namapos/namaposdomain/src/main/java/com/namasoft/modules/namapos/utiles/actions/EAReInitializePOSData.groovy"
+  },
+  "EARegenInvTransReqAndChangeCreationDate": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EARegenInvTransReqAndChangeCreationDate.groovy"
+  },
+  "EARemoveAllFCMTokens": {
+    "source": "infra/domain-base/src/main/java/com/namasoft/infor/domainbase/util/actions/EARemoveAllFCMTokens.groovy"
+  },
+  "EARemoveSalaryDocsFromSalarySheetWithDifferentPeriod": {
+    "source": "modules/hr/hrdomain/src/main/java/com/namasoft/modules/humanresource/utils/clientscripts/EARemoveSalaryDocsFromSalarySheetWithDifferentPeriod.groovy"
+  },
+  "EASerialNumberLen": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EASerialNumberLen.groovy"
+  },
+  "EASetDefaultLocatorForItemSections": {
+    "source": "modules/srvcenter/srvcenterdomain/src/main/java/com/namasoft/modules/srvcenter/domain/utils/sws/EASetDefaultLocatorForItemSections.groovy",
+    "customerPackage": "sws"
+  },
+  "EASetDefaultLocatorIfEmpty": {
+    "source": "modules/srvcenter/srvcenterdomain/src/main/java/com/namasoft/modules/srvcenter/domain/utils/sws/EASetDefaultLocatorIfEmpty.groovy",
+    "customerPackage": "sws"
+  },
+  "EASetDeliveryStatusInFromDocLines": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/sws/EASetDeliveryStatusInFromDocLines.groovy",
+    "customerPackage": "sws"
+  },
+  "EASetDoNotUpdateSalesPrice": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EASetDoNotUpdateSalesPrice.groovy"
+  },
+  "EASetInvRequestAnalysisSetFromWarehouse": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/sws/EASetInvRequestAnalysisSetFromWarehouse.groovy",
+    "customerPackage": "sws"
+  },
+  "EASetPermissionHourFromAttendanceShift": {
+    "source": "modules/hr/hrdomain/src/main/java/com/namasoft/modules/humanresource/utils/actions/EASetPermissionHourFromAttendanceShift.groovy"
+  },
+  "EASetSourceLineIDForFreeItemInSalesReturn": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/EASetSourceLineIDForFreeItemInSalesReturn.groovy"
+  },
+  "EASetTransCurrencyToLocalCurrencyAndRateOne": {
+    "source": "modules/accounting/accountingdomain/src/main/java/com/namasoft/modules/accounting/domain/utils/actions/EASetTransCurrencyToLocalCurrencyAndRateOne.groovy"
+  },
+  "EASpreadAssemblyBOMLineByItemClass": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/abella/EASpreadAssemblyBOMLineByItemClass.groovy",
+    "customerPackage": "abella"
+  },
+  "EASuggestIndexForDetails": {
+    "source": "infra/domain-base/src/main/java/com/namasoft/infor/domainbase/util/EASuggestIndexForDetails.groovy"
+  },
+  "EATimeAttendanceMakeInOutIfBeforeTime": {
+    "source": "modules/hr/hrdomain/src/main/java/com/namasoft/modules/humanresource/utils/actions/EATimeAttendanceMakeInOutIfBeforeTime.groovy"
+  },
+  "EAUpdateItemDimensionsFromPurchaseReturnReqLines": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAUpdateItemDimensionsFromPurchaseReturnReqLines.groovy"
+  },
+  "EAUpdateProjectContractTermCodeInBudgets": {
+    "source": "modules/contracting/contractingdomain/src/main/java/com/namasoft/modules/contracting/domain/utils/EAUpdateProjectContractTermCodeInBudgets.groovy"
+  },
+  "EAUpdateQtyTrackingEffectsFromQuery": {
+    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EAUpdateQtyTrackingEffectsFromQuery.groovy"
+  },
+  "EAYearlyLimitPerEmployeeInPVRequest": {
+    "source": "modules/accounting/accountingdomain/src/main/java/com/namasoft/modules/accounting/utils/entityactions/nama/EAYearlyLimitPerEmployeeInPVRequest.groovy",
+    "customerPackage": "nama",
+    "handKept": "The published copy compares Paid From with the request's own from.getId(); the product file still has a hard-coded id."
+  }
+}

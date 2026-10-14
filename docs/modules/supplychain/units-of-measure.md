@@ -117,7 +117,7 @@ Still on the Units tab, the **Conversions** grid under the units grid is where t
 That is the entire conversion. Read it as the sentence it is: one carton equals twenty-four pieces.
 
 ::: warning Every unit must reach the base unit directly
-Before saving, the system checks that each unit in the units grid has a rate connecting it to the base unit — as a standard rate on the units themselves, as a rate in the item's unit group, or as a row in this grid. If one does not, the save fails with *Could not find conversion between base unit and unit*.
+Before saving, the system checks that each unit in the units grid has a rate connecting it to the base unit — as a standard rate on the units themselves, as a rate in the item's unit group, or as a row in this grid. If one does not, the save fails with *Could not find conversion between base unit ({0}) and unit ({1})*.
 
 The word to notice is *directly*. If you later add a Pallet, the row you need is **1 Pallet = 1200 Piece**, not *1 Pallet = 50 Carton*. The system does not multiply two rates together to get a third.
 :::

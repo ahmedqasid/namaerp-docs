@@ -11,6 +11,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 import {fileURLToPath} from 'node:url'
 
+// VitePress treats a link to an unknown extension as a page and appends .html. The Groovy example
+// sources under public/groovy-examples/ are plain files, so .groovy must count as a known extension,
+// both for link rendering at build time and for the client router (it reads import.meta.env).
+process.env.VITE_EXTRA_EXTENSIONS = 'groovy'
+
 const HOSTNAME = 'https://docs.namasoft.com/'
 const SEARCH_INDEX_STABLE_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'search-index.json')
 const DOCS_DIR = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
