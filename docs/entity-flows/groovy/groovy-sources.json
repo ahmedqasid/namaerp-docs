@@ -184,7 +184,6 @@
   },
   "EAYearlyLimitPerEmployeeInPVRequest": {
     "source": "modules/accounting/accountingdomain/src/main/java/com/namasoft/modules/accounting/utils/entityactions/nama/EAYearlyLimitPerEmployeeInPVRequest.groovy",
-    "customerPackage": "nama",
-    "handKept": "The published copy compares Paid From with the request's own from.getId(); the product file still has a hard-coded id."
+    "customerPackage": "nama"
   }
 }

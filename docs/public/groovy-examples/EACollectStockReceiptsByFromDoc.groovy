@@ -21,6 +21,8 @@ public class EACollectStockReceiptsByFromDoc implements EntityAction<AbsPurchase
     @Override
     Result doAction(AbsPurchaseInvoice doc, LongTextDF... parameters) {
         Result result = Result.createAccumulatingResult();
+        if (ObjectChecker.isEmptyOrNull(doc.getFromDoc()))
+            return result;
         List<SIReceipt> receipts = Persister.listPageMatching(SIReceipt.class, ListPageMatchingParameters.create().criteria(CriteriaBuilder.create().field(NotGeneratedFields.fromDoc + ".id").equal(doc.getFromDoc().getId())));
         List<UniqueIDDF> receiptsIds = receipts.stream().map({ R -> R.getId() }).collect(Collectors.toList());
         List<StockReceipt> stockReceipts = new ArrayList<>();

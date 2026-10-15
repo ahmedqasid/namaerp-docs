@@ -43,19 +43,13 @@ Whatever was in **Stock Documents** before the save is overwritten. When no stoc
 ## Setting it up
 
 1. Open **Administration → Display Customization → Entity Flow** and create a flow with **Target Type** set to Purchase Invoice.
-2. The script needs the invoice's **From Document**. Put this in the flow's **Apply When Query**, so the flow is skipped on invoices that have none:
-
-   ```sql
-   select case when {fromDoc.id} is null then 0 else 1 end
-   ```
-
-3. In the **Details** grid, add a line with the action **Pre Update Calculated Fields**, and paste the whole script from the file above into **Groovy Script**. Leave **Class Name** empty: it is filled in when you save.
-4. Leave every parameter empty. After saving, Parameter 1 shows the title *Not used - leave empty*.
-5. Save the flow. **Class Name** now shows `com.namasoft.modules.srvcenter.domain.utils.EACollectStockReceiptsByFromDoc`.
+2. In the **Details** grid, add a line with the action **Pre Update Calculated Fields**, and paste the whole script from the file above into **Groovy Script**. Leave **Class Name** empty: it is filled in when you save.
+3. Leave every parameter empty. After saving, Parameter 1 shows the title *Not used - leave empty*.
+4. Save the flow. **Class Name** now shows `com.namasoft.modules.srvcenter.domain.utils.EACollectStockReceiptsByFromDoc`.
 
 ## Example
 
-A Car Purchase Invoice has one Car Receipt made from it, and two stock receipts were made from that Car Receipt. A purchase invoice is then created with the Car Purchase Invoice as its **From Document**. When it is saved, its **Stock Documents** grid holds the two stock receipts, each with its own date. A purchase invoice with no **From Document** is skipped by the **Apply When Query** and keeps its grid as it was.
+A Car Purchase Invoice has one Car Receipt made from it, and two stock receipts were made from that Car Receipt. A purchase invoice is then created with the Car Purchase Invoice as its **From Document**. When it is saved, its **Stock Documents** grid holds the two stock receipts, each with its own date. A purchase invoice with no **From Document** keeps its grid as it was.
 
 ## The script
 
@@ -65,6 +59,6 @@ A Car Purchase Invoice has one Car Receipt made from it, and two stock receipts 
 
 - [EAGroovyAction](/entity-flows/core/EAGroovyAction): how Groovy scripts are attached to entity flows and task schedules.
 - [EACollectStockDocsIfEmpty](/entity-flows/supplychain/EACollectStockDocsIfEmpty): the built-in element that fills the grid for invoices with their own stock effect.
-- [Introduction to Entity Flows](/platform/entity-flows/introduction-to-entity-flows): the **Apply When Query** and the save actions.
+- [Introduction to Entity Flows](/platform/entity-flows/introduction-to-entity-flows): the save actions.
 
 </div>
