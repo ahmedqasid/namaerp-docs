@@ -31,13 +31,10 @@ Each page is marked one of two ways:
 ## Repair and maintenance
 
 <LandingGrid>
-  <LandingCard icon="🔎" title="Generate the Missing-Index Query for Detail Tables" link="/entity-flows/groovy/EASuggestIndexForDetails.md" details="A task schedule that writes into its own Parameter 2 the query listing large detail tables with no index on their header column." />
   <LandingCard icon="🔁" title="Rebuild Quantity Tracking for Documents From a Query" link="/entity-flows/groovy/EAUpdateQtyTrackingEffectsFromQuery.md" details="Rebuilds the satisfied and open quantities that the documents a query returns leave on their source documents." />
-  <LandingCard icon="⏱️" title="Re-send a Document's Inventory Request One Millisecond Later" link="/entity-flows/groovy/EARegenInvTransReqAndChangeCreationDate.md" details="Moves a stock document 1 ms later and re-sends its inventory request, so it is processed after documents created in the same instant." />
   <LandingCard icon="🔒" title="Reserve a Draft's Code When It Is Saved" link="/entity-flows/groovy/EACreateAliasesForDrafts.md" details="Registers a draft's codes at once, so no other record can take its code before it is committed." />
   <LandingCard icon="🧮" title="Recalculate an Invoice's Totals After a Field Map" link="/entity-flows/groovy/EACalculateMoneyFields.md" details="Recalculates line values, taxes and totals after a field map that changes prices on Validate On Save." />
   <LandingCard icon="📱" title="Keep Only a User's Last Mobile Device Token" link="/entity-flows/groovy/EARemoveAllFCMTokens.md" details="Stops push notifications reaching old phones by keeping only a user's newest device token." />
-  <LandingCard icon="🖥️" title="Send All POS Master Data to the Registers Again" link="/entity-flows/groovy/EAReInitializePOSData.md" details="Queues every record of the 72 master-data types POS registers download, so all registers receive it again. Heavy." />
 </LandingGrid>
 
 ## Accounting and other modules

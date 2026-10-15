@@ -79,7 +79,7 @@ Pick the example closest to the task. Each name below is both a page (`<ClassNam
 | Fix attendance lines (times, check-in vs check-out) | `EAClearFromDateIfFromTimeIsMidnight`, `EATimeAttendanceMakeInOutIfBeforeTime` |
 | Run on a Document Term and force one of its settings | `EASetDoNotUpdateSalesPrice` |
 | Show diagnostic information as messages from a Manual flow | `EAFindDaysInfoForEmployee` |
-| Run as a task schedule over a query's records, or write a result into a parameter | `EAUpdateQtyTrackingEffectsFromQuery`, `EASuggestIndexForDetails` |
+| Run as a task schedule over a query's records | `EAUpdateQtyTrackingEffectsFromQuery` |
 
 Reuse the example's structure, imports and calls. Don't copy its business logic beyond what was asked. Pages tagged
 *Customer-specific example* hard-wire one setup's fields or codes, so treat them as a pattern only.

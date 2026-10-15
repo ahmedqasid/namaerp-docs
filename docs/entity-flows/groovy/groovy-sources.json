@@ -120,12 +120,6 @@
     "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/sws/EAQtyMustMatchFromDocPerItem.groovy",
     "customerPackage": "sws"
   },
-  "EAReInitializePOSData": {
-    "source": "modules/namapos/namaposdomain/src/main/java/com/namasoft/modules/namapos/utiles/actions/EAReInitializePOSData.groovy"
-  },
-  "EARegenInvTransReqAndChangeCreationDate": {
-    "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/EARegenInvTransReqAndChangeCreationDate.groovy"
-  },
   "EARemoveAllFCMTokens": {
     "source": "infra/domain-base/src/main/java/com/namasoft/infor/domainbase/util/actions/EARemoveAllFCMTokens.groovy"
   },
@@ -166,9 +160,6 @@
   "EASpreadAssemblyBOMLineByItemClass": {
     "source": "modules/supplychain/supplychaindomain/src/main/java/com/namasoft/modules/supplychain/domain/utils/plugnplay/groovy/abella/EASpreadAssemblyBOMLineByItemClass.groovy",
     "customerPackage": "abella"
-  },
-  "EASuggestIndexForDetails": {
-    "source": "infra/domain-base/src/main/java/com/namasoft/infor/domainbase/util/EASuggestIndexForDetails.groovy"
   },
   "EATimeAttendanceMakeInOutIfBeforeTime": {
     "source": "modules/hr/hrdomain/src/main/java/com/namasoft/modules/humanresource/utils/actions/EATimeAttendanceMakeInOutIfBeforeTime.groovy"
